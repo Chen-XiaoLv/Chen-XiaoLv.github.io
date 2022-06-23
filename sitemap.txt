@@ -1,0 +1,6 @@
+http://example.com/2022/06/23/hello-world/
+http://example.com/My-Blog/index.html
+http://example.com/2022/06/23/Test/
+http://example.com/
+http://example.com/tags/NLP/
+http://example.com/categories/1/
