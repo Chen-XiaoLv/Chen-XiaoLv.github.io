@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>小绿的博客</title>
-  
+  <icon>https://www.gravatar.com/avatar/7228219e90ece9b38ea5921da1fcc500</icon>
   
   <link href="http://example.com/atom.xml" rel="self"/>
   
@@ -11,7 +11,7 @@
   
   <author>
     <name>Kagura</name>
-    
+    <email>651421775@qq.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
