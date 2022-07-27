@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-27T13:05:50.483Z</updated>
+  <updated>2022-07-27T13:27:45.505Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>592 分数加减法运算</title>
+    <link href="http://example.com/2022/07/27/LeetCode_592/"/>
+    <id>http://example.com/2022/07/27/LeetCode_592/</id>
+    <published>2022-07-27T13:25:05.341Z</published>
+    <updated>2022-07-27T13:27:45.505Z</updated>
+    
+    <content type="html"><![CDATA[<p>给定一个表示分数加减运算的字符串 expression ，你需要返回一个字符串形式的计算结果。 </p><p>这个结果应该是不可约分的分数，即最简分数。 如果最终结果是一个整数，例如 2，你需要将它转换成分数形式，其分母为 1。所以在上述例子中, 2 应该被转换为 2/1。</p><p><img src="/2022/07/27/LeetCode_592/image-20220727212728977.png" alt="image-20220727212728977"></p><script type="math/tex; mode=display">\frac{6}{7} \iff</script>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;给定一个表示分数加减运算的字符串 expression ，你需要返回一个字符串形式的计算结果。 &lt;/p&gt;
+&lt;p&gt;这个结果应该是不可约分的分数，即最简分数。 如果最终结果是一个整数，例如 2，你需要将它转换成分数形式，其分母为 1。所以在上述例子中, 2 应该被转换为 2/1</summary>
+      
+    
+    
+    
+    <category term="黄金屋" scheme="http://example.com/categories/%E9%BB%84%E9%87%91%E5%B1%8B/"/>
+    
+    
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Unit2 介词和并列连词</title>

@@ -3,6 +3,30 @@
   
     
     <entry>
+      <title><![CDATA[592 分数加减法运算]]></title>
+      <url>/2022/07/27/LeetCode_592/</url>
+      <content type="html"><![CDATA[<p>给定一个表示分数加减运算的字符串 expression ，你需要返回一个字符串形式的计算结果。 </p>
+<p>这个结果应该是不可约分的分数，即最简分数。 如果最终结果是一个整数，例如 2，你需要将它转换成分数形式，其分母为 1。所以在上述例子中, 2 应该被转换为 2/1。</p>
+<p><img src="/2022/07/27/LeetCode_592/image-20220727212728977.png" alt="image-20220727212728977"></p>
+<script type="math/tex; mode=display">
+\frac{6}{7} \iff</script>]]></content>
+      
+        <categories>
+            
+            <category> 黄金屋 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Unit2 介词和并列连词]]></title>
       <url>/2022/06/24/Unit2%20%E4%BB%8B%E8%AF%8D%E5%92%8C%E5%B9%B6%E5%88%97%E8%BF%9E%E8%AF%8D/</url>
       <content type="html"><![CDATA[<h1 id="Unit2-介词和并列连词"><a href="#Unit2-介词和并列连词" class="headerlink" title="Unit2 介词和并列连词"></a>Unit2 介词和并列连词</h1><hr>
