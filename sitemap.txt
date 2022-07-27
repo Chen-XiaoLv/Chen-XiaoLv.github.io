@@ -5,7 +5,7 @@ http://example.com/tags/index.html
 http://example.com/2022/06/23/hello-world/
 http://example.com/My-Blog/index.html
 http://example.com/
-http://example.com/tags/NLP/
 http://example.com/tags/%E8%8B%B1%E8%AF%AD/
-http://example.com/categories/1/
+http://example.com/tags/NLP/
 http://example.com/categories/%E9%BB%84%E9%87%91%E5%B1%8B/
+http://example.com/categories/1/
