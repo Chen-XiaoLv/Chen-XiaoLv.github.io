@@ -5,11 +5,14 @@
     <entry>
       <title><![CDATA[592 分数加减法运算]]></title>
       <url>/2022/07/27/LeetCode_592/</url>
-      <content type="html"><![CDATA[<p>给定一个表示分数加减运算的字符串 expression ，你需要返回一个字符串形式的计算结果。 </p>
+      <content type="html"><![CDATA[<p>给定一个表示分数加减运算的字符串 expression ，你需要返回一个字符串形式的计算结果。</p>
 <p>这个结果应该是不可约分的分数，即最简分数。 如果最终结果是一个整数，例如 2，你需要将它转换成分数形式，其分母为 1。所以在上述例子中, 2 应该被转换为 2/1。</p>
 <p><img src="/2022/07/27/LeetCode_592/image-20220727212728977.png" alt="image-20220727212728977"></p>
-<script type="math/tex; mode=display">
-\frac{6}{7} \iff</script>]]></content>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>a</mi><mo>+</mo><mi>b</mi><mo>=</mo><mi>c</mi><mspace linebreak="newline"></mspace><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext></mrow><annotation encoding="application/x-tex">a+b=c
+\\
+\iff
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.549em;vertical-align:-0.024em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟺</span><span class="mspace" style="margin-right:0.2778em;"></span></span></span></span></span></p>
+]]></content>
       
         <categories>
             
@@ -22,6 +25,8 @@
             
             <tag> 算法 </tag>
             
+            <tag> 数学 </tag>
+            
         </tags>
         
     </entry>
@@ -29,199 +34,260 @@
     <entry>
       <title><![CDATA[Unit2 介词和并列连词]]></title>
       <url>/2022/06/24/Unit2%20%E4%BB%8B%E8%AF%8D%E5%92%8C%E5%B9%B6%E5%88%97%E8%BF%9E%E8%AF%8D/</url>
-      <content type="html"><![CDATA[<h1 id="Unit2-介词和并列连词"><a href="#Unit2-介词和并列连词" class="headerlink" title="Unit2 介词和并列连词"></a>Unit2 介词和并列连词</h1><hr>
-<h2 id="一、介词"><a href="#一、介词" class="headerlink" title="一、介词"></a>一、介词</h2><p>介词是一种虚词，不能单独使用，介词之后一般有名词或代词(宾格)或相当于名词的其他词类、短语或从句做他的宾语，即构成介词短语，常用于表示状态。</p>
-<h3 id="1-1-常见介词及辨析"><a href="#1-1-常见介词及辨析" class="headerlink" title="1.1  常见介词及辨析"></a>1.1  常见介词及辨析</h3><ul>
-<li><p>表示地点时，<code>at, in, on</code>的区别</p>
+      <content type="html"><![CDATA[<h1>Unit2 介词和并列连词</h1>
+<hr>
+<h2 id="一、介词">一、介词</h2>
+<p>介词是一种虚词，不能单独使用，介词之后一般有名词或代词(宾格)或相当于名词的其他词类、短语或从句做他的宾语，即构成介词短语，常用于表示状态。</p>
+<h3 id="1-1-常见介词及辨析">1.1  常见介词及辨析</h3>
+<ul>
+<li>
+<p>表示地点时，<code>at, in, on</code>的区别</p>
 <p><code>at</code>后面跟的是比较小的地方，比如村庄，小城市，门牌等；<code>in</code>后面接比较大的地方，比如国家、城市等；<code>on</code>表示在某物之上，且表面接触。例如：<code>on the road, in/on the stree, on the farm, in the field</code></p>
 </li>
-<li><p>表示时间时<code>at, on , in</code>的区别</p>
+<li>
+<p>表示时间时<code>at, on , in</code>的区别</p>
 <ol>
-<li><p><code>at</code>表示时间点</p>
+<li>
+<p><code>at</code>表示时间点</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">at six</span><br><span class="line">at noon</span><br><span class="line">at midnight</span><br><span class="line">at night</span><br><span class="line">at sunrise</span><br><span class="line">at the weekend</span><br><span class="line">at Christmas</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>on</code>表示在特定某一天或某天的上午，下午，晚上(时间段)</p>
+<li>
+<p><code>on</code>表示在特定某一天或某天的上午，下午，晚上(时间段)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">on Monday</span><br><span class="line">on Sunday afternoon</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>in</code>表示一段时间，后面跟上小时、周、月、年、季等表示一段时间的名词</p>
+<li>
+<p><code>in</code>表示一段时间，后面跟上小时、周、月、年、季等表示一段时间的名词</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">in three hours</span><br><span class="line">in a week</span><br><span class="line">in a month</span><br><span class="line">in tree years</span><br></pre></td></tr></table></figure>
 <p><code>in</code>是不受限制的时间段，<code>at</code>是具体时间点，<code>on</code>是特定某天，其关系可以为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">work</span>(<span class="params">time</span>):</span><br><span class="line">	res=<span class="string">&quot;in&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">type</span>(time)==<span class="string">&quot;时间点&quot;</span>:</span><br><span class="line">        res=<span class="string">&quot;at&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">type</span>(time)==<span class="string">&quot;时间段&quot;</span>:</span><br><span class="line">        <span class="keyword">if</span> time==<span class="string">&quot;具体某天&quot;</span> <span class="keyword">or</span> time==<span class="string">&quot;具体某天某段时间&quot;</span>:</span><br><span class="line">            res=<span class="string">&quot;on&quot;</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
-<li><p>表示持续时间的<code>since, for, in, after</code>的区别</p>
+<li>
+<p>表示持续时间的<code>since, for, in, after</code>的区别</p>
 <ol>
-<li><p><code>since</code>接过去某个时间点，表示“自…以来”，常用于完成时。</p>
+<li>
+<p><code>since</code>接过去某个时间点，表示“自…以来”，常用于完成时。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">She has been working here since <span class="number">2007.</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>for</code>接一段具体的时间，常用于完成时，表示时间的延续。</p>
+<li>
+<p><code>for</code>接一段具体的时间，常用于完成时，表示时间的延续。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I have studied English <span class="keyword">for</span> <span class="number">7</span> years.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>in+一段时间</code>与非延续性动词连用，表示一段时间以后，多用于将来时。</p>
+<li>
+<p><code>in+一段时间</code>与非延续性动词连用，表示一段时间以后，多用于将来时。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Jack will be back <span class="keyword">in</span> a week.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>after+一段时间</code>表示“…之后”，常用于过去时。</p>
+<li>
+<p><code>after+一段时间</code>表示“…之后”，常用于过去时。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">After one month, the baby began to learn climbing.</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
-<li><p>表示方位的介词<code>in, on, to, off</code>的区别</p>
+<li>
+<p>表示方位的介词<code>in, on, to, off</code>的区别</p>
 <ol>
-<li><p><code>in</code>表示在境内</p>
+<li>
+<p><code>in</code>表示在境内</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> China</span><br><span class="line"><span class="keyword">in</span> Europe</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>on</code>表示相邻或在边界上，不在境内</p>
+<li>
+<p><code>on</code>表示相邻或在边界上，不在境内</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">on the border between Kenya and Tanzania.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>to</code>表示在境外，不接壤</p>
+<li>
+<p><code>to</code>表示在境外，不接壤</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Beijing lies to the north of Shanghai.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>off</code>表示在海面上靠近海岸的地方</p>
+<li>
+<p><code>off</code>表示在海面上靠近海岸的地方</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">off the southwest coast of the U.S.</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
-<li><p>表示运动方向或目的的介词</p>
+<li>
+<p>表示运动方向或目的的介词</p>
 <ol>
-<li><p><code>across</code>表示穿过物体表面或横过</p>
+<li>
+<p><code>across</code>表示穿过物体表面或横过</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">across the street</span><br><span class="line">across the English Channel</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>through</code>表示在某一空间通过或纵向穿过</p>
+<li>
+<p><code>through</code>表示在某一空间通过或纵向穿过</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">through the forest</span><br><span class="line">go through the valley</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>along</code>表示沿着一条线平行</p>
+<li>
+<p><code>along</code>表示沿着一条线平行</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go along the bank of the river</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>up</code>表示向上，由南到北，由东到西，由沿海到内陆，由小地方到大地方，由农村到城市，反之则用<code>down</code></p>
+<li>
+<p><code>up</code>表示向上，由南到北，由东到西，由沿海到内陆，由小地方到大地方，由农村到城市，反之则用<code>down</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go up to London for the day</span><br><span class="line">drive all the way down from Wuhan in Guilin</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>to</code>表示动作的目的地</p>
+<li>
+<p><code>to</code>表示动作的目的地</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">travel to Beijing</span><br><span class="line">our weekly trip to the supermarket</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>towards</code>指朝向，而无到达的意思</p>
+<li>
+<p><code>towards</code>指朝向，而无到达的意思</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">walk towards the river</span><br><span class="line">look out towards the sea</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>for</code>表示前往的目的地，与其连用的动词有<code>leave, start off, set out, head, sail</code></p>
+<li>
+<p><code>for</code>表示前往的目的地，与其连用的动词有<code>leave, start off, set out, head, sail</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">leave <span class="keyword">for</span> New York</span><br><span class="line">a ship heading <span class="keyword">for</span> Dalian</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
-<li><p>表示“除…之外”的介词</p>
+<li>
+<p>表示“除…之外”的介词</p>
 <p><strong>besides</strong>：表包含，意为“除…之外还有”</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Besides the Black, six couples attended the party last Saturday.</span><br></pre></td></tr></table></figure>
-<p><strong>except</strong>：表示排除，意为”除…之外”</p>
+<p><strong>except</strong>：表示排除，意为&quot;除…之外&quot;</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The museum <span class="keyword">is</span> <span class="built_in">open</span> every day <span class="keyword">except</span> Tuesday.</span><br></pre></td></tr></table></figure>
 <p><strong>but</strong>：表示排除，多和<code>nobody, none, no one, nothing, anything, everyone, all, who等连用</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Nothing but trouble will come of this plan. <span class="comment"># 注意排除的是前面主语部分</span></span><br><span class="line"><span class="comment"># A but B</span></span><br><span class="line"><span class="comment"># 表示全集A挖去子集B剩下的集合</span></span><br></pre></td></tr></table></figure>
 <p><strong>except for</strong>：表示出去整体中的部分，意为“只不过，只是”，有大体肯定，细节指正的意思</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your composition <span class="keyword">is</span> very good <span class="keyword">except</span> <span class="keyword">for</span> a few spelling mistakes.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>among</code>和<code>between</code></p>
+<li>
+<p><code>among</code>和<code>between</code></p>
 <p><strong>among</strong>：表示三个或以上的人或物之间，后接复数名词或集体名词</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The news sparked a heated debate among people on social media.</span><br><span class="line"><span class="comment"># 这一消息在社交媒体上引发了人们的激烈讨论</span></span><br></pre></td></tr></table></figure>
 <p><strong>between</strong>：用于两者之间，或者三个以上的两两之间</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Peter sat between Mary <span class="keyword">and</span> Jane.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>表示价格、比率、标准、速度的介词</p>
+<li>
+<p>表示价格、比率、标准、速度的介词</p>
 <p><strong>at</strong>：表示价值、价格、比率或速度，例如<code>buy sth. at a half price</code></p>
 <p><strong>for</strong>：表示交换，指总价钱，如<code>pay $3 for a ticket</code></p>
 <p><strong>by</strong>：表示度量单位或标准，后接计量单位和名词，一般是单数，前面需要加冠词<code>the</code>，数词或复数名词前不加。如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">We<span class="string">&#x27;re paid by the hour. # 我们按小时计费</span></span><br><span class="line"><span class="string">Increase by 20% # 增长20%</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>against</code></p>
-<p>​    值得注意的是，<code>against</code>是介词，而不是动词</p>
+<li>
+<p><code>against</code></p>
+<p>​	值得注意的是，<code>against</code>是介词，而不是动词</p>
 <ul>
-<li><p>表示“反对，不利于，对着，违背”</p>
+<li>
+<p>表示“反对，不利于，对着，违背”</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">We are <span class="built_in">all</span> against his idea.</span><br><span class="line">He was married against his will. <span class="comment"># 他结婚是违背本意的</span></span><br><span class="line">There were <span class="number">20</span> votes <span class="keyword">for</span> him <span class="keyword">and</span> <span class="number">12</span> against him. <span class="comment"># 有20票赞成他，12票反对他</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>表示“靠着，盯着，迎着”</p>
+<li>
+<p>表示“靠着，盯着，迎着”</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">He stood <span class="keyword">with</span> his back against the door.</span><br><span class="line">He hit his head against the window.</span><br><span class="line">Bright red flags flow <span class="keyword">in</span> the wind against the blue sky.</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p><code>beyond</code></p>
+<li>
+<p><code>beyond</code></p>
 <ul>
-<li><p>表示位置，意思是“在…的那一边，在…之外，在更远处”</p>
+<li>
+<p>表示位置，意思是“在…的那一边，在…之外，在更远处&quot;</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The new housing estate stretches beyond the playing-fields. <span class="comment"># 新的住宅区一直延伸到游乐场的另一边</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>表示时间，意思是“迟于，超过”</p>
+<li>
+<p>表示时间，意思是“迟于，超过&quot;</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Some shops keep <span class="built_in">open</span> beyond midnight. <span class="comment"># 有些商店营业到半夜之后</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>表示范围、水平、限度、能力，意思是“超出，多余，为…所不能及”</p>
+<li>
+<p>表示范围、水平、限度、能力，意思是“超出，多余，为…所不能及&quot;</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Your work <span class="keyword">is</span> beyond <span class="built_in">all</span> praise. <span class="comment"># 你的作品让人称赞不已</span></span><br><span class="line">She was really touched beyond words. <span class="comment"># 她确实被感动的无法形容</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>表示年龄或数量，意思是”超过”</p>
+<li>
+<p>表示年龄或数量，意思是&quot;超过&quot;</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">He didn<span class="string">&#x27;t believe in people living beyond 150. # 他不能相信人能活到150岁以上</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>用在否定和疑问句中，意思是“除…之外”</p>
+<li>
+<p>用在否定和疑问句中，意思是“除…之外&quot;</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">I know nothing beyond what he told me. <span class="comment"># 除了他告诉我的，我一无所知</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 常用搭配</span></span><br><span class="line">beyond belief <span class="comment"># 难以置信</span></span><br><span class="line">beyond doubt <span class="comment"># 无疑的</span></span><br><span class="line">beyond compare <span class="comment"># 无与伦比的，举世无双</span></span><br><span class="line">beyond recognition <span class="comment"># 认不出来，无法辨认</span></span><br><span class="line">beyond control <span class="comment"># 无法控制的</span></span><br><span class="line">beyond repair <span class="comment"># 无法修理</span></span><br><span class="line">beyond description <span class="comment"># 难以形容</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="1-2-固定介词搭配"><a href="#1-2-固定介词搭配" class="headerlink" title="1.2  固定介词搭配"></a>1.2  固定介词搭配</h3><ul>
-<li><p>介词+名词</p>
+<h3 id="1-2-固定介词搭配">1.2  固定介词搭配</h3>
+<ul>
+<li>
+<p>介词+名词</p>
 <ol>
-<li><p><code>at</code>+名词</p>
+<li>
+<p><code>at</code>+名词</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">at war <span class="comment"># 正在交战</span></span><br><span class="line">at work <span class="comment"># 正在工作</span></span><br><span class="line">at peace <span class="comment"># 处于和平或平静状态</span></span><br><span class="line">at table <span class="comment"># 正在吃饭</span></span><br><span class="line">at meeting <span class="comment"># 在开会</span></span><br><span class="line">be at school <span class="comment"># 正在上学</span></span><br><span class="line">at church <span class="comment"># 在做礼拜</span></span><br><span class="line">at breakfast/lunch/supper <span class="comment"># 正在吃早(午/晚)饭</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>in</code>+名词</p>
+<li>
+<p><code>in</code>+名词</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> progress <span class="comment"># 正在进展中</span></span><br><span class="line"><span class="keyword">in</span> fashion <span class="comment"># 流行</span></span><br><span class="line"><span class="keyword">in</span> church <span class="comment"># 在做礼拜</span></span><br><span class="line"><span class="keyword">in</span> danger <span class="comment"># 处在危险中</span></span><br><span class="line"><span class="keyword">in</span> <span class="keyword">class</span> <span class="comment"># 在上课</span></span><br><span class="line"><span class="keyword">in</span> turn <span class="comment"># 依次</span></span><br><span class="line"><span class="keyword">in</span> action <span class="comment"># 在运转</span></span><br><span class="line"><span class="keyword">in</span> hospital <span class="comment"># 在住院</span></span><br><span class="line"><span class="keyword">in</span> tears <span class="comment"># 在流泪</span></span><br><span class="line"><span class="keyword">in</span> office <span class="comment"># 在执政</span></span><br><span class="line"><span class="keyword">in</span> power <span class="comment"># 掌握权力</span></span><br><span class="line"><span class="keyword">in</span> operation <span class="comment"># 生效，起作用</span></span><br><span class="line"><span class="keyword">in</span> need <span class="comment"># 在贫困中</span></span><br><span class="line"><span class="keyword">in</span> addition <span class="comment"># 此外</span></span><br><span class="line"><span class="keyword">in</span> time <span class="comment"># 及时</span></span><br><span class="line"><span class="keyword">in</span> trouble <span class="comment"># 处于困境之中</span></span><br><span class="line"><span class="keyword">in</span> one<span class="string">&#x27;s opinion # 根据某人的看法</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>on</code>+名词</p>
+<li>
+<p><code>on</code>+名词</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">on strike <span class="comment"># 在罢工</span></span><br><span class="line">on leave <span class="comment"># 在休假</span></span><br><span class="line">on the rise <span class="comment"># 在上涨</span></span><br><span class="line">on a visit <span class="comment"># 正在访问</span></span><br><span class="line">on sale <span class="comment"># 正在出售</span></span><br><span class="line">on time <span class="comment"># 准时</span></span><br><span class="line">on earth <span class="comment"># 究竟；在地球上</span></span><br><span class="line">on the contrary <span class="comment"># 相反</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>under</code>+名词</p>
+<li>
+<p><code>under</code>+名词</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">under consideration <span class="comment"># 在考虑之中</span></span><br><span class="line">under construction <span class="comment"># 在修建中</span></span><br><span class="line">under discussion <span class="comment"># 在讨论中</span></span><br><span class="line">under treatment <span class="comment"># 在治疗中</span></span><br><span class="line">under repair <span class="comment"># 在修理中</span></span><br><span class="line">under attack <span class="comment"># 受到攻击</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
-<li><p>形容词+介词</p>
+<li>
+<p>形容词+介词</p>
 <ol>
-<li><p>与<code>at</code>有关的</p>
+<li>
+<p>与<code>at</code>有关的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">be angry at sth. <span class="comment"># 对某事感到生气</span></span><br><span class="line">be good at <span class="comment"># 擅长于</span></span><br><span class="line">be bad at <span class="comment"># 不擅长</span></span><br><span class="line">be surprised at <span class="comment"># 对...感到吃惊</span></span><br><span class="line">be clever at <span class="comment"># 擅长</span></span><br><span class="line">be terrified at <span class="comment"># 对...感到害怕</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>与<code>of</code>有关的</p>
+<li>
+<p>与<code>of</code>有关的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">be afraid of <span class="comment"># 害怕</span></span><br><span class="line">be sure of <span class="comment"># 对...有把握</span></span><br><span class="line">be full of <span class="comment"># 充满</span></span><br><span class="line">be tired of <span class="comment"># 对...感到厌倦</span></span><br><span class="line">be fond of <span class="comment"># 喜欢</span></span><br><span class="line">be proud of <span class="comment"># 对...感到自豪</span></span><br><span class="line">be worthy of <span class="comment"># 应得到某物</span></span><br><span class="line">be centain of <span class="comment"># 对...确定的</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>与<code>with</code>有关的</p>
+<li>
+<p>与<code>with</code>有关的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">be angry <span class="keyword">with</span> sb. <span class="comment"># 对某人感到生气</span></span><br><span class="line">be strict <span class="keyword">with</span> sb. <span class="comment"># 对某人要求严格</span></span><br><span class="line">be careful <span class="keyword">with</span> <span class="comment"># 受到...欢迎</span></span><br><span class="line">be busy <span class="keyword">with</span> <span class="comment"># 因...而繁忙</span></span><br><span class="line">be popular <span class="keyword">with</span> <span class="comment"># 受到...欢迎</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>与<code>to</code>有关的</p>
+<li>
+<p>与<code>to</code>有关的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">be <span class="built_in">next</span> to <span class="comment"># 与...相邻</span></span><br><span class="line">be good to <span class="comment"># 对...好</span></span><br><span class="line">be polite to <span class="comment"># 对...有礼貌</span></span><br><span class="line">be kind to <span class="comment"># 友好对待</span></span><br><span class="line">be cruel to <span class="comment"># 对...残暴</span></span><br><span class="line">be rude to <span class="comment"># 对...无理</span></span><br><span class="line">be married to <span class="comment"># 嫁给,娶</span></span><br><span class="line">be close to <span class="comment"># 靠近，挨着</span></span><br><span class="line">be near to <span class="comment"># 距离...近</span></span><br><span class="line">be similar to <span class="comment"># 与...相似</span></span><br><span class="line">be known to <span class="comment"># 为...所知</span></span><br><span class="line">be due to <span class="comment"># 是由于</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>与<code>for</code>有关的</p>
+<li>
+<p>与<code>for</code>有关的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">be good <span class="keyword">for</span> <span class="comment"># 对...有利</span></span><br><span class="line">be free <span class="keyword">for</span> <span class="comment"># 对...免费</span></span><br><span class="line">be fit <span class="keyword">for</span> <span class="comment"># 对...合适的</span></span><br><span class="line">be unfit <span class="keyword">for</span> <span class="comment"># 对...不合适</span></span><br><span class="line">be eager <span class="keyword">for</span> <span class="comment"># 渴望</span></span><br><span class="line">be hungry <span class="keyword">for</span> <span class="comment"># 渴望</span></span><br><span class="line">be anxious <span class="keyword">for</span> <span class="comment"># 为...感到焦虑，担心</span></span><br><span class="line">be sorry <span class="keyword">for</span> <span class="comment"># 为...感到抱歉</span></span><br><span class="line">be known <span class="keyword">for</span> <span class="comment"># 因...而闻名</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>与<code>from</code>有关的</p>
+<li>
+<p>与<code>from</code>有关的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">be far <span class="keyword">from</span> <span class="comment"># 远离</span></span><br><span class="line">be different <span class="keyword">from</span> <span class="comment"># 不同于</span></span><br><span class="line">be free <span class="keyword">from</span> <span class="comment"># 使...免于</span></span><br><span class="line">be safe <span class="keyword">from</span> <span class="comment"># 没有...的危险</span></span><br><span class="line">be absent <span class="keyword">from</span> <span class="comment"># 缺席</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
-<li><p>“动词+介词”固定搭配</p>
+<li>
+<p>“动词+介词”固定搭配</p>
 <ol>
-<li><p>动词+<code>at</code></p>
+<li>
+<p>动词+<code>at</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">glare at <span class="comment"># 瞪着</span></span><br><span class="line">laugh at <span class="comment"># 嘲笑</span></span><br><span class="line">stare at <span class="comment"># 瞪着</span></span><br><span class="line">arrive at <span class="comment"># 到达，抵达</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>动词+<code>for</code></p>
+<li>
+<p>动词+<code>for</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mistake... <span class="keyword">for</span>... 将...误作</span><br><span class="line">search <span class="keyword">for</span> 搜寻</span><br><span class="line">pay <span class="keyword">for</span> <span class="comment"># 为...付费</span></span><br><span class="line">run <span class="keyword">for</span> <span class="comment"># 竞选</span></span><br><span class="line">blame...<span class="keyword">for</span>... <span class="comment"># 因...责备</span></span><br><span class="line">charge <span class="keyword">for</span> <span class="comment"># 索价，收费</span></span><br><span class="line">leave... <span class="keyword">for</span>... <span class="comment"># 离开，前往</span></span><br><span class="line">account <span class="keyword">for</span> <span class="comment"># 解释，是...的原因，占</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>动词+<code>from</code></p>
+<li>
+<p>动词+<code>from</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">die from # 死于</span><br><span class="line">hear from sb. # 收到某人的来信</span><br><span class="line">keep...from... # 阻止...做</span><br><span class="line">prevent...from... # 阻止...做</span><br><span class="line">stop...from... # 阻止...做</span><br><span class="line"># stoping him from doing it!</span><br><span class="line">protect...from...  # 保护...免受...</span><br><span class="line">distinguish...from... # 使...区别于...</span><br><span class="line">recover from... # 从...回复</span><br><span class="line">separate... from... # 将....与...分离</span><br><span class="line">suffer from # 遭受，受...之苦</span><br><span class="line">tell...from... # 将...与...区分</span><br><span class="line">discourage sb. from. # 劝别人不要</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>动词+<code>in</code></p>
+<li>
+<p>动词+<code>in</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">involve ... <span class="keyword">in</span> ... <span class="comment"># 将...牵扯进来</span></span><br><span class="line">result <span class="keyword">in</span> <span class="comment"># 导致，造成</span></span><br><span class="line">result <span class="keyword">from</span> <span class="comment"># 由...造成，因...产生</span></span><br><span class="line">succeed <span class="keyword">in</span> <span class="comment"># 在...方面成功</span></span><br><span class="line">lie <span class="keyword">in</span> <span class="comment"># 在于</span></span><br><span class="line">believe <span class="keyword">in</span> <span class="comment"># 信任，相信</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>动词+<code>into</code></p>
+<li>
+<p>动词+<code>into</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">divide...into... <span class="comment"># 将...划分为</span></span><br><span class="line">change...into... <span class="comment"># 将...转变</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>动词+<code>of</code></p>
+<li>
+<p>动词+<code>of</code></p>
 </li>
-<li><p>动词+<code>on/upon</code></p>
+<li>
+<p>动词+<code>on/upon</code></p>
 </li>
-<li><p>动词+介词<code>to</code></p>
+<li>
+<p>动词+介词<code>to</code></p>
 </li>
-<li><p>动词+<code>with</code></p>
+<li>
+<p>动词+<code>with</code></p>
 </li>
 </ol>
 </li>
@@ -248,77 +314,110 @@
     <entry>
       <title><![CDATA[Unit1  冠词、名词、代词和数词]]></title>
       <url>/2022/06/24/Unit1%20%20%E5%86%A0%E8%AF%8D%E3%80%81%E5%90%8D%E8%AF%8D%E3%80%81%E4%BB%A3%E8%AF%8D%E5%92%8C%E6%95%B0%E8%AF%8D/</url>
-      <content type="html"><![CDATA[<h1 id="Unit1-冠词、名词、代词和数词"><a href="#Unit1-冠词、名词、代词和数词" class="headerlink" title="Unit1  冠词、名词、代词和数词"></a>Unit1  冠词、名词、代词和数词</h1><hr>
-<h2 id="一、冠词"><a href="#一、冠词" class="headerlink" title="一、冠词"></a>一、冠词</h2><p>冠词用在名词之前，分不定冠词<code>a\an</code>和定冠词<code>the</code>两类</p>
-<h3 id="1-1-不定冠词"><a href="#1-1-不定冠词" class="headerlink" title="1.1  不定冠词"></a>1.1  不定冠词</h3><ol>
-<li><p>表示<strong>初次提及</strong>，<strong>非特指</strong>的时候，需要使用不定冠词</p>
-<p> <strong>例句</strong>：</p>
+      <content type="html"><![CDATA[<h1>Unit1  冠词、名词、代词和数词</h1>
+<hr>
+<h2 id="一、冠词">一、冠词</h2>
+<p>冠词用在名词之前，分不定冠词<code>a\an</code>和定冠词<code>the</code>两类</p>
+<h3 id="1-1-不定冠词">1.1  不定冠词</h3>
+<ol>
+<li>
+<p>表示<strong>初次提及</strong>，<strong>非特指</strong>的时候，需要使用不定冠词</p>
+<p><strong>例句</strong>：</p>
 </li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The Wilsons live <span class="keyword">in</span> an A-shaped house near the coast. It <span class="keyword">is</span> a 17th-century cottage.</span><br><span class="line"><span class="comment"># 威尔逊先生一家住在海边的一个A字形房子里，那是一个17世纪的小屋</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>表示<strong>数量</strong>“一个”</p>
-<p> 不定冠词表示数量时，等同于<code>one</code>，用于人名前，则是表示<strong>不认识此人</strong>或与某名人有<strong>类似性质</strong>的人或事情，以为<code>a certain</code></p>
-<p> <strong>例句</strong>：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello, could I speak to Mr.Smith?</span><br><span class="line">Sorry, wrong number. There isn<span class="string">&#x27;t a Mr.Smith here.</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用于<code>quite,rather,many,half,what,such</code>之后或<code>so(as,too,how)+形容词</code>之后</p>
-<p> <strong>例句</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">This room <span class="keyword">is</span> rather a big one.</span><br><span class="line">She <span class="keyword">is</span> so lovely a girl that <span class="built_in">all</span> of us like her very much.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用于某些抽象名词之前，表示具体化</p>
-<p> <strong>例句</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It would be a pity to cut down these trees.</span><br><span class="line">He <span class="keyword">is</span> a great success <span class="keyword">as</span> a scientist.</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p>表示<strong>数量</strong>“一个”</p>
+<p>不定冠词表示数量时，等同于<code>one</code>，用于人名前，则是表示<strong>不认识此人</strong>或与某名人有<strong>类似性质</strong>的人或事情，以为<code>a certain</code></p>
+<p><strong>例句</strong>：</p>
 </li>
 </ol>
-<p>​    类似的单词还有<code>pleasure,pride,honor,failure,comfort,promise,danger,reality</code>等。</p>
-<ol>
-<li><p>固定短语搭配</p>
-<p> <strong>例句</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a bit </span><br><span class="line">at a loss</span><br><span class="line">at a time </span><br><span class="line">come to a stop</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello, could I speak to Mr.Smith?</span><br><span class="line">Sorry, wrong number. There isn<span class="string">&#x27;t a Mr.Smith here.</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>
+<p>用于<code>quite,rather,many,half,what,such</code>之后或<code>so(as,too,how)+形容词</code>之后</p>
+<p><strong>例句</strong>：</p>
 </li>
-<li><p><code>a/an</code>的使用区分</p>
+</ol>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">This room <span class="keyword">is</span> rather a big one.</span><br><span class="line">She <span class="keyword">is</span> so lovely a girl that <span class="built_in">all</span> of us like her very much.</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>
+<p>用于某些抽象名词之前，表示具体化</p>
+<p><strong>例句</strong>：</p>
+</li>
+</ol>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It would be a pity to cut down these trees.</span><br><span class="line">He <span class="keyword">is</span> a great success <span class="keyword">as</span> a scientist.</span><br></pre></td></tr></table></figure>
+<p>​	类似的单词还有<code>pleasure,pride,honor,failure,comfort,promise,danger,reality</code>等。</p>
+<ol start="5">
+<li>
+<p>固定短语搭配</p>
+<p><strong>例句</strong>：</p>
+</li>
+</ol>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a bit </span><br><span class="line">at a loss</span><br><span class="line">at a time </span><br><span class="line">come to a stop</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li><code>a/an</code>的使用区分</li>
+</ol>
 <ul>
-<li><p>以元音音素开头的单词前面用<code>an</code>，例如<code>an eraser</code>、<code>an hornor</code>等</p>
+<li>
+<p>以元音音素开头的单词前面用<code>an</code>，例如<code>an eraser</code>、<code>an hornor</code>等</p>
 </li>
-<li><p>以辅音读音开头的单词前面需要用<code>a</code>，例如<code>a book</code></p>
+<li>
+<p>以辅音读音开头的单词前面需要用<code>a</code>，例如<code>a book</code></p>
 </li>
-<li><p>在26个英文字母中，<code>a,e,i,o,f,h,l,m,n,r,s,x</code>等字母的读音是以元音音素开头，需要用<code>an</code>，其他用<code>a</code></p>
+<li>
+<p>在26个英文字母中，<code>a,e,i,o,f,h,l,m,n,r,s,x</code>等字母的读音是以元音音素开头，需要用<code>an</code>，其他用<code>a</code></p>
 <ul>
-<li>```python<br>There is an “m” and a “u” in the word “mysterious”<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 1.2  定冠词</span><br><span class="line"></span><br><span class="line">1. 表示上文提及过的，或是双方都已知晓的</span><br><span class="line"></span><br><span class="line">   此时相当于指示代词`this、that、those、these`等</span><br><span class="line"></span><br><span class="line">   例句：</span><br><span class="line"></span><br><span class="line">   ```python</span><br><span class="line">   A waiter came and waited. John caught my look and we both got up and, ignoring the waiter, made our way to the buffet.</span><br><span class="line">   # 一个侍者走了过来，候在附近。约翰领会了我的眼神，我们两个都站了起来，没有理睬那个侍者，朝自助餐台走去。</span><br></pre></td></tr></table></figure>
+<li>
+<pre><code class="language-python">There is an &quot;m&quot; and a &quot;u&quot; in the word &quot;mysterious&quot;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 1.2  定冠词</span><br><span class="line"></span><br><span class="line">1. 表示上文提及过的，或是双方都已知晓的</span><br><span class="line"></span><br><span class="line">   此时相当于指示代词`this、that、those、these`等</span><br><span class="line"></span><br><span class="line">   例句：</span><br><span class="line"></span><br><span class="line">   ```python</span><br><span class="line">   A waiter came and waited. John caught my look and we both got up and, ignoring the waiter, made our way to the buffet.</span><br><span class="line">   # 一个侍者走了过来，候在附近。约翰领会了我的眼神，我们两个都站了起来，没有理睬那个侍者，朝自助餐台走去。</span><br></pre></td></tr></table></figure>
+
+</code></pre>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>用于独一无二的事物前</p>
+<ol start="2">
+<li>
+<p>用于独一无二的事物前</p>
 <p>例如<code>the sun</code>，<code>the sky</code>，<code>the earth</code>等等</p>
 <p><strong>例句</strong>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Copernicus concluded that the earth goes <span class="built_in">round</span> the sun.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>用于序数词，最高级前</p>
+<li>
+<p>用于序数词，最高级前</p>
 <p><strong>例句</strong>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Tom <span class="keyword">is</span> the last person that I want to see. <span class="comment"># 汤姆是我最不想见的人</span></span><br><span class="line">Is Shanghai the second largest city <span class="keyword">in</span> China? <span class="comment"># 上海是中国第二大城市吗</span></span><br><span class="line">He <span class="keyword">is</span> the smartest boy <span class="keyword">in</span> our <span class="keyword">class</span>. <span class="comment"># 他是我们班上最聪明的男生</span></span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong>：</p>
 <ul>
-<li><p>序数词前使用不定冠词是，表示“再、又”的意思</p>
+<li>
+<p>序数词前使用不定冠词是，表示“再、又”的意思</p>
 </li>
-<li><p>```python<br>It’s the second time I’ve read the book. I want to read it a third time.</p>
+<li>
+<pre><code class="language-python">It's the second time I've read the book. I want to read it a third time.
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 用于&quot;the+比较级&quot;表示“两者中较...的”部分</span><br><span class="line"></span><br><span class="line">+ ```python</span><br><span class="line">  Of the two sisters, Betty is the younger one, but she is the tallest girl in her class.</span><br></pre></td></tr></table></figure>
+
+</code></pre>
 </li>
-<li><p>有时<code>most</code>表示“非常”,但并不是最高级，此时不需要加<code>the</code></p>
+<li>
+<p>有时<code>most</code>表示“非常&quot;,但并不是最高级，此时不需要加<code>the</code></p>
 </li>
-<li><p>```python<br>He is the most famous doctor in this hospital and he is a most amazing person.</p>
+<li>
+<pre><code class="language-python">He is the most famous doctor in this hospital and he is a most amazing person.
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. 用于`the more..., the more`结构</span><br><span class="line"></span><br><span class="line">   此时表示&quot;越..., 越...&quot;</span><br><span class="line"></span><br><span class="line">   **例句**：</span><br><span class="line"></span><br><span class="line">   ```python</span><br><span class="line">   The more money you make, the more you can spend.</span><br><span class="line">   The harder you work, the more progress you will get.</span><br></pre></td></tr></table></figure>
+
+</code></pre>
 </li>
 </ul>
 </li>
-<li><p>定冠词还能用于以下几种情况</p>
+<li>
+<p>定冠词还能用于以下几种情况</p>
 <ul>
 <li>用于复数姓氏前表示某某夫妇或者一家人，例如<code>the Smiths</code></li>
 <li>在逢十的复数名词前，表示年代，例如<code>in the 1990s</code></li>
 <li>在表示西洋乐器的名词前加，但球类运动不加</li>
-<li>用于”动词+人+介词+the+人体部位”，此时不用物主代词，如：<code>beat him on the shoulder</code></li>
+<li>用于&quot;动词+人+介词+the+人体部位&quot;，此时不用物主代词，如：<code>beat him on the shoulder</code></li>
 <li>用于单位名词前表示标准，即表示计量标准，相当于汉语的“按”，“论”，“每”，但<code>by</code>表示<code>依据</code>讲的时候后面跟<strong>抽象名词</strong>是不用任何冠词的，例如<code>by weight, by length, by width</code></li>
 <li>用于<code>the+某些形容词或过去分词</code>中表示一类人，如<code>the rich</code>，<code>the poor</code></li>
 <li>用于<code>the+police/public等集合名词</code>表示这类人的总称</li>
@@ -327,33 +426,38 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In the 1980s, the Smiths were already <span class="keyword">in</span> their thirties <span class="keyword">and</span> lived <span class="keyword">in</span> a village. Their doughter liked playing the piano <span class="keyword">while</span> their son liked playing football.</span><br><span class="line">Near their house there was <span class="keyword">as</span> fair where bananas are usually sold by weight <span class="keyword">and</span> eggs by the dozen.It was the only fair <span class="keyword">in</span> the area. </span><br><span class="line">The fair was <span class="built_in">open</span> to the public only during two <span class="built_in">open</span>-house weekends. Both the poor <span class="keyword">and</span> the rich went there. The old took the children <span class="keyword">in</span> the hand tightly <span class="keyword">in</span> case they got lose.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>还有固定的短语搭配</p>
+<li>
+<p>还有固定的短语搭配</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">all</span> the time</span><br><span class="line">the other day</span><br><span class="line"><span class="built_in">all</span> the year around</span><br><span class="line">at the age of </span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <hr>
-<h3 id="1-3-不用冠词的情况"><a href="#1-3-不用冠词的情况" class="headerlink" title="1.3  不用冠词的情况"></a>1.3  不用冠词的情况</h3><ol>
-<li><p>身份、职位、头衔名词前</p>
+<h3 id="1-3-不用冠词的情况">1.3  不用冠词的情况</h3>
+<ol>
+<li>
+<p>身份、职位、头衔名词前</p>
 <p>例如<code>be elected chairman</code></p>
 </li>
-<li><p>球类、棋类名词前</p>
+<li>
+<p>球类、棋类名词前</p>
 <p>例如<code>play football, play chess</code></p>
 </li>
-<li><p>一日三餐的名词前</p>
+<li>
+<p>一日三餐的名词前</p>
 <p>例如<code>have breakfast/lunch/supper</code></p>
 </li>
-<li><p>交通方式名词前</p>
+<li>
+<p>交通方式名词前</p>
 <p>例如<code>by bike, by ship, by plane</code></p>
 </li>
-<li><p>一些地点名词前</p>
+<li>
+<p>一些地点名词前</p>
 <p>例如<code>bed, church, school, hospital, prison</code>等</p>
 <p>若在这些地方加上了<code>the</code>，表示去这些场所做其他的事情</p>
 </li>
-<li><p>使用定冠词与不使用定冠词的短语辨析</p>
+<li>
+<p>使用定冠词与不使用定冠词的短语辨析</p>
 <p>某些固定搭配使用定冠词和不使用时会出现含义差别。</p>
-</li>
-</ol>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -392,40 +496,49 @@
 </tr>
 </tbody>
 </table>
-</div>
+</li>
+</ol>
 <hr>
-<h2 id="二、名词"><a href="#二、名词" class="headerlink" title="二、名词"></a>二、名词</h2><p>名词是表示人、事物、地点或抽象概念的名称的词，有专有名词和普通名词之分，还有不可数和可数名词之分。</p>
+<h2 id="二、名词">二、名词</h2>
+<p>名词是表示人、事物、地点或抽象概念的名称的词，有专有名词和普通名词之分，还有不可数和可数名词之分。</p>
 <p><strong>可数名词</strong>，分为单数和复数两种形式。可数名词前可以用不定冠词、数词或some、many等修饰。如：<code>a man、a desk、an apple、an orange、some books、some children、two pens</code></p>
-<p><strong>不可数名词</strong>，不可数名词，没有复数形式，前面不能用不定冠词、数词或many等词语修饰，但可以用some，a little，much等词语来修饰。有时可以与一些量词短语搭配，这些量词短语中的名词一般是可数的，有单数形式，也可以有复数形式，一般使用的量词短语a(或an） /little/bit/piece……</p>
+<p><strong>不可数名词</strong>，不可数名词，没有复数形式，前面不能用不定冠词、数词或many等词语修饰，但可以用some，a little，much等词语来修饰。有时可以与一些量词短语搭配，这些量词短语中的名词一般是可数的，有单数形式，也可以有复数形式，一般使用的量词短语a(或an） /little/bit/piece…</p>
 <p>如：<code>some water，a little milk ，much food，a piece of bread，two bottles of ink，some glasses of water</code></p>
-<h3 id="2-1-常见名词构词法"><a href="#2-1-常见名词构词法" class="headerlink" title="2.1 常见名词构词法"></a>2.1 常见名词构词法</h3><ol>
-<li><p>由<code>-ment</code>构成</p>
+<h3 id="2-1-常见名词构词法">2.1 常见名词构词法</h3>
+<ol>
+<li>
+<p>由<code>-ment</code>构成</p>
 <p><code>-ment</code>表示行为的结果或具体工具</p>
 <p><strong>例如</strong>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">move(移动，使运动)--movement(运动，移动)</span><br><span class="line">develop(发展)--development(发展)</span><br><span class="line">measure(测量)--measurement(测量)</span><br><span class="line">equip(装备)--equipment(装备，设备)</span><br><span class="line">achieve(达到，完成)--achievement(达到，成就)</span><br><span class="line">agree(同意，商定)--agreement(同意，协议)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>由<code>-tion, -ation, -sion</code>构成</p>
+<li>
+<p>由<code>-tion, -ation, -sion</code>构成</p>
 <p><code>-tion, -ation, -sion</code>表示行为的过程</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">explain(解释)--explanation(解释)</span><br><span class="line">produce(生产)--production(生产)</span><br><span class="line">divide(划分)--division(划分)</span><br><span class="line">express(表示，表达)--expression(表示，表达)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>由<code>-ness</code>构成</p>
+<li>
+<p>由<code>-ness</code>构成</p>
 <p>形容词后面加后缀<code>-ness</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cold(寒冷的)--coldness(寒冷)</span><br><span class="line">dark(黑暗的)--darkness(黑暗)</span><br><span class="line">useful(有用的)--usefulness(用处)</span><br><span class="line">exact(精确地)--exactness(精确)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>由<code>-ence, -ance</code>构成</p>
+<li>
+<p>由<code>-ence, -ance</code>构成</p>
 <p>某些动词或形容词后面加<code>-ence</code>或<code>-ance</code>可构成相应的抽象名词</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">enter(进入)--entrance(入口处)</span><br><span class="line">resist(抵抗)--resistance(抵抗)</span><br><span class="line">depend(依赖，依靠)--dependence(依靠，依赖)</span><br><span class="line">different(不同的)--difference(不同，差别)</span><br><span class="line">absent(缺席，不在的)--absence(缺席，不在)</span><br><span class="line">refer(参考)--reference(参考)</span><br><span class="line">important(重要的)--importance(重要性)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>由<code>-y, -ty, -ity</code>构成</p>
+<li>
+<p>由<code>-y, -ty, -ity</code>构成</p>
 <p>某些形容词后面加<code>-y,-ty,-ity</code>等表示性质状态的后缀，构成抽象名词</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">difficult(困难的)--difficulty(困难)</span><br><span class="line">electric(电的)--electricity(电)</span><br><span class="line">safe(安全的)--safety(安全)</span><br><span class="line">cruel(残酷的)--cruelty(残酷)</span><br><span class="line">able(有能力的)--ability(能力)</span><br><span class="line">active(积极地，活跃的)--activity(活动)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>有些动词变名词较为复杂，需要注意</p>
+<li>
+<p>有些动词变名词较为复杂，需要注意</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">succeed--success 成功</span><br><span class="line">pronounce--pronounciation 发音</span><br><span class="line">explain--explanation 解释</span><br><span class="line">decide--decision 决定</span><br><span class="line">enter--entrance 进入</span><br><span class="line">permit--permission 允许</span><br><span class="line">refuse--refusal 拒绝</span><br><span class="line">consider--consideration 考虑</span><br><span class="line">discover--discovery 发现</span><br><span class="line">bury--burial 埋葬</span><br><span class="line">conclude--conclusion 结论</span><br><span class="line">arrive 推断 --arrival 到达</span><br><span class="line">weigh 重 --weight 重量</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="2-2-抽象名词具体化"><a href="#2-2-抽象名词具体化" class="headerlink" title="2.2  抽象名词具体化"></a>2.2  抽象名词具体化</h3><p>​    抽象名词一般为不可数名词，但当抽象名词表示为具体的东西时，可用作可数名词且<strong>词义发生变化</strong>。这种语言现象叫做抽象名词的具体化。</p>
-<div class="table-container">
+<h3 id="2-2-抽象名词具体化">2.2  抽象名词具体化</h3>
+<p>​	抽象名词一般为不可数名词，但当抽象名词表示为具体的东西时，可用作可数名词且<strong>词义发生变化</strong>。这种语言现象叫做抽象名词的具体化。</p>
 <table>
 <thead>
 <tr>
@@ -468,79 +581,118 @@
 </tr>
 </tbody>
 </table>
-</div>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">He had had six failures and would have a seventh <span class="keyword">try</span>.</span><br><span class="line">他经历六次失败，并将进行第七次尝试</span><br><span class="line">A knowledge of English is a must in international trade.</span><br><span class="line">懂英语对于做国际贸易来说是必不可少的</span><br><span class="line">She made an apology to her mother <span class="keyword">for</span> her wrong doings.</span><br><span class="line">她为自己做错了事向妈妈道歉</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-名词的数"><a href="#2-3-名词的数" class="headerlink" title="2.3  名词的数"></a>2.3  名词的数</h3><h4 id="1-可数名词变复数的规则变化"><a href="#1-可数名词变复数的规则变化" class="headerlink" title="1.  可数名词变复数的规则变化"></a>1.  可数名词变复数的规则变化</h4><ul>
-<li><p>一般在词尾<code>-s</code>:</p>
+<h3 id="2-3-名词的数">2.3  名词的数</h3>
+<h4 id="1-可数名词变复数的规则变化">1.  可数名词变复数的规则变化</h4>
+<ul>
+<li>
+<p>一般在词尾<code>-s</code>:</p>
 <ul>
 <li>清辅音后读<code>/s/</code>：<code>map-maps</code></li>
 <li>浊辅音和元音后读<code>/z/</code>：<code>bag-bags,car-cars</code></li>
 </ul>
 </li>
-<li><p>以<code>s,sh,ch,x</code>等结尾的词加<code>-es</code>，读<code>/iz/</code>：<code>bus-buses；watch-watches</code></p>
+<li>
+<p>以<code>s,sh,ch,x</code>等结尾的词加<code>-es</code>，读<code>/iz/</code>：<code>bus-buses；watch-watches</code></p>
 <ul>
 <li>值得注意的是：<code>stomach-stomachs</code></li>
 </ul>
 </li>
-<li><p>以<code>y</code>结尾的专有名词或以元音字母<code>+y</code>结尾的名词变复数时，直接加<code>-s</code></p>
+<li>
+<p>以<code>y</code>结尾的专有名词或以元音字母<code>+y</code>结尾的名词变复数时，直接加<code>-s</code></p>
 <ul>
 <li><code>two Marys; the Henrys; monkey--monkeys; holiday--holidays</code></li>
 </ul>
 </li>
-<li><p>以<code>o</code>结尾的前面是辅音字母，变为复数时，有一些加<code>-es</code></p>
+<li>
+<p>以<code>o</code>结尾的前面是辅音字母，变为复数时，有一些加<code>-es</code></p>
 <ul>
-<li><code>hero-heroes; potato-potatoes; tomato-tomatoes</code></li>
+<li><code>hero-heroes; potato-potatoes; tomato-tomatoes </code></li>
 <li><code>Heroes eat potatoes and tomatoes 英雄吃马铃薯和西红柿</code></li>
 <li>一般是活的加<code>-es</code>，不活的加<code>-s</code></li>
 </ul>
 </li>
-<li><p>以<code>f</code>或<code>fe</code>结尾的名词变复数时，有的加<code>-s</code>，有的变<code>f</code>或<code>fe</code>为<code>v</code>再加<code>-es</code></p>
+<li>
+<p>以<code>f</code>或<code>fe</code>结尾的名词变复数时，有的加<code>-s</code>，有的变<code>f</code>或<code>fe</code>为<code>v</code>再加<code>-es</code></p>
 <ul>
-<li><p>只加<code>s</code>的情况</p>
+<li>
+<p>只加<code>s</code>的情况</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chief--chiefs</span><br><span class="line">belief--beliefs</span><br><span class="line">roof--roofs</span><br><span class="line">cliff--cliffs</span><br><span class="line">safe--safes</span><br><span class="line">gulf--gulfs</span><br></pre></td></tr></table></figure>
-<p>助记：”长官”，”信仰“，”房顶“和”悬崖“是”安全“的”港湾“</p>
+<p>助记：“长官”，”信仰“，”房顶“和”悬崖“是”安全“的”港湾“</p>
 </li>
-<li><p>变<code>f</code>或<code>fe</code>为<code>v</code>再加<code>-es</code>的情况</p>
+<li>
+<p>变<code>f</code>或<code>fe</code>为<code>v</code>再加<code>-es</code>的情况</p>
    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wife--wives</span><br><span class="line">half--halves</span><br><span class="line">knife--knives</span><br><span class="line">wolf--wolves</span><br><span class="line">leaf--leaves</span><br><span class="line">life--lives</span><br><span class="line">thief--thieves</span><br></pre></td></tr></table></figure>
 <p>助记：“妻子”用“半”把“刀”阻止“狼”称为偷盗“树叶“”生命“的”小偷“</p>
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="2-可数名词边复数不规则变化"><a href="#2-可数名词边复数不规则变化" class="headerlink" title="2. 可数名词边复数不规则变化"></a>2. 可数名词边复数不规则变化</h4><ul>
-<li><p>```python<br>child—children<br>foot—feet<br>tooth—teeth<br>mouse—mice<br>man—men<br>woman—women</p>
-<h1 id="一个词加man或woman构成合成词，其复数也是men或women"><a href="#一个词加man或woman构成合成词，其复数也是men或women" class="headerlink" title="一个词加man或woman构成合成词，其复数也是men或women"></a>一个词加man或woman构成合成词，其复数也是men或women</h1><h1 id="但German不是合成词"><a href="#但German不是合成词" class="headerlink" title="但German不是合成词"></a>但German不是合成词</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 单复数同形，如`deer, sheep, fish, Chinese, Japanese`</span><br><span class="line"></span><br><span class="line">+ 以`s`结尾，仍为单数的</span><br><span class="line"></span><br><span class="line">  + `maths, politics, physics`等学科名词，一般是不可数名词，为单数</span><br><span class="line"></span><br><span class="line">  + `news`为不可数名词</span><br><span class="line"></span><br><span class="line">  + 以复数名词出现的书名、剧名、报纸、杂志名，也可视为单数</span><br><span class="line"></span><br><span class="line">    + ```python</span><br><span class="line">      The Arabian Nights is a very interesting story-book.</span><br></pre></td></tr></table></figure>
+<h4 id="2-可数名词边复数不规则变化">2. 可数名词边复数不规则变化</h4>
 <ul>
-<li><p>表示由两部分构成的东西，如<code>glasses, trousers, clothes</code>在表达具体数目是，需要借助数量名词<code>pair</code>和<code>suit</code>，如<code>a pair of glasses, two pairs of trousers</code></p>
-</li>
-<li><p>另外部分名词在表示复数形式时，可能有特别的含义，如<code>goods, waters, fishes</code></p>
+<li>
+<pre><code class="language-python">child--children
+foot--feet
+tooth--teeth
+mouse--mice
+man--men
+woman--women
+
+# 一个词加man或woman构成合成词，其复数也是men或women
+# 但German不是合成词
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 单复数同形，如`deer, sheep, fish, Chinese, Japanese`</span><br><span class="line"></span><br><span class="line">+ 以`s`结尾，仍为单数的</span><br><span class="line"></span><br><span class="line">  + `maths, politics, physics`等学科名词，一般是不可数名词，为单数</span><br><span class="line"></span><br><span class="line">  + `news`为不可数名词</span><br><span class="line"></span><br><span class="line">  + 以复数名词出现的书名、剧名、报纸、杂志名，也可视为单数</span><br><span class="line"></span><br><span class="line">    + ```python</span><br><span class="line">      The Arabian Nights is a very interesting story-book.</span><br></pre></td></tr></table></figure>
+
++ 表示由两部分构成的东西，如`glasses, trousers, clothes`在表达具体数目是，需要借助数量名词`pair`和`suit`，如`a pair of glasses, two pairs of trousers`
+
++ 另外部分名词在表示复数形式时，可能有特别的含义，如`goods, waters, fishes`
+
+</code></pre>
 </li>
 </ul>
-</li>
-</ul>
-<h4 id="3-不可数名词"><a href="#3-不可数名词" class="headerlink" title="3.不可数名词"></a>3.不可数名词</h4><p>比较常见的不可数名词有：<code>advice, news, information, progress, work, fun, weather, music, health, luck</code></p>
+<h4 id="3-不可数名词">3.不可数名词</h4>
+<p>比较常见的不可数名词有：<code>advice, news, information, progress, work, fun, weather, music, health, luck</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hair 指一个人全部头发时，是不可数名词，但如果指每一根头发时，是可数的，可以说one hair、two hairs</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以说drink beer, drink coffee, drink gin, 但在要酒水时应该说： a (glass of) beer, a gin, two gins</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># experience指“经历”时是可数名词：</span></span><br><span class="line">He had an exciting experience/some exciting experiences last week.</span><br><span class="line"></span><br><span class="line"><span class="comment"># work意味&quot;职业、就业、工作&quot;时事不可数名词:</span></span><br><span class="line">He <span class="keyword">is</span> looking <span class="keyword">for</span> work/<span class="keyword">for</span> a job.</span><br><span class="line"></span><br><span class="line"><span class="comment"># works(只有复数形式)可以表示工商，或是文学和音乐作品：</span></span><br><span class="line">Shakespeare<span class="string">&#x27;s complete works.</span></span><br></pre></td></tr></table></figure>
-<h4 id="4-名词的所有格"><a href="#4-名词的所有格" class="headerlink" title="4.名词的所有格"></a>4.名词的所有格</h4><p>名词所有格表示从属关系，分为<strong>‘s所有格</strong>和<strong>of所有格</strong>，一般来说’s表示有生命的东西，of往往用于无生命的东西。</p>
-<h5 id="4-1-‘s所有格的构成方法"><a href="#4-1-‘s所有格的构成方法" class="headerlink" title="4.1 -‘s所有格的构成方法"></a>4.1 -‘s所有格的构成方法</h5><p>一般情况下，直接加<code>-&#39;s</code>就行了</p>
+<h4 id="4-名词的所有格">4.名词的所有格</h4>
+<p>名词所有格表示从属关系，分为**'s所有格<strong>和</strong>of所有格**，一般来说’s表示有生命的东西，of往往用于无生命的东西。</p>
+<h5 id="4-1-‘s所有格的构成方法">4.1 -‘s所有格的构成方法</h5>
+<p>一般情况下，直接加<code>-'s</code>就行了</p>
 <ul>
-<li>```python<br>children’s books<br>today’s paper<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">带词尾`-s`的复数名词只加`-&#x27;`</span><br><span class="line"></span><br><span class="line">+ ```python</span><br><span class="line">  girls&#x27; school</span><br><span class="line">  the Smiths&#x27; car</span><br></pre></td></tr></table></figure>
+<li>
+<pre><code class="language-python">children's books
+today's paper
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">带词尾`-s`的复数名词只加`-&#x27;`</span><br><span class="line"></span><br><span class="line">+ ```python</span><br><span class="line">  girls&#x27; school</span><br><span class="line">  the Smiths&#x27; car</span><br></pre></td></tr></table></figure>
+
+</code></pre>
 </li>
 </ul>
-<p>带词尾<code>-s</code>的单数名词通常仍要加<code>-&#39;s</code></p>
+<p>带词尾<code>-s</code>的单数名词通常仍要加<code>-'s</code></p>
 <ul>
-<li>```python<br>the boss’s plan<br>the hostess’s worry<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">带词尾`-s`的人名，可以只加`-&#x27;s`或是`-&#x27;`</span><br><span class="line"></span><br><span class="line">用`and`连接的并列名词的所有格要分两种情况，即表示各自的所有关系时，要分别在并列名词后加`-&#x27;s`，表示共同的关系时，只需要在最后一个名词后加`-&#x27;s`</span><br><span class="line"></span><br><span class="line">+ ```python</span><br><span class="line">  Tom&#x27;s and Jim&#x27;s rooms.</span><br><span class="line">  Tom and Jim&#x27;s room.</span><br></pre></td></tr></table></figure>
+<li>
+<pre><code class="language-python">the boss's plan
+the hostess's worry
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">带词尾`-s`的人名，可以只加`-&#x27;s`或是`-&#x27;`</span><br><span class="line"></span><br><span class="line">用`and`连接的并列名词的所有格要分两种情况，即表示各自的所有关系时，要分别在并列名词后加`-&#x27;s`，表示共同的关系时，只需要在最后一个名词后加`-&#x27;s`</span><br><span class="line"></span><br><span class="line">+ ```python</span><br><span class="line">  Tom&#x27;s and Jim&#x27;s rooms.</span><br><span class="line">  Tom and Jim&#x27;s room.</span><br></pre></td></tr></table></figure>
+
+</code></pre>
 </li>
 </ul>
-<h5 id="4-2-of-名词构成的所有关系"><a href="#4-2-of-名词构成的所有关系" class="headerlink" title="4.2 of+名词构成的所有关系"></a>4.2 <code>of</code>+名词构成的所有关系</h5><p><code>of</code>所有格多用于无生命的东西，例如<code>the cover of the book</code>，但也有例外：</p>
+<h5 id="4-2-of-名词构成的所有关系">4.2 <code>of</code>+名词构成的所有关系</h5>
+<p><code>of</code>所有格多用于无生命的东西，例如<code>the cover of the book</code>，但也有例外：</p>
 <ul>
-<li>```python<br>the housing problem of the poor.<br>the skills of the workers who have been well trained.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">当然，有些表示时间、距离等无生命名词和表示世界、国家、诚征的名词，也可以用`-&#x27;s`或`-&#x27;`</span><br><span class="line"></span><br><span class="line">+ ```python</span><br><span class="line">  five minutes&#x27; walk</span><br><span class="line">  today&#x27;s newspaper</span><br></pre></td></tr></table></figure>
+<li>
+<pre><code class="language-python">the housing problem of the poor.
+the skills of the workers who have been well trained.
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">当然，有些表示时间、距离等无生命名词和表示世界、国家、诚征的名词，也可以用`-&#x27;s`或`-&#x27;`</span><br><span class="line"></span><br><span class="line">+ ```python</span><br><span class="line">  five minutes&#x27; walk</span><br><span class="line">  today&#x27;s newspaper</span><br></pre></td></tr></table></figure>
+
+</code></pre>
 </li>
 </ul>
-<h5 id="4-3-双重所有格"><a href="#4-3-双重所有格" class="headerlink" title="4.3 双重所有格"></a>4.3 双重所有格</h5><p>双重所有格是指将<code>-&#39;s</code>和<code>of</code>两个所有格结合起来用，构成<code>of + 名词&#39;s</code>的格式，表示整体中的一个或部分，用于修饰<code>of</code>前面的名词，但此时该名词一定要有一个量词修饰，且不能是<code>one</code>和<code>the</code></p>
+<h5 id="4-3-双重所有格">4.3 双重所有格</h5>
+<p>双重所有格是指将<code>-'s</code>和<code>of</code>两个所有格结合起来用，构成<code>of + 名词's</code>的格式，表示整体中的一个或部分，用于修饰<code>of</code>前面的名词，但此时该名词一定要有一个量词修饰，且不能是<code>one</code>和<code>the</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Two classmates of my siste<span class="string">r&#x27;s will come to join us.</span></span><br><span class="line"><span class="string"># 全集：my sister&#x27;</span>s (classmate)</span><br><span class="line"><span class="comment"># 子集: two classmate (of my sister&#x27;s classmate)</span></span><br></pre></td></tr></table></figure>
 <p>双重所有格也可以由<code>of+名词性物主代词</code>构成，例如：<code>a friend of mine</code></p>
 <hr>
-<h2 id="三、代词"><a href="#三、代词" class="headerlink" title="三、代词"></a>三、代词</h2><p>所谓代词，是代替名词的词类。大部分代词具有名词和形容词的功能。根据其意义、特征和在句中的作用，代词可分为：</p>
+<h2 id="三、代词">三、代词</h2>
+<p>所谓代词，是代替名词的词类。大部分代词具有名词和形容词的功能。根据其意义、特征和在句中的作用，代词可分为：</p>
 <ul>
 <li>人称代词</li>
 <li>物主代词</li>
@@ -553,10 +705,11 @@
 <li>不定代词</li>
 </ul>
 <p>共九种。</p>
-<h3 id="3-1-人称代词主格与宾格的用法"><a href="#3-1-人称代词主格与宾格的用法" class="headerlink" title="3.1 人称代词主格与宾格的用法"></a>3.1 人称代词主格与宾格的用法</h3><p>人称代词有主格和宾格之分，主格代词一般在句中做主语、表语，宾格代词一般做动词的宾语和介词的宾语。</p>
+<h3 id="3-1-人称代词主格与宾格的用法">3.1 人称代词主格与宾格的用法</h3>
+<p>人称代词有主格和宾格之分，主格代词一般在句中做主语、表语，宾格代词一般做动词的宾语和介词的宾语。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">If you keep a pet, you need to spend some time taking care of it.</span><br><span class="line"><span class="comment"># 两个 you 分别做主语, it 做宾语</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># we,you,they  有时可泛指&quot;人们&quot;</span></span><br><span class="line">They say prices are going to rise again.</span><br><span class="line"></span><br><span class="line"><span class="comment"># she 可以用来指代国家、船只、大地、月亮等</span></span><br><span class="line">China will always do what she has promised to do.</span><br><span class="line"></span><br><span class="line">The Titanic was on her first voyage when she sank.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意人称代词并列时的顺序</span></span><br><span class="line">You <span class="keyword">and</span> I are good friends.</span><br><span class="line">You <span class="keyword">and</span> he must be there at seven o<span class="string">&#x27;clock.</span></span><br><span class="line"><span class="string">You, he and I will be put in the same class. </span></span><br></pre></td></tr></table></figure>
-<h3 id="3-2-名词性和形容词性物主代词"><a href="#3-2-名词性和形容词性物主代词" class="headerlink" title="3.2  名词性和形容词性物主代词"></a>3.2  名词性和形容词性物主代词</h3><p>物主代词是表示所有关系的代词，可以分为形容词性，名词词性两种</p>
-<div class="table-container">
+<h3 id="3-2-名词性和形容词性物主代词">3.2  名词性和形容词性物主代词</h3>
+<p>物主代词是表示所有关系的代词，可以分为形容词性，名词词性两种</p>
 <table>
 <thead>
 <tr>
@@ -612,47 +765,56 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p>形容词性物主代词不可单独使用，必须放在名词前做定语。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">My name <span class="keyword">is</span> John Green.</span><br><span class="line">They wash their hair every day.</span><br></pre></td></tr></table></figure></p>
+<p>形容词性物主代词不可单独使用，必须放在名词前做定语。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">My name <span class="keyword">is</span> John Green.</span><br><span class="line">They wash their hair every day.</span><br></pre></td></tr></table></figure>
 <p>名词性物主代词可以单独使用，相当于“形容词性物主代词+名词”，常做宾语和表语。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">These are his books. Yours are over there.</span><br><span class="line">I forgot to bring my dictionary. Could I use yours?</span><br><span class="line">Whose book <span class="keyword">is</span> this? It<span class="string">&#x27;s hers.</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-3-反身代词的用法"><a href="#3-3-反身代词的用法" class="headerlink" title="3.3 反身代词的用法"></a>3.3 反身代词的用法</h3><p>反身代词是一种表示反射或强调的代词，表示“我(们)自己”，”你(们)自己”，”他/她/它们自己”。</p>
+<h3 id="3-3-反身代词的用法">3.3 反身代词的用法</h3>
+<p>反身代词是一种表示反射或强调的代词，表示“我(们)自己&quot;，“你(们)自己”，“他/她/它们自己”。</p>
 <p>第一、二人称的反身代词是由形容词性物主代词+<code>-self</code>或<code>-selves</code>构成，第三人称反身代词由人身代词的宾格加<code>-self</code>或<code>-selves</code>构成，反身代词常做宾语、表语和同位语。</p>
 <p><strong>做宾语</strong></p>
 <p>有些动词常与反身代词连用，如<code>bathe, amuse, blame, feed, dress, cut, enjoy, hurt, introduce, behave</code>等</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Little Albert <span class="keyword">is</span> only four, but he can feed himself, wash himself <span class="keyword">and</span> dress himself.</span><br></pre></td></tr></table></figure>
-<p>常见的表达有：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dress oneslef 自己穿衣</span><br><span class="line">say to oneself 心里想</span><br><span class="line">devote oneself to 致力于</span><br><span class="line">seat oneself 坐下</span><br><span class="line">enjoy oneself 过得快乐</span><br><span class="line">talk/speak to oneself 自言自语</span><br><span class="line"><span class="built_in">help</span> oneself to 随便吃</span><br><span class="line">teach oneself 自学</span><br><span class="line">hide oneself 把自己藏起来</span><br></pre></td></tr></table></figure></p>
+<p>常见的表达有：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dress oneslef 自己穿衣</span><br><span class="line">say to oneself 心里想</span><br><span class="line">devote oneself to 致力于</span><br><span class="line">seat oneself 坐下</span><br><span class="line">enjoy oneself 过得快乐</span><br><span class="line">talk/speak to oneself 自言自语</span><br><span class="line"><span class="built_in">help</span> oneself to 随便吃</span><br><span class="line">teach oneself 自学</span><br><span class="line">hide oneself 把自己藏起来</span><br></pre></td></tr></table></figure>
 <p><strong>作表语</strong></p>
 <p>反身代词可用作表语</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The boy <span class="keyword">in</span> the picture <span class="keyword">is</span> myself, <span class="keyword">not</span> anyone <span class="keyword">else</span>.</span><br><span class="line">I am <span class="keyword">not</span> myself today. 我今天不舒服</span><br></pre></td></tr></table></figure>
 <p><strong>做同位语</strong></p>
-<p>反身代词可以加强名词或代词的语气，强调”自己，亲自，本人”等意思，通常跟在名词、代词之后，也可以用于句尾，此时反身代词应重读。</p>
+<p>反身代词可以加强名词或代词的语气，强调&quot;自己，亲自，本人&quot;等意思，通常跟在名词、代词之后，也可以用于句尾，此时反身代词应重读。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">I<span class="string">&#x27;m afraid I can&#x27;</span>t <span class="built_in">help</span> you. Yo<span class="string">u&#x27;ll have to do it yourself.</span></span><br><span class="line"><span class="string"># 恐怕我帮不了你了，你得自己做</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">You should ask the students themselves.</span></span><br><span class="line"><span class="string"># 你应该问学生们自己</span></span><br></pre></td></tr></table></figure>
 <p>反身代词还常与<code>for, of, in, by</code>等介词搭配，构成固定短语</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> oneself 亲自</span><br><span class="line">of oneself 自动地</span><br><span class="line"><span class="keyword">in</span> oneself 本身固有</span><br><span class="line">by oneself 独自</span><br></pre></td></tr></table></figure>
-<h3 id="3-4-疑问代词"><a href="#3-4-疑问代词" class="headerlink" title="3.4 疑问代词"></a>3.4 疑问代词</h3><p>疑问代词有<code>who(主格), whom(宾语), whose(所有格), what(什么), which(哪个)</code>等，一般都放在句首，并在句中作为某一句子成分。</p>
+<h3 id="3-4-疑问代词">3.4 疑问代词</h3>
+<p>疑问代词有<code>who(主格), whom(宾语), whose(所有格), what(什么), which(哪个)</code>等，一般都放在句首，并在句中作为某一句子成分。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Who <span class="keyword">is</span> going to speak to us tomorrow.</span><br><span class="line">Whom are you talking about?</span><br><span class="line">Whose umbrella <span class="keyword">is</span> this?</span><br><span class="line">What did he say?</span><br><span class="line">Which <span class="keyword">is</span> yours, the blue pen <span class="keyword">or</span> the red one?</span><br></pre></td></tr></table></figure>
 <p>疑问代词可用于名词性从句中，用在名词性从句时，倒装句的语序需要改为陈述句语序。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Do you know what he has said. <span class="comment"># 你知道他说了什么吗</span></span><br><span class="line"><span class="comment"># 疑问代词what引导一个宾语从句，而他本身又在从句中做宾语</span></span><br><span class="line"></span><br><span class="line">Who will be <span class="keyword">in</span> charge of the work <span class="keyword">is</span> still <span class="keyword">not</span> decided. <span class="comment"># 谁负责这项工作现在还没有定</span></span><br><span class="line"><span class="comment"># 疑问代词who引导一个主语从句，它本身又在从句中做主语</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-5-不定代词"><a href="#3-5-不定代词" class="headerlink" title="3.5  不定代词"></a>3.5  不定代词</h3><p><strong>both, either, neither</strong></p>
-<p><code>both</code>意为“(两者)都”，<code>either</code>意味着“(两者中)任意一个”，<code>neither</code>意为”(两者)都不”，若要指三者或以上，<code>all</code>表示三者都，则用<code>any</code>表示三者中任何一个，<code>none</code>表示三者都不。</p>
+<h3 id="3-5-不定代词">3.5  不定代词</h3>
+<p><strong>both, either, neither</strong></p>
+<p><code>both</code>意为“(两者)都”，<code>either</code>意味着“(两者中)任意一个”，<code>neither</code>意为&quot;(两者)都不&quot;，若要指三者或以上，<code>all</code>表示三者都，则用<code>any</code>表示三者中任何一个，<code>none</code>表示三者都不。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">He has two sons, both of whom are clever.</span><br><span class="line">He has two sons, either of whom <span class="keyword">is</span> clever.</span><br><span class="line">He has two sons, neither of whom <span class="keyword">is</span> clever.</span><br></pre></td></tr></table></figure>
 <p><strong>each和every</strong></p>
 <p><code>each</code>可做代词、形容词、副词，<code>every</code>是形容词，仅具有形容词的功能。</p>
 <ul>
-<li><p><code>each</code>指两个或两个以上的人或事物中的“每个”，强调<code>one by one</code>的含义，<code>every</code>指三个或以上的人或事物的“全体”，与<code>all</code>意思相近。</p>
+<li>
+<p><code>each</code>指两个或两个以上的人或事物中的“每个”，强调<code>one by one</code>的含义，<code>every</code>指三个或以上的人或事物的“全体”，与<code>all</code>意思相近。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">He gave a book to each of his parents.</span><br><span class="line">Every worker was there <span class="keyword">and</span> each did his own work.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>each</code>作形容词时，修饰单数名词，接第三人称单数形式，做代词时，单独使用，接动词三单，放在复数名词和代词后做同位语时，谓语动词用复数形式。若<code>each of them</code>做主语，谓语动词可做单数形式也可用作复数形式。</p>
+<li>
+<p><code>each</code>作形容词时，修饰单数名词，接第三人称单数形式，做代词时，单独使用，接动词三单，放在复数名词和代词后做同位语时，谓语动词用复数形式。若<code>each of them</code>做主语，谓语动词可做单数形式也可用作复数形式。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Each man carries his own bag. <span class="comment"># 修饰单数名词</span></span><br><span class="line">We each have our own office. <span class="comment"># 做we的同位语</span></span><br><span class="line">Each carries his own bag. <span class="comment"># 代词</span></span><br><span class="line">Each of them are/<span class="keyword">is</span> here. <span class="comment"># 代词</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>every</code>与<code>not</code>连用，表示部分否定，<code>each</code>做代词一般不与否定句连用，在否定句中多用<code>neither, none, no</code>等代替。</p>
+<li>
+<p><code>every</code>与<code>not</code>连用，表示部分否定，<code>each</code>做代词一般不与否定句连用，在否定句中多用<code>neither, none, no</code>等代替。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Every man <span class="keyword">is</span> <span class="keyword">not</span> honest. <span class="comment"># 并不是每个人都很城市</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>each</code>的前面不可使用<code>almost, nearly, not</code>等词汇，但<code>every</code>之前可以采用。注意在否定句中一般不用<code>each</code>! <code>each of</code>这种表达要换成<code>none of</code></p>
+<li>
+<p><code>each</code>的前面不可使用<code>almost, nearly, not</code>等词汇，但<code>every</code>之前可以采用。注意在否定句中一般不用<code>each</code>! <code>each of</code>这种表达要换成<code>none of</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Almost every windows was broken. <span class="comment"># 几乎每一扇窗子都是破的 # 不可用almost each</span></span><br><span class="line">Not every child enjoyed the party. <span class="comment"># 并非所有孩子都喜欢这个派对</span></span><br><span class="line"><span class="literal">None</span> of the answers were correct. <span class="comment"># 所有答案都是不正确的(全盘否定)</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>every</code>总是修饰单数名词，后面接三单。代表<code>each</code>和<code>every</code>的物主代词可用<code>his</code>，也可用<code>their</code></p>
+<li>
+<p><code>every</code>总是修饰单数名词，后面接三单。代表<code>each</code>和<code>every</code>的物主代词可用<code>his</code>，也可用<code>their</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Each carried their/his own bag.</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -661,21 +823,26 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Would you mind buying me some candies on your way home?</span><br><span class="line">Will you give me some paper?</span><br><span class="line">She gained some <span class="number">25</span> pounds <span class="keyword">in</span> weight during pregnancy. <span class="comment"># 她在怀孕期间增重了大约25磅</span></span><br></pre></td></tr></table></figure>
 <p><strong>few, a few, little, a little</strong></p>
 <ul>
-<li><p><code>few / a few</code>用来修饰可数名词，<code>few</code>表示否定意义，意为“没有，几乎没有”,<code>a few</code>表示肯定意义，意为“有几个”</p>
+<li>
+<p><code>few / a few</code>用来修饰可数名词，<code>few</code>表示否定意义，意为“没有，几乎没有”,<code>a few</code>表示肯定意义，意为“有几个”</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">He has few friends here, so he freels lonely. <span class="comment"># 他在这没啥朋友，因此感到寂寞</span></span><br><span class="line">There are a few eggs <span class="keyword">in</span> the basket. <span class="comment"># 篮子里有几个鸡蛋</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>little / a little</code>用来修饰不可数名词，与<code>few</code>类似，<code>little</code>表示否定，<code>a little</code>表示肯定</p>
+<li>
+<p><code>little / a little</code>用来修饰不可数名词，与<code>few</code>类似，<code>little</code>表示否定，<code>a little</code>表示肯定</p>
 </li>
 </ul>
 <p><strong>another, the other, others</strong></p>
 <ul>
-<li><p><code>another</code>或<code>another+单数可数名词</code>泛指“另一个，再一个”，其复数形式时<code>others</code>或<code>other+复数名词</code>，泛指”别的人(或事物)”，常见的搭配有<code>one ... another</code>，<code>some ... others</code></p>
+<li>
+<p><code>another</code>或<code>another+单数可数名词</code>泛指“另一个，再一个”，其复数形式时<code>others</code>或<code>other+复数名词</code>，泛指&quot;别的人(或事物)&quot;，常见的搭配有<code>one ... another</code>，<code>some ... others</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">This glass <span class="keyword">is</span> broken. Give me another, please.</span><br><span class="line">There are may people <span class="keyword">in</span> the park. Some are walking, some are jogging, <span class="keyword">and</span> others are dancing.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>the other</code>特指两者中的一个，常有<code>one... the other ...</code>的搭配，复数形式为<code>the others</code></p>
+<li>
+<p><code>the other</code>特指两者中的一个，常有<code>one... the other ...</code>的搭配，复数形式为<code>the others</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">He has a book <span class="keyword">in</span> one hand, <span class="keyword">and</span> a pan <span class="keyword">in</span> the other.</span><br><span class="line">Of the four boys, one <span class="keyword">is</span> <span class="keyword">in</span> Grade One, the others are <span class="keyword">in</span> Grade Two.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>another</code>还可用于<code>another+基数词+复数名词</code>，如<code>another three cups</code></p>
+<li>
+<p><code>another</code>还可用于<code>another+基数词+复数名词</code>，如<code>another three cups</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与 other 和 another相关的习惯性用语：</span></span><br><span class="line">other than(除...之外)</span><br><span class="line">each other=one another(相互)</span><br><span class="line">one after another(一个接一个)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -688,73 +855,90 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">There <span class="keyword">is</span> nothing wrong <span class="keyword">with</span> the machine.</span><br></pre></td></tr></table></figure>
 <p><strong>替代词it, that, (the) one(s), those 的用法</strong></p>
 <ul>
-<li><p>替代词it, one, that辨析</p>
+<li>
+<p>替代词it, one, that辨析</p>
 <p><code>it/ one/ that</code>三者均可做代词，指代前面提到的名词，一般来说，<code>it</code>指代的是上文提到的同一物品， <code>one, that</code>则是同名异物。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I have lost my umbrella, I<span class="string">&#x27;m looking for it.</span></span><br><span class="line"><span class="string">I have lost my umbrella, I thing I must buy one.</span></span><br><span class="line"><span class="string">The umnbrella you bought is cheaper than that I bought.</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>one 与 ones的区别</p>
+<li>
+<p>one 与 ones的区别</p>
 <p><code>one=a/an+上文出现的名词</code>，复数用<code>ones</code>，主格与宾格相同</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">There are many school bags, I want to buy one.</span><br><span class="line">The only jokes I tell are the ones that I hear <span class="keyword">from</span> my friends.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>that 与 the + 名词</p>
+<li>
+<p>that 与 the + 名词</p>
 <p><code>that=the+上文出现的名词</code>，包括可数名词单数和不可数名词，指代复数名词时用<code>those</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The weather <span class="keyword">in</span> Nanjing <span class="keyword">is</span> hotter than that <span class="keyword">in</span> Beijing.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>代替单数可数名词时用<code>one</code>和<code>that</code>均可，一般泛指用<code>one</code>，特指用<code>that</code></p>
+<li>
+<p>代替单数可数名词时用<code>one</code>和<code>that</code>均可，一般泛指用<code>one</code>，特指用<code>that</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">I don<span class="string">&#x27;t have a computer, and I&#x27;</span>ve decided to buy one.</span><br><span class="line">The computer <span class="keyword">is</span> different <span class="keyword">from</span> that we are using.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>后跟<code>of</code>短语时，一般只能用<code>that(those)</code></p>
+<li>
+<p>后跟<code>of</code>短语时，一般只能用<code>that(those)</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The light of the sun <span class="keyword">is</span> much brighter than that of the moon.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>代替特指的可数名词时，若无前置定语，<code>that</code>或<code>the one</code>可以互相换用</p>
+<li>
+<p>代替特指的可数名词时，若无前置定语，<code>that</code>或<code>the one</code>可以互相换用</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This film <span class="keyword">is</span> more interesting than that (the one) we saw last night.</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>it非人称代词的用法</strong></p>
 <ul>
-<li><p>it表示时间、距离、价值、天气、气候及温度</p>
+<li>
+<p>it表示时间、距离、价值、天气、气候及温度</p>
 <p><code>it</code>在作非人称代词时，主要用于指时间、距离、价值、天气、气候及温度</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">It<span class="string">&#x27;s too late to go there now.</span></span><br><span class="line"><span class="string">It rained all day yesterday.</span></span><br><span class="line"><span class="string">It can get very hot here.</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>it引导的强调句型</p>
+<li>
+<p>it引导的强调句型</p>
 <p><code>it</code>引导的强调句的结构为：<code>It+be+被强调部分+that/who+其他</code>，此类强调句由普通句转换而来，用于强调句子的主语、宾语或状语。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Karl bought Mary a bicycle on her birthday.</span><br><span class="line"></span><br><span class="line">It was Karl that/who bought Mary a bicycle on her birthday.</span><br><span class="line">It was a bicycle that Karl bought Mary on her birthday.</span><br></pre></td></tr></table></figure>
-<p><code>not...until...</code>句型也可用于强调句型，其结构为：<code>It is not until + 被强调部分 + that + 其他</code>，表示“直到…才”</p>
+<p><code>not...until...</code>句型也可用于强调句型，其结构为：<code>It is not until + 被强调部分 + that + 其他</code>，表示“直到…才&quot;</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">It was <span class="keyword">not</span> until she took off her dark glasses that I realized she was a film star.</span><br><span class="line">=</span><br><span class="line">I didn<span class="string">&#x27;t realize she was a famous film star until she took off her dark glasses.</span></span><br><span class="line"><span class="string">=</span></span><br><span class="line"><span class="string">Not until she took off her dark glasses did I realize she was a film star.</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>it做形式主语</p>
+<li>
+<p>it做形式主语</p>
 <p>当不定式、动名词、从句等复杂成分用作句子主语时，为保持句子平衡，通常把真正的主语放在句末，在句首使用形式主语it`</p>
-<p><code>It + be + adj. + for/of sb. to do sth.</code>意为某人做某事，当形容词侧重描述某人的品质、特征时，需要使用<code>of</code>，当侧重动作本身则需要使用<code>for</code></p>
+<p><code>It + be + adj. + for/of sb. to do sth. </code>意为某人做某事，当形容词侧重描述某人的品质、特征时，需要使用<code>of</code>，当侧重动作本身则需要使用<code>for</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It<span class="string">&#x27;s very kind of you to help me with my English.</span></span><br><span class="line"><span class="string">It&#x27;</span>s very hard <span class="keyword">for</span> me to answer such a complicated question.</span><br></pre></td></tr></table></figure>
 <p><code>It takes sb. + 时间段 + to do sth.</code>意为“某人做某事花了…时间</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">It took me two months to finish writing this book.</span><br></pre></td></tr></table></figure>
-<p><code>It is said/reported/learned that</code>意为“据说/据报道/据悉…”</p>
+<p><code>It is said/reported/learned that</code>意为“据说/据报道/据悉…&quot;</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">It <span class="keyword">is</span> reported that a female worker <span class="keyword">in</span> the gas station put out the fire.</span><br></pre></td></tr></table></figure>
-<p><code>It is suggested/ordered that...</code>意为“据建议/有命令”主句中的过去分词是表示请求、建议、命令等词语时，<code>that</code>后面的从句要用虚拟语气，谓语部分采用”should+动词原形”的形式。</p>
+<p><code>It is suggested/ordered that...</code>意为“据建议/有命令”主句中的过去分词是表示请求、建议、命令等词语时，<code>that</code>后面的从句要用虚拟语气，谓语部分采用&quot;should+动词原形&quot;的形式。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">It is suggested that some measures (should) be taken to protect the special plant.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>it做形式宾语</p>
-<p>当不定式、动名词、从句等复杂成分用作宾语且后面跟上宾语补足语时，通常会使用形式宾语<code>it</code>代替，而将真正的宾语移至句末，其基本结构为“动词+ it + 宾语补足语 + 不定式(动名词或从句)”。常用于该结构的动词有：<code>think, believe, make, find, consider, feel, take</code></p>
+<li>
+<p>it做形式宾语</p>
+<p>当不定式、动名词、从句等复杂成分用作宾语且后面跟上宾语补足语时，通常会使用形式宾语<code>it</code>代替，而将真正的宾语移至句末，其基本结构为“动词+ it + 宾语补足语 + 不定式(动名词或从句)&quot;。常用于该结构的动词有：<code>think, believe, make, find, consider, feel, take</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I find it hard to translate this Chinese sentence into English.</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 某些表示“喜怒哀乐”的动词，如like, enjoy, love, hate等，往往不能直接跟宾语从句，需使用it作形式宾语</span></span><br><span class="line">I don<span class="string">&#x27;t like it that he&#x27;</span>s so lazy.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>it用于表示时间的固定句式</p>
+<li>
+<p>it用于表示时间的固定句式</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># It&#x27;s time for sth. 该做某事了</span></span><br><span class="line">It<span class="string">&#x27;s time for class.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># It&#x27;</span>s time to do sth. 到了该做某事的时间了</span><br><span class="line">It<span class="string">&#x27;s time to have lunch.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># It&#x27;</span>s time <span class="keyword">for</span> sb. to do sth. 某人该做某事了</span><br><span class="line">It<span class="string">&#x27;s time for us to go home.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># It&#x27;</span>s (about/high) time + that 从句. 意为<span class="string">&quot;某人该做某事了&quot;</span>,从句谓语动词需要用过去式，有时也用<span class="string">&quot;should+动词原形&quot;</span></span><br><span class="line">It<span class="string">&#x27;s high time you started thinking about saving for your old age.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># It&#x27;</span>s the first(second) time + that 从句. 意为“某人第一/第二次做某事<span class="string">&quot;</span></span><br><span class="line"><span class="string">It&#x27;s the first time that the boy has spoken to a foreigner.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># It&#x27;s + 时间段 + since 从句. 意为“自从...有一段时间了&quot;</span></span><br><span class="line">How time flies! It<span class="string">&#x27;s three months since I saw you last time.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># It&#x27;</span>s + 时间段 + before 从句,意为“过多长的时间才....<span class="string">&quot;&quot;</span></span><br><span class="line">It was several minutes before we realised what was happening.</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h2 id="四、数词"><a href="#四、数词" class="headerlink" title="四、数词"></a>四、数词</h2><h3 id="4-1-基数词"><a href="#4-1-基数词" class="headerlink" title="4.1  基数词"></a>4.1  基数词</h3><ul>
-<li><p>基数词的基本用法</p>
+<h2 id="四、数词">四、数词</h2>
+<h3 id="4-1-基数词">4.1  基数词</h3>
+<ul>
+<li>
+<p>基数词的基本用法</p>
 <p>用作基数词单位的<code>hundred, thousand, million, billion</code>通常不带复数词尾<code>-s</code>，但若用于表示数百、数千、数百万这样的泛指，则用复数。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">About two thousand people died <span class="keyword">in</span> the earthquake.</span><br><span class="line">Thousands of people go to the seaside every year.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>表示整十的基数词用法</p>
+<li>
+<p>表示整十的基数词用法</p>
 <p>表示整十的基数词用复数形式可以表示人的大概岁数或某个年龄</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">He <span class="keyword">is</span> <span class="keyword">in</span> his early twenties. <span class="comment"># 他的年纪在20出头</span></span><br><span class="line">This story took place <span class="keyword">in</span> the 1930s. <span class="comment"># 故事发生在20世纪30年代</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="4-2-序数词"><a href="#4-2-序数词" class="headerlink" title="4.2  序数词"></a>4.2  序数词</h3><ul>
-<li><p>序数词的构成</p>
+<h3 id="4-2-序数词">4.2  序数词</h3>
+<ul>
+<li>
+<p>序数词的构成</p>
 <p>大部分的序数词是由基数词加<code>-th</code>构成，如：<code>seven-seventh, ten-tenth</code></p>
 <p>以<code>-t</code>结尾的基数词只在词尾加<code>-h</code>, 如<code>eight-eighth</code></p>
 <p>以<code>-ve</code>结尾的基数词改<code>-ve</code>为<code>-f</code>再加<code>-th</code>，如<code>five-fifth, twelve-twelfth</code></p>
@@ -762,29 +946,36 @@
 <p>几十几的序数词只在个位数体现，如<code>twenty-one-twenty-first</code></p>
 <p>特殊的序数词：<code>one-first, two-second, three-third, nine-ninth</code></p>
 </li>
-<li><p>不定冠词a与序数词连用</p>
+<li>
+<p>不定冠词a与序数词连用</p>
 <p>序数词前加<code>a</code>表示“再一次”</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Can I <span class="keyword">try</span> a second time?</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>序数词用于分数中</p>
+<li>
+<p>序数词用于分数中</p>
 <p>描述分数时，分子用基数词，分母用序数词，分子大于1时，分母加<code>s</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>/<span class="number">5</span>: one fifth</span><br><span class="line"><span class="number">2</span>/<span class="number">3</span>: two thirds</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="4-3-倍数"><a href="#4-3-倍数" class="headerlink" title="4.3  倍数"></a>4.3  倍数</h3><p>英语中表达倍数常用下列句型：</p>
+<h3 id="4-3-倍数">4.3  倍数</h3>
+<p>英语中表达倍数常用下列句型：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A <span class="keyword">is</span> three/four ... times the size/height/length/width ... of B.</span><br><span class="line">A <span class="keyword">is</span> three/four ... times <span class="keyword">as</span> big/higt/long/wide ... <span class="keyword">as</span> B.</span><br><span class="line">A <span class="keyword">is</span> three/four ... times bigger/higher/longer/wider ... than B.</span><br><span class="line"></span><br><span class="line"><span class="meta">... </span>times + more + 名词 + than ...</span><br><span class="line"><span class="meta">... </span>times + <span class="keyword">as</span> many(much) + 名词 + <span class="keyword">as</span> ...</span><br><span class="line"><span class="meta">... </span>times + what 从句</span><br></pre></td></tr></table></figure>
 <p>用<code>times</code>表示倍数时，一般只限于三倍或三倍以上的倍数，表示两杯常用<code>twice</code>或<code>double</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The box <span class="keyword">is</span> one-third bigger than that one.</span><br><span class="line">This dictionary <span class="keyword">is</span> five times <span class="keyword">as</span> thick <span class="keyword">as</span> the one you borrowed <span class="keyword">from</span> the library.</span><br></pre></td></tr></table></figure>
-<h3 id="4-4-数词相关的主谓一致"><a href="#4-4-数词相关的主谓一致" class="headerlink" title="4.4  数词相关的主谓一致"></a>4.4  数词相关的主谓一致</h3><ul>
-<li><p>表示时间、路程、金钱或重量等重复名词的主谓一致</p>
+<h3 id="4-4-数词相关的主谓一致">4.4  数词相关的主谓一致</h3>
+<ul>
+<li>
+<p>表示时间、路程、金钱或重量等重复名词的主谓一致</p>
 <p>当名词词组中心词为表示时间、路程、金钱或重量等复数名词时，往往根据意义一致的原则，把这些复数名词看做一个整体，谓语采用单数形式。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Twenty dollars <span class="keyword">is</span> <span class="keyword">not</span> enough.</span><br><span class="line">Two months has passed before we realized that.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 但是数词单独用来表示人或物，谓语动词一般用复数</span></span><br><span class="line">Three were killed <span class="keyword">and</span> ten were missing <span class="keyword">in</span> that accident.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>分数、百分数中的主谓一致</p>
+<li>
+<p>分数、百分数中的主谓一致</p>
 <p>如果句子主语是”分数或百分数+of+名词或代词“的形式，谓语动词的单、复数形式取决于<code>of</code>介词短语中的名词或代词的数，如果<code>of</code>介词短语中的名词或代词为单数含义或不可数名词，则谓语动词用单数形式，如果<code>of</code>介词短语中名词或滴啊次为复数含义，谓语动词也用复数形式。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Two thirds of the earth <span class="keyword">is</span> convered <span class="keyword">with</span> water.</span><br><span class="line">Two thirds of the people present are against the plan.</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>“many a/more than one + 单数名词”结构主谓一致</p>
+<li>
+<p>&quot;many a/more than one + 单数名词&quot;结构主谓一致</p>
 <p>如果主语是该结构，尽管从意义上来看还是复数，但谓语动词仍用单数形式。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Many a student <span class="keyword">in</span> this <span class="keyword">class</span> <span class="title class_">has</span> expected <span class="keyword">as</span> long <span class="keyword">break</span>. <span class="comment"># 在班上的很多学生都期待能多休息一会</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -810,13 +1001,18 @@
       <title><![CDATA[Hello World]]></title>
       <url>/2022/06/23/hello-world/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 <p>asdasd</p>
 <p><img src="/2022/06/23/hello-world/1.jpg" alt="&quot;asd&quot;"></p>
