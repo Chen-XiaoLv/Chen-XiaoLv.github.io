@@ -3,7 +3,41 @@
   
     
     <entry>
-      <title></title>
+      <title><![CDATA[一些壁纸【Updating】]]></title>
+      <url>/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/</url>
+      <content type="html"><![CDATA[<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/1.jpg" alt="1"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/wallhaven-y8622k.jpg" alt="wallhaven-y8622k"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/20200718094952975.jpg" alt="20200718094952975"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/pexels-photo-5720781.jpeg" alt="pexels-photo-5720781"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/pexels-photo-12638731.jpeg" alt="pexels-photo-12638731"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/QQ%E6%88%AA%E5%9B%BE20220728192909.jpg" alt="QQ截图20220728192909"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/QQ%E6%88%AA%E5%9B%BE20220728192950.jpg" alt="QQ截图20220728192950"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/QQ%E6%88%AA%E5%9B%BE20220728193007.jpg" alt="QQ截图20220728193007"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/QQ%E6%88%AA%E5%9B%BE20220728193042.jpg" alt="QQ截图20220728193042"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/QQ%E6%88%AA%E5%9B%BE20220728193115.jpg" alt="QQ截图20220728193115"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/QQ%E6%88%AA%E5%9B%BE20220728193125.jpg" alt="QQ截图20220728193125"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/wallhaven-28mkg9.jpg" alt="wallhaven-28mkg9"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/wallhaven-l36zrl.png" alt="wallhaven-l36zrl"></p>
+<p><img src="/2022/07/29/%E4%B8%80%E4%BA%9B%E5%A3%81%E7%BA%B8%E3%80%90Updating%E3%80%91/wallhaven-x8r18l.png" alt="wallhaven-x8r18l"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 雕栏画栋 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 壁纸 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[图卷积神经网络(GCN)综述与实现]]></title>
       <url>/2022/07/29/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
       <content type="html"><![CDATA[<h1>图卷积神经网络(GCN)综述与实现（PyTorch版)</h1>
 <hr>
@@ -291,6 +325,24 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <p>本文中的部分图片参考自博客：<a href="https://blog.csdn.net/qq_43787862/article/details/113830925%EF%BC%8C%E9%9D%9E%E5%B8%B8%E6%84%9F%E8%B0%A2%E5%A4%A7%E4%BD%AC%E7%9A%84%E7%BF%BB%E8%AF%91%EF%BC%81">https://blog.csdn.net/qq_43787862/article/details/113830925，非常感谢大佬的翻译！</a></p>
 ]]></content>
       
+        <categories>
+            
+            <category> DL </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> 神经网络 </tag>
+            
+            <tag> 卷积神经网络 </tag>
+            
+            <tag> 图卷积 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -503,9 +555,11 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
             
             <tag> 深度学习 </tag>
             
-            <tag> 神经网络架构 </tag>
+            <tag> 神经网络 </tag>
             
             <tag> 图像处理 </tag>
+            
+            <tag> 卷积神经网络 </tag>
             
         </tags>
         
@@ -636,7 +690,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
             
             <tag> 深度学习 </tag>
             
-            <tag> 神经网络架构 </tag>
+            <tag> 神经网络 </tag>
             
         </tags>
         
