@@ -3,6 +3,395 @@
   
     
     <entry>
+      <title><![CDATA[Argparse模块常见用法]]></title>
+      <url>/2022/07/29/Argparse/</url>
+      <content type="html"><![CDATA[<h1>Argparse模块常见用法</h1>
+<hr>
+<p><code>argparse</code>模块是Python中用来读取命令行参数的模块，程序定义它需要的参数，然后<code>argparse</code>会自动从<code>sys.argv</code>中解析出这些参数。</p>
+<h2 id="一、创建一个解释器">一、创建一个解释器</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  argparse</span><br><span class="line"></span><br><span class="line">parser=argparse.ArgumentParser(description=<span class="string">&quot;Test&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>接着我们试试执行该程序，使用<code>-h</code>参数打印帮助文档：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">python main.py -h</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">usage: main.py [-h]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Test</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">optional arguments:</span></span><br><span class="line"><span class="string">  -h, --help  show this help message and exit</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><code>description</code>是在帮助文档解释参数前提供的文本信息。</p>
+<p>在官方文档中，给出了ArgumentParse对象的参数解释：</p>
+<ul>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#prog">prog</a> - 项目名称 (default: <code>os.path.basename(sys.argv[0])</code>)</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#usage">usage</a> - 描述程序用途的字符串（默认值：从添加到解析器的参数生成）</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#description">description</a> - 在参数帮助文档之前显示的文本（默认值：无）</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#epilog">epilog</a> - 在参数帮助文档之后显示的文本（默认值：无）</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#parents">parents</a> - 一个 <a href="https://docs.python.org/zh-cn/3/library/argparse.html#argparse.ArgumentParser"><code>ArgumentParser</code></a> 对象的列表，它们的参数也应包含在内</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#formatter-class">formatter_class</a> - 用于自定义帮助文档输出格式的类</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#prefix-chars">prefix_chars</a> - 可选参数的前缀字符集合（默认值： ‘-’）</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#fromfile-prefix-chars">fromfile_prefix_chars</a> - 当需要从文件中读取其他参数时，用于标识文件名的前缀字符集合（默认值： <code>None</code>）</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#argument-default">argument_default</a> - 参数的全局默认值（默认值： <code>None</code>）</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#conflict-handler">conflict_handler</a> - 解决冲突选项的策略（通常是不必要的）</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#add-help">add_help</a> - 为解析器添加一个 <code>-h/--help</code> 选项（默认值： <code>True</code>）</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#allow-abbrev">allow_abbrev</a> - 如果缩写是无歧义的，则允许缩写长选项 （默认值：<code>True</code>）</li>
+<li><a href="https://docs.python.org/zh-cn/3/library/argparse.html#exit-on-error">exit_on_error</a> - 决定当错误发生时是否让 ArgumentParser 附带错误信息退出。 (默认值: <code>True</code>)</li>
+</ul>
+<hr>
+<h2 id="二、为解释器添加参数">二、为解释器添加参数</h2>
+<p>此时需要使用parser的<code>add_argument</code>方法，以下是常见用法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(<span class="string">&#x27;-n&#x27;</span>,<span class="string">&#x27;--name&#x27;</span>,default=<span class="string">&quot;Torture&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;-u&#x27;</span>,<span class="string">&#x27;--university&#x27;</span>,default=<span class="string">&quot;UCAS&quot;</span>,<span class="built_in">help</span>=<span class="string">&quot;发生什么事了&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(parser.parse_args())</span><br></pre></td></tr></table></figure>
+<p>可以通过打印<code>parser.parse_args()</code>来查看当前的解释器参数状态：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Namespace(name=&#x27;Torture&#x27;, university=&#x27;UCAS&#x27;)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>执行命令<code>python main.py -h</code>查看帮助文档：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">usage: main.py [-h] [-n NAME] [-u UNIVERSITY]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Test</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">optional arguments:</span></span><br><span class="line"><span class="string">  -h, --help            show this help message and exit</span></span><br><span class="line"><span class="string">  -n NAME, --name NAME</span></span><br><span class="line"><span class="string">  -u UNIVERSITY, --university UNIVERSITY</span></span><br><span class="line"><span class="string">                        发生什么事了</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>我们发现，现在的参数有三个了。可以通过<code>-h</code>,<code>-n</code>,<code>-u</code>来调用这些参数。关于<code>add_argument</code>方法，第一个参数是用于存放名称或选项字符串的。前面一个参数<code>-u</code>是简化的输入，只有<code>-</code>前缀会被以<strong>选项</strong>进行识别，剩下的参数都会被假定为<strong>位置参数</strong>。所以，<code>--university</code>则是该参数的名称。当然通过<code>-u</code>或是<code>--university</code>都能往该参数中输入。</p>
+<p><code>default</code>是默认值参数，用于设定默认值的，而<code>help</code>则是在帮助文档中用来描述该参数。</p>
+<h4 id="指定参数动作">指定参数动作</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(<span class="string">&#x27;-f&#x27;</span>,<span class="string">&#x27;--foo&#x27;</span>,action=<span class="string">&#x27;store&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><code>action</code>用来指定动作，&quot;store&quot;是默认值，用于存储参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python main.py -f <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Namespace(foo=&#x27;10&#x27;)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>也可以指定存储布尔型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(<span class="string">&#x27;-f&#x27;</span>,<span class="string">&#x27;--foo&#x27;</span>,action=<span class="string">&#x27;store_true&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Namespace(foo=False)</span></span><br></pre></td></tr></table></figure>
+<p><code>append</code>是存储一个列表，并将每个参数的值追加：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(<span class="string">&#x27;-f&#x27;</span>,<span class="string">&#x27;--foo&#x27;</span>,action=<span class="string">&#x27;append&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(parser.parse_args(<span class="string">&#x27;-f 1 -f 2 -f 3&#x27;</span>.split()))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Namespace(foo=[&#x27;1&#x27;, &#x27;2&#x27;, &#x27;3&#x27;])</span></span><br></pre></td></tr></table></figure>
+<h4 id="指定版本信息">指定版本信息</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parser=argparse.ArgumentParser(description=<span class="string">&quot;Test&quot;</span>,prog=<span class="string">&quot;ARGPARSE&quot;</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">&#x27;-v&#x27;</span>,<span class="string">&#x27;--version&#x27;</span>,action=<span class="string">&#x27;version&#x27;</span>,version=<span class="string">&#x27;%(prog)s 2.0&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>通过指定<code>version</code>动作和<code>version</code>参数进行输出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python main.py -v</span><br><span class="line"></span><br><span class="line"><span class="comment">#  ARGPARSE 2.0</span></span><br></pre></td></tr></table></figure>
+<h4 id="指定参数类型">指定参数类型</h4>
+<p><code>type</code>参数可以指定类型，一般读进来的参数是字符串，此时可以通过<code>type</code>参数转换到需要的格式</p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">parser=argparse.ArgumentParser(description=<span class="string">&quot;Test&quot;</span>,prog=<span class="string">&quot;ARGPARSE&quot;</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">&quot;-d&quot;</span>,<span class="string">&#x27;--data&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">int</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;-f&#x27;</span>,<span class="string">&#x27;--float&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">float</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;-p&#x27;</span>,<span class="string">&#x27;--path&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">open</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;-c&#x27;</span>,<span class="string">&#x27;--code&#x27;</span>,<span class="built_in">type</span>=<span class="built_in">ord</span>)</span><br></pre></td></tr></table></figure>
+<p>输入参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py -d <span class="number">10</span> -f <span class="number">10.658</span> -p <span class="number">1.</span>txt -c <span class="string">&#x27;t&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>得到的结果为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Namespace(data=<span class="number">10</span>, <span class="built_in">float</span>=<span class="number">10.658</span>, path=&lt;_io.TextIOWrapper name=<span class="string">&#x27;1.txt&#x27;</span> mode=<span class="string">&#x27;r&#x27;</span> encoding=<span class="string">&#x27;cp936&#x27;</span>&gt;, code=<span class="number">116</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="指定参数数量">指定参数数量</h4>
+<p>通过<code>nargs</code>参数可以关联不同数目的命令行参数到单一的动作，支持的值有：</p>
+<p><strong>N</strong></p>
+<ul>
+<li>
+<p>整数，命令行中的<strong>N</strong>个参数会被聚集到一个列表中。</p>
+</li>
+<li>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(<span class="string">&quot;-d&quot;</span>,<span class="string">&#x27;--data&#x27;</span>,nargs=<span class="number">2</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;-f&#x27;</span>,<span class="string">&#x27;--float&#x27;</span>,nargs=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(parser.parse_args(<span class="string">&quot;-d 1 2 -f 1.0&quot;</span>.split()))</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Namespace(data=[<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>], <span class="built_in">float</span>=[<span class="string">&#x27;1.0&#x27;</span>])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>+</strong></p>
+<ul>
+<li>至少有一个值被加入参数</li>
+<li>没有的话会报错</li>
+</ul>
+<p><strong>?</strong></p>
+<ul>
+<li>至少有零个值被加入参数</li>
+<li>没有的话会调用default值</li>
+</ul>
+<hr>
+<h2 id="三、获取参数">三、获取参数</h2>
+<p>我们可以定义一个载入的函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">arg_parse</span>():</span><br><span class="line">    parser=argparse.ArgumentParser(description=<span class="string">&quot;Test&quot;</span>,prog=<span class="string">&quot;ARGPARSE&quot;</span>)</span><br><span class="line"></span><br><span class="line">    parser.add_argument(<span class="string">&quot;-d&quot;</span>,<span class="string">&#x27;--data&#x27;</span>,nargs=<span class="number">2</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-f&#x27;</span>,<span class="string">&#x27;--float&#x27;</span>,nargs=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> parser.parse_args()</span><br></pre></td></tr></table></figure>
+<p>注意将<code>parser</code>返回回来</p>
+<p>然后可以通过该函数获取参数信息了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arg=arg_parse()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;data :&quot;</span>,arg.data)</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">python main.py -d 1 2 -f 3.2</span></span><br><span class="line"><span class="string">data : [&#x27;1&#x27;, &#x27;2&#x27;]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>更多内容详见官方文档：<a href="https://docs.python.org/zh-cn/3/library/argparse.html#the-add-argument-method">https://docs.python.org/zh-cn/3/library/argparse.html#the-add-argument-method</a>.</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 安装教程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 插件工具 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Unit3 形容词和副词]]></title>
+      <url>/2022/07/29/Unit3/</url>
+      <content type="html"><![CDATA[<h1>Unit3 形容词和副词</h1>
+<hr>
+<p>形容词是用来修饰名词，说明事物或人的性质、状态或特征的词，一般在句中主要充当定语或表语，还能做补语和状语。</p>
+<p>副词主要用来修饰动词、形容词、副词或其他结构的词。一般做状语。</p>
+<hr>
+<h2 id="一、形容词">一、形容词</h2>
+<blockquote>
+<p>表语：说明主语的身份、性质、品性、特征和状态，例如：He is [a student].</p>
+<p>定语：修饰、限定、说明名词或代词的性质、品质、特征，例如：It’s a [bad] manner.</p>
+</blockquote>
+<h3 id="1-1-作定语时的基本用法">1.1  作定语时的基本用法</h3>
+<p>单个形容词作定语，一般放在所修饰的名词之前。形容词短语做定语时，需放在所修饰的名词之后。</p>
+<p>而在修饰复合不定代词时(如<code>somebody, someone, something</code>等)则必须放在不定代词后面。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">He read an interesting storybook this morning.</span><br><span class="line">I know an actor suitable <span class="keyword">for</span> hte part <span class="keyword">in</span> the play.</span><br><span class="line">I would like something cheaper.</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-多个形容词修饰名词的顺序">1.2  多个形容词修饰名词的顺序</h3>
+<ol>
+<li>冠词、代词</li>
+<li>序数词、基数词</li>
+<li>一般描绘性形容词</li>
+<li>大小、长短、形状</li>
+<li>年龄、新旧</li>
+<li>颜色</li>
+<li>国籍、出处</li>
+<li>材料</li>
+<li>用途、类别</li>
+</ol>
+<p><strong>冠代</strong>山下，有一位<strong>数</strong>理<strong>基</strong>地班的学生在画画，宣纸上他将山的外在<strong>轮廓</strong>绘制了下来。此时，一位白发翩然的<strong>老</strong>者出现在他的身后，<strong>新与旧</strong>的时代似乎与此交汇。老人看学生的画精妙绝伦，可惜没有<strong>色彩</strong>，便上前询问学生的<strong>国籍</strong>和<strong>出处</strong>。没想到，这位学生竟然是个间谍，身上所有的<strong>材料</strong>都是妙妙工具！这些喵喵工具按照<strong>类别</strong>，各有其<strong>用途</strong>。</p>
+<h3 id="1-3-同一形容词做前置定语和后置定语的区别">1.3  同一形容词做前置定语和后置定语的区别</h3>
+<p>部分形容词做前置和做后置完全不同</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">形容词</th>
+<th style="text-align:center">前置含义</th>
+<th style="text-align:center">后置含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">absent</td>
+<td style="text-align:center">茫然的，恍惚的</td>
+<td style="text-align:center">缺席的</td>
+</tr>
+<tr>
+<td style="text-align:center">present</td>
+<td style="text-align:center">现在的</td>
+<td style="text-align:center">出席的</td>
+</tr>
+<tr>
+<td style="text-align:center">concerned</td>
+<td style="text-align:center">忧心忡忡的</td>
+<td style="text-align:center">有关的</td>
+</tr>
+<tr>
+<td style="text-align:center">responsible</td>
+<td style="text-align:center">可靠的</td>
+<td style="text-align:center">应负责的</td>
+</tr>
+<tr>
+<td style="text-align:center">involved</td>
+<td style="text-align:center">复杂难懂的</td>
+<td style="text-align:center">相关的，有关的</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I am an accountant. It&#x27;s a responsible position, I suppose, but not very exciting.</span><br><span class="line"># 我是个会计，虽然是责任重大的职位，但并不有趣</span><br><span class="line">The man responsible for finding the volunteers is Dr.Charles Weber.</span><br><span class="line"># 负责寻找志愿者的人是查尔斯韦伯</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-以-a-开头的形容词">1.4  以**a-**开头的形容词</h3>
+<p>这些词只能做表语，不做前置定语，可以做后置定语，相当于一个定语从句</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">afraid</span><br><span class="line">asleep</span><br><span class="line">alike</span><br><span class="line">alive</span><br><span class="line">awake</span><br><span class="line">alone</span><br><span class="line">ashamed</span><br><span class="line"></span><br><span class="line">Time alone will show who was right.</span><br><span class="line"><span class="comment"># 唯独时间能证明谁是对的</span></span><br><span class="line">alone相当于 which/that <span class="keyword">is</span> alone</span><br></pre></td></tr></table></figure>
+<h3 id="1-5-形容词或形容词短语作状语">1.5  形容词或形容词短语作状语</h3>
+<p>这种情况一般用于意义上的增补，位置十分灵活。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Crusoe stared at the footprint, full of fear.</span><br><span class="line">Tom, very ill, sent <span class="keyword">for</span> a doctor.</span><br><span class="line">Old <span class="keyword">or</span> young, they <span class="built_in">all</span> like these cartoon pictures.</span><br></pre></td></tr></table></figure>
+<h3 id="1-6-以-ing、-ed结尾的形容词">1.6  以-ing、-ed结尾的形容词</h3>
+<p>此类形容词由动词变化而来，<strong>-ing</strong>一般修饰物，表示&quot;令人…的&quot;，常做定语；<strong>-ed</strong>一般修饰人，表示&quot;(人)…的&quot;，常做表语。<strong>-ed</strong>分词表示被动含义，而**-ing**表示主动含义。</p>
+<h2 id="二、副词">二、副词</h2>
+<h3 id="2-1-形容词转化为副词">2.1  形容词转化为副词</h3>
+<p><strong>口诀</strong>：“元e”去“e”加，“辅y”改i加，“le”结尾改e为y</p>
+<ol>
+<li>一般情况下直接加<strong>ly</strong>7</li>
+<li>元音+<strong>e</strong>结尾一般去掉<strong>e</strong>再加<strong>ly</strong>，辅音+<strong>e</strong>直接加<strong>ly</strong></li>
+<li>辅音+<strong>y</strong>结尾需要改成<strong>i</strong>(同化规则)，要求<strong>y</strong>读音为/i/，而当<strong>y</strong>读音为/ai/时不需要改</li>
+<li>辅音+<strong>le</strong>去<strong>e</strong>加<strong>y</strong></li>
+<li>以<strong>ic</strong>结尾的加<strong>ally</strong></li>
+<li>以<strong>ll</strong>结尾只需加<strong>y</strong></li>
+</ol>
+<p>有些形容词有两种副词，一种形副同形，一种加<strong>ly</strong>，加<strong>ly</strong>往往有另外的意思：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Type 1</th>
+<th style="text-align:center">Type 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">hard 刻苦地，猛烈地，困难地</td>
+<td style="text-align:center">hardly 几乎不</td>
+</tr>
+<tr>
+<td style="text-align:center">free 免费地</td>
+<td style="text-align:center">freely 自由地</td>
+</tr>
+<tr>
+<td style="text-align:center">late 晚，迟</td>
+<td style="text-align:center">lately 最近</td>
+</tr>
+<tr>
+<td style="text-align:center">high 高高地</td>
+<td style="text-align:center">highly 高度地</td>
+</tr>
+<tr>
+<td style="text-align:center">close 接近地</td>
+<td style="text-align:center">closely 仔细地</td>
+</tr>
+<tr>
+<td style="text-align:center">direct 径直地、直接地</td>
+<td style="text-align:center">directly (抽象)立刻马上</td>
+</tr>
+<tr>
+<td style="text-align:center">deep 深度(只能修饰动词，多表示空间)</td>
+<td style="text-align:center">deeply (抽象，可修饰多种，多表示情感0s)</td>
+</tr>
+<tr>
+<td style="text-align:center">wide 充分地，完全地</td>
+<td style="text-align:center">widely 广泛地</td>
+</tr>
+</tbody>
+</table>
+<p>wide awake 完全清醒</p>
+<p>当然，有些词是以<strong>ly</strong>结尾的，但本质上是形容词</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">likely <span class="comment"># 可能的</span></span><br><span class="line">costly <span class="comment"># 花费大的</span></span><br><span class="line">orderly <span class="comment"># 整齐的</span></span><br><span class="line">deadly <span class="comment"># 致命的</span></span><br><span class="line">ugly <span class="comment"># 丑的</span></span><br><span class="line">lively <span class="comment"># 活泼的</span></span><br><span class="line">lonely <span class="comment"># 孤独的，寂寞的</span></span><br><span class="line">friendly <span class="comment"># 友好的</span></span><br><span class="line">daily <span class="comment"># 每天的</span></span><br><span class="line">weekly <span class="comment"># 每周的</span></span><br><span class="line">monthly <span class="comment"># 每月的</span></span><br><span class="line">yearly <span class="comment"># 每年的</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-连接副词">2.2  连接副词</h3>
+<p>常见的连接副词有：</p>
+<ul>
+<li>therefore</li>
+<li>besides</li>
+<li>otherwise</li>
+<li>however</li>
+<li>moreover</li>
+<li>still</li>
+<li>thus</li>
+<li>meanwhile</li>
+<li>nevertheless</li>
+</ul>
+<h3 id="2-3-评注性副词">2.3  评注性副词</h3>
+<p>用来修饰整个句子，通常表示说话人的态度和看问题的角度。</p>
+<ul>
+<li>表示说话人观点的副词
+<ul>
+<li>clearly</li>
+<li>certainly</li>
+<li>surely</li>
+<li>fortunately</li>
+<li>hopefully</li>
+<li>naturally</li>
+<li>obviously</li>
+<li>possibly</li>
+<li>strangely</li>
+<li>surprisingly</li>
+<li>undoubtedly</li>
+</ul>
+</li>
+<li>表示人说话的角度
+<ul>
+<li>briefly</li>
+<li>exactly</li>
+<li>frankly</li>
+<li>generally</li>
+<li>honestly</li>
+<li>roughly</li>
+<li>seriously</li>
+</ul>
+</li>
+<li>表示看问题的角度
+<ul>
+<li>economically</li>
+<li>historically</li>
+<li>physically</li>
+<li>scientifically</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="三、-比较级">三、 比较级</h2>
+<h3 id="3-1-比较级和最高级变化规则">3.1  比较级和最高级变化规则</h3>
+<h4 id="3-1-1-直接加-er-est">3.1.1  直接加-er, -est</h4>
+<p>一般单音节词和少数以-er, -ow 结尾的双音节词，比较级加-er， 最高级加-est</p>
+<h4 id="3-1-2-加-r-st">3.1.2  加-r, -st</h4>
+<p>以不发音<code>e</code>结尾的单音节词，比较级直接加<code>r</code>，最高级加<code>st</code></p>
+<h4 id="3-1-3-双写末尾辅音加-er，-est">3.1.3  双写末尾辅音加<code>-er</code>，<code>-est</code></h4>
+<p>重读闭音节(辅音+元音+辅音)中，先双写末尾的辅音字母，比较级加<code>-er</code>，最高级加<code>-est</code></p>
+<h4 id="3-1-4-把y边i后再加er-est">3.1.4  把y边i后再加er,est</h4>
+<p>辅音字母+y结尾的双音节，需要把y改成i</p>
+<h4 id="3-1-5-双音节或多音节">3.1.5  双音节或多音节</h4>
+<p>需要在前面加上most或more</p>
+<h4 id="3-1-6-不规则情况">3.1.6  不规则情况</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">原形</th>
+<th style="text-align:center">比较级</th>
+<th style="text-align:center">最高级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">good/well</td>
+<td style="text-align:center">better</td>
+<td style="text-align:center">best</td>
+</tr>
+<tr>
+<td style="text-align:center">many/much</td>
+<td style="text-align:center">more</td>
+<td style="text-align:center">most</td>
+</tr>
+<tr>
+<td style="text-align:center">old</td>
+<td style="text-align:center">older/elder</td>
+<td style="text-align:center">oldest/eldest</td>
+</tr>
+<tr>
+<td style="text-align:center">little</td>
+<td style="text-align:center">less</td>
+<td style="text-align:center">least</td>
+</tr>
+<tr>
+<td style="text-align:center">bad/ill/badly</td>
+<td style="text-align:center">worse</td>
+<td style="text-align:center">worst</td>
+</tr>
+<tr>
+<td style="text-align:center">far</td>
+<td style="text-align:center">further/father</td>
+<td style="text-align:center">furthest/farthest</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-2-形容词、副词比较级和最高级的用法">3.2  形容词、副词比较级和最高级的用法</h2>
+<h4 id="3-2-1-一般用法">3.2.1  一般用法</h4>
+<ul>
+<li>
+<p>A+谓语动词+形容词/副词比较级+than+B</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">This tree is taller than that one.</span><br><span class="line">Gary runs faster than Jack.</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>最高级还能表示三个或是以上</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tome <span class="keyword">is</span> the smartest of the three boys.</span><br></pre></td></tr></table></figure>
+<p>当然了，在含有连词<strong>than</strong>的比较级中，前后的比较对象必须是一个范畴的，且在比较级前面可以使用<code>a bit, a little, rather than, much, far, by far, many, a lot, lots, a great deal, any, still, even</code>。而且<code>very</code>和<code>quite</code>一般只能修饰原级。</p>
+</li>
+</ul>
+<h4 id="3-2-2-比较级-and-比较级或more-and-more-原级">3.2.2  比较级+and+比较级或more and more+原级</h4>
+<p>&quot;比较级+and+比较级&quot;或者&quot;more and more + 原级&quot;表示越来越</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It becomes warmer <span class="keyword">and</span> warmer when spring comes.</span><br><span class="line">Our school <span class="keyword">is</span> becoming more <span class="keyword">and</span> more beautiful.</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-3-“the-比较级…-the-比较级”">3.2.3  “the+比较级…,the+比较级”</h4>
+<p>表示越来越</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The harder you work, the greater progress you will make.</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-4-表示倍数的比较级用法">3.2.4  表示倍数的比较级用法</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A <span class="keyword">is</span> ... times the size/height/length/width of B. <span class="comment">#  X times the 名词</span></span><br><span class="line">A <span class="keyword">is</span> ... times <span class="keyword">as</span> big/high/long/wide/large <span class="keyword">as</span> B. <span class="comment"># X times as 形容词 as </span></span><br><span class="line">A <span class="keyword">is</span> ... times larger/higher/lnger/wider than B. <span class="comment"># X times 比较级 than</span></span><br></pre></td></tr></table></figure>
+<p>当然，as…, as…作为习惯用语，也有特定的含义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">as</span> long <span class="keyword">as</span> <span class="comment"># 只要</span></span><br><span class="line"><span class="keyword">as</span> soon <span class="keyword">as</span> <span class="comment"># 一...就...</span></span><br><span class="line"><span class="keyword">as</span> far <span class="keyword">as</span> <span class="comment"># 远到...,据...</span></span><br><span class="line"><span class="keyword">as</span> well <span class="keyword">as</span> <span class="comment"># 和，也</span></span><br><span class="line"><span class="keyword">as</span> good <span class="keyword">as</span> <span class="comment"># 几乎，实际上</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 寒窗砺兵 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[图卷积神经网络(GCN)综述与实现]]></title>
       <url>/2022/07/29/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
       <content type="html"><![CDATA[<h1>图卷积神经网络(GCN)综述与实现（PyTorch版)</h1>
@@ -1874,7 +2263,7 @@ V_{\bigtriangledown W_2}=\beta V_{\bigtriangledown W_1}+(1-\beta){\bigtriangledo
       
         <categories>
             
-            <category> 黄金屋 </category>
+            <category> 寒窗砺兵 </category>
             
         </categories>
         
@@ -1919,7 +2308,7 @@ V_{\bigtriangledown W_2}=\beta V_{\bigtriangledown W_1}+(1-\beta){\bigtriangledo
       
         <categories>
             
-            <category> 黄金屋 </category>
+            <category> 算法 </category>
             
         </categories>
         
@@ -2201,7 +2590,7 @@ V_{\bigtriangledown W_2}=\beta V_{\bigtriangledown W_1}+(1-\beta){\bigtriangledo
       
         <categories>
             
-            <category> 黄金屋 </category>
+            <category> 寒窗砺兵 </category>
             
         </categories>
         
@@ -2887,7 +3276,7 @@ the skills of the workers who have been well trained.
       
         <categories>
             
-            <category> 黄金屋 </category>
+            <category> 寒窗砺兵 </category>
             
         </categories>
         
