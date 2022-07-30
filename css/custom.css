@@ -1,5 +1,6 @@
-/* body {
-    cursor: url(https://bu.dusays.com/2022/05/17/6283c365d20dd.png), auto;
+
+body {
+    cursor: url(../img/QQ截图20220731015942112.png), auto;
 }
 
 .hide-block>.hide-button.open,
@@ -10,9 +11,9 @@
 a,
 button,
 img {
-    cursor: url(https://bu.dusays.com/2022/05/17/6283c376afcfc.png), auto
-} */
-
+    cursor: url(../img/QQ截图202207310159421.png), auto
+}
+  
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px
@@ -118,3 +119,4 @@ body,
 figure.highlight pre .addition {
     color: #00bf03 !important;
 }
+
