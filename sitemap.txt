@@ -1,4 +1,5 @@
 http://example.com/2022/08/01/%E5%BF%AB%E9%80%9F%E5%9B%BE%E5%83%8F%E9%A2%9C%E8%89%B2%E9%A3%8E%E6%A0%BC%E8%BF%81%E7%A7%BB/
+http://example.com/2022/07/28/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%20%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8EPyTorch/
 http://example.com/2022/07/29/Unit3/
 http://example.com/2022/06/24/Unit2%20%E4%BB%8B%E8%AF%8D%E5%92%8C%E5%B9%B6%E5%88%97%E8%BF%9E%E8%AF%8D/
 http://example.com/2022/06/24/Unit1%20%20%E5%86%A0%E8%AF%8D%E3%80%81%E5%90%8D%E8%AF%8D%E3%80%81%E4%BB%A3%E8%AF%8D%E5%92%8C%E6%95%B0%E8%AF%8D/
@@ -13,7 +14,6 @@ http://example.com/2022/08/01/%E8%8B%B1%E8%AF%AD%E5%B8%B8%E8%A7%81%E5%89%8D%E7%B
 http://example.com/2022/07/29/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/
 http://example.com/2022/07/29/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E5%BA%93PyG/
 http://example.com/2022/08/01/%E7%82%B9%E4%BA%91%E6%95%B0%E6%8D%AE%E7%AE%80%E4%BB%8B/
-http://example.com/2022/07/28/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%20%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8EPyTorch/
 http://example.com/2022/07/28/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%20%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/
 http://example.com/2022/07/28/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%20%E5%9F%BA%E4%BA%8EPyTorch%E7%9A%84%E7%9B%B8%E5%85%B3%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7/
 http://example.com/2022/07/28/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%20DNN%20%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/
@@ -30,12 +30,12 @@ http://example.com/bangumis/index.html
 http://example.com/categories/index.html
 http://example.com/
 http://example.com/tags/%E6%8F%92%E4%BB%B6%E5%B7%A5%E5%85%B7/
-http://example.com/tags/%E7%AE%97%E6%B3%95/
-http://example.com/tags/%E6%95%B0%E5%AD%A6/
 http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/
 http://example.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/
 http://example.com/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/
 http://example.com/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/
+http://example.com/tags/%E7%AE%97%E6%B3%95/
+http://example.com/tags/%E6%95%B0%E5%AD%A6/
 http://example.com/tags/%E7%82%B9%E4%BA%91/
 http://example.com/tags/%E8%8B%B1%E8%AF%AD/
 http://example.com/tags/hexo/
