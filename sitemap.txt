@@ -1,3 +1,4 @@
+http://example.com/Diary/TimePoints.html
 http://example.com/2022/08/03/%E8%AE%B0%E5%BF%86%E5%AD%A6%E5%85%A5%E9%97%A8/
 http://example.com/2022/06/23/hello-world/
 http://example.com/2022/08/01/%E5%BF%AB%E9%80%9F%E5%9B%BE%E5%83%8F%E9%A2%9C%E8%89%B2%E9%A3%8E%E6%A0%BC%E8%BF%81%E7%A7%BB/
@@ -22,7 +23,6 @@ http://example.com/2022/07/28/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%20PyTorch%E5%85%A5%
 http://example.com/2022/07/28/%E3%80%90%E6%95%B0%E8%AE%BA%E3%80%91%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/
 http://example.com/2022/08/01/%E5%8F%A4%E8%AF%97/
 http://example.com/Diary/20220730.html
-http://example.com/Diary/TimePoints.html
 http://example.com/Diary/index.html
 http://example.com/charts/index.html
 http://example.com/My-Blog/index.html
