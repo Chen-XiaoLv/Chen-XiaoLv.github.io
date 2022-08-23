@@ -1,0 +1,604 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Open3D点云处理 | 岁染</title><meta name="keywords" content="点云,Open3D"><meta name="author" content="Kagura,651421775@qq.com"><meta name="copyright" content="Kagura"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Open3D点云处理  一、Open3D Open3D is an open-source library that supports rapid development of software that deals with 3D data. The Open3D frontend exposes a set of carefully selected data structures and a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Open3D点云处理">
+<meta property="og:url" content="http://example.com/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/index.html">
+<meta property="og:site_name" content="岁染">
+<meta property="og:description" content="Open3D点云处理  一、Open3D Open3D is an open-source library that supports rapid development of software that deals with 3D data. The Open3D frontend exposes a set of carefully selected data structures and a">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png">
+<meta property="article:published_time" content="2022-08-01T04:46:21.000Z">
+<meta property="article:modified_time" content="2022-08-10T15:22:57.225Z">
+<meta property="article:author" content="Kagura">
+<meta property="article:tag" content="点云">
+<meta property="article:tag" content="Open3D">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png"><link rel="shortcut icon" href="/img/3d.png"><link rel="canonical" href="http://example.com/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Open3D点云处理',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-10 23:22:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><script src="https://npm.elemecdn.com/echarts@4.7.0/dist/echarts.min.js"></script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><style type="text/css">#toggle-sidebar {left:100px}</style><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card/lib/categorybar.css"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="岁染" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.jingyeqian.com/i/2021/03/21/6375192146687954551533103.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-music"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/Diary"><i class="fa-fw fas fa-images"></i><span> 日记</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Todo-List"><i class="fa-fw fas fa-bell"></i><span> Todo-List</span></a></li><li><a class="site-page child" href="/PDF"><i class="fa-fw fas fa-link"></i><span> PDF</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">岁染</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-music"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/Diary"><i class="fa-fw fas fa-images"></i><span> 日记</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Todo-List"><i class="fa-fw fas fa-bell"></i><span> Todo-List</span></a></li><li><a class="site-page child" href="/PDF"><i class="fa-fw fas fa-link"></i><span> PDF</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Open3D点云处理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-01T04:46:21.000Z" title="发表于 2022-08-01 12:46:21">2022-08-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-10T15:22:57.225Z" title="更新于 2022-08-10 23:22:57">2022-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%B8%8D%E6%83%B3%E5%AD%A6%E8%BE%A3/">不想学辣</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Open3D点云处理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>Open3D点云处理</h1>
+<hr>
+<h2 id="一、Open3D">一、Open3D</h2>
+<p><em>Open3D is an open-source library that supports rapid development of software that deals with 3D data. The Open3D frontend exposes a set of carefully selected data structures and algorithms in both C++ and Python. The backend is highly optimized and is set up for parallelization.</em></p>
+<p>Open3D是一个支持3D数据处理软件快速开发的开源库，在前端提供了一组精挑细选的C++和Python数据结构与算法。并且在后端高度优化且支持并行化。</p>
+<p>其<strong>核心要素</strong>包括：</p>
+<ul>
+<li>3D数据结构</li>
+<li>3D数据处理算法</li>
+<li>场景重建</li>
+<li>3D可视化</li>
+<li>3D机器学习等</li>
+</ul>
+<p><strong>Python版快速安装</strong></p>
+<p>需要的环境为：</p>
+<ul>
+<li>OS：Ubuntu 18.04+、macOS 10.15+、Windows 10(64-bit)</li>
+<li>Python: 3.6-3.9</li>
+<li>Pre-packages: <code>pip</code> and <code>conda</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install</span></span><br><span class="line">pip install open3d</span><br><span class="line"></span><br><span class="line"><span class="comment"># Verify installation</span></span><br><span class="line">python -c <span class="string">&quot;import open3d as o3d; print(o3d.__version__)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Python API</span></span><br><span class="line">python -c <span class="string">&quot;import open3d as o3d; \</span></span><br><span class="line"><span class="string">           mesh = o3d.geometry.TriangleMesh.create_sphere(); \</span></span><br><span class="line"><span class="string">           mesh.compute_vertex_normals(); \</span></span><br><span class="line"><span class="string">           o3d.visualization.draw(mesh, raw_mode=True)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Open3D CLI</span></span><br><span class="line">open3d example visualization/draw</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="二、Open3D点云加载与显示">二、Open3D点云加载与显示</h2>
+<h3 id="2-1-点云读取">2.1 点云读取</h3>
+<p>Open3D提供了直接从文件中读取点云数据的API：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open3d.io.read_point_cloud(filename, <span class="built_in">format</span>=<span class="string">&#x27;auto&#x27;</span>, remove_nan_points=<span class="literal">False</span>, remove_infinite_points=<span class="literal">False</span>, print_progress=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>filename</strong> (<em>str</em>) – 文件路径</li>
+<li><strong>format</strong> (<em>str</em>,<em>optional</em>,<em>default=‘auto’</em>) – 文件的格式，默认是<code>auto</code>，将影响如何读取文件</li>
+<li><strong>remove_nan_points</strong> (<em>bool</em>*,* <em>optional</em>*,* <em>default=False</em>) – 是否移除值为<code>nan</code>的点</li>
+<li><strong>remove_infinite_points</strong> (<em>bool</em>*,* <em>optional</em>*,* <em>default=False</em>) – 是否移除值为<code>inf</code>的点</li>
+<li><strong>print_progress</strong> (<em>bool</em>*,* <em>optional</em>*,* <em>default=False</em>) – 当该值为True时，将会在可视化时出现一个过程条</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li>open3d.geometry.PointCloud对象</li>
+</ul>
+<p>其中，<code>format</code>参数的可选参数为：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">xyz</td>
+<td style="text-align:center">每一行包含[x,y,z]</td>
+</tr>
+<tr>
+<td style="text-align:center">xyzn</td>
+<td style="text-align:center">每一行包含[x,y,z,nx,ny,nz]</td>
+</tr>
+<tr>
+<td style="text-align:center">xyzrgb</td>
+<td style="text-align:center">每一行包括[x,y,z,r,g,b] rgb为[0,1]之间的float类型</td>
+</tr>
+<tr>
+<td style="text-align:center">pts</td>
+<td style="text-align:center">第一行表示点数，之后每行包括[x,y,z,i,r,g,b] rgb为unit8类型</td>
+</tr>
+<tr>
+<td style="text-align:center">ply</td>
+<td style="text-align:center">ply文件</td>
+</tr>
+<tr>
+<td style="text-align:center">pcd</td>
+<td style="text-align:center">pcd文件</td>
+</tr>
+</tbody>
+</table>
+<p>我们来尝试读取一下数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> open3d <span class="keyword">as</span> o3d</span><br><span class="line"></span><br><span class="line">pcd=o3d.io.read_point_cloud(<span class="string">r&quot;Cloud.pcd&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(pcd)</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">PointCloud with 2001009 points.</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># 此时点云数据已经被读入了</span></span><br></pre></td></tr></table></figure>
+<p>当然，对于某些格式稀奇古怪的，我们也可以通过转成<code>ndarray</code>然后再进行读取：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> open3d <span class="keyword">as</span> o3d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取到ndarray</span></span><br><span class="line">data=np.genfromtxt(<span class="string">r&#x27;modelnet40_normal_resampled\airplane\airplane_0001.txt&#x27;</span>,delimiter=<span class="string">&quot;,&quot;</span>)</span><br><span class="line"><span class="comment"># 创建PointCloud类</span></span><br><span class="line">pcd=o3d.geometry.PointCloud()</span><br><span class="line">pcd.points=o3d.utility.Vector3dVector(data[:,:<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(pcd)</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">PointCloud with 10000 points.</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>关于PointCloud的属性，主要有以下四类：</p>
+<ul>
+<li>colors: 颜色信息，在可视化时能为几何体赋予视觉信息</li>
+<li>covariances: 协方差</li>
+<li>normal: 法向量</li>
+<li>points: 位置信息</li>
+</ul>
+<h3 id="2-2-点云可视化">2.2  点云可视化</h3>
+<p>在Open3D中，点云可视化其中之一的API为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">draw_geometries(geometry_list, window_name=’Open3D’, width=<span class="number">1920</span>, height=<span class="number">1080</span>, left=<span class="number">50</span>, top=<span class="number">50</span>, point_show_normal=<span class="literal">False</span>, mesh_show_wireframe=<span class="literal">False</span>, mesh_show_back_face=<span class="literal">False</span>, lookat, up, front, zoom)</span><br></pre></td></tr></table></figure>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>geometry_list</strong> (List[open3d.geometry.Geometry]) – 需要可视化的几何体列表.</li>
+<li><strong>window_name</strong> (<em>str</em>, <em>optional</em>, <em>default=‘Open3D’</em>) – 窗口名称</li>
+<li><strong>width</strong> (<em>int</em>, <em>optional</em>, <em>default=1920</em>) – 窗口宽度</li>
+<li><strong>height</strong> (<em>int</em>, <em>optional</em>, <em>default=1080</em>) – 窗口高度</li>
+<li><strong>left</strong> (<em>int</em>, <em>optional</em>, <em>default=50</em>) – 窗口左边界</li>
+<li><strong>top</strong> (<em>int</em>, <em>optional</em>, <em>default=50</em>) – 窗口顶部边界</li>
+<li><strong>point_show_normal</strong> (<em>bool</em>, <em>optional</em>, <em>default=False</em>) – 是否展示法向量</li>
+<li><strong>mesh_show_wireframe</strong> (<em>bool</em>, <em>optional</em>, <em>default=False</em>) – 是否可视化网格线框</li>
+<li><strong>mesh_show_back_face</strong> (<em>bool</em>, <em>optional,</em> <em>default=False</em>) – 同时可视化格网三角形背部</li>
+<li>**lookat ** (<em>numpy.ndarray[float64[3,1]]</em>) – 相机注视向量</li>
+<li><strong>up</strong>  (<em>numpy.ndarray[float64[3,1]]</em>) – 相机的上方向向量</li>
+<li><strong>front</strong>  (<em>numpy.ndarray[float64[3,1]]</em>) – 相机的前矢量</li>
+<li><strong>zoom</strong>  (<em>float</em>) – 相机缩放倍数</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<p>我们来尝试一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">o3d.visualization.draw_geometries([pcd])</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220418232334893.png" alt="image-20220418232334893" style="zoom:50%;">
+<p>显示法向量：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pcd.normals=o3d.utility.Vector3dVector(data[:,<span class="number">3</span>:])</span><br><span class="line">o3d.visualization.draw_geometries([pcd],window_name=<span class="string">&quot;o3d&quot;</span>,width=<span class="number">1920</span>,height=<span class="number">1080</span>,</span><br><span class="line">                                  left=<span class="number">50</span>,top=<span class="number">50</span>,point_show_normal=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220418232509254.png" alt="image-20220418232509254" style="zoom:50%;">
+<p>看起来跟毛毛虫一样…</p>
+<p>提供了一组用户交互指令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">-- Mouse view control --</span><br><span class="line">  Left button + drag         : Rotate.</span><br><span class="line">  Ctrl + left button + drag  : Translate.</span><br><span class="line">  Wheel button + drag        : Translate.</span><br><span class="line">  Shift + left button + drag : Roll.</span><br><span class="line">  Wheel                      : Zoom <span class="keyword">in</span>/out.</span><br><span class="line"></span><br><span class="line">-- Keyboard view control --</span><br><span class="line">  [/]          : Increase/decrease field of view.</span><br><span class="line">  R            : Reset view point.</span><br><span class="line">  Ctrl/Cmd + C : Copy current view status into the clipboard.</span><br><span class="line">  Ctrl/Cmd + V : Paste view status <span class="keyword">from</span> clipboard.</span><br><span class="line"></span><br><span class="line">-- General control --</span><br><span class="line">  Q, Esc       : Exit window.</span><br><span class="line">  H            : Print <span class="built_in">help</span> message.</span><br><span class="line">  P, PrtScn    : Take a screen capture.</span><br><span class="line">  D            : Take a depth capture.</span><br><span class="line">  O            : Take a capture of current rendering settings.</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220418232806941.png" alt="image-20220418232806941" style="zoom: 33%;">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220418232817005.png" alt="image-20220418232817005" style="zoom: 33%;">
+<p>也可以指定点云的颜色：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pcd.colors=o3d.utility.Vector3dVector(data[:,<span class="number">3</span>:])</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220418232939457.png" alt="image-20220418232939457" style="zoom:50%;">
+<p>参数<code>geometry_list</code>支持多个空间集合对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">read_txt</span>(<span class="params">path</span>):</span><br><span class="line">    data=np.genfromtxt(path,delimiter=<span class="string">&quot;,&quot;</span>)</span><br><span class="line">    pcd=o3d.geometry.PointCloud()</span><br><span class="line">    pcd.points = o3d.utility.Vector3dVector(data[:, :<span class="number">3</span>])</span><br><span class="line">    pcd.normals = o3d.utility.Vector3dVector(data[:, <span class="number">3</span>:])</span><br><span class="line">    pcd.colors = o3d.utility.Vector3dVector(data[:, <span class="number">3</span>:])</span><br><span class="line">    <span class="keyword">return</span> pcd</span><br><span class="line"></span><br><span class="line">path=<span class="string">r&#x27;\airplane&#x27;</span></span><br><span class="line">pcd1=read_txt(path+<span class="string">r&quot;\airplane_0001.txt&quot;</span>)</span><br><span class="line">pcd2=read_txt(path+<span class="string">r&quot;\airplane_0012.txt&quot;</span>)</span><br><span class="line">o3d.visualization.draw_geometries([pcd1,pcd2],window_name=<span class="string">&quot;o3d&quot;</span>,width=<span class="number">1920</span>,height=<span class="number">1080</span>,</span><br><span class="line">                                  left=<span class="number">50</span>,top=<span class="number">50</span>,mesh_show_back_face=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220418233416184.png" alt="image-20220418233416184" style="zoom:33%;">
+<p>o3d提供了自动计算法向量的API：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">radius=<span class="number">0.01</span> <span class="comment"># 搜索半径</span></span><br><span class="line">max_nn=<span class="number">30</span> <span class="comment"># 邻域内用于估算法线的最大点数</span></span><br><span class="line"><span class="comment"># 执行KD树搜索</span></span><br><span class="line">pcd1.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius,max_nn))</span><br><span class="line">o3d.visualization.draw_geometries([pcd1],window_name=<span class="string">&quot;o3d&quot;</span>,width=<span class="number">1920</span>,height=<span class="number">1080</span>,</span><br><span class="line">                                  left=<span class="number">50</span>,top=<span class="number">50</span>,point_show_normal=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 同样能用KD树构建协方差表</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-点云保存">2.3  点云保存</h3>
+<p>API如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open3d.io.write_point_cloud(filename, pointcloud, write_ascii=<span class="literal">False</span>, compressed=<span class="literal">False</span>, print_progress=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>filename</strong> (<em>str</em>) – 文件路径</li>
+<li><strong>pointcloud</strong> (<a target="_blank" rel="noopener" href="http://www.open3d.org/docs/release/python_api/open3d.geometry.PointCloud.html#open3d.geometry.PointCloud"><em>open3d.geometry.PointCloud</em></a>) – 点云对象</li>
+<li><strong>write_ascii</strong> (<em>bool</em>，<em>optional</em>,<em>default=False</em>) – 该参数为True时，将会写入ASCII码，否则一般写入二进制文件</li>
+<li><strong>compressed</strong> (<em>bool</em>,<em>optional</em>,<em>default=False</em>) – 是否以压缩格式进行输出</li>
+<li><strong>print_progress</strong> (<em>bool</em>,<em>optional</em>,<em>default=False</em>) –是否在控制台打印一个进度条</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>bool</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">o3d.io.write_point_cloud(<span class="string">&quot;02.pcd&quot;</span>,pcd2,write_ascii=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p>此时可以看到已经将读取的点云写入到文件中了。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220418234823724.png" alt="image-20220418234823724" style="zoom:50%;">
+<hr>
+<h2 id="三、Open3D点云常见操作">三、Open3D点云常见操作</h2>
+<h3 id="3-1-体素下采样">3.1  体素下采样</h3>
+<p>体素下采样(Voxel downsampling)采用规则体素格网从输入点云中创建分布均匀的下采样点云，是许多点云处理任务的预处理步骤。该算法主要分为两步：</p>
+<ul>
+<li>创建指定大小(分辨率)的体素网络</li>
+<li>当点云中至少有一个点落在某个体素内，则认为该体素被占用，体素的颜色(属性)是该体素内所有点的平均值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Downsample the point cloud with a voxel of 0.05&quot;</span>)</span><br><span class="line">downpcd = pcd1.voxel_down_sample(voxel_size=<span class="number">0.05</span>)</span><br><span class="line">o3d.visualization.draw_geometries([downpcd])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The number of PC is : &quot;</span>,pcd1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The number of downPC is : &quot;</span>,downpcd)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Downsample the point cloud with a voxel of 0.05</span></span><br><span class="line"><span class="string">The number of PC is :  PointCloud with 10000 points.</span></span><br><span class="line"><span class="string">The number of downPC is :  PointCloud with 1389 points.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Downsample the point cloud with a voxel of 0.005</span></span><br><span class="line"><span class="string">The number of PC is :  PointCloud with 10000 points.</span></span><br><span class="line"><span class="string">The number of downPC is :  PointCloud with 9825 points.</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419170509887.png" alt="image-20220419170509887" style="zoom:33%;">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419170527120.png" alt="image-20220419170527120" style="zoom:33%;">
+<h3 id="3-2-点云正态估计">3.2  点云正态估计</h3>
+<p>在交互页面，可以通过<code>N</code>查看点法线，<code>+</code>,<code>-</code>控制法线长度。</p>
+<p>作为点云的基本操作之一，点云正态估计通过指定算法参数估测每个点可能的法向量，<code>estimate_normals</code>查找指定搜索半径内的临近点，通过这些临近点的协方差计算其主轴，从而估计法向量。正常情况下会产生两个方向相反的法向量，在不知道几何体的全局结构下，两者都可以是正确的。Open3D会尝试调整法线的方向，使其与原始法线对齐。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Recompute the normal of the downsampled point cloud&quot;</span>)</span><br><span class="line">downpcd.estimate_normals(</span><br><span class="line">    search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=<span class="number">0.1</span>, max_nn=<span class="number">30</span>))</span><br><span class="line">o3d.visualization.draw_geometries([downpcd],</span><br><span class="line">                                  zoom=<span class="number">0.3412</span>,</span><br><span class="line">                                  front=[<span class="number">0.4257</span>, -<span class="number">0.2125</span>, -<span class="number">0.8795</span>],</span><br><span class="line">                                  lookat=[<span class="number">2.6172</span>, <span class="number">2.0475</span>, <span class="number">1.532</span>],</span><br><span class="line">                                  up=[-<span class="number">0.0694</span>, -<span class="number">0.9768</span>, <span class="number">0.2024</span>],</span><br><span class="line">                                  point_show_normal=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419171325646.png" alt="image-20220419171325646" style="zoom:33%;">
+<p>如果想要访问顶点法线的话，可以直接通过索引获取：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Print a normal vector of the 0th point&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(downpcd.normals[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Print a normal vector of the 0th point</span></span><br><span class="line"><span class="string">[ 0.99552379 -0.03798043  0.08654404]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>也可以将其转为<code>numpy</code>数组:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Print the normal vectors of the first 10 points&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(np.asarray(downpcd.normals)[:<span class="number">10</span>, :])</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Print the normal vectors of the first 10 points</span></span><br><span class="line"><span class="string">[[ 0.99552379 -0.03798043  0.08654404]</span></span><br><span class="line"><span class="string"> [-0.00180642 -0.97317626  0.23005372]</span></span><br><span class="line"><span class="string"> [-0.03311035  0.95990356 -0.27836821]</span></span><br><span class="line"><span class="string"> [-0.18007638 -0.98233851 -0.05082867]</span></span><br><span class="line"><span class="string"> [ 0.03201738 -0.92865206  0.36956763]</span></span><br><span class="line"><span class="string"> [-0.09411325  0.9584897  -0.26914715]</span></span><br><span class="line"><span class="string"> [-0.00804695  0.97716482 -0.21233029]</span></span><br><span class="line"><span class="string"> [-0.95046739 -0.20590633  0.2328397 ]</span></span><br><span class="line"><span class="string"> [ 0.58566868  0.7923609   0.17075245]</span></span><br><span class="line"><span class="string"> [-0.19273423 -0.87191173  0.45013714]]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-点云裁剪">3.3  点云裁剪</h3>
+<p>Open3D的点云裁剪需要通过<code>read_selection_polygon_volume</code>读取多边形选择区域的json文件，接着通过<code>.crop_point_cloud()</code>方法过滤出点。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Load a polygon volume and use it to crop the original point cloud&quot;</span>)</span><br><span class="line">demo_crop_data = o3d.data.DemoCropPointCloud()</span><br><span class="line">pcd = o3d.io.read_point_cloud(demo_crop_data.point_cloud_path)</span><br><span class="line">vol = o3d.visualization.read_selection_polygon_volume(demo_crop_data.cropped_json_path)</span><br><span class="line">chair = vol.crop_point_cloud(pcd)</span><br><span class="line">o3d.visualization.draw_geometries([chair],</span><br><span class="line">                                  zoom=<span class="number">0.7</span>,</span><br><span class="line">                                  front=[<span class="number">0.5439</span>, -<span class="number">0.2333</span>, -<span class="number">0.8060</span>],</span><br><span class="line">                                  lookat=[<span class="number">2.4615</span>, <span class="number">2.1331</span>, <span class="number">1.338</span>],</span><br><span class="line">                                  up=[-<span class="number">0.1781</span>, -<span class="number">0.9708</span>, <span class="number">0.1608</span>])</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419173314661.png" alt="image-20220419173314661" style="zoom:33%;">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419173114201.png" alt="image-20220419173114201" style="zoom:33%;">
+<h3 id="3-4-绘制点云">3.4  绘制点云</h3>
+<p><code>paint_uniform_color</code>可以将点云颜色绘制成同一的色彩。注意颜色是在[0,1]之间的<code>float</code>类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Paint chair&quot;</span>)</span><br><span class="line">chair.paint_uniform_color([<span class="number">1</span>, <span class="number">0.706</span>, <span class="number">0</span>])</span><br><span class="line">o3d.visualization.draw_geometries([chair],</span><br><span class="line">                                  zoom=<span class="number">0.7</span>,</span><br><span class="line">                                  front=[<span class="number">0.5439</span>, -<span class="number">0.2333</span>, -<span class="number">0.8060</span>],</span><br><span class="line">                                  lookat=[<span class="number">2.4615</span>, <span class="number">2.1331</span>, <span class="number">1.338</span>],</span><br><span class="line">                                  up=[-<span class="number">0.1781</span>, -<span class="number">0.9708</span>, <span class="number">0.1608</span>])</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419173716954.png" alt="image-20220419173716954" style="zoom:33%;">
+<h3 id="3-5-选择点云">3.5  选择点云</h3>
+<p>在Open3D中，可以通过点云索引来进行筛选。<code>select_by_index</code>也可以通过修改<code>invert</code>方法进行反向选取。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inner=pcd1.select_by_index([i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(pcd1.points)) <span class="keyword">if</span> i%<span class="number">2</span>==<span class="number">0</span>])</span><br><span class="line">outer=pcd1.select_by_index([i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)],invert=<span class="literal">True</span>)</span><br><span class="line">o3d.visualization.draw_geometries([pcd1])</span><br><span class="line">o3d.visualization.draw_geometries([inner])</span><br><span class="line">o3d.visualization.draw_geometries([outer])</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419194816196.png" alt="image-20220419194816196" style="zoom:33%;">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419194824728.png" alt="image-20220419194824728" style="zoom:33%;">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419194833429.png" alt="image-20220419194833429" style="zoom:33%;">
+<hr>
+<h2 id="四、点云数据计算">四、点云数据计算</h2>
+<h3 id="4-1-点云距离">4.1  点云距离</h3>
+<p>Open3D提供了<code>compute_point_cloud_distance</code>方法，能够计算源点云到目标点云的<strong>最近距离</strong>，该方法也能用于计算两点云之间的切角距离。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">demo_crop_data = o3d.data.DemoCropPointCloud()</span><br><span class="line">pcd = o3d.io.read_point_cloud(demo_crop_data.point_cloud_path)</span><br><span class="line">vol = o3d.visualization.read_selection_polygon_volume(demo_crop_data.cropped_json_path)</span><br><span class="line">chair = vol.crop_point_cloud(pcd)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从原始图像到裁剪图像中最近点的距离</span></span><br><span class="line">dists=pcd.compute_point_cloud_distance(chair)</span><br><span class="line">dists=np.asarray(dists)</span><br><span class="line">ind=np.where(dists&gt;<span class="number">0.1</span>)[<span class="number">0</span>]</span><br><span class="line">pcd_without_chair = pcd.select_by_index(ind)</span><br><span class="line">o3d.visualization.draw_geometries([pcd_without_chair],</span><br><span class="line">                                  zoom=<span class="number">0.3412</span>,</span><br><span class="line">                                  front=[<span class="number">0.4257</span>, -<span class="number">0.2125</span>, -<span class="number">0.8795</span>],</span><br><span class="line">                                  lookat=[<span class="number">2.6172</span>, <span class="number">2.0475</span>, <span class="number">1.532</span>],</span><br><span class="line">                                  up=[-<span class="number">0.0694</span>, -<span class="number">0.9768</span>, <span class="number">0.2024</span>])</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419174501565.png" alt="image-20220419174501565" style="zoom: 33%;">
+<h3 id="4-2-边界体积">4.2  边界体积</h3>
+<p>与其几何类型相似，<code>PointCloud</code>也具有边界体积。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">aabb = chair.get_axis_aligned_bounding_box()</span><br><span class="line">aabb.color = (<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">obb = chair.get_oriented_bounding_box()</span><br><span class="line">obb.color = (<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">o3d.visualization.draw_geometries([chair, aabb, obb],</span><br><span class="line">                                  zoom=<span class="number">0.7</span>,</span><br><span class="line">                                  front=[<span class="number">0.5439</span>, -<span class="number">0.2333</span>, -<span class="number">0.8060</span>],</span><br><span class="line">                                  lookat=[<span class="number">2.4615</span>, <span class="number">2.1331</span>, <span class="number">1.338</span>],</span><br><span class="line">                                  up=[-<span class="number">0.1781</span>, -<span class="number">0.9708</span>, <span class="number">0.1608</span>])</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419174746069.png" alt="image-20220419174746069" style="zoom: 33%;">
+<h3 id="4-3-凸包计算">4.3  凸包计算</h3>
+<p>点云凸包是包含所有点的最小凸集，在Open3D中，可采用<code>compute_convex_hull</code>计算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">bunny = o3d.data.BunnyMesh()</span><br><span class="line">mesh = o3d.io.read_triangle_mesh(bunny.path)</span><br><span class="line">mesh.compute_vertex_normals()</span><br><span class="line"></span><br><span class="line">pcl = mesh.sample_points_poisson_disk(number_of_points=<span class="number">2000</span>)</span><br><span class="line">hull, _ = pcl.compute_convex_hull()</span><br><span class="line">hull_ls = o3d.geometry.LineSet.create_from_triangle_mesh(hull)</span><br><span class="line">hull_ls.paint_uniform_color((<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">o3d.visualization.draw_geometries([pcl, hull_ls])</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419175508582.png" alt="image-20220419175508582" style="zoom: 33%;">
+<h3 id="4-4-DBSCAN聚类">4.4  DBSCAN聚类</h3>
+<p>DBSCAN是Ester在1996年提出的一种聚类算法，Open3D中也提供了该算法的API<code>pc.cluster_dbscan(eps,min_points,print_progress)</code>，<code>eps</code>定义了簇的半径距离，而<code>min_points</code>定义形成簇的最小点数量。返回是一个标签对象，若值为<code>-1</code>则表示噪声。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">ply_point_cloud = o3d.data.PLYPointCloud()</span><br><span class="line">pcd = o3d.io.read_point_cloud(ply_point_cloud.path)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> o3d.utility.VerbosityContextManager(</span><br><span class="line">        o3d.utility.VerbosityLevel.Debug) <span class="keyword">as</span> cm:</span><br><span class="line">    labels = np.array(</span><br><span class="line">        pcd.cluster_dbscan(eps=<span class="number">0.02</span>, min_points=<span class="number">10</span>, print_progress=<span class="literal">True</span>))</span><br><span class="line"></span><br><span class="line">max_label = labels.<span class="built_in">max</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;point cloud has <span class="subst">&#123;max_label + <span class="number">1</span>&#125;</span> clusters&quot;</span>)</span><br><span class="line">colors = plt.get_cmap(<span class="string">&quot;tab20&quot;</span>)(labels / (max_label <span class="keyword">if</span> max_label &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span>))</span><br><span class="line">colors[labels &lt; <span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">pcd.colors = o3d.utility.Vector3dVector(colors[:, :<span class="number">3</span>])</span><br><span class="line">o3d.visualization.draw_geometries([pcd],</span><br><span class="line">                                  zoom=<span class="number">0.455</span>,</span><br><span class="line">                                  front=[-<span class="number">0.4999</span>, -<span class="number">0.1659</span>, -<span class="number">0.8499</span>],</span><br><span class="line">                                  lookat=[<span class="number">2.1813</span>, <span class="number">2.0619</span>, <span class="number">2.0999</span>],</span><br><span class="line">                                  up=[<span class="number">0.1204</span>, -<span class="number">0.9852</span>, <span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419192728206.png" alt="image-20220419192728206" style="zoom: 33%;">
+<h3 id="4-5-平面分割">4.5  平面分割</h3>
+<p>Open3D支持使用<code>RANSAC</code>方法从点云中分割几何基元(geometric primitives)。通过<code>segment_plane</code>方法，可以找到点云中的最大支持平面(the plane with the largest support)。该方法提供了三个参数：</p>
+<ul>
+<li><code>distance_threshold</code>：定义了一个点可被视为内嵌点的估计平面的最大距离</li>
+<li><code>ransac_n</code>：定义用来估计平面的随机抽样点数量</li>
+<li><code>num_iterations</code>：定义了随机平面抽样和验证的频率</li>
+</ul>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419194854087.png" alt="image-20220419194854087" style="zoom:33%;">
+<h3 id="4-6-消隐点">4.6  消隐点</h3>
+<p>当我们从给定视角渲染点云时，由于前方没有遮挡，可能会有背面的点渗入到前景中。Katz提出了一种消隐算法(Hidden point removal),可以从给定的视图中近似地获得点云的可见性，而无需表面重建或正常的估计。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Convert mesh to a point cloud and estimate dimensions&quot;</span>)</span><br><span class="line">armadillo = o3d.data.ArmadilloMesh()</span><br><span class="line">mesh = o3d.io.read_triangle_mesh(armadillo.path)</span><br><span class="line">mesh.compute_vertex_normals()</span><br><span class="line"></span><br><span class="line">pcd = mesh.sample_points_poisson_disk(<span class="number">5000</span>)</span><br><span class="line">diameter = np.linalg.norm(</span><br><span class="line">    np.asarray(pcd.get_max_bound()) - np.asarray(pcd.get_min_bound()))</span><br><span class="line">o3d.visualization.draw_geometries([pcd])</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419195442181.png" alt="image-20220419195442181" style="zoom:33%;">
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Define parameters used for hidden_point_removal&quot;</span>)</span><br><span class="line">camera = [<span class="number">0</span>, <span class="number">0</span>, diameter]</span><br><span class="line">radius = diameter * <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Get all points that are visible from given view point&quot;</span>)</span><br><span class="line">_, pt_map = pcd.hidden_point_removal(camera, radius)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Visualize result&quot;</span>)</span><br><span class="line">pcd = pcd.select_by_index(pt_map)</span><br><span class="line">o3d.visualization.draw_geometries([pcd])</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/image-20220419195457783.png" alt="image-20220419195457783" style="zoom:33%;">
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%82%B9%E4%BA%91/">点云</a><a class="post-meta__tags" href="/tags/Open3D/">Open3D</a></div><div class="post_share"><div class="social-share" data-image="https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/08/01/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91PointNet-%E7%BD%91%E7%BB%9C/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">PointNet++网络</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91%E7%82%B9%E4%BA%91%E6%95%B0%E6%8D%AE%E7%AE%80%E4%BB%8B/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">点云数据简介</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/08/01/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91PointNet%E7%BD%91%E7%BB%9C/" title="PointNet网络"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-01</div><div class="title">PointNet网络</div></div></a></div><div><a href="/2022/08/01/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91PointNet-%E7%BD%91%E7%BB%9C/" title="PointNet++网络"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-01</div><div class="title">PointNet++网络</div></div></a></div><div><a href="/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91%E7%82%B9%E4%BA%91%E6%95%B0%E6%8D%AE%E7%AE%80%E4%BB%8B/" title="点云数据简介"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-01</div><div class="title">点云数据简介</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.jingyeqian.com/i/2021/03/21/6375192146687954551533103.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kagura</div><div class="author-info__description">May we all be who we want to be</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45957458?type=blog"><i></i><span>about me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople1.js"></script><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/zdog.dist.js"></script><script id="rendered-js" src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople.js"></script><style>.card-widget.card-announcement {
+margin: 0;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+canvas {
+display: block;
+margin: 0 auto;
+cursor: move;
+}</style><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Open3D点云处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Open3D"><span class="toc-number">1.1.</span> <span class="toc-text">一、Open3D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Open3D%E7%82%B9%E4%BA%91%E5%8A%A0%E8%BD%BD%E4%B8%8E%E6%98%BE%E7%A4%BA"><span class="toc-number">1.2.</span> <span class="toc-text">二、Open3D点云加载与显示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%82%B9%E4%BA%91%E8%AF%BB%E5%8F%96"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 点云读取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%82%B9%E4%BA%91%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2  点云可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%82%B9%E4%BA%91%E4%BF%9D%E5%AD%98"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3  点云保存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Open3D%E7%82%B9%E4%BA%91%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">三、Open3D点云常见操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BD%93%E7%B4%A0%E4%B8%8B%E9%87%87%E6%A0%B7"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1  体素下采样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%82%B9%E4%BA%91%E6%AD%A3%E6%80%81%E4%BC%B0%E8%AE%A1"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2  点云正态估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E7%82%B9%E4%BA%91%E8%A3%81%E5%89%AA"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3  点云裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E7%BB%98%E5%88%B6%E7%82%B9%E4%BA%91"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4  绘制点云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E9%80%89%E6%8B%A9%E7%82%B9%E4%BA%91"><span class="toc-number">1.3.5.</span> <span class="toc-text">3.5  选择点云</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%82%B9%E4%BA%91%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97"><span class="toc-number">1.4.</span> <span class="toc-text">四、点云数据计算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E7%82%B9%E4%BA%91%E8%B7%9D%E7%A6%BB"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1  点云距离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E8%BE%B9%E7%95%8C%E4%BD%93%E7%A7%AF"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2  边界体积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%87%B8%E5%8C%85%E8%AE%A1%E7%AE%97"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3  凸包计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-DBSCAN%E8%81%9A%E7%B1%BB"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.4  DBSCAN聚类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E5%B9%B3%E9%9D%A2%E5%88%86%E5%89%B2"><span class="toc-number">1.4.5.</span> <span class="toc-text">4.5  平面分割</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E6%B6%88%E9%9A%90%E7%82%B9"><span class="toc-number">1.4.6.</span> <span class="toc-text">4.6  消隐点</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/23/%E3%80%90Python%E3%80%91%E4%BD%8D%E8%BF%90%E7%AE%97/" title="Python位运算"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/20200718094916304.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python位运算"/></a><div class="content"><a class="title" href="/2022/08/23/%E3%80%90Python%E3%80%91%E4%BD%8D%E8%BF%90%E7%AE%97/" title="Python位运算">Python位运算</a><time datetime="2022-08-23T14:58:37.510Z" title="发表于 2022-08-23 22:58:37">2022-08-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/23/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91%E5%B8%B8%E8%A7%81%E8%AF%8D/" title="常见词"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cloud.miiiku.xyz/src/images/cover/cover-02.jpg-webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见词"/></a><div class="content"><a class="title" href="/2022/08/23/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91%E5%B8%B8%E8%A7%81%E8%AF%8D/" title="常见词">常见词</a><time datetime="2022-08-23T01:22:06.565Z" title="发表于 2022-08-23 09:22:06">2022-08-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/22/%E3%80%90LeetCode%E3%80%91%E7%99%BE%E9%A2%98%E7%95%99%E5%BF%B5/" title="LeetCode 百题留念"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/7e9272c678a34619b6556b9914f4eac9.jpeg#pic_center" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 百题留念"/></a><div class="content"><a class="title" href="/2022/08/22/%E3%80%90LeetCode%E3%80%91%E7%99%BE%E9%A2%98%E7%95%99%E5%BF%B5/" title="LeetCode 百题留念">LeetCode 百题留念</a><time datetime="2022-08-22T14:19:16.191Z" title="发表于 2022-08-22 22:19:16">2022-08-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/22/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91%E5%AE%9E%E4%BE%8B%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96%E5%BE%AE%E4%BF%A1%E6%8E%A5%E9%BE%99%E7%9A%84%E4%BA%BA%E6%95%B0/" title="数据分析实例--随机抽取微信接龙人员"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/l3/wallhaven-l3xk6q.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据分析实例--随机抽取微信接龙人员"/></a><div class="content"><a class="title" href="/2022/08/22/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91%E5%AE%9E%E4%BE%8B%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96%E5%BE%AE%E4%BF%A1%E6%8E%A5%E9%BE%99%E7%9A%84%E4%BA%BA%E6%95%B0/" title="数据分析实例--随机抽取微信接龙人员">数据分析实例--随机抽取微信接龙人员</a><time datetime="2022-08-22T13:16:59.719Z" title="发表于 2022-08-22 21:16:59">2022-08-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/22/%E3%80%90Python%E3%80%91deque()%E8%AF%A6%E8%A7%A3/" title="Collections.deque()详解"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/20200718094952975.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Collections.deque()详解"/></a><div class="content"><a class="title" href="/2022/08/22/%E3%80%90Python%E3%80%91deque()%E8%AF%A6%E8%A7%A3/" title="Collections.deque()详解">Collections.deque()详解</a><time datetime="2022-08-22T07:27:39.475Z" title="发表于 2022-08-22 15:27:39">2022-08-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 By Kagura</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">All amazing things you see have been tempered by mediocrity</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/'
+    this.page.identifier = '/2022/08/01/%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%91open3d%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/'
+    this.page.title = 'Open3D点云处理'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script data-pjax defer src="/js/fish.js"></script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async src="/js/diytitle.js"></script><div class="aplayer no-destroy" data-id="7401064131" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="255,255,255" opacity="0.8" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover1.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/不想学辣/&quot;);" href="javascript:void(0);">不想学辣</a><span class="categoryBar-list-count">36</span><span class="categoryBar-list-descr">摸鱼人的摸鱼日常</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover2.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/琐碎日常/&quot;);" href="javascript:void(0);">琐碎日常</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">生活虐我千百遍</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover3.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/拾枝杂谈/&quot;);" href="javascript:void(0);">拾枝杂谈</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">嘘，梦醒了可是要被吃掉的哦</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover4.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/梦时风月/&quot;);" href="javascript:void(0);">梦时风月</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">可能有用的小知识</span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://fastly.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/theme_f/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":20,"vOffset":-20},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>

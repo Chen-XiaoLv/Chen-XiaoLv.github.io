@@ -1,0 +1,1015 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>第二章  PyTorch入门 | 岁染</title><meta name="keywords" content="深度学习"><meta name="author" content="Kagura,651421775@qq.com"><meta name="copyright" content="Kagura"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="第二章">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二章  PyTorch入门">
+<meta property="og:url" content="http://example.com/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%20PyTorch%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="岁染">
+<meta property="og:description" content="第二章">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ca60c301082c4f1c875ee3d17b8cba6a.jpeg#pic_center">
+<meta property="article:published_time" content="2022-07-28T11:52:38.854Z">
+<meta property="article:modified_time" content="2022-08-10T15:22:12.222Z">
+<meta property="article:author" content="Kagura">
+<meta property="article:tag" content="深度学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/ca60c301082c4f1c875ee3d17b8cba6a.jpeg#pic_center"><link rel="shortcut icon" href="/img/3d.png"><link rel="canonical" href="http://example.com/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%20PyTorch%E5%85%A5%E9%97%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '第二章  PyTorch入门',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-10 23:22:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><script src="https://npm.elemecdn.com/echarts@4.7.0/dist/echarts.min.js"></script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><style type="text/css">#toggle-sidebar {left:100px}</style><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card/lib/categorybar.css"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="岁染" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.jingyeqian.com/i/2021/03/21/6375192146687954551533103.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-music"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/Diary"><i class="fa-fw fas fa-images"></i><span> 日记</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Todo-List"><i class="fa-fw fas fa-bell"></i><span> Todo-List</span></a></li><li><a class="site-page child" href="/PDF"><i class="fa-fw fas fa-link"></i><span> PDF</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img-blog.csdnimg.cn/ca60c301082c4f1c875ee3d17b8cba6a.jpeg#pic_center')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">岁染</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-music"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/Diary"><i class="fa-fw fas fa-images"></i><span> 日记</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Todo-List"><i class="fa-fw fas fa-bell"></i><span> Todo-List</span></a></li><li><a class="site-page child" href="/PDF"><i class="fa-fw fas fa-link"></i><span> PDF</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第二章  PyTorch入门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-28T11:52:38.854Z" title="发表于 2022-07-28 19:52:38">2022-07-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-10T15:22:12.222Z" title="更新于 2022-08-10 23:22:12">2022-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%B8%8D%E6%83%B3%E5%AD%A6%E8%BE%A3/">不想学辣</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>21分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第二章  PyTorch入门"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>第二章  PyTorch入门</h1>
+<h2 id="1-张量">1.  张量</h2>
+<hr>
+<h3 id="1-1-张量">1.1  张量</h3>
+<p>张量的概念其实就是高维数组</p>
+<ul>
+<li>标量</li>
+<li>向量</li>
+<li>矩阵</li>
+<li>张量</li>
+</ul>
+<p>张量的<strong>数据类型</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">dtype</th>
+<th style="text-align:center">CPU tensor</th>
+<th style="text-align:center">GPU tensor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">32位浮点型</td>
+<td style="text-align:center">torch.float</td>
+<td style="text-align:center">torch.FloatTensor</td>
+<td style="text-align:center">torch.cuda.FloatTensor</td>
+</tr>
+<tr>
+<td style="text-align:center">64位浮点型</td>
+<td style="text-align:center">torch.double</td>
+<td style="text-align:center">torch.DoubleTensor</td>
+<td style="text-align:center">torch.cuda.DoubleTensor</td>
+</tr>
+<tr>
+<td style="text-align:center">16位浮点型</td>
+<td style="text-align:center">torch.half</td>
+<td style="text-align:center">torch.HalfTensor</td>
+<td style="text-align:center">torch.cuda.HalfTensor</td>
+</tr>
+<tr>
+<td style="text-align:center">8位无符号整型</td>
+<td style="text-align:center">torch.uint8</td>
+<td style="text-align:center">torch.ByteTensor</td>
+<td style="text-align:center">torch.cuda.ByteTensor</td>
+</tr>
+<tr>
+<td style="text-align:center">8位有符号整型</td>
+<td style="text-align:center">torch.int8</td>
+<td style="text-align:center">torch.CharTensor</td>
+<td style="text-align:center">torch.cuda.CharTensor</td>
+</tr>
+<tr>
+<td style="text-align:center">16位有符号整型</td>
+<td style="text-align:center">torch.short</td>
+<td style="text-align:center">torch.ShortTensor</td>
+<td style="text-align:center">torch.cuda.ShortTensor</td>
+</tr>
+<tr>
+<td style="text-align:center">32位有符号整型</td>
+<td style="text-align:center">torch.int</td>
+<td style="text-align:center">torch.IntTensor</td>
+<td style="text-align:center">torch.cuda.IntTensor</td>
+</tr>
+<tr>
+<td style="text-align:center">64位有符号整型</td>
+<td style="text-align:center">torch.long</td>
+<td style="text-align:center">torch.LongTensor</td>
+<td style="text-align:center">torch.cuda.LongTensor</td>
+</tr>
+</tbody>
+</table>
+<p>常见的<strong>数据类型操作</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># torch中默认的数据类型是float32</span></span><br><span class="line"><span class="comment"># 我们可以通过Tensor的dtype方法查看</span></span><br><span class="line">a=torch.Tensor(<span class="number">3</span>,<span class="number">2</span>)</span><br><span class="line">a.dtype</span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以改变初始的数据类型</span></span><br><span class="line">torch.set_default_tensor_type(torch.DoubleTensor)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 若是不想修改源数据而转换类型</span></span><br><span class="line"><span class="comment"># 可以调用long\float\double\int\short等方法进行转变</span></span><br><span class="line">new=a.long()</span><br><span class="line">new.dtype</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断一个张量的数据类型</span></span><br><span class="line"><span class="built_in">isinstance</span>(a,torch.FloatTensor)</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># GPU</span></span><br><span class="line"><span class="built_in">isinstance</span>(data,torch.cuda.DoubleTensor)</span><br></pre></td></tr></table></figure>
+<p>常见的张量<strong>生成方式</strong></p>
+<ul>
+<li>
+<p>使用**torch.tensor()**生成</p>
+<p>Python中的列表和序列可以通过<code>torch.tensor()</code>转化成张量，并且能够通过<code>shape</code>属性查看维度，<code>size()</code>方法计算形状，<code>numel()</code>方法计算元素个数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意只有浮点型的能计算梯度</span></span><br><span class="line">b=torch.tensor([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],dtype=torch.DoubleTensor,requires_grad=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">b.dim()</span><br><span class="line">b.shape</span><br><span class="line">b.size()</span><br><span class="line">b.numel()</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用**torch.Tensor()**生成</p>
+<p>与torch.tensor()方法不同在于，前者只能接收现有数据，而后者能够接收维度形态。如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b=torch.Tensor(<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用**Like()**方法生成</p>
+<p>该方法能够生成维度与传入张量相同的新张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 例如</span></span><br><span class="line">c=torch.Tensor(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 全一</span></span><br><span class="line">torch.ones_like(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 全零</span></span><br><span class="line">torch.zeros_like(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机</span></span><br><span class="line">torch.rand_like(c)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用**new()**方法生成</p>
+<p>该方法生成的张量将复制原始张量的数据类型，但维度可以不同</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># D.dtype --&gt; torch.DoubleTensor</span></span><br><span class="line"></span><br><span class="line">e=[[<span class="number">2</span>,<span class="number">1</span>],[<span class="number">7</span>,<span class="number">8</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意new方法是从需要copy类型的张量上出发</span></span><br><span class="line"><span class="comment"># 而like则是从torch本身上出发</span></span><br><span class="line">e=D.new_tensor(e)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 做一个全1填充</span></span><br><span class="line">D.new_full(e,fill_value=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">D.new_zeros(e)</span><br><span class="line"></span><br><span class="line">D.new_empty(e)</span><br><span class="line"></span><br><span class="line">D.new_ones(e)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>张量和<strong>Numpy</strong>的互相转换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">F=np.ones((<span class="number">3</span>,<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法一</span></span><br><span class="line">torch.as_tensor(F)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二</span></span><br><span class="line">torch.from_numpy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># tensor转numpy</span></span><br><span class="line">new=F.numpy()</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>通过<strong>随机数</strong>生成</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置随机数种子</span></span><br><span class="line"><span class="comment"># 该种子能够保证生成的随机数是可以重复出现的</span></span><br><span class="line">torch.manual_seed(<span class="number">123</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成一个正态分布的随机数</span></span><br><span class="line">torch.normal(mean=<span class="number">0.0</span>,std=torch.tensor(<span class="number">1.0</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定mean和std的数量的话，就会生成许多个随机数</span></span><br><span class="line">torch.normal(mean=torch.arange(<span class="number">1</span>,<span class="number">5.0</span>),std=torch.arange(<span class="number">1</span>,<span class="number">5.0</span>))</span><br><span class="line"><span class="comment"># 这样就能得到四个随机数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成零一区间随机数</span></span><br><span class="line">torch.rand(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成标准正态分布</span></span><br><span class="line">torch.randn(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">torch.rand_like(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机打散</span></span><br><span class="line">torch.randperm(n)</span><br><span class="line"><span class="comment"># 会将0~n-1个数随机打散排列</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>其他生成张量的函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 范围生成张量</span></span><br><span class="line">torch.arange(start=<span class="number">0</span>,end=<span class="number">10</span>,step=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等间隔张量</span></span><br><span class="line">torch.linspace(start=<span class="number">1</span>,end=<span class="number">10</span>,step=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数间隔张量</span></span><br><span class="line">torch.logspace(start=<span class="number">0.1</span>,end=<span class="number">1.0</span>,steps=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他预定义的</span></span><br><span class="line">torch.zeros()</span><br><span class="line">torch.ones()</span><br><span class="line">torch.eyes()</span><br><span class="line">torch.full(,value)</span><br><span class="line">torch.empty()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="1-2-张量操作">1.2  张量操作</h3>
+<h4 id="1-2-1-改变张量形状">1.2.1 改变张量形状</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># reshape方法能够设置张量形状大小</span></span><br><span class="line">torch.arange(<span class="number">12.0</span>).reshape(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 而在这里采用负数的形式，则会默认前面进行填充</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># torch的reshape方法</span></span><br><span class="line">torch.reshape(<span class="built_in">input</span>=A,shape=(<span class="number">2</span>,-<span class="number">1</span>))</span><br><span class="line"><span class="comment"># 或是直接在原始数据上修改</span></span><br><span class="line">A.resize_(<span class="number">2</span>,<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># view方法</span></span><br><span class="line"><span class="comment"># view与reshape完全一致</span></span><br><span class="line">A.view(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 同样，提供了便捷的_as方法</span></span><br><span class="line">A.resize_as_(B)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入维度</span></span><br><span class="line"><span class="comment"># 通过unsqueeze()函数可以在指定方向插入新的维度</span></span><br><span class="line">torch.unsqueeze(A,dim=<span class="number">0</span>) <span class="comment"># 在0维度插入，前面的维度不变，后面的往后推</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩维度</span></span><br><span class="line"><span class="comment"># 压缩维度只能压缩数据量为1的维度</span></span><br><span class="line">torch.squeeze(dim=n)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 扩展维度</span></span><br><span class="line">torch.expand(<span class="number">3</span>,-<span class="number">1</span>)</span><br><span class="line">torch.expand_as(C)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制维</span></span><br><span class="line">D.repeat(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment"># 会将张量看做一个整体</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-2-2-张量索引操作">1.2.2 张量索引操作</h4>
+<p>tensor的切片索引非常大胆</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对一个四位数据进行操作</span></span><br><span class="line">a=torch.rand(<span class="number">4</span>,<span class="number">3</span>,<span class="number">28</span>,<span class="number">28</span>)</span><br><span class="line">a[<span class="number">0</span>].shape <span class="comment"># torch.Size([3,28,28])</span></span><br><span class="line">a[<span class="number">0</span>,<span class="number">0</span>].shape <span class="comment"># torch.Size([28,28])</span></span><br><span class="line">a[<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">4</span>] <span class="comment"># tensor(0.8082)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以与切片一起使用</span></span><br><span class="line">a[:<span class="number">2</span>].shape <span class="comment"># torch.Size([2,3,28,28])</span></span><br><span class="line">a[:<span class="number">2</span>,<span class="number">1</span>:,:,:].shape</span><br><span class="line">a[:<span class="number">2</span>,-<span class="number">1</span>,:,:].shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># 隔点采样</span></span><br><span class="line">a[:,:,<span class="number">0</span>:<span class="number">28</span>:<span class="number">2</span>,<span class="number">0</span>:<span class="number">15</span>:<span class="number">3</span>].shape</span><br><span class="line">a[:,:,::<span class="number">2</span>,::<span class="number">2</span>].shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># 具体索引方式</span></span><br><span class="line">torch.index_select(dim,[])</span><br><span class="line">torch.index_select(<span class="number">0</span>,[<span class="number">1</span>,<span class="number">2</span>]) <span class="comment"># 从第一个维度上选择1,2个数据</span></span><br><span class="line">a.index_select(<span class="number">2</span>,torch.arange(<span class="number">8</span>)).shape</span><br><span class="line"><span class="comment"># torch.Size([4,3,8,28])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任意多的维度</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line">a[...].shape</span><br><span class="line">a[<span class="number">0</span>,...].shape <span class="comment"># ==a[0]</span></span><br><span class="line">a[<span class="number">0</span>:,...,::<span class="number">2</span>] <span class="comment"># 对第一个维度和最后一个维度做限定</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过掩码选取</span></span><br><span class="line">x=torch.randn(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">mask=x.ge(<span class="number">0.5</span>) <span class="comment"># 一个零一矩阵，大于0.5时为1</span></span><br><span class="line">torch.masked_select(x,mask) <span class="comment"># 直接获取一个vectory，是mask为1的数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打平选取</span></span><br><span class="line"><span class="comment"># 先将数据排成一排</span></span><br><span class="line"><span class="comment"># 然后再选取</span></span><br><span class="line">scr=torch.tensor([[<span class="number">4</span>,<span class="number">3</span>,<span class="number">5</span>],</span><br><span class="line">                  [<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]])</span><br><span class="line">torch.take(scr,torch.tensor[[<span class="number">0</span>,<span class="number">2</span>,-<span class="number">1</span>]])</span><br><span class="line"><span class="comment"># tensor([4,5,8])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取上三角部分</span></span><br><span class="line">torch.tril(A,diagonal=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 获取下三角部分</span></span><br><span class="line">torch.triu(A,diagonal=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># diagonal用于控制对角线的位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过对角线元素生成矩阵</span></span><br><span class="line">torch.diag(torch.tensor([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-3-张量的拼接和拆分">1.2.3 张量的拼接和拆分</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">A=torch.arange(<span class="number">6.0</span>).reshape(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">B=torch.linspace(<span class="number">0</span>,<span class="number">10</span>,<span class="number">6</span>).reshape(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过torch.cat方式拼接，指定拼接维度</span></span><br><span class="line">C=torch.cat((A,B),dim=<span class="number">0</span>) <span class="comment"># 在维度0上进行拼接</span></span><br><span class="line">C.shape</span><br><span class="line"><span class="comment"># torch.Size([4,3])</span></span><br><span class="line"></span><br><span class="line">C=torch.cat((A,B),dim=<span class="number">1</span>)</span><br><span class="line">C.shape</span><br><span class="line"><span class="comment"># torch.Size([2,6])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 拼接多个</span></span><br><span class="line">torch.cat((A[:,<span class="number">1</span>:<span class="number">2</span>],A,B),dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 值得注意的是，做维度拼接必须在非拼接维上能够匹配</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># stack与cat不同的是，stack会添加新的维度，而不是合并同维度数据</span></span><br><span class="line">F=torch.stack((A,B),dim=<span class="number">0</span>)</span><br><span class="line">F.shape</span><br><span class="line"><span class="comment"># torch.Size([2,2,3])</span></span><br></pre></td></tr></table></figure>
+<p><code>split</code>是按长度分割</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=torch.rand(<span class="number">4</span>,<span class="number">32</span>,<span class="number">8</span>)</span><br><span class="line"><span class="comment"># 将指定维度进行切割，每一份长度是第一个参数</span></span><br><span class="line"><span class="comment"># 不够的地方取余数</span></span><br><span class="line">t=a.split(<span class="number">7</span>,dim=<span class="number">1</span>)</span><br><span class="line">t[<span class="number">4</span>].shape</span><br><span class="line"><span class="comment"># torch.Size([4, 4, 8])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 也能指定长度</span></span><br><span class="line">a.split([<span class="number">15</span>,<span class="number">1</span>,<span class="number">16</span>],dim=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><code>chunk</code>是等距分割，但不能指定大小</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分成两份</span></span><br><span class="line">a.chunk(<span class="number">2</span>,dim=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-4-转置">1.2.4 转置</h4>
+<p><code>.t</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=torch.randn(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="comment"># .t只能用于二维矩阵</span></span><br><span class="line">a.t()</span><br></pre></td></tr></table></figure>
+<p><code>transpose</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># transpose能交换任意两个维度</span></span><br><span class="line"><span class="comment"># 但是维度打乱后的数据不再联系</span></span><br><span class="line"><span class="comment"># 需要使用contiguous进行处理</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意view会丢失维度信息！</span></span><br><span class="line"><span class="comment"># 需要跟踪维度信息</span></span><br><span class="line">al=a.transpose(<span class="number">1</span>,<span class="number">3</span>).contiguous().view(<span class="number">4</span>,<span class="number">3</span>*<span class="number">32</span>*<span class="number">32</span>).view(<span class="number">4</span>,<span class="number">32</span>,<span class="number">32</span>,<span class="number">3</span>).transpose(<span class="number">1</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p><code>permute</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># permute可以多次交换</span></span><br><span class="line"><span class="comment"># 自动调用transpose</span></span><br><span class="line"></span><br><span class="line">b.permute(<span class="number">0</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="1-3-张量计算">1.3  张量计算</h3>
+<h4 id="1-3-1-大小比较">1.3.1 大小比较</h4>
+<p>部分<strong>比较函数</strong>如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">torch.allclose()</td>
+<td style="text-align:center">比较两个元素是否接近</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.eq()</td>
+<td style="text-align:center">比较两个元素是否相等</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.equal()</td>
+<td style="text-align:center">比较两个元素是否相等且数据类型一致</td>
+</tr>
+<tr>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="http://torch.ge">torch.ge</a>()</td>
+<td style="text-align:center">大于等于</td>
+</tr>
+<tr>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="http://torch.gt">torch.gt</a>()</td>
+<td style="text-align:center">大于</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.le()</td>
+<td style="text-align:center">小于等于</td>
+</tr>
+<tr>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="http://torch.lt">torch.lt</a>()</td>
+<td style="text-align:center">小于</td>
+</tr>
+<tr>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="http://torch.ne">torch.ne</a>()</td>
+<td style="text-align:center">不等于</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.isnan()</td>
+<td style="text-align:center">是否为空</td>
+</tr>
+</tbody>
+</table>
+<p>allclose()函数非常有意思，其公式表示为：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>A</mi><mo>−</mo><mi>B</mi><mi mathvariant="normal">∣</mi><mo>≤</mo><mi>a</mi><mi>t</mi><mi>o</mi><mi>l</mi><mo>+</mo><mi>r</mi><mi>t</mi><mi>o</mi><mi>l</mi><mo>×</mo><mi mathvariant="normal">∣</mi><mi>B</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|A-B|\le atol+rtol\times|B|
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord">∣</span></span></span></span></span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">torch.allclose(A,B,rtol=<span class="number">1e-05</span>,atol=<span class="number">1e-08</span>,equal_nan=<span class="literal">False</span>)</span><br><span class="line"><span class="comment"># equal_nan 为True时，当元素为NAN时，表示接近</span></span><br></pre></td></tr></table></figure>
+<p>其他的用法基本上相同，都是逐元素比较</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.eq(A,B)</span><br></pre></td></tr></table></figure>
+<p>注意所有的比较要求数据的维度相同</p>
+<h4 id="1-3-2-基本运算">1.3.2 基本运算</h4>
+<p>张量的基本运算可以分为两种，一种是逐元素之间的计算，另一种则是矩阵之间的计算</p>
+<ul>
+<li>
+<p>加减乘除运算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 元素乘法</span></span><br><span class="line">A*B</span><br><span class="line"></span><br><span class="line"><span class="comment"># 元素除法</span></span><br><span class="line">A/B</span><br><span class="line"></span><br><span class="line"><span class="comment"># 元素加法</span></span><br><span class="line">A+B</span><br><span class="line"></span><br><span class="line"><span class="comment"># 元素减法</span></span><br><span class="line">A-B</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整除</span></span><br><span class="line">A//B</span><br><span class="line"></span><br><span class="line"><span class="comment"># 幂运算</span></span><br><span class="line">A**<span class="number">3</span></span><br><span class="line">torch.<span class="built_in">pow</span>(A,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指数运算</span></span><br><span class="line">torch.exp(A)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数运算</span></span><br><span class="line">torch.log(A)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 平方根</span></span><br><span class="line">A**<span class="number">0.5</span></span><br><span class="line">torch.sqrt(A)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 平方根导数</span></span><br><span class="line"><span class="number">1</span>/(A**<span class="number">0.5</span>)</span><br><span class="line">torch.rsqrt(A)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 元素限定裁剪</span></span><br><span class="line"><span class="comment"># 给定一个上下限用于限制元素大小</span></span><br><span class="line"><span class="comment"># 小于下限时会被重置为下限</span></span><br><span class="line"><span class="comment"># 大于上限则会被重置为上限</span></span><br><span class="line">torch.clamp_max(A,<span class="number">4</span>)</span><br><span class="line">torch.clamp_min(A,<span class="number">3</span>)</span><br><span class="line">torch.clamp(A,<span class="number">2</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>矩阵间的运算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 求转置</span></span><br><span class="line">torch.t(A)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 矩阵乘法</span></span><br><span class="line">A.matmul(C)</span><br><span class="line"><span class="comment"># 注意矩阵乘法只计算最后两个维度的值</span></span><br><span class="line"><span class="comment"># 如元素A[2,3,2] B[2,2,3]</span></span><br><span class="line"><span class="comment"># 此时的矩阵乘法相当于stack((A[0].matmul(B[0])),(A[1].matmul(B[1]))</span></span><br><span class="line"><span class="comment"># 可以简写成torch.mm</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算矩阵的逆</span></span><br><span class="line">torch.inverse() <span class="comment"># 当然需要矩阵有逆矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算矩阵的迹</span></span><br><span class="line">torch.trace()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="1-3-3-统计运算">1.3.3 统计运算</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">torch.max(dim=n)</td>
+<td style="text-align:center">计算张量对应维度下的最大值</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.argmax(dim=n)</td>
+<td style="text-align:center">获得最大值位置</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.min(dim=n)</td>
+<td style="text-align:center">最小值</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.argmin(dim=n)</td>
+<td style="text-align:center">最小值位置</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.sort()</td>
+<td style="text-align:center">排序并获得下标</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.argsort()</td>
+<td style="text-align:center">序列下标</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.topk()</td>
+<td style="text-align:center">取出第k大的值和下标</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.kthvalue()</td>
+<td style="text-align:center">获得指定第k小的值和下标</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.mean()</td>
+<td style="text-align:center">根据指定维度计算标准差</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.sum()</td>
+<td style="text-align:center">根据指定维度求和</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.cumsum()</td>
+<td style="text-align:center">根据指定维度计算累加和</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.median()</td>
+<td style="text-align:center">根据指定维度计算中位数</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.cumprod()</td>
+<td style="text-align:center">根据指定维度计算累乘</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.std()</td>
+<td style="text-align:center">根据指定维度计算标准差</td>
+</tr>
+</tbody>
+</table>
+<p>torch.max在不同维度下的运作：返回当前维度下的最大值，例如[2,3,4]在dim=0出取最大，返回一个[3,4]，这个矩阵每个值都由dim=0的维度下取相应位置的最大值。如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string"> tensor([[[-1.0190,  0.8085, -0.0339, -0.7646],</span></span><br><span class="line"><span class="string">         [ 0.7205,  0.6350, -0.2577, -0.2069],</span></span><br><span class="line"><span class="string">         [-0.8420,  0.7809, -1.2055, -2.6755]],</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        [[ 0.3683,  0.1512, -1.5940, -0.1101],</span></span><br><span class="line"><span class="string">         [-1.9924,  0.7249, -0.6083, -1.0755],</span></span><br><span class="line"><span class="string">         [-3.5662, -1.5086, -0.0512,  1.3599]]])</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">         </span><br><span class="line">a.<span class="built_in">max</span>(dim=<span class="number">0</span>)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">torch.return_types.max(</span></span><br><span class="line"><span class="string">values=tensor([[ 0.3683,  0.8085, -0.0339, -0.1101],</span></span><br><span class="line"><span class="string">        [ 0.7205,  0.7249, -0.2577, -0.2069],</span></span><br><span class="line"><span class="string">        [-0.8420,  0.7809, -0.0512,  1.3599]]),</span></span><br><span class="line"><span class="string">indices=tensor([[1, 0, 0, 1],</span></span><br><span class="line"><span class="string">        [0, 1, 0, 0],</span></span><br><span class="line"><span class="string">        [0, 0, 1, 1]]))</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">a.<span class="built_in">max</span>(dim=<span class="number">1</span>)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">torch.return_types.max(</span></span><br><span class="line"><span class="string">values=tensor([[ 0.7205,  0.8085, -0.0339, -0.2069],</span></span><br><span class="line"><span class="string">        [ 0.3683,  0.7249, -0.0512,  1.3599]]),</span></span><br><span class="line"><span class="string">indices=tensor([[1, 0, 0, 1],</span></span><br><span class="line"><span class="string">        [0, 1, 2, 2]]))</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，返回值都是指定维度消失，保留其他维度</p>
+<p><code>sort()</code>方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val,idx=torch.sort(A,descending=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p><code>topk()</code>方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取前4个大值</span></span><br><span class="line">val,idx=torch.topk(A,<span class="number">4</span>,dim=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p><code>kthvalue()</code>方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获得第k个小值</span></span><br><span class="line">torch.kthvalue(A,<span class="number">3</span>,dim=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-自动微分">2.  自动微分</h2>
+<p>通过设置<code>requires_grad</code>即可实现自动微分。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x=torch.Tensor([[<span class="number">1.</span>,<span class="number">2.</span>],[<span class="number">3.</span>,<span class="number">4.</span>]],requires_grad=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># x设置为需要微分的变量</span></span><br><span class="line"></span><br><span class="line">y=torch.<span class="built_in">sum</span>(A**<span class="number">2</span>+A*<span class="number">2</span>+<span class="number">1</span>)</span><br><span class="line">y.backward()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 再去求梯度</span></span><br><span class="line">y.grad()</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="3-torch-nn模块">3.  torch.nn模块</h2>
+<h3 id="3-1-卷积层">3.1  卷积层</h3>
+<p>卷积可以看做是输入和卷积核之间的内积运算，是两个实值函数之间的一种数学运算。</p>
+<p>卷积运算具有三个比较重要的特点，即<strong>卷积稀疏连接</strong>、<strong>参数共享</strong>、<strong>等变表示</strong>。</p>
+<p>在CNN中，通过卷积核使得输入单元与输出单元呈现<strong>稀疏连接</strong>，这能<strong>减少需要训练的参数量</strong>，<strong>加快网络计算速度</strong>。</p>
+<p>且模型中同一组参数将被相同的卷积核处理，只需要<strong>训练一个参数集</strong>即可，且卷积核大小远小于输入输出，减少了需要学习的参数数量。针对每个卷积层，可以使用多个卷积核获取输入的特征映射，对数据(尤其是图像)具有很强的特征提取和表示能力，并且在卷积运算后，使得卷积神经网络结构对输入的图像具有<strong>平移不变性</strong>。</p>
+<p>PyTorch在卷积层提供了多种维度的卷积和逆卷积过程。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">API</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">torch.nn.Conv1d()</td>
+<td style="text-align:center">针对输入信号应用一维卷积</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.nn.Conv2d()</td>
+<td style="text-align:center">针对输入信号应用二维卷积</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.nn.Conv3d()</td>
+<td style="text-align:center">针对输入信号应用三维卷积</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.nn.ConvTranspose1d()</td>
+<td style="text-align:center">针对输入信号应用一维转置卷积</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.nn.ConvTranspose2d()</td>
+<td style="text-align:center">针对输入信号应用二维转置卷积</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.nn.ConvTranspose3d()</td>
+<td style="text-align:center">针对输入信号应用三维转置卷积</td>
+</tr>
+</tbody>
+</table>
+<p>以<code>torch.nn.Conv2d()</code>为例，其参数构造为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Conv2d(</span><br><span class="line">    in_channels, <span class="comment"># 输入图像通道数，如RGB为三通道</span></span><br><span class="line">    out_channels, <span class="comment"># 输出图像特征数量，也就是卷积核数量</span></span><br><span class="line">    kernel_size, <span class="comment"># 卷积核大小</span></span><br><span class="line">    stride, <span class="comment"># 卷积步长，默认为1</span></span><br><span class="line">    padding, <span class="comment"># 在输入两边填充零的数量，默认为0</span></span><br><span class="line">    dilation, <span class="comment"># 卷积核元素之间的步幅，可调整卷积孔洞大小</span></span><br><span class="line">    groups, <span class="comment"># 从输入通道到输出通道的阻塞连接数</span></span><br><span class="line">    bias, <span class="comment"># 布尔值，是否添加偏置</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>案例</strong></p>
+<ul>
+<li>
+<p>首先读入图片</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">path=<span class="string">r&quot;C:\Users\落花雨\Desktop\01.jpg&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取图像并转化为灰度</span></span><br><span class="line">mymin=Image.<span class="built_in">open</span>(path)</span><br><span class="line">myimgray=np.array(mymin.convert(<span class="string">&quot;L&quot;</span>),dtype=np.float32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可视化图片</span></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">8</span>),dpi=<span class="number">300</span>)</span><br><span class="line">plt.imshow(myimgray,cmap=plt.cm.gray)</span><br><span class="line">plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%20PyTorch%E5%85%A5%E9%97%A8/image-20220728195841284.png" alt="image-20220728195841284" style="zoom:50%;">
+</li>
+<li>
+<p>需要将图片转为张量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将数组转化为张量</span></span><br><span class="line">imh,imw=myimgray.shape</span><br><span class="line"><span class="comment"># 图片在torch中存储： batch channel height weight</span></span><br><span class="line">myimgray_t=torch.from_numpy(myimgray.reshape((<span class="number">1</span>,<span class="number">1</span>,imh,imw)))</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>接着呢，我们定义两个卷积核，其中核一是边缘检测核，而核二是随机核。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我们用两个卷积核进行操作，第一个使用轮廓卷积核</span></span><br><span class="line"><span class="comment"># 第二个则采用随机数</span></span><br><span class="line">kersize=<span class="number">5</span></span><br><span class="line">ker=torch.ones(kersize,kersize,dtype=torch.float32)*-<span class="number">1</span></span><br><span class="line">ker[<span class="number">2</span>,<span class="number">2</span>]=<span class="number">24</span></span><br><span class="line">ker=ker.reshape((<span class="number">1</span>,<span class="number">1</span>,kersize,kersize))</span><br><span class="line"><span class="comment"># 定义卷积层</span></span><br><span class="line">conv2d=nn.Conv2d(<span class="number">1</span>,<span class="number">2</span>,(<span class="number">5</span>,<span class="number">5</span>),bias=<span class="literal">False</span>)</span><br><span class="line"><span class="comment"># 通过conv2d的weight参数可以修改卷积核</span></span><br><span class="line">conv2d.weight.data[<span class="number">0</span>]=ker</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>最后的卷积操作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 卷积操作</span></span><br><span class="line">imconv2dout=conv2d(myimgray_t)</span><br><span class="line"><span class="comment"># 维度压缩</span></span><br><span class="line">imconv2dout_im=imconv2dout.data.squeeze()</span><br><span class="line"><span class="comment"># 可视化</span></span><br><span class="line">plt.figure(figsize=(<span class="number">12</span>,<span class="number">6</span>))</span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">plt.imshow(imconv2dout_im[<span class="number">0</span>],cmap=plt.cm.gray)</span><br><span class="line">plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">plt.imshow(imconv2dout_im[<span class="number">1</span>],cmap=plt.cm.gray)</span><br><span class="line">plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%20PyTorch%E5%85%A5%E9%97%A8/image-20220728195902448.png" alt="image-20220728195902448" style="zoom:50%;">
+</li>
+</ul>
+<hr>
+<h3 id="3-2-池化层">3.2  池化层</h3>
+<p>池化操作的一个重要目的是对卷积后得到的特征进行进一步处理(主要是降维)，池化层可以起到对数据进一步浓缩的效果，从而<strong>缓解计算时内存的压力</strong>。</p>
+<p>池化会将一定改大小的区域用一个<strong>代表元素</strong>表示，譬如将一个5*5范围的元素做平均，得到一个代表元素，该过程就称为平均池化。</p>
+<p><strong>API：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">API</th>
+<th style="text-align:center">FUC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">nn.MaxPool1d()</td>
+<td style="text-align:center">针对输入信号上应用1D最大值池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.MaxPool2d()</td>
+<td style="text-align:center">针对输入信号上应用2D最大值池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.MaxPool3d()</td>
+<td style="text-align:center">针对输入信号上应用3D最大值池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.MaxUnPool1d()</td>
+<td style="text-align:center">1D最大池化的部分逆运算</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.MaxUnPool2d()</td>
+<td style="text-align:center">2D最大池化的部分逆运算</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.MaxUnPool3d()</td>
+<td style="text-align:center">3D最大池化的部分逆运算</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.AvgPool1d()</td>
+<td style="text-align:center">1D平均池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.AvgPool2d()</td>
+<td style="text-align:center">2D平均池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.AvgPool3d()</td>
+<td style="text-align:center">3D平均池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.AdaptiveMaxPool1d()</td>
+<td style="text-align:center">1D自适应最大池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.AdaptiveMaxPool2d()</td>
+<td style="text-align:center">2D自适应最大池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.AdaptiveMaxPool3d()</td>
+<td style="text-align:center">3D自适应最大池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.AdaptiveAvgPool1d()</td>
+<td style="text-align:center">1D自适应平均池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.AdaptiveAvgPool2d()</td>
+<td style="text-align:center">2D自适应平均池化</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.AdaptiveAvgPool3d()</td>
+<td style="text-align:center">3D自适应平均池化</td>
+</tr>
+</tbody>
+</table>
+<p>以<code>nn.MaxPool2d()</code>为例，其参数使用为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">nn.MaxPool2d(</span><br><span class="line">    		kernel_size, <span class="comment"># 池化窗口大小</span></span><br><span class="line">             stride=<span class="literal">None</span>, <span class="comment"># 最大池化窗口移动步长</span></span><br><span class="line">             padding=<span class="number">0</span>, <span class="comment"># 补充零的层数</span></span><br><span class="line">             dilation=<span class="number">1</span>, <span class="comment"># 控制窗口元素步幅参数</span></span><br><span class="line">             return_indices=<span class="literal">False</span>, <span class="comment"># 为True会返回最大值索引</span></span><br><span class="line">             ceil_mode=<span class="literal">False</span> <span class="comment"># True时向上取整，默认向下取整</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>案例</strong></p>
+<ul>
+<li>
+<p>我们对刚刚经过卷积的图像做最大池化处理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对卷积后的结果进行最大值池化</span></span><br><span class="line">maxpool2=nn.MaxPool2d(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">pool2_out=maxpool2(imconv2dout)</span><br><span class="line">pool2_out_im=pool2_out.data.squeeze()</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%20PyTorch%E5%85%A5%E9%97%A8/image-20220728195913488.png" alt="image-20220728195913488" style="zoom:50%;">
+</li>
+<li>
+<p>平均池化处理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 平均值池化</span></span><br><span class="line">avgpool2d=nn.AvgPool2d(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">pool2_out=avgpool2d(imconv2dout)</span><br><span class="line">pool2_out_im=pool2_out.data.squeeze()</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%20PyTorch%E5%85%A5%E9%97%A8/image-20220728195923125.png" alt="image-20220728195923125" style="zoom:50%;">
+</li>
+<li>
+<p>自适应池化处理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自适应平均值池化</span></span><br><span class="line"><span class="comment"># 可以用output_size去指定特征映射尺寸</span></span><br><span class="line">adaavgpool2=nn.AdaptiveAvgPool2d(output_size=(<span class="number">100</span>,<span class="number">100</span>))</span><br><span class="line">pool2_out=adaavgpool2(imconv2dout)</span><br><span class="line">pool2_out_im=pool2_out.data.squeeze()</span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%20PyTorch%E5%85%A5%E9%97%A8/image-20220728195931904.png" alt="image-20220728195931904" style="zoom:50%;">
+</li>
+</ul>
+<p><strong>补充</strong></p>
+<ul>
+<li>
+<p>关于tensor.data和tensor.detach</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一般情况下Tensor会带有梯度信息、是否求导等动态图计算中需要使用的信息</span></span><br><span class="line"><span class="comment"># 那这些信息拿来做一些事情比如绘图就不方便</span></span><br><span class="line"><span class="comment"># 就需要从其中拿到数据</span></span><br><span class="line"></span><br><span class="line">A.data <span class="comment"># 取出数据本体，但共享内存，修改互相影响</span></span><br><span class="line">A.detach <span class="comment"># 同样，只不过在反向传播时，会判断数据是否被修改，修改会报错</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="3-3-激活函数">3.3  激活函数</h3>
+<p>通常的激活函数为S型(sigmoid)激活函数、双曲正切(Tanh)激活函数、线性修正单元(ReLU)激活函数</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">API</th>
+<th style="text-align:center">FUC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">nn.Sigmoid</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.Tanh</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.ReLU</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.Softplus</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Sigmoid</strong></p>
+<p>也称为logistic激活函数，其输出在(0,1)之间，作为早期的激活函数，其缺点比较明显。当输入远离坐标原点时，函数的梯度会变的很小，影响参数的更新速度。</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>x</mi></mrow></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x)=\frac{1}{1+e^{-x}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0908em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6973em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+</li>
+<li>
+<p><strong>Tanh</strong></p>
+<p>输出期间在(-1,1)之间，整个函数以0为中心，虽然梯度消失仍然存在，但其以0对称的特点使得其效果优于Sigmoid。</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>x</mi></mrow></msup></mrow><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>x</mi></mrow></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2177em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4483em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5904em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6973em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+</li>
+<li>
+<p><strong>ReLU</strong></p>
+<p>ReLU只保留大于0的输出，当输入为正数时，不存在梯度饱和问题，计算速度很快。</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)=max(0,x)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span></p>
+</li>
+<li>
+<p><strong>Softplus</strong></p>
+<p>Softplus是平滑近似ReLU，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>默认取值为1，该函数对于任意位置都可导，且保留了ReLU的优点。</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mi>β</mi></mfrac><mi>l</mi><mi>o</mi><mi>g</mi><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mi>β</mi><mi>x</mi></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)=\frac{1}{\beta}log(1+e^{\beta x})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2019em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1491em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05278em;">β</span><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+</li>
+</ul>
+<hr>
+<h3 id="3-4-循环层">3.4  循环层</h3>
+<p>PyTorch提供了三种循环层的实现。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">API</th>
+<th style="text-align:center">FUC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">nn.RNN</td>
+<td style="text-align:center">多层RNN单元</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.LSTM</td>
+<td style="text-align:center">多层长短期记忆LSTM单元</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.GRU</td>
+<td style="text-align:center">多层门限循环GRU单元</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.RNNCell</td>
+<td style="text-align:center">一个RNN单元</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.LSTMCell</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">nn.GRUCell</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<p>以nn.RNN 为例，其参数信息为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">nn.RNN(</span><br><span class="line">    input_size, <span class="comment"># 输入x的特征数量</span></span><br><span class="line">    hidden_size, <span class="comment"># 隐层的特征数量</span></span><br><span class="line">    num_layers, <span class="comment"># RNN网络层数</span></span><br><span class="line">    nonlinearity, <span class="comment"># 指定非线性函数使用tanh还是relu，默认tanh</span></span><br><span class="line">    bias, <span class="comment"># 偏置权重</span></span><br><span class="line">    bathc_first, <span class="comment"># True时，限制输入和输出shape为[batch_size,time_step,feature]</span></span><br><span class="line">    dropout, <span class="comment"># 值非零时，除了最后一层，其他RNN层的输出都会套上一个dropout层</span></span><br><span class="line">    bidirectional <span class="comment"># 该值为True时，会变成一个双向RNN</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>具体使用内容见后续循环神经网络。</p>
+<h3 id="3-5-全连接层">3.5 全连接层</h3>
+<p>通常所说的全连接层是指一个由多个神经元所组成的层，其所有的输出和该层所有的输入都有连接，即每个输入都会影响所有神经元的输出。</p>
+<p>在PyTorch中，nn.linear()表示线性变换，全连接层可以看做线性变换层加上一个激活函数。</p>
+<p>其相关参数如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nn.Linear(</span><br><span class="line">    in_features, <span class="comment"># 输入样本特征数量</span></span><br><span class="line">    out_features, <span class="comment"># 输出样本特征数量</span></span><br><span class="line">    bias <span class="comment"># 是否添加偏置</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>案例</strong></p>
+<p>现在利用PyTorch构建一个多层感知机。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MLP</span>(nn.Module):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="built_in">super</span>(MLP,self).__init__()</span><br><span class="line">		self.model=nn.Sequential(</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># nn.Sequential就是一个容器</span></span><br><span class="line">            <span class="comment"># 可以添加任何继承自nn.Module的类</span></span><br><span class="line">            <span class="comment"># 并让输入依次经过容器内放置的神经元</span></span><br><span class="line">            </span><br><span class="line">            nn.Linear(<span class="number">784</span>,<span class="number">200</span>),</span><br><span class="line">            nn.ReLU(inplace=<span class="literal">True</span>),</span><br><span class="line">            nn.Linear(<span class="number">200</span>,<span class="number">200</span>),</span><br><span class="line">            nn.ReLU(inplace=<span class="literal">True</span>),</span><br><span class="line">            nn.Linear(<span class="number">200</span>,<span class="number">10</span>),</span><br><span class="line">            nn.ReLU(inplace=<span class="literal">True</span>),</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">            <span class="comment"># 继承了nn.module.forward的方法</span></span><br><span class="line">            <span class="keyword">return</span> self.model(x)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="4-数据操作和预处理">4.  数据操作和预处理</h2>
+<p>在PyTorch中，torch.utils.data模块包含着一些常用的数据预处理函数。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">API</th>
+<th style="text-align:center">FUC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">torch.utils.data.TensorDataset()</td>
+<td style="text-align:center">将数据处理为张量</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.utils.data.ConcatDataset()</td>
+<td style="text-align:center">连接多个数据集</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.utils.data.Subset()</td>
+<td style="text-align:center">根据索引获取数据集的子集</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.utils.data.DataLoader()</td>
+<td style="text-align:center">数据加载器</td>
+</tr>
+<tr>
+<td style="text-align:center">torch.utils.data.random_split()</td>
+<td style="text-align:center">随机将数据集拆分成给定长度的非重叠新数据集</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-1-高维数组">4.1  高维数组</h3>
+<p><strong>回归数据案例</strong></p>
+<ul>
+<li>
+<p>预先加载数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.utils.data <span class="keyword">as</span> Data</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_boston,load_iris</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取波士顿回归数据</span></span><br><span class="line">boston_x,boston_y=load_boston(return_X_y=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 这两个是numpy数据，类型为float64</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>需要将numpy转化为tensor</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">train_xt=torch.from_numpy(boston_x.astype(np.float32))</span><br><span class="line">train_yt=torch.from_numpy(boston_y.astype(np.float32))</span><br><span class="line"><span class="comment"># 这样我们就得到了Tensor.float32数据啦</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在训练全连接神经网络时，通常一次使用一个batch的数据进行权重更新。torch.utils.data.DataLoader()可以将输入的数据集打包成一个加载器，每次迭代可使用一个batch数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 利用TD函数将XY整合到一起</span></span><br><span class="line">train_data=Data.TensorDataset(train_xt,train_yt)</span><br><span class="line"><span class="comment"># 定义一个加载器，将训练数据集进行批量处理</span></span><br><span class="line">train_loader=Data.DataLoader(</span><br><span class="line">    dataset=train_data, <span class="comment"># 使用的数据集</span></span><br><span class="line">    batch_size=<span class="number">64</span>, <span class="comment"># 批处理样本大小</span></span><br><span class="line">    shuffle=<span class="literal">True</span>, <span class="comment"># 每次迭代前打乱</span></span><br><span class="line">    num_workers=<span class="number">1</span>, <span class="comment"># 使用两个进程</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>现在我们就能获取到一个batch的数据了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> step,(b_x,b_y) <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_loader):</span><br><span class="line">    b_x.shape</span><br><span class="line">    <span class="comment"># torch.Size([64,13])</span></span><br><span class="line">    b_y.shape</span><br><span class="line">    <span class="comment"># torch.Size([64])</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="4-2-图像数据">4.2  图像数据</h3>
+<p><strong>以文件夹路径数据为例</strong></p>
+<ul>
+<li>
+<p>torchvision的datasets模块包含ImageFolder()函数，该函数可以读取如下格式的数据集：</p>
+<ul>
+<li>root/dog/001.png</li>
+<li>root/cat/026.png…</li>
+</ul>
+</li>
+<li>
+<p>为了保证图像数据的一致性，需要先做一些变换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"></span><br><span class="line">train_data_transforms=transforms.Compose([</span><br><span class="line">	transforms.RandomResizedCrop(<span class="number">224</span>), <span class="comment"># 随机长宽比裁剪为224*224</span></span><br><span class="line">    transforms.RandomHorizontalFlip(), <span class="comment"># 依概率p=0.5水平翻转</span></span><br><span class="line">    transforms.ToTensor() <span class="comment"># 转化为张量并归一化至[0-1]</span></span><br><span class="line">    <span class="comment"># 此过程还会将图像的形状从[H,W,C]转化为[C,H,W]</span></span><br><span class="line">    <span class="comment"># 标准化处理</span></span><br><span class="line">    transforms.Normalize([<span class="number">0.485</span>,<span class="number">0.456</span>,<span class="number">0.406</span>],</span><br><span class="line">                        [<span class="number">0.229</span>,<span class="number">0.224</span>,<span class="number">0.225</span>])</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>接着我们就能去读取图像了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">train_data_dir=<span class="string">&quot;data/chap2/imagedata/&quot;</span></span><br><span class="line"><span class="comment"># 文件夹路径与变换信息</span></span><br><span class="line">train_data=ImageFolder(train_data_dir,transform=train_data_transforms)</span><br><span class="line">train_data_loader=Data.DataLoder(</span><br><span class="line">    train_data,batch_size=<span class="number">4</span>,shuffle=<span class="literal">True</span>,num_works=<span class="number">1</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="4-3-文本数据">4.3  文本数据</h3>
+<p>这一章内容因数据而异，暂且按下不表。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></div><div class="post_share"><div class="social-share" data-image="https://img-blog.csdnimg.cn/ca60c301082c4f1c875ee3d17b8cba6a.jpeg#pic_center" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%B8%89%E7%AB%A0%20%20DNN%20%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/ca60c301082c4f1c875ee3d17b8cba6a.jpeg#pic_center" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第三章  深度神经网络</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/28/%E3%80%90%E6%95%B0%E8%AE%BA%E3%80%91%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/7e9272c678a34619b6556b9914f4eac9.jpeg#pic_center" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【数论】最大公约数</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/08/01/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E5%BF%AB%E9%80%9F%E5%9B%BE%E5%83%8F%E9%A2%9C%E8%89%B2%E9%A3%8E%E6%A0%BC%E8%BF%81%E7%A7%BB/" title="快速图像颜色风格迁移"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/ca60c301082c4f1c875ee3d17b8cba6a.jpeg#pic_center" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-01</div><div class="title">快速图像颜色风格迁移</div></div></a></div><div><a href="/2022/08/01/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91PointNet%E7%BD%91%E7%BB%9C/" title="PointNet网络"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-01</div><div class="title">PointNet网络</div></div></a></div><div><a href="/2022/08/01/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91PointNet-%E7%BD%91%E7%BB%9C/" title="PointNet++网络"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-01</div><div class="title">PointNet++网络</div></div></a></div><div><a href="/2022/07/29/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="图卷积神经网络(GCN)综述与实现"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/y8/wallhaven-y8vlyk.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-29</div><div class="title">图卷积神经网络(GCN)综述与实现</div></div></a></div><div><a href="/2022/07/29/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91FCN%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%BD%91%E7%BB%9C/" title="FCN语义分割网络"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/ca60c301082c4f1c875ee3d17b8cba6a.jpeg#pic_center" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-29</div><div class="title">FCN语义分割网络</div></div></a></div><div><a href="/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%B8%80%E7%AB%A0%20%20%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8EPyTorch/" title="第一章  深度学习与PyTorch"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/ca60c301082c4f1c875ee3d17b8cba6a.jpeg#pic_center" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-28</div><div class="title">第一章  深度学习与PyTorch</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.jingyeqian.com/i/2021/03/21/6375192146687954551533103.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kagura</div><div class="author-info__description">May we all be who we want to be</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45957458?type=blog"><i></i><span>about me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople1.js"></script><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/zdog.dist.js"></script><script id="rendered-js" src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople.js"></script><style>.card-widget.card-announcement {
+margin: 0;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+canvas {
+display: block;
+margin: 0 auto;
+cursor: move;
+}</style><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">第二章  PyTorch入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BC%A0%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">1.  张量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%BC%A0%E9%87%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1  张量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%BC%A0%E9%87%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2  张量操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E6%94%B9%E5%8F%98%E5%BC%A0%E9%87%8F%E5%BD%A2%E7%8A%B6"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">1.2.1 改变张量形状</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-%E5%BC%A0%E9%87%8F%E7%B4%A2%E5%BC%95%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">1.2.2 张量索引操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-%E5%BC%A0%E9%87%8F%E7%9A%84%E6%8B%BC%E6%8E%A5%E5%92%8C%E6%8B%86%E5%88%86"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">1.2.3 张量的拼接和拆分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-4-%E8%BD%AC%E7%BD%AE"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">1.2.4 转置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%BC%A0%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3  张量计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-%E5%A4%A7%E5%B0%8F%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">1.3.1 大小比较</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">1.3.2 基本运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-3-%E7%BB%9F%E8%AE%A1%E8%BF%90%E7%AE%97"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.3.3 统计运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">2.  自动微分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-torch-nn%E6%A8%A1%E5%9D%97"><span class="toc-number">1.3.</span> <span class="toc-text">3.  torch.nn模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%8D%B7%E7%A7%AF%E5%B1%82"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1  卷积层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%B1%A0%E5%8C%96%E5%B1%82"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2  池化层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3  激活函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%BE%AA%E7%8E%AF%E5%B1%82"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4  循环层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82"><span class="toc-number">1.3.5.</span> <span class="toc-text">3.5 全连接层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E5%92%8C%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">1.4.</span> <span class="toc-text">4.  数据操作和预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E9%AB%98%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1  高维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2  图像数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3  文本数据</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/23/%E3%80%90Python%E3%80%91%E4%BD%8D%E8%BF%90%E7%AE%97/" title="Python位运算"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/20200718094916304.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python位运算"/></a><div class="content"><a class="title" href="/2022/08/23/%E3%80%90Python%E3%80%91%E4%BD%8D%E8%BF%90%E7%AE%97/" title="Python位运算">Python位运算</a><time datetime="2022-08-23T14:58:37.510Z" title="发表于 2022-08-23 22:58:37">2022-08-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/23/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91%E5%B8%B8%E8%A7%81%E8%AF%8D/" title="常见词"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cloud.miiiku.xyz/src/images/cover/cover-02.jpg-webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见词"/></a><div class="content"><a class="title" href="/2022/08/23/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91%E5%B8%B8%E8%A7%81%E8%AF%8D/" title="常见词">常见词</a><time datetime="2022-08-23T01:22:06.565Z" title="发表于 2022-08-23 09:22:06">2022-08-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/22/%E3%80%90LeetCode%E3%80%91%E7%99%BE%E9%A2%98%E7%95%99%E5%BF%B5/" title="LeetCode 百题留念"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/7e9272c678a34619b6556b9914f4eac9.jpeg#pic_center" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 百题留念"/></a><div class="content"><a class="title" href="/2022/08/22/%E3%80%90LeetCode%E3%80%91%E7%99%BE%E9%A2%98%E7%95%99%E5%BF%B5/" title="LeetCode 百题留念">LeetCode 百题留念</a><time datetime="2022-08-22T14:19:16.191Z" title="发表于 2022-08-22 22:19:16">2022-08-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/22/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91%E5%AE%9E%E4%BE%8B%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96%E5%BE%AE%E4%BF%A1%E6%8E%A5%E9%BE%99%E7%9A%84%E4%BA%BA%E6%95%B0/" title="数据分析实例--随机抽取微信接龙人员"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/l3/wallhaven-l3xk6q.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据分析实例--随机抽取微信接龙人员"/></a><div class="content"><a class="title" href="/2022/08/22/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91%E5%AE%9E%E4%BE%8B%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96%E5%BE%AE%E4%BF%A1%E6%8E%A5%E9%BE%99%E7%9A%84%E4%BA%BA%E6%95%B0/" title="数据分析实例--随机抽取微信接龙人员">数据分析实例--随机抽取微信接龙人员</a><time datetime="2022-08-22T13:16:59.719Z" title="发表于 2022-08-22 21:16:59">2022-08-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/22/%E3%80%90Python%E3%80%91deque()%E8%AF%A6%E8%A7%A3/" title="Collections.deque()详解"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/20200718094952975.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Collections.deque()详解"/></a><div class="content"><a class="title" href="/2022/08/22/%E3%80%90Python%E3%80%91deque()%E8%AF%A6%E8%A7%A3/" title="Collections.deque()详解">Collections.deque()详解</a><time datetime="2022-08-22T07:27:39.475Z" title="发表于 2022-08-22 15:27:39">2022-08-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://img-blog.csdnimg.cn/ca60c301082c4f1c875ee3d17b8cba6a.jpeg#pic_center')"><div id="footer-wrap"><div class="copyright">&copy;2022 By Kagura</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">All amazing things you see have been tempered by mediocrity</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%20PyTorch%E5%85%A5%E9%97%A8/'
+    this.page.identifier = '/2022/07/28/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%20PyTorch%E5%85%A5%E9%97%A8/'
+    this.page.title = '第二章  PyTorch入门'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script data-pjax defer src="/js/fish.js"></script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async src="/js/diytitle.js"></script><div class="aplayer no-destroy" data-id="7401064131" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="255,255,255" opacity="0.8" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover1.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/不想学辣/&quot;);" href="javascript:void(0);">不想学辣</a><span class="categoryBar-list-count">36</span><span class="categoryBar-list-descr">摸鱼人的摸鱼日常</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover2.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/琐碎日常/&quot;);" href="javascript:void(0);">琐碎日常</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">生活虐我千百遍</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover3.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/拾枝杂谈/&quot;);" href="javascript:void(0);">拾枝杂谈</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">嘘，梦醒了可是要被吃掉的哦</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover4.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/梦时风月/&quot;);" href="javascript:void(0);">梦时风月</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">可能有用的小知识</span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://fastly.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/theme_f/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":20,"vOffset":-20},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
