@@ -3,14 +3,273 @@
   
     
     <entry>
-      <title><![CDATA[遥感科学]]></title>
-      <url>/2022/08/30/%E3%80%90%E9%81%A5%E6%84%9F%E7%A7%91%E5%AD%A6%E3%80%91/</url>
-      <content type="html"><![CDATA[<h1>遥感科学</h1>
-<hr>
-<h2 id="Introduction">Introduction</h2>
+      <title><![CDATA[【Data Mining】Chapter 1. Introduction]]></title>
+      <url>/2022/08/31/%E3%80%90Data%20Mining%E3%80%91Chapter%201.%20Introduction/</url>
+      <content type="html"><![CDATA[<h2 id="1️⃣-What-is-Data-Mining">1️⃣ What is Data Mining?</h2>
 <ul>
-<li>姜小光</li>
+<li><strong>Data mining:</strong> 🌟 Discover valid, novel, useful, and understandable patterns in massive datasets.</li>
 </ul>
+<p><strong>Cross Disciplines</strong></p>
+<ul>
+<li>Databases</li>
+<li>Machine learning</li>
+<li>Statistics</li>
+<li>Neural network</li>
+<li>Parallel / Distributed computing</li>
+</ul>
+<hr>
+<h2 id="2️⃣-Characteristics-of-Data-Mining">2️⃣ Characteristics of Data Mining</h2>
+<ul>
+<li>Massive dataset</li>
+<li>Automatically searching for interesting patterns from historical data</li>
+<li>Fast</li>
+<li>Scalable</li>
+<li>Update easily</li>
+<li>Practical</li>
+<li>Decision support</li>
+</ul>
+<hr>
+<h2 id="3️⃣-The-main-tasks-of-Data-Mining">3️⃣ The main tasks of Data Mining</h2>
+<ul>
+<li>
+<p>Clustering</p>
+</li>
+<li>
+<p>Classification</p>
+</li>
+<li>
+<p>Anomaly Detection</p>
+</li>
+<li>
+<p>Association Rules</p>
+</li>
+<li>
+<p>Social Analysis</p>
+</li>
+<li>
+<p>Recommender Systems</p>
+</li>
+<li>
+<p>Sequence Mining</p>
+</li>
+</ul>
+<h3 id="🌬️-Association-Rule-Mining">🌬️ Association Rule Mining</h3>
+<p>Detect sets of attributes or items that frequently co-occur in many database records and rules among them.</p>
+<blockquote>
+<p>关联规则挖掘，旨在寻找到经常同时出现在数据库记录和其中的规则中的属性或项集。</p>
+</blockquote>
+<hr>
+<h3 id="🔥-Classification">🔥 Classification</h3>
+<p>Build a model of classes on training dataset, and then, assign a new record to one of several predefined classes.</p>
+<blockquote>
+<p>一个简单的分类模型：决策树。</p>
+<p>分类是在先验基础上(经验、样本)，对未定义的数据赋予新的属性。</p>
+</blockquote>
+<hr>
+<h3 id="🍦-Clustering">🍦 Clustering</h3>
+<p>Partition the dataset into groups such that elements in a group have lower inter-group similarity and higher intra-group similarity.</p>
+<blockquote>
+<p>聚类的核心在于对于无标签数据，通过模型将其划分为具有簇间差异最大、簇内差异最小的簇</p>
+</blockquote>
+<hr>
+<h3 id="🐍-Anomaly-Detection">🐍 Anomaly Detection</h3>
+<p><strong>Anomalies:</strong> 🌟 The set of objects are considerably dissimilar from the remaining of the data.</p>
+<p>Give a set of <code>n</code> objects, and <code>k</code>, the number of expected anomalies, find the top <code>k</code> objects that are considerably dissimilar or inconsistent with the remaining data.</p>
+<hr>
+<h3 id="📘-Sequence-Mining">📘 Sequence Mining</h3>
+<p>Given a set of sequences, find the complete set of frequent subsequences.</p>
+<blockquote>
+<p>给定一组序列，找到他的频繁子序列的完整集合</p>
+</blockquote>
+<hr>
+<h2 id="4️⃣-The-kinds-of-Date">4️⃣ The kinds of Date</h2>
+<ul>
+<li>Relational Databases
+<ul>
+<li>说人话就是处理结构化数据，以关系表的形式存储</li>
+</ul>
+</li>
+<li>Data Warehouses
+<ul>
+<li>数据仓库顾名思义，是⼀个很⼤的数据存储集合，出于企业的分析性报告和决策⽀持⽬的⽽创建，对多样的业务数据进⾏筛选与整合。</li>
+</ul>
+</li>
+<li>Transactional Databases</li>
+<li>Spatial Data</li>
+<li>Time Series</li>
+<li>Text Databases</li>
+<li>Multimedia databases</li>
+<li>Data Streams</li>
+<li>Biomedical Data</li>
+<li>World-Wide Web</li>
+<li>Graph</li>
+</ul>
+<hr>
+<h2 id="5️⃣-Knowledge-Discovery-Process">5️⃣ Knowledge Discovery Process</h2>
+<img src="/2022/08/31/%E3%80%90Data%20Mining%E3%80%91Chapter%201.%20Introduction/image-20220831101945274.png" alt="image-20220831101945274" style="zoom:50%;">
+<p>说人话就是：</p>
+<p>从数据库中进行<code>数据清洗和聚合</code>，接着在数据仓库中进行<code>选择和变换</code>，通过<code>数据挖掘</code>，对得到的<code>模式进行评估</code>，最终得到可用的<code>知识</code>。</p>
+<p><strong>Key Step🔑</strong></p>
+<p>1️⃣ Learning the application domain</p>
+<ul>
+<li>relevant prior knowledge and goals of application</li>
+</ul>
+<p>2️⃣ Creating a target data resource</p>
+<p>3️⃣ Data cleaning and preprocessing. (may take 60% of effort)</p>
+<p>4️⃣ Data reduction and transformation</p>
+<p>5️⃣ Choosing the mining algorithms to search for patterns of interest.</p>
+<p>6️⃣ Pattern evaluation and knowledge presentation.</p>
+<p>7️⃣ Use of discovered knowledge</p>
+<blockquote>
+<p>可以归纳为<strong>三个阶段</strong></p>
+<ul>
+<li>用户画像阶段</li>
+<li>数据处理阶段</li>
+<li>评估应用阶段</li>
+</ul>
+<p>用户画像阶段，需要学习用户相关领域的知识，创建我们的目标数据资源</p>
+<p>数据处理阶段，需要进行数据预处理、数据降维和变换、数据挖掘这几个步骤，找到感兴趣的模式</p>
+<p>评估应用阶段，则是将得到的模式进行评估，利用该模式对知识进行表达和运用</p>
+</blockquote>
+<hr>
+<h2 id="6️⃣-Interesting-Patterns">6️⃣ Interesting Patterns</h2>
+<p><strong>Measures</strong></p>
+<p>🌟 A pattern is interesting if it is <code>easily understood</code> by humans, <code>valid</code> on new or test data with some degree of <code>certainly, potentially useful, novel,</code> or <code>validates some hypothesis</code> that a user seeks to confirm.</p>
+<p>✏️ 如果一种模式“很容易被人类理解”，对新数据或测试数据“有效”，并具有某种程度的“肯定、潜在有用、新颖”或“验证用户试图确认的某些假设”，那么这种模式就是有趣的。</p>
+<blockquote>
+<p>Objective or Subjective</p>
+</blockquote>
+<p><strong>Objective</strong>: based on <code>statistics and structures of pattern</code>s, e.g., support, confidence, etc.</p>
+<p><strong>Subjective</strong>: based on <code>user’s belief in the data</code>, e.g., unexpectedness, novelty, actionability, etc.</p>
+<blockquote>
+<p>all or only interesting patterns</p>
+</blockquote>
+<p><strong>All:</strong> Completeness</p>
+<p><strong>Only:</strong> An optimization problem–challenging</p>
+<ul>
+<li>Can a data mining system find only the interesting patterns</li>
+<li>approaches
+<ul>
+<li>First generate all the patterns and then filter out the uninteresting ones.</li>
+<li>Guide and constrain the discovery process.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="7️⃣-Research-Issues-in-Data-Mining">7️⃣ Research Issues in Data Mining</h2>
+<ul>
+<li>Mining methodology</li>
+<li>User interaction</li>
+<li>Applications and social impacts</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 数据分析 </tag>
+            
+            <tag> 数据挖掘 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[LeetCode Hot100 详细题解]]></title>
+      <url>/2022/08/30/%E3%80%90LeetCode%E3%80%91Hot100%E9%A2%98%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h2 id="Hot-100-题解🔥">Hot 100 题解🔥</h2>
+<h3 id="前言-v2">前言</h3>
+<p>最近打算开个新坑，也就是这个Hot 100。</p>
+<p>做完这份题解后，我会对我做过的所有题里有意思的，值得一说的再写一份题解。</p>
+<hr>
+<p>这份题解并不按照顺序进行，而是根据🏷️进行排序。不定期更新，平均一天1~2T，有空的话会加更。</p>
+<hr>
+<h3 id="一、数组">一、数组</h3>
+<p>1.1 <a href="https://leetcode.cn/problems/two-sum/">两数之和</a></p>
+<p><strong>题干：</strong></p>
+<p>Given an array of integers <code>nums</code> and an integer <code>target</code>, return <code>indices of the two numbers such that they add up to target</code>.</p>
+<p>You may assume that each input would have <code>exactly one solution</code>, and you may not use the same element twice.</p>
+<p>You can return the answer in any order.</p>
+<p><strong>示例：</strong></p>
+<blockquote>
+<p>Input: nums = [2,7,11,15], target = 9<br>
+Output: [0,1]<br>
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].</p>
+</blockquote>
+<blockquote>
+<p>Input: nums = [3,2,4], target = 6<br>
+Output: [1,2]</p>
+</blockquote>
+<p><strong>思路：</strong></p>
+<p>介个题本身考察的是对数组的理解和对数据结构的应用，我们可以想到一种最简单的方式：暴力。</p>
+<p>借助暴力搜索+集合去重的方式，很快就能得到需要的答案。但这样的时间复杂度为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，远远超出预期。</p>
+<p>亦或是思路二：先排好序，接着通过二分的方式找到另一个。这种方式有个好处，那就是不需要数组去重，遇到重复的跳过就行了。时间复杂度为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo><mo>+</mo><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logn)+O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>排序+二分。</p>
+<p>但是还是不够快，思路三可以通过<code>hash</code>表的方式进行，为什么能想到<code>hash</code>表呢？首先，这个数组本身是无序的，排序需要花费一定的时间复杂度。而对于某一个数<code>i</code>来说，他的配对为<code>target-i</code>，我们关注的，如何在后一次遇到<code>target-i</code>时及时找到我们的<code>i</code>？<code>hash</code>表可以很快的实现这一点。而且不需要担心重复问题。</p>
+<p><strong>实现：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], target: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        hashmap=&#123;&#125;</span><br><span class="line">        res=[]</span><br><span class="line">        <span class="keyword">for</span> i,num <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums):</span><br><span class="line">            <span class="keyword">if</span> (j:=target-num) <span class="keyword">in</span> hashmap.keys():</span><br><span class="line">                <span class="keyword">return</span> [hashmap[j],i]</span><br><span class="line">            hashmap[num]=i</span><br><span class="line">        <span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> LeetCode </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【遥感科学】第一章 遥感科学的发展]]></title>
+      <url>/2022/08/30/%E3%80%90%E9%81%A5%E6%84%9F%E7%A7%91%E5%AD%A6%E3%80%91%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E9%81%A5%E6%84%9F%E7%A7%91%E5%AD%A6%E7%9A%84%E5%8F%91%E5%B1%95/</url>
+      <content type="html"><![CDATA[<h1>第一章 遥感科学的发展🌐</h1>
+<hr>
+<h2 id="一、遥感的起源与发展✈️">一、遥感的起源与发展✈️</h2>
+<p>1️⃣ 得益于战争，遥感技术得到了大力的发展</p>
+<p>2️⃣ 上世纪<code>60</code>年代，国际上第一次将<code>遥感技术</code>作为一项科学技术门类以来，其理论逐渐发展，不断完善，在军事、资环调查、环境与灾害监测方面展现了巨大的优势。</p>
+<p>3️⃣ 目前，世界各国向空间发射<code>6000</code>多颗卫星，其中<code>1/3</code>是遥感卫星。</p>
+<blockquote>
+<p><strong>1962</strong>年，第一届国际环境遥感大会在美国密歇根大学召开，<strong>遥感Remote sening</strong>一词正式被提出</p>
+<p><strong>1957</strong>年苏联发射第一颗人造卫星</p>
+<p><strong>1958</strong>年美国发射人造卫星</p>
+<p><strong>1959</strong>年美国启动科罗纳卫星侦查计划</p>
+<p><strong>1960</strong>年美国发射第一颗气象卫星</p>
+<p><strong>1970</strong>年中国发射第一颗东方红卫星</p>
+</blockquote>
+<hr>
+<h2 id="二、遥感的基本概念">二、遥感的基本概念</h2>
+<h3 id="遥感的定义">遥感的定义</h3>
+<p>1️⃣ 广义上的遥感</p>
+<p>​	泛指一切不接触物体而进行的远距离探测，包括对电磁场、力场、机械波等的探测。</p>
+<p>2️⃣ 狭义上的遥感</p>
+<p>​	利用传感器记录目标的电磁波特征，通过对数据的处理、综合分析，揭示物体的特征及其变化规律的综合性探测技术</p>
+<p>他是以电磁波与地面物质相互作用为基础，来探测、分析和研究地球资源与环境吗，并揭示相关要素的空间分布特征与时空变化规律的一门新兴科学。</p>
+<p><strong>遥</strong>：远距离，非接触</p>
+<p><strong>感</strong>：通过某种仪器进行探测并感知被测量物体的形状、大小、状态、特征等</p>
+<p><strong>遥感的特点</strong></p>
+<ul>
+<li>面状信息获取、覆盖范围大</li>
+<li>时效性强</li>
+<li>连续性</li>
+<li>多维信息</li>
+<li>生动、形象、直观</li>
+<li>经济实惠</li>
+</ul>
+<hr>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
@@ -29,7 +288,42 @@
     </entry>
     
     <entry>
-      <title></title>
+      <title><![CDATA[遥感科学]]></title>
+      <url>/2022/08/30/%E3%80%90%E9%81%A5%E6%84%9F%E7%A7%91%E5%AD%A6%E3%80%91%E9%81%A5%E6%84%9F%E7%A7%91%E5%AD%A6A/</url>
+      <content type="html"><![CDATA[<h1>遥感科学</h1>
+<hr>
+<h2 id="Lesson-1">Lesson 1</h2>
+<blockquote>
+<p>date 2022.8.30</p>
+</blockquote>
+<p><strong>姜小光老师</strong></p>
+<ul>
+<li><a href="mailto:xgjiang@ucas.ac.cn">xgjiang@ucas.ac.cn</a></li>
+</ul>
+<p><strong>参考教材</strong></p>
+<p>《遥感应用分析原理与方法》赵英时等。</p>
+<hr>
+<h2 id="第一章-遥感科学的发展🏷️">第一章 遥感科学的发展🏷️</h2>
+<h3 id="一、遥感的起源于发展">一、遥感的起源于发展</h3>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 遥感科学 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Data Mining]]></title>
       <url>/2022/08/29/%E3%80%90Data%20Mining%E3%80%91%E8%AF%BE%E7%A8%8B/</url>
       <content type="html"><![CDATA[<h1>Introduction</h1>
 <hr>
@@ -78,6 +372,20 @@
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 数据分析 </tag>
+            
+            <tag> 数据挖掘 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -568,6 +876,52 @@
 <li>不理解的</li>
 </ul>
 <hr>
+<p><strong>cross disciplines</strong></p>
+<ul>
+<li>跨学科</li>
+</ul>
+<p><strong>sophisticated</strong></p>
+<ul>
+<li>先进的，在行的</li>
+</ul>
+<p><strong>Scalable</strong></p>
+<ul>
+<li>可扩展的</li>
+</ul>
+<p><strong>Practical</strong></p>
+<ul>
+<li>切实可行的，真实的</li>
+</ul>
+<p><strong>partition</strong></p>
+<ul>
+<li>n. 隔墙，隔板，分裂，分治</li>
+<li>v. 分割，分裂</li>
+</ul>
+<p><strong>considerably</strong></p>
+<ul>
+<li>adv. 非常，相当多地</li>
+</ul>
+<p><strong>heterogeneous</strong></p>
+<ul>
+<li>adj. 参差的，异质的</li>
+<li>n. 异类</li>
+</ul>
+<p><strong>relevant</strong></p>
+<ul>
+<li>adj. 有关的</li>
+</ul>
+<p><strong>prior</strong></p>
+<ul>
+<li>adj. 先前的，先验的</li>
+</ul>
+<p><strong>invariant</strong></p>
+<ul>
+<li>adj. 不变的</li>
+</ul>
+<p><strong>optimization</strong></p>
+<ul>
+<li>优化</li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
