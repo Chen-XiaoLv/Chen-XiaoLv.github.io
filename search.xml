@@ -3,6 +3,85 @@
   
     
     <entry>
+      <title><![CDATA[遥感科学]]></title>
+      <url>/2022/08/30/%E3%80%90%E9%81%A5%E6%84%9F%E7%A7%91%E5%AD%A6%E3%80%91/</url>
+      <content type="html"><![CDATA[<h1>遥感科学</h1>
+<hr>
+<h2 id="Introduction">Introduction</h2>
+<ul>
+<li>姜小光</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 遥感科学 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2022/08/29/%E3%80%90Data%20Mining%E3%80%91%E8%AF%BE%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<h1>Introduction</h1>
+<hr>
+<p>Tutor: LiuYing</p>
+<p>Main Contents:</p>
+<ul>
+<li>
+<p>Who’s LiuYing</p>
+<ul>
+<li>PKU CS</li>
+<li>Northwest University of USA</li>
+</ul>
+</li>
+<li>
+<p>Scores</p>
+<ul>
+<li>30% daily work</li>
+<li>40% group work</li>
+<li>30% Final test</li>
+</ul>
+</li>
+<li>
+<p>How to study this class</p>
+<ul>
+<li>In English</li>
+<li>Do it early</li>
+<li>communicate with teach</li>
+<li>enhance study ability</li>
+</ul>
+</li>
+<li>
+<p>the motivation of Data Mining.</p>
+</li>
+<li>
+<p>Four space of Data Mining.</p>
+<ul>
+<li>Useful</li>
+<li>Understandable</li>
+<li>valid</li>
+<li>novel</li>
+</ul>
+</li>
+<li>
+<p>Kaggle competition</p>
+</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Ucas选课]]></title>
       <url>/2022/08/25/UCAS%E9%80%89%E8%AF%BE/</url>
       <content type="html"><![CDATA[<h1>UCAS选课</h1>
@@ -363,6 +442,132 @@
 <ul>
 <li>adj. 热的</li>
 </ul>
+<hr>
+<p><strong>performance</strong></p>
+<ul>
+<li>n. 表演，情况，<strong>执行</strong>，<strong>性能</strong></li>
+<li>adj. 高性能的，性能卓越的 <strong>performance compute</strong></li>
+</ul>
+<p><strong>implement</strong></p>
+<ul>
+<li>v. 执行，贯彻</li>
+<li>n. 工具，手段</li>
+</ul>
+<p><strong>concretely</strong></p>
+<ul>
+<li>adv. 具体地</li>
+</ul>
+<p><strong>creatively</strong></p>
+<ul>
+<li>adv. 创造性地</li>
+</ul>
+<p><strong>plagiarism</strong></p>
+<ul>
+<li>n. 剽窃</li>
+</ul>
+<p><strong>explosive</strong></p>
+<ul>
+<li>adj. 易爆的</li>
+<li>n. 炸药</li>
+</ul>
+<p><strong>transaction</strong></p>
+<ul>
+<li>n. 交易，业务，公报</li>
+</ul>
+<p><strong>competitive pressure</strong></p>
+<ul>
+<li>竞争压力</li>
+</ul>
+<p><strong>starving for knowledge</strong></p>
+<ul>
+<li>渴望知识</li>
+</ul>
+<p><strong>starve</strong></p>
+<ul>
+<li>挨饿，需要，使极其缺乏</li>
+</ul>
+<p><strong>pattern</strong></p>
+<ul>
+<li>n. 模式</li>
+</ul>
+<p><strong>complexity</strong></p>
+<ul>
+<li>n. 复杂性</li>
+<li>complexity of 复杂度</li>
+</ul>
+<p><strong>hypothesis</strong></p>
+<ul>
+<li>n. 假说</li>
+</ul>
+<p><strong>frequently</strong></p>
+<ul>
+<li>adv. 经常地</li>
+</ul>
+<p><strong>occur</strong></p>
+<ul>
+<li>v. 发生，存在，出现</li>
+</ul>
+<p><strong>promotional</strong></p>
+<ul>
+<li>adj. 促销的，推广的</li>
+</ul>
+<p><strong>assign</strong></p>
+<ul>
+<li>
+<p>v. 分配，布置，转让，<strong>赋值</strong></p>
+</li>
+<li>
+<p>assign a new record to one of  several predefined classes 将一条新记录分配给几个预定义类中的一个</p>
+</li>
+</ul>
+<p><strong>bankrupt</strong></p>
+<ul>
+<li>adj. 破产的</li>
+</ul>
+<p><strong>profitability</strong></p>
+<ul>
+<li>n. 盈利能力</li>
+</ul>
+<p><strong>anomaly</strong></p>
+<ul>
+<li>n. 异常现象,离群点</li>
+</ul>
+<p><strong>citation</strong></p>
+<ul>
+<li>n. 引用，引语</li>
+</ul>
+<p><strong>domain</strong></p>
+<ul>
+<li>n. 领域,范围</li>
+<li>domain experts 领域专家</li>
+</ul>
+<p><strong>temporal</strong></p>
+<ul>
+<li>adj. 时间的，世俗的</li>
+<li>n. 世间万物，暂存的事物</li>
+<li>spatio-temporal data 时空数据</li>
+</ul>
+<p><strong>decision makers</strong></p>
+<ul>
+<li>决策者</li>
+</ul>
+<p><strong>simulation</strong></p>
+<ul>
+<li>n. 模拟</li>
+</ul>
+<p><strong>disunderstand</strong></p>
+<ul>
+<li>不明白</li>
+</ul>
+<p><strong>incomprehension</strong></p>
+<ul>
+<li>不理解</li>
+</ul>
+<p><strong>unapprehensive</strong></p>
+<ul>
+<li>不理解的</li>
+</ul>
+<hr>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
