@@ -3,6 +3,388 @@
   
     
     <entry>
+      <title></title>
+      <url>/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&amp;86%E5%8F%8C%E8%B5%9B/</url>
+      <content type="html"><![CDATA[<h1>309周赛&amp;86双赛</h1>
+<hr>
+<h2 id="前言">前言</h2>
+<p>最近对自己太放纵了，属实是有点不太行。</p>
+<p>接下来要上强度了！</p>
+<hr>
+<h2 id="309-是miHoYo冠名周赛">309 是miHoYo冠名周赛</h2>
+<hr>
+<h2 id="T1">T1</h2>
+<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220904210845055.png" alt="image-20220904210845055" style="zoom:50%;">
+<p><strong>思路</strong></p>
+<p>T1又是很简单的数组题，我们只需要判断两个元素出现位置中间隔的元素是否与给定的距离表相等即可。</p>
+<p>而且哦，这种位置的选择，我们可以通过<code>hash</code>表的方式很容易的完成。尤其是前后位次关系。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">checkDistances</span>(<span class="params">self, s: <span class="built_in">str</span>, distance</span>):</span><br><span class="line">        hashmap=&#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> i,j <span class="keyword">in</span> <span class="built_in">enumerate</span>(s):</span><br><span class="line">            <span class="comment"># 记录第一次出现的位置</span></span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">not</span> <span class="keyword">in</span> hashmap.keys():</span><br><span class="line">                hashmap[j]=i</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 判断第二次与第一次的差值是否等于距离表</span></span><br><span class="line">                val=i-hashmap[j]</span><br><span class="line">                <span class="keyword">if</span> val-<span class="number">1</span>!=distance[<span class="built_in">ord</span>(j)-<span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>)]:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<p>这题是不是很像两数之和？<br>
+那我们干脆一起把<code>86双</code>的<code>T1</code>一起讲了吧</p>
+<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220904211556718.png" alt="image-20220904211556718" style="zoom:50%;">
+<p>呐，这鬼题也是，判断连续的，我们只需要看这个值是否被记录过就好了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">findSubarrays</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="comment"># 要tm连续啊</span></span><br><span class="line">        <span class="comment"># 逆天</span></span><br><span class="line">        hashmap=&#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)-<span class="number">1</span>):</span><br><span class="line">            val=nums[i]+nums[i+<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span> val <span class="keyword">in</span> hashmap.keys():</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            hashmap[val]=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="T2">T2</h2>
+<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220904211717593.png" alt="image-20220904211717593" style="zoom:50%;">
+<p><strong>思路</strong></p>
+<p>关键词：方法数！想到了什么？爬楼梯？斐波那契数列？没错，这种方法数，一般都有递推公式。这题也不例外。考虑两个方向，于是每次dp就能从左和从右。由于负数轴需要映射，为了简化操作，我们可以不用数组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numberOfWays</span>(<span class="params">self, startPos: <span class="built_in">int</span>, endPos: <span class="built_in">int</span>, k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        MOD = <span class="number">10</span> ** <span class="number">9</span> + <span class="number">7</span></span><br><span class="line"><span class="meta">        @cache</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x: <span class="built_in">int</span>, left: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">abs</span>(x - endPos) &gt; left: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> left == <span class="number">0</span>: <span class="keyword">return</span> <span class="number">1</span>  <span class="comment"># 成功到达终点，算一种方案</span></span><br><span class="line">            <span class="keyword">return</span> (f(x - <span class="number">1</span>, left - <span class="number">1</span>) + f(x + <span class="number">1</span>, left - <span class="number">1</span>)) % MOD</span><br><span class="line">        <span class="keyword">return</span> f(startPos, k)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>亦或是采用BFS进行广度搜索，得到所有可能的结果(相当于遍历，核心与DP相同)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">MOD = <span class="number">10</span>**<span class="number">9</span> + <span class="number">7</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numberOfWays</span>(<span class="params">self, startPos: <span class="built_in">int</span>, endPos: <span class="built_in">int</span>, k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># BFS模拟全局搜索</span></span><br><span class="line">        pre = defaultdict()</span><br><span class="line">        pre[startPos] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> k:</span><br><span class="line">            nex = defaultdict()</span><br><span class="line">            <span class="keyword">for</span> pos <span class="keyword">in</span> pre:</span><br><span class="line">                <span class="comment"># 每次都会更新下一次的方向</span></span><br><span class="line">                <span class="comment"># 并且都会进行一个累加，表示重新走过</span></span><br><span class="line">                <span class="comment"># 更新往左与往右的方案数</span></span><br><span class="line">                nex[pos + <span class="number">1</span>] += pre[pos]</span><br><span class="line">                nex[pos - <span class="number">1</span>] += pre[pos]</span><br><span class="line">            <span class="keyword">for</span> pos <span class="keyword">in</span> nex:</span><br><span class="line">                nex[pos] %= MOD</span><br><span class="line">            pre = nex</span><br><span class="line">            k -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> pre[endPos] % MOD</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>解法二：数学！</p>
+<p>正着走:<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>，负着走<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>−</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">K-X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>，距离<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span></p>
+<p>我们有:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>X</mi><mo>+</mo><mo stretchy="false">(</mo><mo>−</mo><mo stretchy="false">(</mo><mi>K</mi><mo>−</mo><mi>X</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>D</mi><mspace linebreak="newline"></mspace><mi>X</mi><mo>=</mo><mfrac><mrow><mi>D</mi><mo>+</mo><mi>K</mi></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">X+(-(K-X))=D
+\\
+X=\frac{D+K}{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>于是，转换为求解：从<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>中取<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>个正数。</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mi>C</mi><mi>K</mi><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn><mo stretchy="false">(</mo><mi>D</mi><mo>+</mo><mi>K</mi><mo stretchy="false">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">C^{1/2(D+K)}_K
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3383em;vertical-align:-0.2935em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.4065em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1/2</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2935em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>那，关于Python如何求组合数，其实有一个内置函数<code>comb</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numberOfWays</span>(<span class="params">self, startPos: <span class="built_in">int</span>, endPos: <span class="built_in">int</span>, k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        MOD=<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span></span><br><span class="line">        d=<span class="built_in">abs</span>(endPos-startPos)</span><br><span class="line">        <span class="keyword">if</span> (k-<span class="built_in">abs</span>(endPos-startPos))&amp;<span class="number">1</span> <span class="keyword">or</span> k&lt;<span class="built_in">abs</span>(endPos-startPos):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> comb(k,(d+k)//<span class="number">2</span>)%MOD</span><br></pre></td></tr></table></figure>
+<p>不用Comb的话，我们可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">comb</span>(<span class="params">m,n</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> m&gt;n <span class="keyword">or</span> <span class="built_in">type</span>(m)!=<span class="built_in">int</span> <span class="keyword">or</span> <span class="built_in">type</span>(n)!=<span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># 必须是整数且满足大小关系</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rank(n)//(rank(m)*rank(n-m))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rank</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">0</span> <span class="keyword">or</span> n==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    ans=<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,n+<span class="number">1</span>):</span><br><span class="line">        ans*=i</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(ans)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numberOfWays</span>(<span class="params">self, startPos: <span class="built_in">int</span>, endPos: <span class="built_in">int</span>, k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        MOD=<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span></span><br><span class="line">        d=<span class="built_in">abs</span>(endPos-startPos)</span><br><span class="line">        <span class="keyword">if</span> (k-<span class="built_in">abs</span>(endPos-startPos))&amp;<span class="number">1</span> <span class="keyword">or</span> k&lt;<span class="built_in">abs</span>(endPos-startPos):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> comb(k,(d+k)//<span class="number">2</span>)%MOD</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="T3">T3</h3>
+<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220904214837427.png" alt="image-20220904214837427" style="zoom:50%;">
+<p><strong>思路</strong></p>
+<p>位运算+双指针优化</p>
+<p>其实看到这个连续就应该想到用双指针了。</p>
+<p>当然，我的解法会遍历左右指针所有值，导致复杂度为：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nm)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">nm</span><span class="mclose">)</span></span></span></span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">longestNiceSubarray</span>(<span class="params">self, nums</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># 滑动窗口</span></span><br><span class="line">        left=right=<span class="number">0</span></span><br><span class="line">        ans=<span class="number">0</span></span><br><span class="line">        n=<span class="built_in">len</span>(nums)</span><br><span class="line">        <span class="keyword">while</span> right&lt;n:</span><br><span class="line">            i=breakPoint=left</span><br><span class="line">            change=<span class="literal">False</span></span><br><span class="line">            <span class="keyword">while</span> i&lt;right:</span><br><span class="line">                <span class="keyword">if</span> nums[right]&amp;nums[i]!=<span class="number">0</span>:</span><br><span class="line">                    <span class="comment"># 只要是有一个够不成了</span></span><br><span class="line">                    <span class="comment"># 我们从构不成的位置重新构建子串</span></span><br><span class="line">                    <span class="comment"># 首先的尝试就是跳过</span></span><br><span class="line">                    breakPoint=i</span><br><span class="line">                    change=<span class="literal">True</span></span><br><span class="line">                    <span class="comment"># 子串肯定比原串小</span></span><br><span class="line">                    <span class="comment"># 所以不需要考虑，下次的截断点就是bp+1</span></span><br><span class="line">                i+=<span class="number">1</span></span><br><span class="line">                <span class="comment"># 加入</span></span><br><span class="line">            left=breakPoint+<span class="number">1</span> <span class="keyword">if</span> change <span class="keyword">or</span> breakPoint!=left <span class="keyword">else</span> left</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,<span class="built_in">len</span>(nums[left:right+<span class="number">1</span>]))</span><br><span class="line">            right+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>用位运算的话，复杂度上其实也差不多啦</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">longestNiceSubarray</span>(<span class="params">self, nums</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># 滑动窗口</span></span><br><span class="line">        left=right=<span class="number">0</span></span><br><span class="line">        ans=<span class="number">0</span></span><br><span class="line">        n=<span class="built_in">len</span>(nums)</span><br><span class="line">        or_=<span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> right&lt;n:</span><br><span class="line">            <span class="keyword">while</span> or_&amp;nums[right]:</span><br><span class="line">                or_^=nums[left]</span><br><span class="line">                left+=<span class="number">1</span></span><br><span class="line">                <span class="comment"># 加入</span></span><br><span class="line">            or_|=nums[right]</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,right-left+<span class="number">1</span>)</span><br><span class="line">            right+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<p>当然，最后写的漂亮点，就是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">longestNiceSubarray</span>(<span class="params">self, nums</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        ans=left=or_=<span class="number">0</span></span><br><span class="line">        <span class="comment"># or_用来存放运算结果</span></span><br><span class="line">        <span class="comment"># 加入：or_| x</span></span><br><span class="line">        <span class="comment"># 剔除: or_^ x</span></span><br><span class="line">        <span class="keyword">for</span> right,x <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums):</span><br><span class="line">            <span class="keyword">while</span> or_&amp;x:</span><br><span class="line">                <span class="comment"># 此时需要剔除了</span></span><br><span class="line">                or_^=nums[left]</span><br><span class="line">                left+=<span class="number">1</span></span><br><span class="line">            or_|=x</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,right-left+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="T4">T4</h3>
+<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220904215844294.png" alt="image-20220904215844294" style="zoom: 50%;">
+<p><strong>思路</strong></p>
+<p>初见这个题的时候，想到的应该是贪心，谁有空就给谁，谁的时间最短谁就空闲。</p>
+<p>于是我写了个不能AC的解:</p>
+<p>超！！！！我这个解随便改改逻辑就AC了！！！！！！</p>
+<p>超！！！！</p>
+<p>我也做出T4了！！！！</p>
+<p>这是离AK最近的一次！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mostBooked</span>(<span class="params">self, n: <span class="built_in">int</span>, meetings</span>):</span><br><span class="line">        st=[[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">        val=[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">        n=<span class="built_in">len</span>(meetings)</span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line">        now=<span class="number">0</span></span><br><span class="line">        meetings.sort(key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>])</span><br><span class="line">        change=[<span class="literal">None</span>,<span class="literal">None</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i&lt;n:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> change[<span class="number">0</span>]!=<span class="literal">None</span>:</span><br><span class="line">                s,e=change</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                s, e = meetings[i]</span><br><span class="line">                <span class="keyword">if</span> now&lt;=s:</span><br><span class="line">                    <span class="comment"># 提前</span></span><br><span class="line">                    now=s</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    e+=now-s</span><br><span class="line">                    s=now</span><br><span class="line">                    </span><br><span class="line">                </span><br><span class="line"></span><br><span class="line">            <span class="comment"># 时间到了</span></span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> st:</span><br><span class="line">                <span class="keyword">if</span> _ <span class="keyword">and</span> _[<span class="number">0</span>]&lt;=now:</span><br><span class="line">                    _.pop()</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 有无空闲</span></span><br><span class="line">            <span class="keyword">for</span> l,j <span class="keyword">in</span> <span class="built_in">enumerate</span>(st):</span><br><span class="line">                <span class="keyword">if</span> j==[]:</span><br><span class="line">                    val[l]+=<span class="number">1</span></span><br><span class="line">                    j.append(e)</span><br><span class="line">                    now=s</span><br><span class="line">                    i+=<span class="number">1</span></span><br><span class="line">                    change[<span class="number">0</span>]=<span class="literal">None</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                now=<span class="built_in">min</span>([i[<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> st])</span><br><span class="line">                now=<span class="built_in">max</span>(now,s)</span><br><span class="line">                change=[now,now+(e-s)]</span><br><span class="line"></span><br><span class="line">        check=val[<span class="number">0</span>]</span><br><span class="line">        idx=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i,j <span class="keyword">in</span> <span class="built_in">enumerate</span>(val):</span><br><span class="line">            <span class="keyword">if</span> j&gt;check:</span><br><span class="line">                check=j</span><br><span class="line">                idx=i</span><br><span class="line">        <span class="keyword">return</span> idx</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>两个堆来回倒实现任务队列！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappop</span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappush</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mostBooked</span>(<span class="params">self, n: <span class="built_in">int</span>, meetings</span>):</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 当会议室未占用，会有限提供资源给开始时间早的。</span></span><br><span class="line">        <span class="comment"># 两个堆来模拟，一个表示可用的会议室，另一个表示正在开会的会议室</span></span><br><span class="line"></span><br><span class="line">        cnt=[<span class="number">0</span>]*n</span><br><span class="line">        idle=<span class="built_in">list</span>(<span class="built_in">range</span>(n)) <span class="comment"># 可用的会议室</span></span><br><span class="line">        using=[]<span class="comment"># (结束时间，会议室编号)</span></span><br><span class="line">        meetings.sort() <span class="comment"># 必要的排序</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> st,end <span class="keyword">in</span> meetings:</span><br><span class="line">            <span class="comment"># 在st时刻前正在开会的会议室，把结束的弹出来</span></span><br><span class="line">            <span class="keyword">while</span> using <span class="keyword">and</span> using[<span class="number">0</span>][<span class="number">0</span>]&lt;=st:</span><br><span class="line">                <span class="comment"># 首先将使用栈中的内容弹出来</span></span><br><span class="line">                <span class="comment"># 并且将结束时间放入idle中，表示可用任务队列</span></span><br><span class="line">                heappush(idle,heappop(using)[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(idle)==<span class="number">0</span>:</span><br><span class="line">                <span class="comment"># 如果当前没有可用的</span></span><br><span class="line">                <span class="comment"># 需要等到最近一个结束</span></span><br><span class="line">                e,i=heappop(using)</span><br><span class="line">                <span class="comment"># 补上时间</span></span><br><span class="line">                end+=e-st</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 将当前空闲的弹出去(其实也是索引最小值)</span></span><br><span class="line">                <span class="comment"># 将最短时间的出堆</span></span><br><span class="line">                i=heappop(idle)</span><br><span class="line"></span><br><span class="line">            cnt[i]+=<span class="number">1</span></span><br><span class="line">            <span class="comment"># 将当前结束时间和索引加入最小堆中</span></span><br><span class="line">            <span class="comment"># 每次取都是最小(最近一个结束的)</span></span><br><span class="line">            heappush(using,(end,i))</span><br><span class="line"></span><br><span class="line">        ans=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i,c <span class="keyword">in</span> <span class="built_in">enumerate</span>(cnt):</span><br><span class="line">            <span class="keyword">if</span> c&gt;cnt[ans]:</span><br><span class="line">                ans=i</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<p>O(n+mlogn+mlogn)</p>
+<p>建堆+排+插入堆</p>
+<hr>
+<h1>86 双赛</h1>
+<blockquote>
+<p>T3和T4很有意思</p>
+</blockquote>
+<p>T2</p>
+<p><strong>带余除法</strong></p>
+<p>当<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&gt;</mo><mn>4</mn><mo separator="true">,</mo><mn>2</mn><mo>&lt;</mo><mi>n</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n&gt;4,2&lt;n-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>，下面的表达式一定成立</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>n</mi><mo>=</mo><mi>q</mi><mo>∗</mo><mi>b</mi><mo>+</mo><mi>r</mi><mo separator="true">,</mo><mn>0</mn><mo>&lt;</mo><mo>=</mo><mi>r</mi><mo>&lt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">n=q*b+r,0&lt;=r&lt;b
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6597em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span></span></p>
+<p>这题完全就是脑筋急转弯<br>
+告诉你了，这玩意在<code>n-2</code>进制上必定为<code>12</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="T3-v2">T3</h2>
+<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/image-20220905204104988.png" alt="image-20220905204104988" style="zoom:33%;">
+<p>这题不难看出是位运算，难得是如何进行。</p>
+<p>不是没有想过枚举，但是会不会有一种更加高效的手段拿来实现这个算法？很可惜，似乎是没有的。</p>
+<p>所幸的是，位运算枚举还是挺快的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maximumRows</span>(<span class="params">self, mat: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]], cols: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        位运算</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        枚举所有选择情况</span></span><br><span class="line"><span class="string">        实际上，二进制数就能表征所有的选择情况</span></span><br><span class="line"><span class="string">        二进制数还能用来表征更高位的数据</span></span><br><span class="line"><span class="string">        譬如之前的毒药和小鼠</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        ans=<span class="number">0</span></span><br><span class="line">        mask=[<span class="built_in">sum</span>(v&lt;&lt;j <span class="keyword">for</span> j,v <span class="keyword">in</span> <span class="built_in">enumerate</span>(row)) <span class="keyword">for</span> row <span class="keyword">in</span> mat]</span><br><span class="line">        <span class="comment"># 刚好就能够表示0-1覆盖情况</span></span><br><span class="line">        <span class="comment"># 例如：5-&gt; 101</span></span><br><span class="line">        <span class="comment"># 6-&gt;110</span></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">set</span> <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>&lt;&lt;<span class="built_in">len</span>(mat[<span class="number">0</span>])):</span><br><span class="line">            <span class="comment"># 这样就能表征所有的情况</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">set</span>.bit_count()!=cols:</span><br><span class="line">                <span class="comment"># 剪枝</span></span><br><span class="line">                <span class="comment"># 不满足列的情况就丢弃</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="comment"># 某一行 and 选择列如果还等于他自己</span></span><br><span class="line">            <span class="comment"># 那就说明可以覆盖</span></span><br><span class="line">            <span class="comment"># 1的时候恰好是1 0的时候不用管他</span></span><br><span class="line">            cnt=<span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> mask:</span><br><span class="line">                <span class="keyword">if</span> row &amp;<span class="built_in">set</span>==row:</span><br><span class="line">                    cnt+=<span class="number">1</span></span><br><span class="line">            ans=<span class="built_in">max</span>(ans,cnt)</span><br><span class="line">        <span class="keyword">return</span> ans </span><br><span class="line"></span><br><span class="line">            </span><br></pre></td></tr></table></figure>
+<h2 id="T4-v2">T4</h2>
+<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/image-20220905204610760.png" alt="image-20220905204610760" style="zoom:50%;">
+<p>这题的关键字：<strong>连续consecutive</strong></p>
+<p>所以，双指针搭建滑动窗口不失为一种好的选择。</p>
+<p>当然，这类似背包问题，是存在一个限制条件的。</p>
+<p>我们可以用单调队列来处理这种情况，通过维护单调队列，及时清理无用数据，保证队首是最大元素的同时，考虑是否加入和剔除元素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maximumRobots</span>(<span class="params">self, chargeTimes: <span class="type">List</span>[<span class="built_in">int</span>], runningCosts: <span class="type">List</span>[<span class="built_in">int</span>], budget: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line"></span><br><span class="line">        ans=s=left=<span class="number">0</span></span><br><span class="line">        q=deque()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> right,(t,c) <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">zip</span>(chargeTimes,runningCosts)):</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 处理右端点</span></span><br><span class="line">            <span class="keyword">while</span> q <span class="keyword">and</span> t&gt;=chargeTimes[q[-<span class="number">1</span>]]:</span><br><span class="line">                <span class="comment"># 只要当前的时间大于队列的时间</span></span><br><span class="line">                <span class="comment"># 就要维护队列的单调性</span></span><br><span class="line">                q.pop()</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 将这个端点加入</span></span><br><span class="line">            q.append(right)</span><br><span class="line">            s+=c <span class="comment"># 总的cost</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 处理左端点</span></span><br><span class="line">            <span class="keyword">while</span> q <span class="keyword">and</span> chargeTimes[q[<span class="number">0</span>]]+(right-left+<span class="number">1</span>)*s&gt;budget:</span><br><span class="line">                <span class="comment"># 太多了！ 最大的滚出去！</span></span><br><span class="line">                <span class="keyword">if</span> q[<span class="number">0</span>]==left:</span><br><span class="line">                    q.popleft()</span><br><span class="line">                s-=runningCosts[left]</span><br><span class="line">                <span class="comment"># 一直找啊找直到找到最大的那个</span></span><br><span class="line">                left+=<span class="number">1</span></span><br><span class="line">            <span class="comment"># 这样 超出区间的一个就是我们的一个连续的子序列了</span></span><br><span class="line">            <span class="comment"># 这样的方式能保证：</span></span><br><span class="line">            <span class="comment"># 如果后面加进来的值比较大</span></span><br><span class="line">            <span class="comment"># 我们可以直接剔除掉串</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 如果后面加进来的值比较小</span></span><br><span class="line">            <span class="comment"># 我们就无须对其进行维护</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 举个栗子</span></span><br><span class="line">            <span class="comment"># tar: 10</span></span><br><span class="line">            <span class="comment"># List: 4 3 1 2</span></span><br><span class="line">            <span class="comment"># q:4 3 1</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 插入2</span></span><br><span class="line">            <span class="comment"># 此时q: 4 3 2</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 发现超了</span></span><br><span class="line">            <span class="comment"># 我们就去掉最大的</span></span><br><span class="line">            <span class="comment"># 剩下的q: 3 2</span></span><br><span class="line">            <span class="comment"># 重新开始一段</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># tar:10</span></span><br><span class="line">            <span class="comment"># List: 1 3 4 2</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 插入2时:</span></span><br><span class="line">            <span class="comment"># q: 4</span></span><br><span class="line">            <span class="comment"># 插入2一定会炸</span></span><br><span class="line">            <span class="comment"># 那么我们就从4的位置开始新的子串</span></span><br><span class="line">            <span class="comment"># 直接定位到了最大的位置</span></span><br><span class="line">            <span class="comment"># 因为当x上溢</span></span><br><span class="line">            <span class="comment"># x+1一定上溢</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 而且，单调队列维护的是坐标索引</span></span><br><span class="line">            <span class="comment"># 方便我们定位</span></span><br><span class="line">            ans=<span class="built_in">max</span>(ans,right-left+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<p>我们可以反思一下，什么时候可以用单调队列？</p>
+<ul>
+<li>我们每次不符合条件的弹出都是最值</li>
+<li>维护一个最值，使其满足限制条件</li>
+</ul>
+<p>怎么使用单调队列？</p>
+<ul>
+<li>及时弹出无用元素</li>
+</ul>
+<p>在滑动窗口维护最值问题，可以考虑单调队列：</p>
+<ul>
+<li>判断队列单调性，不满足时，队尾出队</li>
+<li>增大窗口，队尾入队，更新统计值</li>
+<li>判断是否满足条件，不满足则缩小窗口，队首出队</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CFOP]]></title>
+      <url>/2022/09/04/%E3%80%90cfop%E3%80%91%E9%AD%94%E6%96%B9/</url>
+      <content type="html"><![CDATA[<h3 id="CFOP-F2L-F2L1">CFOP-F2L-F2L1</h3>
+<p>(R U’ R’ U) y’ (R’ U2 R U’ U’) (R’ U R)</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 拾枝杂谈 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 魔方 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[脑科学の一些无用小知识]]></title>
+      <url>/2022/09/04/%E3%80%90%E8%84%91%E7%A7%91%E5%AD%A6%E3%80%91%E8%84%91%E7%A7%91%E5%AD%A6%E3%81%AE%E4%B8%80%E4%BA%9B%E6%97%A0%E7%94%A8%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
+      <content type="html"><![CDATA[<h1>脑科学の一些无用小知识</h1>
+<hr>
+<p>这篇文章的问世来源于<code>9/4</code>日的一些小遐想。</p>
+<p>我感觉最近的大脑越来越不够用了。记忆东西也根本记不下来。于是乎，想去找到那么一点点的慰藉🌮 。</p>
+<hr>
+<h2 id="1️⃣-脑科学提升智力的方法">1️⃣ 脑科学提升智力的方法</h2>
+<p>来自：<a href="https://www.bilibili.com/video/BV1PP4y157d5?spm_id_from=333.880.my_history.page.click&amp;vd_source=b6ddb37b0dc1af8da34b699b1daf8a16">学不会？做题做不出来？脑科学最强提升智力的方法！</a></p>
+<p>视频中，up主根据音乐大佬的脑子和案例(尤其是莫扎特的训练方式)，得到了对于普通人来说，天赋一词并不存在。</p>
+<p>而智商是可以通过<code>后天训练提升</code>的。关键在于<code>记忆</code>!</p>
+<ul>
+<li>单纯的拥有记忆并没有什么用。重要的是经常运用这些信息，来加强神经通路。</li>
+<li>学习任何东西最好可以尽可能的调用更多的感受器。</li>
+<li>尽量带有情绪进行学习。</li>
+<li>尽可能接触不同事物。</li>
+</ul>
+<hr>
+<h2 id="2️⃣-14种超简易的脑力增强法！一星期变聪明！">2️⃣ 14种超简易的脑力增强法！一星期变聪明！</h2>
+<p>来自：<a href="https://www.bilibili.com/video/BV1U4411G7YP/?spm_id_from=333.788.recommend_more_video.-1&amp;vd_source=b6ddb37b0dc1af8da34b699b1daf8a16">14种超简易的脑力增强法！一星期变聪明！</a></p>
+<p>视频直接提出了几种记忆力训练方法</p>
+<ul>
+<li>画一张地图</li>
+<li>远离电子设备，多用纸笔</li>
+<li>心酸</li>
+<li>刺激味蕾</li>
+<li>睡前回忆</li>
+<li>参加新运动</li>
+<li>参加手眼协调的活动</li>
+<li>记电话号码</li>
+<li>提高反应速度
+<ul>
+<li>预览</li>
+<li>问题</li>
+<li>重读</li>
+<li>研究</li>
+<li>测试</li>
+</ul>
+</li>
+<li>出声读书</li>
+<li>保留脑力</li>
+<li>总结重点</li>
+</ul>
+<hr>
+<h2 id="3️⃣-熬夜的危害">3️⃣ 熬夜的危害</h2>
+<p>来自：</p>
+<p>TED演讲：<a href="https://www.bilibili.com/video/BV1qx411d7XW/?spm_id_from=333.788.recommend_more_video.6&amp;vd_source=b6ddb37b0dc1af8da34b699b1daf8a16">睡眠到底有多重要，看完不敢熬夜了！</a></p>
+<ul>
+<li>影响生殖激素分泌，显老且生殖能力变差</li>
+<li>影响记忆力和学习能力，比睡眠充足的人少<code>40%</code>~</li>
+<li>影响心脑血管系统jis</li>
+<li>影响免疫力和DNA活力，免疫力低<code>70%</code>！</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 拾枝杂谈 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 脑科学 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【海洋遥感】第一节课]]></title>
+      <url>/2022/09/02/%E3%80%90%E6%B5%B7%E6%B4%8B%E9%81%A5%E6%84%9F%E3%80%91Unname/</url>
+      <content type="html"><![CDATA[<h1>海洋遥感</h1>
+<hr>
+<h2 id="一、海洋遥感的意义">一、海洋遥感的意义</h2>
+<p>1️⃣ 理解海洋及地球</p>
+<p>2️⃣ 利用海洋和地球</p>
+<ul>
+<li>海洋是人类最大的资源宝库，是全球生命支持系统的基本组成部分。</li>
+<li>海洋资源的重要性促使人们采用各类手段对其进行调查研究。</li>
+</ul>
+<p><strong>痛点🤕</strong></p>
+<ul>
+<li>传统海洋调查依赖于调查船沿设定航线设置的稀疏取样，虽然定位测量准确，但在规模、范围和频度上受限制。</li>
+<li>海洋环境的<strong>进入性</strong>和<strong>可通达性</strong>较差</li>
+<li>近海和海岸环境复杂多变，难以进行多变量同步控制观测</li>
+<li>海岸环境变化周期长、信息量大，难以取得理想的可控制数据，在实时处理上也有着较大的困难。</li>
+</ul>
+<hr>
+<p>海洋遥感具有大范围、实时同步、全天时、全天候多波段成像技术的优势可以快速地探测海洋表面各物理量的时空变化归规律。</p>
+<p><strong>重要性</strong></p>
+<ul>
+<li>海洋科学或遥感科学的交叉学科</li>
+<li>为海洋观测和研究提供了一个崭新的数据集，并开辟了新的考虑问题的视角</li>
+<li>多传感器资料可推动海洋科学交叉学科研究的发展</li>
+</ul>
+<h2 id="二、海洋遥感的概念">二、海洋遥感的概念</h2>
+<p><strong>基本概念</strong></p>
+<p><strong>海洋遥感</strong> (Ocean Remote Sensing) 指以海洋及海岸带作为监测、研究对象，利用电磁波与大气和海洋的相互作用原理来观测和研究海洋的遥感技术。</p>
+<p><strong>整体特点</strong></p>
+<ul>
+<li>不受地表、海面、天气和人为条件的性质，可以探测地理位置偏远、环境条件恶劣等不能直接进入的海区。</li>
+<li>宏观特性可进行大面积同步测量，能够进行半球或全球探测。</li>
+<li>可动态、长期的、周期性的对海洋现象进行监测</li>
+<li>具有实时的或准实时的特征</li>
+<li>多个探测器相配套</li>
+<li>很显然，海洋遥感能够在不破坏当地环境下进行大面积的客观测量(没有人为干涉！)</li>
+</ul>
+<p><strong>具体特点</strong></p>
+<blockquote>
+<p>传感器设计方面</p>
+</blockquote>
+<p>光学传感器，带宽较窄，IFOV较大。微波波段应用较多(云层覆盖较多，微波数据比可见光和热红外能够取得的效果更好)。</p>
+<blockquote>
+<p>传感器定标与数据处理应用方面</p>
+</blockquote>
+<p>需要调查船、浮标、潜水器等仪器实测资料的支持。</p>
+<blockquote>
+<p>数据预处理方面</p>
+</blockquote>
+<p>更需要消除大气的干扰</p>
+<blockquote>
+<p>数据应用方面</p>
+</blockquote>
+<p>适用于海洋数值模型的检验与改进</p>
+<p><strong>卫星类别</strong></p>
+<p><strong>按传感方式</strong></p>
+<ul>
+<li>被动遥感</li>
+<li>主动遥感</li>
+</ul>
+<p><strong>按使用目的</strong></p>
+<ul>
+<li>海洋水色卫星
+<ul>
+<li>主要探测海洋水色要素，如叶绿素浓度、悬浮泥沙含量、有色可溶有机物等，也可以用来获得浅海水下地形、海冰、海水污染及海流等游泳信息价值</li>
+</ul>
+</li>
+<li>海洋地形卫星
+<ul>
+<li>主要用于探测海表面拓扑，即海平面高度的空间分布，此外，还可以探测海水、有效波高、海面风速和海流等</li>
+</ul>
+</li>
+<li>海洋动力环境卫星
+<ul>
+<li>用于探测海洋动力环境要素，如海面风场、浪场、海冰等。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>雷达高度计</strong></p>
+<ul>
+<li>用于测量海面高度、有效波高及风速等海洋基本要素</li>
+<li>无线电系统射电反射比较时间差</li>
+</ul>
+<p><strong>微波散射计</strong></p>
+<ul>
+<li>用于全球风场观测</li>
+<li>通过测量风引起的粗糙海面对微博的后向散射特征来推算风场</li>
+</ul>
+<p><strong>微波辐射计</strong></p>
+<ul>
+<li>主要用于获取全球海洋温度、海面风场、大气水蒸气含量、云中水含量、海冰和降雨量</li>
+<li>微波辐射计接收辐亮度(亮温)，等同于辐射的黑体的温度。</li>
+<li>辐亮度F=(海表面温度、盐度，海面粗糙度，波浪破碎产生的白冠和气泡)</li>
+</ul>
+<h2 id="三、海洋遥感的发展历程">三、海洋遥感的发展历程</h2>
+<h3 id="🚂-四个主要阶段">🚂 四个主要阶段</h3>
+<p><strong>起步阶段</strong></p>
+<p><strong>探索阶段</strong></p>
+<p>气象卫星和陆地卫星的探测器波段设置不同，还要遥感需要更多的频段和更高的精度。</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1978</mn></mrow><annotation encoding="application/x-tex">1978</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1978</span></span></span></span> NASA发射了三科海洋遥感卫星。<code>SeasatA</code>是第一颗海洋试验卫星，但由于电源故障，仅运行了<code>108</code>天</p>
+<p>我国的海洋卫星</p>
+<ul>
+<li>1988 FY-1A 第一颗海洋卫星</li>
+<li>2002 HY-1A 第一颗海洋水色卫星</li>
+<li>2008 FY-3 极轨卫星</li>
+</ul>
+<h2 id="四、海洋遥感的研究内容">四、海洋遥感的研究内容</h2>
+<ul>
+<li>物理海洋学遥感</li>
+<li>生物海洋学和化学海洋学遥感</li>
+<li>海冰监测</li>
+<li>海洋污染监测</li>
+<li>目标识别</li>
+</ul>
+<p>1️⃣ 海表温度遥感</p>
+<p>主要采用热和红外波段和微波波段的信息进行海表面温度的遥感反演。</p>
+<p>2️⃣ 海水浑浊度</p>
+<p>3️⃣ 海洋污染监测</p>
+<hr>
+<h2 id="五、相关数据、资料获取">五、相关数据、资料获取</h2>
+<hr>
+<h2 id="六、主流的海洋遥感大学和机构">六、主流的海洋遥感大学和机构</h2>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 海洋遥感 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[研究生英语A]]></title>
+      <url>/2022/09/01/%E3%80%90%E7%A0%94%E7%A9%B6%E7%94%9F%E8%8B%B1%E8%AF%ADA%E3%80%91A64%E7%8F%AD%E8%AF%BE%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<h1>研究生英语</h1>
+<p>TextA 从宏观到微观</p>
+<ul>
+<li>文章主题-&gt;段落主题-&gt;语法分析</li>
+<li>文章背景介绍</li>
+<li>文本语法现象</li>
+</ul>
+<p>Begin 介绍</p>
+<p>End 测试</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[【Data Mining】Chapter 1. Introduction]]></title>
       <url>/2022/08/31/%E3%80%90Data%20Mining%E3%80%91Chapter%201.%20Introduction/</url>
       <content type="html"><![CDATA[<h2 id="1️⃣-What-is-Data-Mining">1️⃣ What is Data Mining?</h2>
@@ -257,7 +639,7 @@ Output: [1,2]</p>
 <p>​	泛指一切不接触物体而进行的远距离探测，包括对电磁场、力场、机械波等的探测。</p>
 <p>2️⃣ 狭义上的遥感</p>
 <p>​	利用传感器记录目标的电磁波特征，通过对数据的处理、综合分析，揭示物体的特征及其变化规律的综合性探测技术</p>
-<p>他是以电磁波与地面物质相互作用为基础，来探测、分析和研究地球资源与环境吗，并揭示相关要素的空间分布特征与时空变化规律的一门新兴科学。</p>
+<p>他是以电磁波与地面物质相互作用为基础，来探测、分析和研究地球资源与环境，并揭示相关要素的空间分布特征与时空变化规律的一门新兴科学。</p>
 <p><strong>遥</strong>：远距离，非接触</p>
 <p><strong>感</strong>：通过某种仪器进行探测并感知被测量物体的形状、大小、状态、特征等</p>
 <p><strong>遥感的特点</strong></p>
@@ -270,6 +652,33 @@ Output: [1,2]</p>
 <li>经济实惠</li>
 </ul>
 <hr>
+<p><strong>电磁波谱</strong></p>
+<p>将电磁波按波长(或频率)从小到大(从大到小)排列起来，就是电磁波谱。</p>
+<p>自变量是 $\lambda $ （波长），而因变量是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span> , 反射率，或者说信息量。</p>
+<p>值得注意下，所谓的波段一直指的都是一个范围，表示光子能量的范围，例如我们的红光波段、蓝光波段、绿光波段 。</p>
+<p><strong>谱</strong> 一个物理量随另一个物理量的变化情况(反射率在波长下的变化)</p>
+<p><strong>遥感的基本物理基础</strong></p>
+<p>任何物体都具有发射、反射和吸收电磁波的特性，物体与电磁波的相互作用，形成了物体的电磁波特性，这是遥感探测物体的基础、依据。不同类型的地物具有不同的波谱特征，这也是遥感识别地物的基础。</p>
+<p>遥感得到的数据一般是不同波长下的反射波谱曲线。</p>
+<p>而反射率曲线，一般受到<strong>尺度</strong>、<strong>纯度视场大小</strong>、<strong>环境条件</strong>、<strong>方向角度</strong>等因素的影响。</p>
+<p>当电磁波与地物发生作用时，会导致选择性的反射，不同地物呈现出不同的特征。因而可以通过遥感数据反演地物。</p>
+<p>地表接收能量也会导致升温，从而发射热辐射，被传感器接收后，就成了热红外遥感。</p>
+<p>传感器接收后，会将信息量转化为图像上的灰度值。</p>
+<hr>
+<p><strong>波段</strong></p>
+<p>一定的电磁波范围。(如TM波段1的波段范围是0.45 ~ 0.52μm，波段2是0.53~0.61μm等)</p>
+<p><strong>波段与通道🍌</strong></p>
+<p>对传感器而言，波段与通道是等价的。</p>
+<p>对图像处理而言，我们是将波段放到通道中对图像进行渲染。</p>
+<p><strong>全色图像</strong></p>
+<p>全色图像也是黑白的，指的是可见光到近红外波谱范围里头，传感器获取的一个宽波谱图像。</p>
+<p><strong>彩色合成</strong></p>
+<p>将在红绿蓝波段获取的单波段图像分别赋予红色、绿色和蓝色，并将3个图像叠加到一起，称为彩色图像。</p>
+<p><strong>假彩色合成</strong></p>
+<p>合成图像时，所用的波段的光谱段和赋予的相应通道不相一致，合成出来的图像的颜色与实际地物颜色不一致。</p>
+<hr>
+<p><strong>定标</strong></p>
+<p>输入输出模式映射，或者说，就是将输出数据的范围映射到一个统一的区间，以方便多数据操作。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
