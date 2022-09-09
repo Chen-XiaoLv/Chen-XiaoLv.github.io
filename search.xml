@@ -3,7 +3,925 @@
   
     
     <entry>
-      <title></title>
+      <title><![CDATA[Python 奇怪的知识]]></title>
+      <url>/2022/09/07/%E3%80%90Python%E3%80%91Python%E5%A5%87%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86/</url>
+      <content type="html"><![CDATA[<h2 id="Python奇怪的知识">Python奇怪的知识</h2>
+<h3 id="带余除法！"><strong>带余除法！</strong></h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C,D=<span class="built_in">divmod</span>(A,B)</span><br><span class="line"></span><br><span class="line"><span class="comment"># eg.</span></span><br><span class="line"><span class="comment"># print(divmod(19,6))</span></span><br><span class="line"><span class="comment"># (3,1)</span></span><br></pre></td></tr></table></figure>
+<h3 id="Join神器！">Join神器！</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">&quot; &quot;</span>*A).join(B)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意啦！</span></span><br><span class="line"><span class="comment"># 以B[0]开头 B[n-1]结尾</span></span><br><span class="line"><span class="comment"># 中间穿插&quot; &quot;*A  </span></span><br></pre></td></tr></table></figure>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【知乎转载】鼻炎成因及疗法]]></title>
+      <url>/2022/09/07/%E3%80%90%E7%9F%A5%E4%B9%8E%E8%BD%AC%E8%BD%BD%E3%80%91%E9%BC%BB%E7%82%8E/</url>
+      <content type="html"><![CDATA[<p>“通鼻喷剂”、“鼻甲切除术”的滥用，只追求迅速，不看长远。</p>
+<p>通鼻喷剂，简直是鼻塞患者的“神药”一喷即灵，立竿见影的效果，殊不知这是在饮鸩止渴，一开始使用确实效果很好，但持续一段时间后，发现原来喷一下就通了，现在得喷两下、三下，并且药效越来越短，之前喷完两三个小时都不堵，现在不到半小时又堵了。于是剂量越用越大，使用次数越来越多，形成药物依赖。</p>
+<p>我曾经有个鼻炎患者，买“通鼻喷剂”是以箱为单位，最后只要不用，鼻子就永远没畅通过。</p>
+<p>这些“通鼻喷剂”从作用原理分类上属于减充血剂，也可以称为血管收缩剂。</p>
+<p>药物性鼻炎就是长期过度使用这类药物而引发的。</p>
+<p>鼻塞产生的原因是：血管通透性增加，使得大量血浆渗入黏膜组织，造成水肿堵塞了气道。</p>
+<p>通过使用减充血剂，就像从源头上把供水的水管给关紧了，没有持续的体液供应，组织水肿就会消退，黏膜肿胀的问题缓解，气道重新恢复通畅。</p>
+<p>但是，长期使用减充血剂后，血管的“阀门”会对药物变得越来越不敏感，更糟糕的是还会出现反跳性充血，因为经常使用减充血剂，血液流量减少了，不仅让黏膜组织得不到充足的营养供应，并且代谢的废物也会堆积在鼻腔，血管不得不代偿性扩张以平衡药物收缩血管的作用。</p>
+<p>结果就是通鼻喷剂越用越多、效果越来越差、不用就不通，最后就成了“药物性鼻炎”</p>
+<p>儿童用减充血剂的危害更大，因为儿童鼻黏膜娇嫩、血管丰富，药物吸收的更快，剂量更难以把控，效果和副作用更加明显，还有通过鼻咽后有被孩子吞食的风险，从胃部进入血液的药物会作用于全身，因此大部分减充血剂都禁止给儿童使用</p>
+<p>除了通鼻喷剂，减充血剂还会藏在各种复方制剂中，最常见的是感冒药，在名称中带有“麻”字的感冒药通常含有减充血剂，所以需要家长们格外注意。</p>
+<p>为了短暂的鼻子通畅，冒着承受严重副作用和药物依赖的风险，实在不值得。</p>
+<p>空鼻综合征：每一次呼吸都是痛苦的折磨<br>
+“一进入空调车，我每吸一口气，就感觉冷空气直接进入到我的肺里。”</p>
+<p>“鼻子不痛，人难受、头疼、整晚睡不着觉…”</p>
+<p>“晚上睡觉就像‘烙大饼’，左边鼻子堵了翻右边，右边又堵了再翻左边，经常堵醒或嗓子干，半夜起来喝水，一个晚上可以翻100次身。”</p>
+<p>“睡不好、注意力不集中，像我这种原来学习能力很强的人，影响用脑感觉很痛苦，好多事都没精力做…”</p>
+<p>这些人在描述自己的状况时，几乎都用了“生不如死”，每时每刻都要呼吸，而每一次呼吸都是痛苦的折磨。</p>
+<p>都是因为手术切除部分鼻甲黏膜后，鼻黏膜对空气加温、加湿以及过滤的功能作用被破坏，吸入鼻腔的干冷空气直接进入气管肺部，还刺激着鼻腔分布的神经末梢，造成反射性头痛；这些直接吸进去的空气缺乏有效的清洁过滤，携带细菌进入还可能造成呼吸道感染。</p>
+<p>切除肿胀的鼻黏膜后鼻腔本来是变宽大了，通气顺畅才对，为什么还会出现鼻塞？</p>
+<p>是因为鼻黏膜上丰富的的末梢神经能感知气流，一旦被破坏就会感觉不到空气流动，产生鼻塞的感觉，还伴有头痛、嗅觉减退等症状。</p>
+<p>除了鼻甲切除术，还有黏膜外黏膜消除术（如表面烧灼、激光治疗）</p>
+<p>黏膜下消融术（如黏膜内烧灼、射频消融、激光治疗）等破坏黏膜的疗法都有造成空鼻综合征的风险。</p>
+<p>上面所说的两种方法都是为了解决鼻塞的问题<br>
+为什么会一直鼻塞，鼻塞的常见原因是什么？</p>
+<p>1、过敏引起的鼻塞</p>
+<p>吸入一些过敏原如花粉、尘螨、面粉等，引起过敏反应，鼻腔黏膜充血，影响空气吸入，造成鼻塞。这种需要查过敏原，从源头避免吸入过敏原。</p>
+<p>2、慢性鼻炎</p>
+<p>鼻腔纤毛摆动异常，无法运送垃圾出去，这些炎性物质不断堆积在鼻腔里，堆积的分泌物和炎性物质又不断刺激鼻黏膜，进一步加重纤毛摆动异常，如此形成恶性循环，鼻炎久而不愈。</p>
+<p>这种慢性鼻炎需要抗炎排分泌物，从源头减少分泌物，然后修复鼻黏膜使纤毛恢复正常摆动，加快运送垃圾。</p>
+<p>3、鼻中隔偏曲</p>
+<p>大部分人的鼻中隔其实都会微微偏向鼻腔的某一侧，这并不会导致功能障碍，但如果鼻中隔“拗造型”太过放飞自我，扭成了“C”形或者“S”形时，问题就严重了，会造成经常流鼻血、鼻塞不通气等难受的病症。</p>
+<p>4、外伤、发育不良</p>
+<p>通鼻喷剂不是给孩子缓解鼻塞长期用的，手术切除鼻甲又会有“空鼻综合征”的风险，那么孩子鼻塞，家长该怎么办？试试这些方法<br>
+鼻塞是症状，是因为鼻腔有炎症才会造成鼻塞，因此对付鼻塞的根本是消除炎症，降低血管通透性。缓解鼻塞的思路绝对不是收缩血管，相反，应该加快局部血液循环，带走潴留在组织中的液体，像大禹治水一样，堵不如疏。</p>
+<p>1、按摩这些穴位</p>
+<p>揉迎香穴、山根穴、风池穴、摩擦鼻梁</p>
+<p>2、中药雾化&amp;水蒸汽</p>
+<p>和之前咳嗽的蒸汽排痰法一样，用水蒸气熏蒸15~20分钟，注意温度距离，避免烫伤。</p>
+<p>配合中药配方雾化，促进分泌物排出的同时修复黏膜、消除炎症。</p>
+<p>3、半导体弱激光照射鼻黏膜</p>
+<p>采用红光或红外光照射鼻腔黏膜，可以促进鼻黏膜局部血液循环，改善黏膜水肿缓解鼻塞。</p>
+<p>这种激光照射知识一种缓解鼻塞症状的辅助治疗手段，和盐水洗鼻的作用类似，真正解决鼻塞，还是需要修鼻腔黏膜、消除炎症。</p>
+<p>4、盐水洗鼻</p>
+<p>盐水洗鼻是需要用药店的生理盐水，不是在家用食盐和水兑成生理盐水。并且盐水冲洗鼻腔需要一定水压和水量，要格外注意，因为有可能把炎性物质冲进更深地方，引发其他部位感染发炎。</p>
+<p>人体有自己的黏液纤毛清除运动，所以要解决鼻塞，还是需要修复黏膜，让纤毛恢复正常摆动，加快运送垃圾，消除炎症刺激。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 拾枝杂谈 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 知乎转载 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【作品集】岁月拾珠]]></title>
+      <url>/2022/09/07/%E3%80%90Artist%E3%80%91%E4%BD%9C%E5%93%81%E9%9B%86/</url>
+      <content type="html"><![CDATA[<h1>岁染の设计集</h1>
+<hr>
+<p>随缘更新哦，主要是记录22年9月-25年6月的设计作品啦，看个乐呵吧！</p>
+<hr>
+<p><strong>Name</strong> 科普征文大赛海报</p>
+<p><strong>Time</strong>  2022年9月1日</p>
+<img src="/2022/09/07/%E3%80%90Artist%E3%80%91%E4%BD%9C%E5%93%81%E9%9B%86/image-20220908164603107.png" alt="image-20220908164603107" style="zoom:50%;">
+<hr>
+<p><strong>Name</strong> 新生杯篮球赛</p>
+<p><strong>Time</strong>  2022年9月6日</p>
+<img src="/2022/09/07/%E3%80%90Artist%E3%80%91%E4%BD%9C%E5%93%81%E9%9B%86/image-20220908164902050.png" alt="image-20220908164902050" style="zoom:50%;">
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 梦时风月 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 平面设计 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Numpy教程]]></title>
+      <url>/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/</url>
+      <content type="html"><![CDATA[<h1>Numpy 教程</h1>
+<p>什么是<code>Numpy</code>？Numpy(Numerical Python)是一个Python扩展库，支持大量的维度数组和矩阵运算，此外也针对数组运算提供大量的数学函数库。</p>
+<p>其主要用于数组计算，特点包括：</p>
+<ul>
+<li>一个强大的N维数组对象ndarray</li>
+<li>广播功能函数</li>
+<li>整合C/C++/Fortran代码的工具</li>
+<li>线性代数、傅里叶变换、随机数生成等功能</li>
+</ul>
+<hr>
+<h2 id="一、Ndarray对象">一、Ndarray对象</h2>
+<p>Ndarray(N-dimension array)是一个<code>N</code>维数组对象，他是一系列同类型数据的集合。</p>
+<p>其内部构成为：</p>
+<ul>
+<li>一个指向数据的指针</li>
+<li>数据类型<code>dtype</code>，描述在数组中的固定大小的格子</li>
+<li>一个表示数组形状<code>shape</code>的元组</li>
+<li>一个跨度元组<code>stride</code>,也就是我们索引切片的时候选择的跨度</li>
+</ul>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907131758920.png" alt="image-20220907131758920" style="zoom:50%;">
+<p>下面我们来看看具体的生成器：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">numpy.array(<span class="built_in">object</span>, dtype = <span class="literal">None</span>, copy = <span class="literal">True</span>, order = <span class="literal">None</span>, subok = <span class="literal">False</span>, ndmin = <span class="number">0</span>)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	object: 数组或嵌套的数列</span></span><br><span class="line"><span class="string">	dtype: 数据类型</span></span><br><span class="line"><span class="string">	copy: 对象是否需要复制(new的内存空间)</span></span><br><span class="line"><span class="string">	order: 创建数组的样式，A为任意方向，C为行方向，F为列方向</span></span><br><span class="line"><span class="string">	subok: 返回一个与基类型一致的数组</span></span><br><span class="line"><span class="string">	ndmin: 指定生成数组的最小维度</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><strong>生成最小维度</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最小维度  </span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], ndmin =  <span class="number">2</span>)  </span><br><span class="line"><span class="built_in">print</span> (a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># [[1 2 3 4 5]]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ndarray 对象由计算机内存的连续一维部分组成，并结合索引模式，将每个元素映射到内存块的一个位置。</p>
+</blockquote>
+<hr>
+<h2 id="二、数据类型">二、数据类型</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bool_</td>
+<td style="text-align:center">布尔型数据类型（True 或者 False）</td>
+</tr>
+<tr>
+<td style="text-align:center">int_</td>
+<td style="text-align:center">默认的整数类型（类似于 C 语言中的 long，int32 或 int64）</td>
+</tr>
+<tr>
+<td style="text-align:center">intc</td>
+<td style="text-align:center">与 C 的 int 类型一样，一般是 int32 或 int 64</td>
+</tr>
+<tr>
+<td style="text-align:center">intp</td>
+<td style="text-align:center">用于索引的整数类型（类似于 C 的 ssize_t，一般情况下仍然是 int32 或 int64）</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">字节（-128 to 127）</td>
+</tr>
+<tr>
+<td style="text-align:center">int16</td>
+<td style="text-align:center">整数（-32768 to 32767）</td>
+</tr>
+<tr>
+<td style="text-align:center">int32</td>
+<td style="text-align:center">整数（-2147483648 to 2147483647）</td>
+</tr>
+<tr>
+<td style="text-align:center">int64</td>
+<td style="text-align:center">整数（-9223372036854775808 to 9223372036854775807）</td>
+</tr>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">无符号整数（0 to 255）</td>
+</tr>
+<tr>
+<td style="text-align:center">uint16</td>
+<td style="text-align:center">无符号整数（0 to 65535）</td>
+</tr>
+<tr>
+<td style="text-align:center">uint32</td>
+<td style="text-align:center">无符号整数（0 to 4294967295）</td>
+</tr>
+<tr>
+<td style="text-align:center">uint64</td>
+<td style="text-align:center">无符号整数（0 to 18446744073709551615）</td>
+</tr>
+<tr>
+<td style="text-align:center">float_</td>
+<td style="text-align:center">float64 类型的简写</td>
+</tr>
+<tr>
+<td style="text-align:center">float16</td>
+<td style="text-align:center">半精度浮点数，包括：1 个符号位，5 个指数位，10 个尾数位</td>
+</tr>
+<tr>
+<td style="text-align:center">float32</td>
+<td style="text-align:center">单精度浮点数，包括：1 个符号位，8 个指数位，23 个尾数位</td>
+</tr>
+<tr>
+<td style="text-align:center">float64</td>
+<td style="text-align:center">双精度浮点数，包括：1 个符号位，11 个指数位，52 个尾数位</td>
+</tr>
+<tr>
+<td style="text-align:center">complex_</td>
+<td style="text-align:center">complex128 类型的简写，即 128 位复数</td>
+</tr>
+<tr>
+<td style="text-align:center">complex64</td>
+<td style="text-align:center">复数，表示双 32 位浮点数（实数部分和虚数部分）</td>
+</tr>
+<tr>
+<td style="text-align:center">complex128</td>
+<td style="text-align:center">复数，表示双 64 位浮点数（实数部分和虚数部分）</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="三、数组属性">三、数组属性</h2>
+<p>Numpy的数组维度数量称为秩(rank)，每一个线性的数组是一个轴(axis)，也就是维度。</p>
+<p>例如：二维数组由两个一维数组构成：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># [A,B,C]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者是：</span></span><br><span class="line"><span class="comment"># [ A,</span></span><br><span class="line"><span class="comment">#	B,</span></span><br><span class="line"><span class="comment">#   C ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A=[1,2,3]</span></span><br></pre></td></tr></table></figure>
+<p>第一个一维数组中的每个元素又是一个一维数组。第一个轴也成为了底层数组，第二个则是底层数组中的数组，以此类推。</p>
+<p>简单说一下，<code>axis=0</code>的情况表示沿着第0轴进行操作，也就是列，<code>axis=1</code>则是沿着第1轴进行操作，也就是行。</p>
+<p><strong>常用属性</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ndarray.ndim</td>
+<td style="text-align:center">秩，即轴的数量或维度的数量</td>
+</tr>
+<tr>
+<td style="text-align:center">ndarray.shape</td>
+<td style="text-align:center">数组的维度，对于矩阵，n 行 m 列</td>
+</tr>
+<tr>
+<td style="text-align:center">ndarray.size</td>
+<td style="text-align:center">数组元素的总个数，相当于 .shape 中 n*m 的值</td>
+</tr>
+<tr>
+<td style="text-align:center">ndarray.dtype</td>
+<td style="text-align:center">ndarray 对象的元素类型</td>
+</tr>
+<tr>
+<td style="text-align:center">ndarray.itemsize</td>
+<td style="text-align:center">ndarray 对象中每个元素的大小，以字节为单位</td>
+</tr>
+<tr>
+<td style="text-align:center">ndarray.flags</td>
+<td style="text-align:center">ndarray 对象的内存信息</td>
+</tr>
+<tr>
+<td style="text-align:center">ndarray.real</td>
+<td style="text-align:center">ndarray元素的实部</td>
+</tr>
+<tr>
+<td style="text-align:center">ndarray.imag</td>
+<td style="text-align:center">ndarray 元素的虚部</td>
+</tr>
+<tr>
+<td style="text-align:center">ndarray.data</td>
+<td style="text-align:center">包含实际数组元素的缓冲区，由于一般通过数组的索引获取元素，所以通常不需要使用这个属性。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<p>1️⃣ <strong>ndim</strong></p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907133648496.png" alt="image-20220907133648496" style="zoom:50%;">
+<p>2️⃣ <strong>shape</strong></p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907133713115.png" alt="image-20220907133713115" style="zoom:50%;">
+<p>3️⃣ <strong>size</strong></p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907133735406.png" alt="image-20220907133735406" style="zoom:50%;">
+<p>4️⃣ <strong>dtype</strong></p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907133818185.png" alt="image-20220907133818185" style="zoom:50%;">
+<hr>
+<h2 id="四、Numpy-创建数组">四、Numpy 创建数组</h2>
+<p>除却使用<code>ndarray</code>底层构造器外，我们还可以采用以下的方式来创建数组哦。</p>
+<p><strong>1️⃣ numpy.empty</strong></p>
+<p>参数说明</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">numpy.empty(shape, dtype = <span class="built_in">float</span>, order = <span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	shape: 数组形状</span></span><br><span class="line"><span class="string">	dtype: 数据类型</span></span><br><span class="line"><span class="string">	order: 行优先还是列优先，表示在计算机内中存储元素的顺序</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><strong>创建一个空数组</strong></p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907134640835.png" alt="image-20220907134640835" style="zoom:50%;">
+<p>数组的元素为随机数，因为并未进行初始化。</p>
+<p><strong>2️⃣ numpy.zeros</strong></p>
+<p>参数说明</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.zeros(shape, dtype = <span class="built_in">float</span>, order = <span class="string">&#x27;C&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>创建一个零数组</strong></p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907134826672.png" alt="image-20220907134826672" style="zoom:50%;">
+<p><strong>3️⃣ numpy.ones(shape,dtype,order)</strong></p>
+<p>使用方式一样哦，创建全1数组</p>
+<p><strong>4️⃣ numpy.arange(start=0,stop,step,dtype)</strong></p>
+<p>返回一个<code>0~n-1</code>的<code>ndarray</code>数组~</p>
+<p><strong>5️⃣ numpy.full(shape,val)</strong></p>
+<p>生成一个值全为<code>val</code>的数组~</p>
+<p><strong>6️⃣ numpy.eye(n)</strong></p>
+<p>生成单位矩阵~</p>
+<p><strong>7️⃣ numpy.diag(list)</strong></p>
+<p>生成对角线矩阵！</p>
+<hr>
+<p><strong>8️⃣ numpy.asarray(a,dtype,order)</strong></p>
+<p>从给定的参数中生成<code>ndarray</code></p>
+<p><strong>9️⃣ numpy.fromiter(iterable,dtype,count=-1)</strong></p>
+<p>从可迭代对象中创建<code>ndarray</code>对象，返回一维数组，<code>count</code>表示读取的数据量，默认是读取所有数据</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907135445064.png" alt="image-20220907135445064" style="zoom:50%;">
+<p><strong>☀️ numpy.linspace</strong></p>
+<p>用于创建一个等差数列的<strong>一维数组</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">np.linspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, retstep=<span class="literal">False</span>, dtype=<span class="literal">None</span>)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	endpoint: 是否包含终止点</span></span><br><span class="line"><span class="string">	retstep: 是否输出间距</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907135746065.png" alt="image-20220907135746065" style="zoom:50%;">
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907135755667.png" alt="image-20220907135755667" style="zoom:50%;">
+<p><strong>🌙 numpy.logspace</strong></p>
+<p>用于创建一个等比数列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.logspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, base=<span class="number">10.0</span>, dtype=<span class="literal">None</span>)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">	base: 默认底数</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907135938777.png" alt="image-20220907135938777" style="zoom:50%;">
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907135953686.png" alt="image-20220907135953686" style="zoom:50%;">
+<hr>
+<h2 id="五、Numpy的切片和索引">五、Numpy的切片和索引</h2>
+<p><code>ndarray</code>中的对象内容可以通过索引或切片来访问和修改。</p>
+<p>有两种比较主流的索引方式：</p>
+<ul>
+<li>内置<code>slice</code>函数</li>
+<li>冒号分隔符</li>
+</ul>
+<p>我们重点说<code>冒号分隔符</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A[star:step:end]</span><br></pre></td></tr></table></figure>
+<p>注意<strong>左闭右开</strong>。</p>
+<p>除却本身<code>list</code>的机制外，我们还可以采用省略号。</p>
+<p>表示取到某一维度上的所有数据，譬如：</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907161127678.png" alt="image-20220907161127678" style="zoom:50%;">
+<p>除此之外，<code>Numpy</code>有一些更高级的索引方式。</p>
+<p><strong>1️⃣整数数组索引</strong></p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907161408916.png" alt="image-20220907161408916" style="zoom:50%;">
+<p>根据数组维度，第一个索引数组表示<code>axis=0</code>，第二个索引数组表示<code>axis=1</code>，他们之间的<code>一一映射</code>确保了行列之间的取值。</p>
+<p><strong>维度不对会报错</strong></p>
+<p>当然，当第一个数组或者第二个数组维度为<code>1</code>时，不会报错，表示就要这一个位置。</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907161526604.png" alt="image-20220907161526604" style="zoom:50%;">
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907161653950.png" alt="image-20220907161653950" style="zoom:50%;">
+<p>我们的索引可以与切片<code>:</code>或<code>...</code>进行组合：</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907162130989.png" alt="image-20220907162130989" style="zoom:50%;">
+<p>基本上能满足项目需要的索引组合了。</p>
+<p><strong>2️⃣ 布尔索引</strong></p>
+<p>可以通过布尔运算来过滤指定条件之外的元素！</p>
+<p>下面看个栗子：<br>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907162344660.png" alt="image-20220907162344660" style="zoom:50%;"></p>
+<p>下面的实例采用了逻辑非<code>~</code>对<code>NaN</code>数据进行过滤</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907162441545.png" alt="image-20220907162441545" style="zoom:50%;">
+<p>过滤非复数元素</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907162515978.png" alt="image-20220907162515978" style="zoom:50%;">
+<p>3️⃣ <strong>花式索引</strong></p>
+<p>利用整数数组进行索引。</p>
+<p>花式索引总是将数据复制到新数组中。</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907163812907.png" alt="image-20220907163812907" style="zoom:50%;">
+<hr>
+<h2 id="六、Numpy的广播机制">六、Numpy的广播机制</h2>
+<p>广播(Broadcast)是<code>numpy</code>对不同形状的数组进行数值计算的方式。</p>
+<p>☀️</p>
+<p>若两个数组<code>a</code>和<code>b</code>形状相同，对应的操作应当是每个元素之间的操作。</p>
+<p>这要求维数相同，且各维度的长度相同。</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907164450631.png" alt="image-20220907164450631" style="zoom:50%;">
+<p>🌙</p>
+<p>在两个数组形状不同时，<code>numpy</code>将自动触发广播机制。</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907164553770.png" alt="image-20220907164553770" style="zoom:50%;">
+<p>其内部运算逻辑如下图：</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907164617941.png" alt="image-20220907164617941" style="zoom:50%;">
+<p>这种广播要求的是一定有一个维度长度是匹配的，将较小的数组通过重复扩张到大的维度，以匹配维度为核心进行运算。</p>
+<p><strong>规则</strong></p>
+<ul>
+<li>让所有输入数组都向其中形状最长的数组看齐，形状中不足的部分都通过在前面加 1 补齐。
+<ul>
+<li>例如：a(2,3) b(3)—&gt;b(1,3)</li>
+</ul>
+</li>
+<li>输出数组的形状是输入数组形状的各个维度上的最大值。</li>
+<li>如果输入数组的某个维度和输出数组的对应维度的长度相同或者其长度为 1 时，这个数组能够用来计算，否则出错。</li>
+<li>当输入数组的某个维度的长度为 1 时，沿着此维度运算时都用此维度上的第一组值。</li>
+</ul>
+<p><strong>简单理解</strong></p>
+<p>对两个数组，分别比较他们的每一个维度（若其中一个数组没有当前维度则忽略），满足：</p>
+<ul>
+<li>数组拥有相同形状✅</li>
+<li>当前维度的值相等✅</li>
+<li>当前维度的值有一个是 1✅</li>
+</ul>
+<p>1️⃣ 同shape</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907165638282.png" alt="image-20220907165638282" style="zoom:50%;">
+<p>2️⃣ 某个维度相等</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907165711782.png" alt="image-20220907165711782" style="zoom:50%;">
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907165725149.png" alt="image-20220907165725149" style="zoom:50%;">
+<p>3️⃣ 某个维度为1</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907165745186.png" alt="image-20220907165745186" style="zoom:50%;">
+<p>4️⃣ 不满足上述条件</p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907165815935.png" alt="image-20220907165815935" style="zoom:50%;">
+<p>弹出ValueError错误</p>
+<hr>
+<h2 id="七、Numpy-数组操作与逻辑运算">七、Numpy 数组操作与逻辑运算</h2>
+<p><strong>1️⃣ 逻辑运算</strong></p>
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907170115856.png" alt="image-20220907170115856" style="zoom:50%;">
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907170201190.png" alt="image-20220907170201190" style="zoom:50%;">
+<img src="/2022/09/07/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91Numpy%E5%85%A5%E9%97%A8/image-20220907170312288.png" alt="image-20220907170312288" style="zoom:50%;">
+<p>2️⃣ <strong>通用判断函数</strong></p>
+<ul>
+<li>
+<p><strong>np.all()</strong></p>
+<ul>
+<li>
+<p>返回某个表达式中的元素是否全是满足条件</p>
+</li>
+<li>
+<pre><code class="language-python">np.all(stock_day_rise[0:2,0:5] &gt; 0)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ **np.unique()**</span><br><span class="line"></span><br><span class="line">  + 返回唯一值</span><br><span class="line"></span><br><span class="line">  + ```python</span><br><span class="line">    np.unique(stock_day_rise[0:2,0:5].astype(int))</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>np.any()</strong></p>
+<ul>
+<li>
+<p>只要有一个元素满足条件就返回<code>True</code></p>
+</li>
+<li>
+<pre><code class="language-python">np.any(stock_day_rise[0:2,0:5] &gt; 0)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>3️⃣ <strong>三元运算符</strong></p>
+<ul>
+<li>
+<p><strong>np.where(ndarray , A , B)</strong></p>
+<ul>
+<li>
+<p>如果满足条件，将元素替换为A，否则替换为B</p>
+</li>
+<li>
+<pre><code class="language-python">np.where(temp &gt; 0, 1, 0)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 常常结合`np.logical_and`和`np.logical_or`使用</span><br><span class="line"></span><br><span class="line">+ ```python</span><br><span class="line">  np.where(np.logical_and(temp &gt; 0.5, temp &lt; 1), 1, 0)</span><br><span class="line">  np.where(np.logical_or(temp &gt; 0.5, temp &lt; -0.5), 1, 0)</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>数组操作<br>
+Numpy包含了一些函数用于处理数组，大致可分为以下几类：</p>
+</blockquote>
+<ul>
+<li>修改数组形状</li>
+<li>翻转数组</li>
+<li>修改数组维度</li>
+<li>连接数组</li>
+<li>分割数组</li>
+<li>数组元素的添加与删除</li>
+</ul>
+<p><strong>1️⃣ 修改数组形状</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>reshape</code></td>
+<td style="text-align:center">不改变数据的条件下修改形状</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>flat</code></td>
+<td style="text-align:center">数组元素迭代器</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>flatten</code></td>
+<td style="text-align:center">返回一份数组拷贝，对拷贝所做的修改不会影响原始数组</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ravel</code></td>
+<td style="text-align:center">返回展开数组</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="八、位运算与字符串函数">八、位运算与字符串函数</h2>
+<hr>
+<h2 id="九、数学与统计函数">九、数学与统计函数</h2>
+<hr>
+<h2 id="十、矩阵与线性代数">十、矩阵与线性代数</h2>
+<hr>
+<h2 id="十一、排序、条件与选择">十一、排序、条件与选择</h2>
+<hr>
+<h2 id="十二、字节交换、副本与试图">十二、字节交换、副本与试图</h2>
+<hr>
+<h2 id="十三、IO">十三、IO</h2>
+<hr>
+<h2 id="十四、Matplotlib绘图">十四、Matplotlib绘图</h2>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 数据分析 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[英语口语常用表述]]></title>
+      <url>/2022/09/06/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD%E5%B8%B8%E7%94%A8%E8%A1%A8%E8%BF%B0/</url>
+      <content type="html"><![CDATA[<h2 id="英语口语常用表述">英语口语常用表述</h2>
+<hr>
+<h3 id="cut-it-out">cut it out</h3>
+<ul>
+<li>闭嘴！省省吧！</li>
+</ul>
+<h3 id="easy-peasy">easy-peasy</h3>
+<ul>
+<li>小菜一碟！</li>
+<li>这个peasy是为了押韵将peace将成了peasy</li>
+</ul>
+<h3 id="stay-strong">stay strong</h3>
+<ul>
+<li>坚强起来</li>
+</ul>
+<h3 id="fat-chance">fat chance</h3>
+<ul>
+<li>没戏~</li>
+<li>不可能！希望渺茫~</li>
+</ul>
+<h3 id="you-known-nothing">you known nothing</h3>
+<ul>
+<li>你啥都不知道！</li>
+<li>你懂个锤子</li>
+</ul>
+<hr>
+<h3 id="you-look-stunning">you look stunning</h3>
+<ul>
+<li>你看起来美爆了！</li>
+</ul>
+<h3 id="fancy-meeting-you-here">fancy meeting you here</h3>
+<ul>
+<li>真他娘的意外！这里也能见到你啊？</li>
+</ul>
+<h3 id="every-dog-has-its-day">every dog has its day</h3>
+<ul>
+<li>人人皆有出头日</li>
+</ul>
+<h3 id="No-matter-how-bad-your-current-situation-is">No matter how bad your current situation is</h3>
+<ul>
+<li>无论你的处境多糟</li>
+</ul>
+<h3 id="enjoy-your-stay">enjoy your stay</h3>
+<ul>
+<li>希望你开心咯~</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>In summary</strong></p>
+</blockquote>
+<p>Juddy: Hey Petter! <strong>Fancy meeting you here</strong>! <strong>You look stunning</strong>!</p>
+<p>Petter: <strong>Cut it out</strong>! <strong>You know nothing</strong>! I am about to lose my job!</p>
+<p>Juddy: <strong>Stay strong</strong>! Just <strong>easy-peasy</strong>！I hope you could get out of this trouble.</p>
+<p>Petter: I hope so. But actually, <strong>fat chance</strong>.</p>
+<p>Juddy: <strong>No matter how bad your current situations is</strong>, <strong>every dog has its day</strong>. <strong>Enjoy your stay</strong>.</p>
+<hr>
+<h3 id="don’t-tell-me-what-to-do">don’t tell me what to do</h3>
+<ul>
+<li>你在教我做事？</li>
+</ul>
+<h3 id="don’t-take-it-out-on-me">don’t take it out on me</h3>
+<ul>
+<li>老子不背锅！</li>
+<li>别烦我</li>
+</ul>
+<h3 id="don’t-tush-me">don’t tush me</h3>
+<ul>
+<li>别催啦！</li>
+<li>tush: 屁股，獠牙</li>
+<li>bush: 灌木</li>
+</ul>
+<h3 id="a-promise-is-a-promise">a promise is a promise</h3>
+<ul>
+<li>君子一言，驷马难追</li>
+</ul>
+<h3 id="are-you-smoking">are you smoking?</h3>
+<ul>
+<li>你是不是傻</li>
+</ul>
+<hr>
+<h3 id="be-a-man">be a man</h3>
+<ul>
+<li>像个男人一样</li>
+<li>成熟点</li>
+</ul>
+<h3 id="boys-will-be-boys">boys will be boys</h3>
+<ul>
+<li>本性难移</li>
+<li>狗改不了吃屎</li>
+</ul>
+<h3 id="don’t-freak-out">don’t freak out</h3>
+<ul>
+<li>淡定点</li>
+<li>freak这个词本事表示怪人，怪异的，不正常的，作动词还能表示震惊，畏惧。</li>
+</ul>
+<h3 id="don’t-have-a-cow">don’t have a cow</h3>
+<ul>
+<li>别大惊小怪</li>
+</ul>
+<h3 id="don’t-give-me-that-look">don’t give me that look</h3>
+<ul>
+<li>别用那种眼神看我</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>In summary</strong></p>
+</blockquote>
+<p>A: Aha, I will never go to school! <strong>A primise is a primse</strong>!</p>
+<p>B: <strong>Are you smoking</strong>? <strong>Be a man</strong> plz.</p>
+<p>A: <strong>Don’t freak out</strong> and <strong>don’t give me that look</strong>! You know, <strong>boys will be boys</strong>, it’s rule!</p>
+<p>B: <strong>Are you telling me what to do</strong>?c</p>
+<p>A: <strong>Don’t take it out on me</strong>! <strong>Don’t have a cow</strong> and <strong>Don’t tush me</strong>! It’s none of your bissness.</p>
+<hr>
+<h3 id="can-I-ask-you-a-favor">can I ask you a favor?</h3>
+<ul>
+<li>能帮我忙吗~</li>
+</ul>
+<h3 id="I-don’t-follow">I don’t follow</h3>
+<ul>
+<li>我没跟上</li>
+<li>我没听懂</li>
+</ul>
+<h3 id="hear-me-out">hear me out</h3>
+<ul>
+<li>让我听完</li>
+</ul>
+<h3 id="How-is-that-possible">How is that possible?</h3>
+<ul>
+<li>怎么可能</li>
+</ul>
+<h3 id="how-dare-you">how dare you</h3>
+<ul>
+<li>你好大的胆子！</li>
+</ul>
+<hr>
+<h3 id="how-have-you-been">how have you been</h3>
+<ul>
+<li>最近过得怎么样</li>
+</ul>
+<h3 id="I-give-up">I give up</h3>
+<ul>
+<li>我放弃了</li>
+</ul>
+<h3 id="I-kid-you-not">I kid you not</h3>
+<ul>
+<li>我没跟你开玩笑</li>
+</ul>
+<h3 id="I-never-want-to-see-you-again">I never want to see you again</h3>
+<ul>
+<li>我再也不想见到你</li>
+</ul>
+<h3 id="I-take-full-responsibility">I take full responsibility</h3>
+<ul>
+<li>我负全责</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>In summary</strong></p>
+</blockquote>
+<p>A: Fancy meeting you here! <strong>How have youo been</strong>?</p>
+<p>B: Fine! and … <strong>Could you do me a favor</strong>?</p>
+<p>A: …Ok, so what should I do?</p>
+<p>B: Help me Kill that guys!</p>
+<p>A: …Ha? Sorry <strong>I don’t follow</strong>, could you repeat?</p>
+<p>B: <strong>Hear me out,</strong> you need just to do is stab him!</p>
+<p>A: <strong>How dare you</strong>! I give up!</p>
+<p>B: Hey Hey Hey, <strong>I kid you not</strong> ! I mean, this knife is only a prop!</p>
+<p>A: Oh… You just freak me out!</p>
+<p>A few minutes passed…</p>
+<p>A: What? Holy the shit!!! Why did he die! <strong>How that is possible</strong>!</p>
+<p>B: Surprise! I lied to you~</p>
+<p>A: <strong>I never want to see you again!</strong> Get out from my range!</p>
+<p>B: Take it easy~ <strong>I will take full responsibility</strong>~</p>
+<hr>
+<h3 id="It’s-been-a-long-day">It’s been a long day</h3>
+<ul>
+<li>真是好累的一天~</li>
+</ul>
+<h3 id="I’m-speechless">I’m speechless</h3>
+<ul>
+<li>我服了你</li>
+<li>speechless: 说不出话</li>
+<li>Laura was speechless with rage.</li>
+<li>一整个无语住了</li>
+</ul>
+<h3 id="I-don’t-know-what-to-say">I don’t know what to say</h3>
+<ul>
+<li>我不知道该怎么说才好</li>
+</ul>
+<h3 id="Try-harder">Try harder</h3>
+<ul>
+<li>再努力一点</li>
+</ul>
+<h3 id="What-happened-to-you">What happened to you</h3>
+<ul>
+<li>你怎么了</li>
+</ul>
+<hr>
+<h3 id="You-are-nothing">You are nothing</h3>
+<ul>
+<li>你是个锤子</li>
+</ul>
+<h3 id="I’ve-heard-so-much-about-you">I’ve heard so much about you</h3>
+<ul>
+<li>久仰大名！</li>
+</ul>
+<h3 id="Cet-out-of-my-face">Cet out of my face</h3>
+<ul>
+<li>从我的眼前消失！</li>
+</ul>
+<h3 id="knock-it-off">knock it off</h3>
+<ul>
+<li>住手吧！</li>
+</ul>
+<h3 id="keep-a-low-profile">keep a low profile</h3>
+<ul>
+<li>保持低调</li>
+<li>profile : 形象，轮廓，概述</li>
+<li>profit: 利润</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>In summary</strong></p>
+</blockquote>
+<p>Boss: <strong>Try harder</strong>! How can you sleep at your age!</p>
+<p>Ally: OK…</p>
+<p>A few hours pass…</p>
+<p>Ally: <strong>It’s been a long day!</strong> Finally, I can have a rest~</p>
+<p>Boss: Ah, Stay and work overtime!</p>
+<p>Ally: oh… <strong>I’m speechless</strong>…</p>
+<p>Ally’s bestie: Ally ! Why do you look bad?</p>
+<p>Ally: <strong>I don’t know what to say</strong>… My boss is a vampire!</p>
+<p>Boss: Oh Ally! How fancy I meet you here !</p>
+<p>Ally: plz <strong>get out of my face</strong> !!!</p>
+<p>Boss: <strong>Knock it off</strong> ! And… you are Ally’s bestie, Mrs. Lily?</p>
+<p>Lily: Yes, <strong>I’ve heard so much about you</strong> from Alliy.</p>
+<p>Boss: Wooow, <strong>keep a low profile</strong>, I know I’m a great Boss~</p>
+<p>Ally &amp; Lily: <strong>You Are Nothing</strong>!</p>
+<hr>
+<h3 id="keep-your-voice-down">keep your voice down</h3>
+<ul>
+<li>小点声</li>
+</ul>
+<h3 id="just-browsing">just browsing</h3>
+<ul>
+<li>随便看看</li>
+</ul>
+<h3 id="lay-low">lay low</h3>
+<ul>
+<li>低调点</li>
+</ul>
+<h3 id="I-don’t-give-a-shit">I don’t give a shit</h3>
+<ul>
+<li>老子不在乎</li>
+</ul>
+<h3 id="what’s-done-is-done">what’s done is done</h3>
+<ul>
+<li>覆水难收</li>
+</ul>
+<hr>
+<h3 id="talk-is-cheap">talk is cheap</h3>
+<ul>
+<li>说着容易做着难</li>
+</ul>
+<h3 id="take-days">take days</h3>
+<ul>
+<li>需要几天的时间</li>
+</ul>
+<h3 id="talk-to-the-hand">talk to the hand</h3>
+<ul>
+<li>懒得理你</li>
+</ul>
+<h3 id="take-care">take care</h3>
+<ul>
+<li>保重</li>
+</ul>
+<h3 id="why-the-long-face">why the long face</h3>
+<ul>
+<li>为什么不高兴</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>In summary</strong></p>
+</blockquote>
+<p>A: Hello, what do you need?</p>
+<p>B: <strong>I just browsing</strong>.</p>
+<p>A: OKey Sir… Oh, you are Ms. Ye? The most famous star in the earth!</p>
+<p>B: <strong>Lay low</strong> and keep your voice down. I  don’t want too many people to know I’m here.</p>
+<p>A: Yes Sir! (with loudly voice)</p>
+<p>B: … <strong>Talk to the hand</strong>. I need a gun with a Hello Kitty profile.</p>
+<p>A: I’m sorry for that, this commodity is sold out. If you want , <strong>take days</strong> plz.</p>
+<p>B: <strong>I don’t give a shit.</strong> I want to see it right away.</p>
+<p>A: <strong>Talk is cheap</strong> sir! <strong>What’s done is done!</strong> <strong>Why the long face</strong> in you?</p>
+<p>B: …<strong>Take care</strong> and say hello to the god.</p>
+<hr>
+<p><strong>一些套话</strong></p>
+<p><strong>1. I really appreciate your making time in your schedules to attend today.</strong></p>
+<p>我非常感谢你们今天抽空来参加这个会议。</p>
+<p><strong>2. Thank you for…</strong></p>
+<p>感谢您……</p>
+<p><strong>Thank you for giving me this opportunity to speak about myself in this special occasion.</strong></p>
+<p>感谢您给我这个机会在这个特别的场合介绍我自己。</p>
+<p><strong>3. It is my honor…</strong></p>
+<p>我很荣幸……</p>
+<p><strong>It is my honor to introduce the president of our company, Mr. Jones.</strong></p>
+<p>我很荣幸介绍我们公司总裁琼斯先生。</p>
+<p><strong>4. On behalf of…</strong></p>
+<p>代表……</p>
+<p><strong>On behalf of our entire company, I want to thank you for inviting us to such an enjoyable Christmas party.</strong></p>
+<p>我代表全公司，我想感谢您邀请我们参加这样一个令人愉快的圣诞晚会</p>
+<p><strong>5. I’d be happy to…</strong></p>
+<p>我很高兴……</p>
+<p><strong>I’d be happy to tell you about my experiences.</strong></p>
+<p>我很高兴和你们分享我的经验。</p>
+<p><strong>6. What I am going to talk about today is…</strong></p>
+<p>今天我想讲的是……</p>
+<p><strong>What I am going to talk about today is the energy conservation issue.</strong></p>
+<p>今天我想讲的是节能问题。</p>
+<p><strong>7. How can we…?</strong></p>
+<p>我们怎样才能……？</p>
+<p><strong>How can we work more efficiently?</strong></p>
+<p>我们怎样才能工作得更有效率呢？</p>
+<p><strong>8.Thank you from the bottom of my heart for…</strong></p>
+<p>我从心底感谢……</p>
+<p><strong>Thank you from the bottom of my heart for giving me this chance to speak to you today.</strong></p>
+<p>我从心底感谢你们今天给了解这个机会在你们前面讲话。</p>
+<p><strong>9. So long as…</strong></p>
+<p>只要……</p>
+<p><strong>So long as we work together we can achieve great results.</strong></p>
+<p>只要我们一起努力，我们就能取得巨大的成就。</p>
+<p><strong>10. Working together…</strong></p>
+<p>一起努力…</p>
+<p><strong>Working together, we can make the future better.</strong></p>
+<p>一起努力，我们将把未来变得更加美好。</p>
+<p><strong>11. I should like to pay tribute to…</strong></p>
+<p>我想对……表示敬意</p>
+<p><strong>I should like to pay tribute to the dedication of all the professionals who worked on this project.</strong></p>
+<p>我想对参与这个项目的所有专家的奉献表示敬意。</p>
+<p><strong>12. I want to leave you with…</strong></p>
+<p>我想留给你们…</p>
+<p><strong>I want to leave you with one final word to remember, “teamwork”.</strong></p>
+<p>我想让你们记住最后一个词：“团队合作”</p>
+<p><strong>13. We sincerely hope…</strong></p>
+<p>我们衷心希望…</p>
+<p><strong>We sincerely hope that you will have a wonderful time tonight.</strong></p>
+<p>我们衷心希望你们今晚过的开心。</p>
+<p><strong>14. I look forward to…</strong></p>
+<p>我期待……</p>
+<p><strong>I look forward to seeing you again.</strong></p>
+<p>我期待着再次见到你们。</p>
+<p><strong>15. Best wishes for…</strong></p>
+<p>对……致以良好的祝愿</p>
+<p><strong>Best wishes for a very successful exhibition!</strong></p>
+<p>对展会的成功致以美好的祝愿。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
+            
+            <tag> 口语 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[LeetCode 309周赛&86双赛]]></title>
       <url>/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&amp;86%E5%8F%8C%E8%B5%9B/</url>
       <content type="html"><![CDATA[<h1>309周赛&amp;86双赛</h1>
 <hr>
@@ -14,19 +932,19 @@
 <h2 id="309-是miHoYo冠名周赛">309 是miHoYo冠名周赛</h2>
 <hr>
 <h2 id="T1">T1</h2>
-<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220904210845055.png" alt="image-20220904210845055" style="zoom:50%;">
+<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/image-20220906175248073.png" alt="image-20220906175248073" style="zoom:50%;">
 <p><strong>思路</strong></p>
 <p>T1又是很简单的数组题，我们只需要判断两个元素出现位置中间隔的元素是否与给定的距离表相等即可。</p>
 <p>而且哦，这种位置的选择，我们可以通过<code>hash</code>表的方式很容易的完成。尤其是前后位次关系。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">checkDistances</span>(<span class="params">self, s: <span class="built_in">str</span>, distance</span>):</span><br><span class="line">        hashmap=&#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> i,j <span class="keyword">in</span> <span class="built_in">enumerate</span>(s):</span><br><span class="line">            <span class="comment"># 记录第一次出现的位置</span></span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">not</span> <span class="keyword">in</span> hashmap.keys():</span><br><span class="line">                hashmap[j]=i</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 判断第二次与第一次的差值是否等于距离表</span></span><br><span class="line">                val=i-hashmap[j]</span><br><span class="line">                <span class="keyword">if</span> val-<span class="number">1</span>!=distance[<span class="built_in">ord</span>(j)-<span class="built_in">ord</span>(<span class="string">&quot;a&quot;</span>)]:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 <p>这题是不是很像两数之和？<br>
 那我们干脆一起把<code>86双</code>的<code>T1</code>一起讲了吧</p>
-<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220904211556718.png" alt="image-20220904211556718" style="zoom:50%;">
+<p><img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/image-20220906175257692.png" alt="image-20220906175257692"></p>
 <p>呐，这鬼题也是，判断连续的，我们只需要看这个值是否被记录过就好了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">findSubarrays</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="comment"># 要tm连续啊</span></span><br><span class="line">        <span class="comment"># 逆天</span></span><br><span class="line">        hashmap=&#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)-<span class="number">1</span>):</span><br><span class="line">            val=nums[i]+nums[i+<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span> val <span class="keyword">in</span> hashmap.keys():</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            hashmap[val]=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="T2">T2</h2>
-<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220904211717593.png" alt="image-20220904211717593" style="zoom:50%;">
+<p><img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/image-20220906175309036.png" alt="image-20220906175309036"></p>
 <p><strong>思路</strong></p>
 <p>关键词：方法数！想到了什么？爬楼梯？斐波那契数列？没错，这种方法数，一般都有递推公式。这题也不例外。考虑两个方向，于是每次dp就能从左和从右。由于负数轴需要映射，为了简化操作，我们可以不用数组。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numberOfWays</span>(<span class="params">self, startPos: <span class="built_in">int</span>, endPos: <span class="built_in">int</span>, k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        MOD = <span class="number">10</span> ** <span class="number">9</span> + <span class="number">7</span></span><br><span class="line"><span class="meta">        @cache</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x: <span class="built_in">int</span>, left: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">abs</span>(x - endPos) &gt; left: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> left == <span class="number">0</span>: <span class="keyword">return</span> <span class="number">1</span>  <span class="comment"># 成功到达终点，算一种方案</span></span><br><span class="line">            <span class="keyword">return</span> (f(x - <span class="number">1</span>, left - <span class="number">1</span>) + f(x + <span class="number">1</span>, left - <span class="number">1</span>)) % MOD</span><br><span class="line">        <span class="keyword">return</span> f(startPos, k)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -48,7 +966,7 @@ X=\frac{D+K}{2}
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">comb</span>(<span class="params">m,n</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> m&gt;n <span class="keyword">or</span> <span class="built_in">type</span>(m)!=<span class="built_in">int</span> <span class="keyword">or</span> <span class="built_in">type</span>(n)!=<span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># 必须是整数且满足大小关系</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rank(n)//(rank(m)*rank(n-m))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rank</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">0</span> <span class="keyword">or</span> n==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    ans=<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,n+<span class="number">1</span>):</span><br><span class="line">        ans*=i</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(ans)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">numberOfWays</span>(<span class="params">self, startPos: <span class="built_in">int</span>, endPos: <span class="built_in">int</span>, k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        MOD=<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span></span><br><span class="line">        d=<span class="built_in">abs</span>(endPos-startPos)</span><br><span class="line">        <span class="keyword">if</span> (k-<span class="built_in">abs</span>(endPos-startPos))&amp;<span class="number">1</span> <span class="keyword">or</span> k&lt;<span class="built_in">abs</span>(endPos-startPos):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> comb(k,(d+k)//<span class="number">2</span>)%MOD</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="T3">T3</h3>
-<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220904214837427.png" alt="image-20220904214837427" style="zoom:50%;">
+<p><img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/image-20220906175316163.png" alt="image-20220906175316163"></p>
 <p><strong>思路</strong></p>
 <p>位运算+双指针优化</p>
 <p>其实看到这个连续就应该想到用双指针了。</p>
@@ -60,7 +978,7 @@ X=\frac{D+K}{2}
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">longestNiceSubarray</span>(<span class="params">self, nums</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        ans=left=or_=<span class="number">0</span></span><br><span class="line">        <span class="comment"># or_用来存放运算结果</span></span><br><span class="line">        <span class="comment"># 加入：or_| x</span></span><br><span class="line">        <span class="comment"># 剔除: or_^ x</span></span><br><span class="line">        <span class="keyword">for</span> right,x <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums):</span><br><span class="line">            <span class="keyword">while</span> or_&amp;x:</span><br><span class="line">                <span class="comment"># 此时需要剔除了</span></span><br><span class="line">                or_^=nums[left]</span><br><span class="line">                left+=<span class="number">1</span></span><br><span class="line">            or_|=x</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,right-left+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="T4">T4</h3>
-<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220904215844294.png" alt="image-20220904215844294" style="zoom: 50%;">
+<p><img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/image-20220906175321646.png" alt="image-20220906175321646"></p>
 <p><strong>思路</strong></p>
 <p>初见这个题的时候，想到的应该是贪心，谁有空就给谁，谁的时间最短谁就空闲。</p>
 <p>于是我写了个不能AC的解:</p>
@@ -78,7 +996,7 @@ X=\frac{D+K}{2}
 <blockquote>
 <p>T3和T4很有意思</p>
 </blockquote>
-<p>T2</p>
+<h2 id="T2-v2">T2</h2>
 <p><strong>带余除法</strong></p>
 <p>当<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&gt;</mo><mn>4</mn><mo separator="true">,</mo><mn>2</mn><mo>&lt;</mo><mi>n</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n&gt;4,2&lt;n-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>，下面的表达式一定成立</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>n</mi><mo>=</mo><mi>q</mi><mo>∗</mo><mi>b</mi><mo>+</mo><mi>r</mi><mo separator="true">,</mo><mn>0</mn><mo>&lt;</mo><mo>=</mo><mi>r</mi><mo>&lt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">n=q*b+r,0&lt;=r&lt;b
@@ -88,7 +1006,7 @@ X=\frac{D+K}{2}
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="T3-v2">T3</h2>
-<img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/image-20220905204104988.png" alt="image-20220905204104988" style="zoom:33%;">
+<p><img src="/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&86%E5%8F%8C%E8%B5%9B/image-20220906175340017.png" alt="image-20220906175340017"></p>
 <p>这题不难看出是位运算，难得是如何进行。</p>
 <p>不是没有想过枚举，但是会不会有一种更加高效的手段拿来实现这个算法？很可惜，似乎是没有的。</p>
 <p>所幸的是，位运算枚举还是挺快的。</p>
@@ -117,6 +1035,22 @@ X=\frac{D+K}{2}
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 总结 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -217,6 +1151,7 @@ X=\frac{D+K}{2}
       <title><![CDATA[【海洋遥感】第一节课]]></title>
       <url>/2022/09/02/%E3%80%90%E6%B5%B7%E6%B4%8B%E9%81%A5%E6%84%9F%E3%80%91Unname/</url>
       <content type="html"><![CDATA[<h1>海洋遥感</h1>
+<h1>第一章</h1>
 <hr>
 <h2 id="一、海洋遥感的意义">一、海洋遥感的意义</h2>
 <p>1️⃣ 理解海洋及地球</p>
@@ -338,6 +1273,22 @@ X=\frac{D+K}{2}
 <h2 id="五、相关数据、资料获取">五、相关数据、资料获取</h2>
 <hr>
 <h2 id="六、主流的海洋遥感大学和机构">六、主流的海洋遥感大学和机构</h2>
+<hr>
+<h1>第二章  海洋遥感原理与基础</h1>
+<h2 id="一、与海洋遥感相关的基本概念">一、与海洋遥感相关的基本概念</h2>
+<h3 id="海洋学上的专有名词">海洋学上的专有名词</h3>
+<p><strong>海面状况</strong>： 海面粗糙度状况，与最大的海面波动高度有关。</p>
+<p><strong>深水波</strong>： 水深大于波长<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>的波动</p>
+<p><strong>浅水波</strong>： 水深小于波长<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>的波动(长波)</p>
+<p><strong>波高H</strong>： 从波峰到波谷之间的铅直距离</p>
+<p><strong>有效波高<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mn>3</mn></mrow></msub></mrow><annotation encoding="application/x-tex">H_{1/3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0385em;vertical-align:-0.3552em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1/3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span></span></span></span></strong>： 博陈列</p>
+<p><strong>反射率</strong> 传感器发出电磁波后，在原位置上能接收到的电磁辐射功率与发出功率之比(盆子洒豆子，接到多少豆子)</p>
+<p><strong>反照率</strong> 被反射的电磁辐射的总功率与发出功率之比</p>
+<p><strong>表观反射率</strong> 大气顶层的反射率，辐射定标的结果之一</p>
+<p><strong>均方根波高<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">h_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></strong></p>
+<h2 id="二、电磁波与海水相互作用机制">二、电磁波与海水相互作用机制</h2>
+<h2 id="三、海洋水体波谱特征">三、海洋水体波谱特征</h2>
+<h2 id="四、遥感图像处理">四、遥感图像处理</h2>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
@@ -567,13 +1518,13 @@ X=\frac{D+K}{2}
       <title><![CDATA[LeetCode Hot100 详细题解]]></title>
       <url>/2022/08/30/%E3%80%90LeetCode%E3%80%91Hot100%E9%A2%98%E8%A7%A3/</url>
       <content type="html"><![CDATA[<h2 id="Hot-100-题解🔥">Hot 100 题解🔥</h2>
-<h3 id="前言-v2">前言</h3>
+<h3 id="前言">前言</h3>
 <p>最近打算开个新坑，也就是这个Hot 100。</p>
 <p>做完这份题解后，我会对我做过的所有题里有意思的，值得一说的再写一份题解。</p>
 <hr>
 <p>这份题解并不按照顺序进行，而是根据🏷️进行排序。不定期更新，平均一天1~2T，有空的话会加更。</p>
 <hr>
-<h3 id="一、数组">一、数组</h3>
+<h2 id="一、数组">一、数组</h2>
 <p>1.1 <a href="https://leetcode.cn/problems/two-sum/">两数之和</a></p>
 <p><strong>题干：</strong></p>
 <p>Given an array of integers <code>nums</code> and an integer <code>target</code>, return <code>indices of the two numbers such that they add up to target</code>.</p>
@@ -596,6 +1547,17 @@ Output: [1,2]</p>
 <p>但是还是不够快，思路三可以通过<code>hash</code>表的方式进行，为什么能想到<code>hash</code>表呢？首先，这个数组本身是无序的，排序需要花费一定的时间复杂度。而对于某一个数<code>i</code>来说，他的配对为<code>target-i</code>，我们关注的，如何在后一次遇到<code>target-i</code>时及时找到我们的<code>i</code>？<code>hash</code>表可以很快的实现这一点。而且不需要担心重复问题。</p>
 <p><strong>实现：</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], target: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        hashmap=&#123;&#125;</span><br><span class="line">        res=[]</span><br><span class="line">        <span class="keyword">for</span> i,num <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums):</span><br><span class="line">            <span class="keyword">if</span> (j:=target-num) <span class="keyword">in</span> hashmap.keys():</span><br><span class="line">                <span class="keyword">return</span> [hashmap[j],i]</span><br><span class="line">            hashmap[num]=i</span><br><span class="line">        <span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="二、链表">二、链表</h2>
+<p>2.1 <a href="https://leetcode.cn/problems/add-two-numbers/">Add Two Numbers</a></p>
+<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in <code>reverse order</code>, and each of their nodes contains a single digit. Add the two numbers and return the sum as a <code>linked list</code>.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<img src="/2022/08/30/%E3%80%90LeetCode%E3%80%91Hot100%E9%A2%98%E8%A7%A3/image-20220905223717946.png" alt="image-20220905223717946" style="zoom:50%;">
+<p><strong>思路</strong></p>
+<p>链表的逆序相加，需要同时遍历两个链表，而且重点是进位。</p>
+<p>我们可以用一个哨兵<code>carryBit</code>存放。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addTwoNumbers</span>(<span class="params">self, l1: <span class="type">Optional</span>[ListNode], l2: <span class="type">Optional</span>[ListNode]</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line">        <span class="comment"># 关键词 逆序 相加</span></span><br><span class="line">        cur,carryBit=ListNode(<span class="number">0</span>),<span class="number">0</span></span><br><span class="line">        dummy=cur</span><br><span class="line">        <span class="keyword">while</span> l1 <span class="keyword">or</span> l2:</span><br><span class="line">            carryBit=(val:=(l1.val <span class="keyword">if</span> l1 <span class="keyword">else</span> <span class="number">0</span>)+(l2.val <span class="keyword">if</span> l2 <span class="keyword">else</span> <span class="number">0</span>)+carryBit)//<span class="number">10</span></span><br><span class="line">            cur.<span class="built_in">next</span>=ListNode(val%<span class="number">10</span>)</span><br><span class="line">            cur=cur.<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">if</span> l1: l1=l1.<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">if</span> l2: l2=l2.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">if</span> carryBit:cur.<span class="built_in">next</span>=ListNode(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+<p>总体来说，这题考察的就是对链表的理解和对进位的理解，并没有什么难度。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
@@ -679,6 +1641,86 @@ Output: [1,2]</p>
 <hr>
 <p><strong>定标</strong></p>
 <p>输入输出模式映射，或者说，就是将输出数据的范围映射到一个统一的区间，以方便多数据操作。</p>
+<hr>
+<p><strong>地面遥感</strong></p>
+<p><strong>航空遥感</strong></p>
+<p><strong>航天遥感</strong></p>
+<p>地面遥感是基础，而航空航天遥感一般用来反演地面地物，而其验证一般也依托于地面遥感。</p>
+<p>航空遥感也可以作为地面与航天遥感的中间商。</p>
+<hr>
+<h3 id="遥感的分类">遥感的分类</h3>
+<p><strong>按工作方式</strong></p>
+<p><strong>主动遥感</strong> 由传感器主动发射电磁波并接受目标反射的回波信号，如(SAR&lt;微波&gt;,激光雷达LIDAR&lt;可见光波&gt;)</p>
+<p><strong>被动遥感</strong> 传感器自身不发射电磁波，被动接收目标对自然辐射源的反射能量或其自身发射的能量。</p>
+<p><strong>成像遥感</strong> 传感器接收的电磁辐射信号可以转换为图像。</p>
+<p><strong>非成像遥感</strong> 传感器接收的电磁辐射信号不能转换为图像(如微博辐射计、高度计等</p>
+<p><strong>按应用领域</strong></p>
+<p>资源、环境、农业、林业、地质、城市、灾害、水文、海洋、军事等等</p>
+<h3 id="分辨率">分辨率</h3>
+<p><strong>空间分辨率</strong> 指(未经过重采样的)想冤案所代表的地面范围大小，一般来说是指遥感图像能分辨的地面物体的最小单元。</p>
+<p><strong>意义</strong></p>
+<ul>
+<li>空间分辨率高，划分地物越细，识别地物空间细节能力越强</li>
+<li>不一定空间分辨率越高越好，地物细节信息太多有时反而会影响主要信息的识别与提取，要根据应用的特定目的选择合适的空间分辨率，不同的研究目标、尺度需要相应的数据。</li>
+<li>图像的可分辨程度，不完全取决于空间分辨率的具体值，而与目标的形状、大小，以及它与周围物体亮度、结构的相对差异有关，与北京的反差大小有关。</li>
+</ul>
+<p><strong>光谱分辨率</strong> 指传感器接收目标辐射的波谱时，能分辨的最小波长间隔。(单位<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">um,nm</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">u</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">nm</span></span></span></span>)</p>
+<p>其含义通常包括</p>
+<ul>
+<li>波长间隔的大小</li>
+<li>传感器波段数量的多少</li>
+<li>各波段中心波长位置</li>
+</ul>
+<p><strong>意义</strong></p>
+<p>光谱分辨率高则光谱信息丰富，可探测出不同地物在光谱上的细微变化，微小差异，提高辨识地物的能力和精度。</p>
+<p><strong>时间分辨率</strong> 指对同一地点获取遥感数据所需的最小的时间间隔，即重访周期。</p>
+<p>时间分辨率的大小，除了主要决定于飞行器的回归周期外，还与遥感探测器、遥感系统的设计等因素直接相关。</p>
+<p><strong>意义</strong></p>
+<p>用于动态监测、长时间序列分析，利用最合适时相的数据降低识别地物的难度，提高识别地物的精度。</p>
+<p><strong>辐射分辨率</strong></p>
+<p>指传感器接收波谱信号时能分辨的最小辐射度差，即分辨辐射差异的能力。</p>
+<p>辐射分辨率反映探测器的灵敏度，可以通过数据的量化级体现，但不等于量化等级。</p>
+<h3 id="早期中国遥感大事件">早期中国遥感大事件</h3>
+<ul>
+<li>中国遥感的摇篮：云南腾冲航空遥感实验 1978年开展了我国第一次大规模、多学科、综合性遥感应用试验</li>
+<li>天津-渤海湾城市遥感实验</li>
+<li>四川二滩水电站能源遥感实验</li>
+</ul>
+<p>以上三个被称为我国遥感事业起步的三大战役。</p>
+<hr>
+<p>我国第一颗商用卫星：吉林一号卫星(高分辨率遥感卫星)。由2015年10月7日，在酒泉卫星发射中心发射成功，一共有四颗卫星，标志着我国航天遥感领域商业化、产业化发展迈出重要一步。</p>
+<p>bilibili视频卫星，央视频号等，都是跟长光卫星合作打造的商用卫星。</p>
+<p>高景一号，2016年12月28日，太原发射中心。全色分辨率0.5m，多光谱分辨率2m，到了我国0.5m级商业遥感数据被国外垄断的现状。</p>
+<hr>
+<h2 id="四、遥感发展的趋势">四、遥感发展的趋势</h2>
+<p>1️⃣ <strong>多层次立体观测</strong></p>
+<ul>
+<li>地面</li>
+<li>航空</li>
+<li>航天</li>
+</ul>
+<p>2️⃣ <strong>传感器</strong></p>
+<ul>
+<li>单一<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span>多传感器、多平台</li>
+</ul>
+<p>3️⃣ <strong>分辨率</strong></p>
+<ul>
+<li>分辨率不断提高</li>
+</ul>
+<p>4️⃣ <strong>全天候、全天时、全谱段</strong></p>
+<ul>
+<li>可见光/近红外、短波红外、热红外、微波</li>
+</ul>
+<p><strong>5️⃣ 静态观测、动态观测</strong></p>
+<p>​	多时相、短周期</p>
+<p><strong>6️⃣ 定性、定量</strong></p>
+<ul>
+<li>从定性到半定量，再到定量</li>
+</ul>
+<p><strong>7️⃣ 遥感平台小型化</strong></p>
+<p><strong>8️⃣ 多源数据综合应用</strong></p>
+<h3 id="北斗卫星导航">北斗卫星导航</h3>
+<p><strong>1994-2020.6.23</strong>历时26年。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
@@ -1330,6 +2372,441 @@ Output: [1,2]</p>
 <p><strong>optimization</strong></p>
 <ul>
 <li>优化</li>
+</ul>
+<hr>
+<p><strong>axiomatic</strong></p>
+<ul>
+<li>adj. 公理的，自明的</li>
+</ul>
+<p><strong>blurry</strong></p>
+<ul>
+<li>adj. 模糊不清的</li>
+</ul>
+<p><strong>China-born</strong></p>
+<ul>
+<li>中国裔</li>
+</ul>
+<p><strong>as A put in B</strong></p>
+<ul>
+<li>正如A在B中说的</li>
+</ul>
+<p><strong>partly</strong></p>
+<ul>
+<li>adv. 部分地，在某种程度上</li>
+</ul>
+<p><strong>forged</strong></p>
+<ul>
+<li>adj. 锻造</li>
+<li>v. 伪造，锻造</li>
+</ul>
+<p><strong>grocery</strong></p>
+<ul>
+<li>n. 食品杂货店</li>
+</ul>
+<p><strong>supervisor</strong></p>
+<ul>
+<li>导师</li>
+</ul>
+<p><strong>reflection</strong></p>
+<ul>
+<li>n. 反射，倒影，<strong>反思</strong>，反省，<strong>想法</strong></li>
+</ul>
+<p><strong>entangle with</strong></p>
+<ul>
+<li>交战、卷入、纠缠在一起</li>
+</ul>
+<p><strong>perspective</strong></p>
+<ul>
+<li>观点</li>
+</ul>
+<p><strong>instead</strong></p>
+<ul>
+<li>adv. 代替，顶替，<strong>反而</strong></li>
+</ul>
+<p><strong>notion</strong></p>
+<ul>
+<li>概念，想法</li>
+</ul>
+<hr>
+<p><strong>fluctuate</strong></p>
+<ul>
+<li>波动，起伏不定</li>
+</ul>
+<p><strong>ambiguous</strong></p>
+<ul>
+<li>adj. 模棱两可的，不确定的</li>
+</ul>
+<p><strong>disconcerting</strong></p>
+<ul>
+<li>adj. 令人不安的，打扰人的</li>
+</ul>
+<p><strong>concert</strong></p>
+<ul>
+<li>n. 音乐会，一致，<strong>和谐</strong></li>
+<li>v. 协调，<strong>共同协定</strong></li>
+</ul>
+<p><strong>essentially</strong></p>
+<ul>
+<li>adv. 本质上，根本上</li>
+</ul>
+<p><strong>self-contained</strong></p>
+<ul>
+<li>独立的，设备齐全的</li>
+</ul>
+<p><strong>inherently</strong></p>
+<ul>
+<li>adv. 内在的，固有的</li>
+</ul>
+<p><strong>rational</strong></p>
+<ul>
+<li>理性的</li>
+</ul>
+<p><strong>mind-bound</strong></p>
+<ul>
+<li>思想受到限制</li>
+</ul>
+<p><strong>skepticism</strong></p>
+<ul>
+<li>n. 怀疑态度，怀疑论</li>
+</ul>
+<p><strong>particular puzzle</strong></p>
+<ul>
+<li>特定的难题</li>
+</ul>
+<p><strong>decreed</strong></p>
+<ul>
+<li>adj. 任命的</li>
+<li>v. 颁布法令(decree)</li>
+</ul>
+<p><strong>discern</strong></p>
+<ul>
+<li>v.(艰难地或努力地)看出，察觉，了解，辨识，<strong>分辨</strong></li>
+</ul>
+<p><strong>trade-off</strong></p>
+<ul>
+<li>n. <strong>平衡</strong>，协调，<strong>让步</strong></li>
+</ul>
+<p><strong>fickly</strong></p>
+<ul>
+<li>adj. 浮躁的，异变的，变化无常的</li>
+</ul>
+<p><strong>erratic</strong></p>
+<ul>
+<li>adj. 不稳定的，难以预测的</li>
+<li>n. 漂泊无定的人</li>
+</ul>
+<p><strong>constitution</strong></p>
+<ul>
+<li>宪法，章程，体格</li>
+</ul>
+<p><strong>detach</strong></p>
+<ul>
+<li>v. 拆下，分离，脱离，分派</li>
+</ul>
+<p><strong>coherent</strong></p>
+<ul>
+<li>adj. 有条理的，<strong>连贯的</strong>，相干的，易于理解的</li>
+</ul>
+<p><strong>contemplative</strong></p>
+<ul>
+<li>adj. 沉思的，冥想的</li>
+<li>n. 宗教思想家</li>
+</ul>
+<hr>
+<p><strong>respected professor</strong></p>
+<ul>
+<li>令人尊敬的教授</li>
+</ul>
+<p><strong>identify as</strong></p>
+<ul>
+<li>把…视为</li>
+</ul>
+<p><strong>mind and matter</strong></p>
+<ul>
+<li>精神和物质</li>
+</ul>
+<p><strong>separate</strong></p>
+<ul>
+<li>分离</li>
+</ul>
+<p><strong>tend to proceed from the assumption</strong></p>
+<ul>
+<li>tend to 倾向于</li>
+<li>proceed from 出发</li>
+<li>assumption 假设</li>
+<li>proceed v. 开展行动，来自，前往; n. 收入，收益</li>
+</ul>
+<p><strong>a sharp distinction</strong></p>
+<ul>
+<li>一个明显的区别</li>
+</ul>
+<p><strong>simple lives inside the skull</strong></p>
+<ul>
+<li>这个simple表示简单</li>
+<li>但是可以引申为： 仅仅，只</li>
+</ul>
+<p><strong>recall</strong></p>
+<ul>
+<li>回想起，召回，收回</li>
+<li>记忆力，记性，召回，撤销</li>
+</ul>
+<p><strong>confine</strong></p>
+<ul>
+<li>限制，局限</li>
+<li>边界，限制</li>
+</ul>
+<p><strong>irrespective</strong></p>
+<ul>
+<li>adj. 不顾</li>
+</ul>
+<p><strong>respective</strong></p>
+<ul>
+<li>adj. 各自的，分别的</li>
+</ul>
+<p><strong>experimental</strong></p>
+<ul>
+<li>实验的</li>
+</ul>
+<p><strong>but even then</strong></p>
+<ul>
+<li>即使这样</li>
+</ul>
+<p><strong>presume</strong></p>
+<ul>
+<li>假设，摄像，料想</li>
+</ul>
+<p><strong>enquiry</strong></p>
+<ul>
+<li>n. 查询，询问</li>
+</ul>
+<p><strong>over time</strong></p>
+<ul>
+<li>超时</li>
+<li>随时间过去</li>
+</ul>
+<p><strong>assaulted</strong></p>
+<ul>
+<li>武力攻击，袭击，解决</li>
+</ul>
+<p><strong>witness</strong></p>
+<ul>
+<li>目击者</li>
+<li>目睹，见证</li>
+</ul>
+<p><strong>experiment</strong></p>
+<ul>
+<li>实验</li>
+</ul>
+<p><strong>epileptic</strong></p>
+<ul>
+<li>癫痫病</li>
+</ul>
+<p><strong>billow</strong></p>
+<ul>
+<li>n. 巨浪</li>
+<li>v. 翻腾</li>
+</ul>
+<p><strong>distress</strong></p>
+<ul>
+<li>n. 忧虑，悲伤，贫困</li>
+<li>v. 使悲伤，使忧虑</li>
+</ul>
+<p><strong>diffusion</strong></p>
+<ul>
+<li>n. 扩散，传播</li>
+</ul>
+<p><strong>dilute</strong></p>
+<ul>
+<li>v. 稀释，冲淡，削弱，降低</li>
+<li>adj. 稀释了的，淡化了的</li>
+</ul>
+<hr>
+<p><strong>numerical</strong></p>
+<ul>
+<li>adj. 数字的，用数字表示的</li>
+</ul>
+<p><strong>wipe away</strong></p>
+<ul>
+<li>擦去</li>
+</ul>
+<p><strong>vital contextual</strong></p>
+<ul>
+<li>vital 至关重要</li>
+<li>contextual <strong>上下文</strong></li>
+<li>至关重要的上下文</li>
+</ul>
+<p><strong>backdrop</strong></p>
+<ul>
+<li>幕布，背景</li>
+<li>位于…后面</li>
+</ul>
+<p><strong>domestic dispute</strong></p>
+<ul>
+<li>内部争端</li>
+<li>家庭暴力</li>
+</ul>
+<p><strong>reluctant</strong></p>
+<ul>
+<li>adj. 勉强的，不情愿的</li>
+</ul>
+<p><strong>more over</strong></p>
+<ul>
+<li>adv. 此外，而且</li>
+</ul>
+<p><strong>is there a way of</strong></p>
+<ul>
+<li>有方法吗</li>
+</ul>
+<p><strong>reconcile</strong></p>
+<ul>
+<li>v. 协调，和解</li>
+</ul>
+<p><strong>in ward</strong></p>
+<ul>
+<li>内心的，精神的</li>
+<li>内向，想自己</li>
+<li>内部，心脏</li>
+</ul>
+<p><strong>the answer lay in dialogue</strong></p>
+<ul>
+<li>the answer lay in 答案就在</li>
+<li>dialogue 对话中</li>
+</ul>
+<p><strong>evaluate</strong></p>
+<ul>
+<li>评估，评价，估值</li>
+</ul>
+<p><strong>existence</strong></p>
+<ul>
+<li>存在，生活</li>
+</ul>
+<p><strong>luminous</strong></p>
+<ul>
+<li>夜光的，光亮的，发光的</li>
+</ul>
+<p><strong>struggle to summary your thought</strong></p>
+<ul>
+<li>struggle to <strong>努力</strong></li>
+<li>summary 总结</li>
+<li>努力总结你的想法</li>
+</ul>
+<p><strong>vivify</strong></p>
+<ul>
+<li>使生动，活跃</li>
+</ul>
+<p><strong>uncover</strong></p>
+<ul>
+<li>揭露，发现，发掘，挖出</li>
+</ul>
+<p><strong>conceive</strong></p>
+<ul>
+<li>构思，摄像，怀孕</li>
+</ul>
+<p><strong>depict as</strong></p>
+<ul>
+<li>描写成</li>
+</ul>
+<p><strong>by contrast</strong></p>
+<ul>
+<li>相比之下</li>
+</ul>
+<p><strong>emphasise</strong></p>
+<ul>
+<li>强调</li>
+</ul>
+<p><strong>scaffolding</strong></p>
+<ul>
+<li>脚手架</li>
+</ul>
+<hr>
+<p><strong>a grimmer example</strong></p>
+<ul>
+<li>更严峻(残酷)的栗子</li>
+</ul>
+<p><strong>solitary confinement in prisons</strong></p>
+<ul>
+<li>solitary <strong>独自的</strong></li>
+<li>监狱中的单独监禁</li>
+</ul>
+<p><strong>introspection</strong></p>
+<ul>
+<li>内省，反省</li>
+</ul>
+<p><strong>dissolve</strong></p>
+<ul>
+<li>解散，消失，溶解</li>
+<li>淡出</li>
+</ul>
+<p><strong>punish</strong></p>
+<ul>
+<li>处罚，自责</li>
+</ul>
+<p><strong>anxiety</strong></p>
+<ul>
+<li>焦虑</li>
+</ul>
+<p><strong>insomnia</strong></p>
+<ul>
+<li>失眠</li>
+</ul>
+<p><strong>inadequacy</strong></p>
+<ul>
+<li>不充分，不足，缺乏信心</li>
+</ul>
+<p><strong>distorted</strong></p>
+<ul>
+<li>变形的，扭曲的</li>
+<li>使变形，扭曲，曲解</li>
+</ul>
+<p><strong>deprived</strong></p>
+<ul>
+<li>贫困的</li>
+<li><strong>剥夺</strong></li>
+</ul>
+<p><strong>embody</strong></p>
+<ul>
+<li>具体表现，体现，收录，包括，代表</li>
+</ul>
+<p><strong>phase</strong></p>
+<ul>
+<li>阶段，时期</li>
+</ul>
+<p><strong>but for the most part</strong></p>
+<ul>
+<li>在大多数情况下</li>
+</ul>
+<hr>
+<p><strong>consummate</strong></p>
+<ul>
+<li>完成，实现</li>
+</ul>
+<p><strong>bystander</strong></p>
+<ul>
+<li>局外人，旁观者</li>
+</ul>
+<p><strong>purport</strong></p>
+<ul>
+<li>声称</li>
+</ul>
+<p><strong>inscribe</strong></p>
+<ul>
+<li>雕刻，印写</li>
+</ul>
+<p><strong>contour</strong></p>
+<ul>
+<li>轮廓，外形</li>
+</ul>
+<p><strong>inform</strong></p>
+<ul>
+<li>影响</li>
+</ul>
+<p><strong>forge</strong></p>
+<ul>
+<li>形成，缔造</li>
+</ul>
+<p><strong>crucible</strong></p>
+<ul>
+<li>坩埚，熔炉</li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
@@ -6202,6 +7679,35 @@ z_n^2+z_m^2-2z_nz_m
 <p>李白</p>
 <p>兰陵美酒郁金香，玉碗盛来琥珀光。</p>
 <p>但使主人能醉客，不知何处是他乡。0</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 梦时风月 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 诗文 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[古诗]]></title>
+      <url>/2022/08/01/%E3%80%90%E5%90%8D%E4%BA%BA%E9%9B%85%E5%8F%A5%E3%80%91%E5%90%8D%E4%BA%BA%E9%9B%85%E5%8F%A5/</url>
+      <content type="html"><![CDATA[<h2 id="名人雅句">名人雅句</h2>
+<h3 id="陶哲轩-Terence-Tao">陶哲轩 Terence Tao</h3>
+<p>🌟 It’s okay  to fail! Failing is how you learn to approach problem differently, and find creative soulution.</p>
+<p>数学并不是单纯的解决问题，而是在于发掘两件事物之间前所未有的，令人惊叹的<strong>联系</strong>。</p>
+<p>🌟 The deeper you dive into anything in your life. the more you will discover and learn.</p>
+<h3 id="笛卡尔-Descartes">笛卡尔 Descartes</h3>
+<p>🌟 I doubt, therefore I think; I think, therefore I am.</p>
+<h3 id="Abeba-Birhane">Abeba Birhane</h3>
+<p>🌟 A person is a person through other persons</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
