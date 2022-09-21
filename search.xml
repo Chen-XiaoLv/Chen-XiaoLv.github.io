@@ -3,6 +3,16 @@
   
     
     <entry>
+      <title></title>
+      <url>/2022/09/21/Untitled/</url>
+      <content type="html"><![CDATA[<p>人与环境是相互影响的，环境成就人，人影响环境。当某个人与环境脱离时，他的知识也就不再成为知识。</p>
+<p>让人无法发声，或许是从社会的角度上切断联系。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Matplotlib教程]]></title>
       <url>/2022/09/15/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91matplotlib%E6%95%99%E7%A8%8B/</url>
       <content type="html"><![CDATA[<h1>Matplotlib教程</h1>
@@ -1938,7 +1948,7 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
       <url>/2022/09/04/%E3%80%90LeetCode%E3%80%91309%E5%91%A8%E8%B5%9B&amp;86%E5%8F%8C%E8%B5%9B/</url>
       <content type="html"><![CDATA[<h1>309周赛&amp;86双赛</h1>
 <hr>
-<h2 id="前言">前言</h2>
+<h2 id="前言-v2">前言</h2>
 <p>最近对自己太放纵了，属实是有点不太行。</p>
 <p>接下来要上强度了！</p>
 <hr>
@@ -2534,7 +2544,7 @@ X=\frac{D+K}{2}
       <title><![CDATA[LeetCode Hot100 详细题解]]></title>
       <url>/2022/08/30/%E3%80%90LeetCode%E3%80%91Hot100%E9%A2%98%E8%A7%A3/</url>
       <content type="html"><![CDATA[<h2 id="Hot-100-题解🔥">Hot 100 题解🔥</h2>
-<h3 id="前言">前言</h3>
+<h3 id="前言-v3">前言</h3>
 <p>最近打算开个新坑，也就是这个Hot 100。</p>
 <p>做完这份题解后，我会对我做过的所有题里有意思的，值得一说的再写一份题解。</p>
 <hr>
@@ -7258,7 +7268,7 @@ End \ while
 <img src="/2022/08/03/%E3%80%90%E8%AE%B0%E5%BF%86%E5%AD%A6%E3%80%91%E8%AE%B0%E5%BF%86%E5%AD%A6%E5%85%A5%E9%97%A8/image-20220803005705359.png" alt="image-20220803005705359" style="zoom: 33%;">
 <img src="/2022/08/03/%E3%80%90%E8%AE%B0%E5%BF%86%E5%AD%A6%E3%80%91%E8%AE%B0%E5%BF%86%E5%AD%A6%E5%85%A5%E9%97%A8/image-20220803005724860.png" alt="image-20220803005724860" style="zoom:33%;">
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">86 28 03 48 25 34 21 17 06 79</span><br></pre></td></tr></table></figure>
-<h3 id="总结">总结</h3>
+<h3 id="总结-v2">总结</h3>
 <p>好的记忆力跟信息的输入输出相关，如何保证信息高效的输入呢？那就需要专注力，而专注力能够通过兴趣提升，不断的正反馈能够增强自信，自信也能提高专注力。当然，好的方法也必不可少。</p>
 <p>我们在承载信息的时候，首先要明确的就是信息的形态、核心，是概念还是理论，是方法还是综述。掌握信息的核心本质，理解其中的思想，也就是<code>用她去了解她</code>。接下来，我们就可以通过构建自己的脑回路，将这个信息以自己的想法进行输出，这部分至关重要，也就是<code>用你去理解她</code>，我们可以借助关键字、化简成图的方式，结合记忆法进行辅助记忆。</p>
 <p>当然，存储的信息一定要打下锚点，不然飘到什么地方去了就很难找了不是吗。</p>
@@ -8694,22 +8704,16 @@ z_n^2+z_m^2-2z_nz_m
     
     <entry>
       <title><![CDATA[古诗]]></title>
-      <url>/2022/08/01/%E3%80%90%E8%AF%97%E8%AF%8D%E5%90%8D%E5%8F%A5%E3%80%91%E5%8F%A4%E8%AF%97/</url>
-      <content type="html"><![CDATA[<hr>
-<h2 id="浣溪沙·谁念西风独自凉">浣溪沙·谁念西风独自凉</h2>
-<p>(清)纳兰性德</p>
-<p>谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳。</p>
-<p>被酒莫惊春睡醒，赌书消得泼茶香，当时只道是寻常。</p>
-<hr>
-<h2 id="赠刘侍御二首·其一">赠刘侍御二首·其一</h2>
-<p>(明)王守仁</p>
-<p>道自升沉宁有定，心存气节不无偏。</p>
-<p>知君已得虚舟意，随处风波只晏然。</p>
-<hr>
-<h2 id="客中行">客中行</h2>
-<p>李白</p>
-<p>兰陵美酒郁金香，玉碗盛来琥珀光。</p>
-<p>但使主人能醉客，不知何处是他乡。0</p>
+      <url>/2022/08/01/%E3%80%90%E5%90%8D%E4%BA%BA%E9%9B%85%E5%8F%A5%E3%80%91%E5%90%8D%E4%BA%BA%E9%9B%85%E5%8F%A5/</url>
+      <content type="html"><![CDATA[<h2 id="名人雅句">名人雅句</h2>
+<h3 id="陶哲轩-Terence-Tao">陶哲轩 Terence Tao</h3>
+<p>🌟 It’s okay  to fail! Failing is how you learn to approach problem differently, and find creative soulution.</p>
+<p>数学并不是单纯的解决问题，而是在于发掘两件事物之间前所未有的，令人惊叹的<strong>联系</strong>。</p>
+<p>🌟 The deeper you dive into anything in your life. the more you will discover and learn.</p>
+<h3 id="笛卡尔-Descartes">笛卡尔 Descartes</h3>
+<p>🌟 I doubt, therefore I think; I think, therefore I am.</p>
+<h3 id="Abeba-Birhane">Abeba Birhane</h3>
+<p>🌟 A person is a person through other persons</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
@@ -8729,16 +8733,22 @@ z_n^2+z_m^2-2z_nz_m
     
     <entry>
       <title><![CDATA[古诗]]></title>
-      <url>/2022/08/01/%E3%80%90%E5%90%8D%E4%BA%BA%E9%9B%85%E5%8F%A5%E3%80%91%E5%90%8D%E4%BA%BA%E9%9B%85%E5%8F%A5/</url>
-      <content type="html"><![CDATA[<h2 id="名人雅句">名人雅句</h2>
-<h3 id="陶哲轩-Terence-Tao">陶哲轩 Terence Tao</h3>
-<p>🌟 It’s okay  to fail! Failing is how you learn to approach problem differently, and find creative soulution.</p>
-<p>数学并不是单纯的解决问题，而是在于发掘两件事物之间前所未有的，令人惊叹的<strong>联系</strong>。</p>
-<p>🌟 The deeper you dive into anything in your life. the more you will discover and learn.</p>
-<h3 id="笛卡尔-Descartes">笛卡尔 Descartes</h3>
-<p>🌟 I doubt, therefore I think; I think, therefore I am.</p>
-<h3 id="Abeba-Birhane">Abeba Birhane</h3>
-<p>🌟 A person is a person through other persons</p>
+      <url>/2022/08/01/%E3%80%90%E8%AF%97%E8%AF%8D%E5%90%8D%E5%8F%A5%E3%80%91%E5%8F%A4%E8%AF%97/</url>
+      <content type="html"><![CDATA[<hr>
+<h2 id="浣溪沙·谁念西风独自凉">浣溪沙·谁念西风独自凉</h2>
+<p>(清)纳兰性德</p>
+<p>谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳。</p>
+<p>被酒莫惊春睡醒，赌书消得泼茶香，当时只道是寻常。</p>
+<hr>
+<h2 id="赠刘侍御二首·其一">赠刘侍御二首·其一</h2>
+<p>(明)王守仁</p>
+<p>道自升沉宁有定，心存气节不无偏。</p>
+<p>知君已得虚舟意，随处风波只晏然。</p>
+<hr>
+<h2 id="客中行">客中行</h2>
+<p>李白</p>
+<p>兰陵美酒郁金香，玉碗盛来琥珀光。</p>
+<p>但使主人能醉客，不知何处是他乡。0</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
