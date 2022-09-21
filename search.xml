@@ -10035,7 +10035,7 @@ H(p,q)=H(p)+D_{KL}(p|q)
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> visdom <span class="keyword">import</span> Visdom</span><br><span class="line">viz=Visdom()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建直线</span></span><br><span class="line">viz.line([<span class="number">0.0</span>,<span class="number">0.0</span>],[<span class="number">0.</span>],win=<span class="string">&#x27;test&#x27;</span>,opts=<span class="built_in">dict</span>(title=<span class="string">&quot;train loss&amp;acc.&quot;</span>,legend=[<span class="string">&#x27;loss&#x27;</span>,<span class="string">&#x27;acc.&#x27;</span>]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 能够逐渐添加数据</span></span><br><span class="line">viz.line([[test_loss,correct/<span class="built_in">len</span>(test_loader.dataset)]],[global_step],win=<span class="string">&quot;test&quot;</span>,update=<span class="string">&quot;append&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p><strong>可视化</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> visdom <span class="keyword">import</span> Visdom</span><br><span class="line">viz=Visdom()</span><br><span class="line">viz.images(data.view(-<span class="number">1</span>,<span class="number">1</span>,<span class="number">28</span>,<span class="number">28</span>),win=<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">viz.text(<span class="built_in">str</span>(pred.detach().cpu().numpy()),win=<span class="string">&#x27;pred&#x27;</span>,opts=<span class="built_in">dict</span>(title=<span class="string">&#x27;pred&#x27;</span>))</span><br></pre></td></tr></table></figure>
-<h3 id="4-过拟合-v2">4.过拟合</h3>
+<h3 id="4-过拟合">4.过拟合</h3>
 <h3 id="5-交叉验证">5.交叉验证</h3>
 <p>如何划分<strong>train-val-test</strong></p>
 <p>对<strong>train</strong>人为切割：</p>
@@ -10593,7 +10593,7 @@ V_{\bigtriangledown W_2}=\beta V_{\bigtriangledown W_1}+(1-\beta){\bigtriangledo
 </tbody>
 </table>
 <hr>
-<h2 id="4-过拟合">4.  过拟合</h2>
+<h2 id="4-过拟合-v2">4.  过拟合</h2>
 <p>在统计学上，过拟合是指过于精确匹配特定数据集，导致模型不能良好拟合其他数据或预测未来观测结果的现象。</p>
 <h3 id="4-1-过拟合的概念">4.1  过拟合的概念</h3>
 <p>深度学习模型的过拟合通常是指针对设计好的深度学习网络，在使用训练数据集训练时，在训练数据集上能够获得很高的识别精度，或者很低的均方根误差，但该模型对测试集的测试结果反而不尽人意。</p>
