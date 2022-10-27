@@ -1,4 +1,8 @@
+http://example.com/2022/10/27/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91Presentation/
+http://example.com/2022/10/26/%E3%80%90%E6%B5%B7%E6%B4%8B%E9%81%A5%E6%84%9F%E3%80%91%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/
+http://example.com/2022/10/23/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91HW2/
 http://example.com/2022/10/15/%E3%80%90%E6%B5%B7%E6%B4%8B%E9%81%A5%E6%84%9F%E3%80%91EOF%E5%88%86%E6%9E%90/
+http://example.com/2022/10/19/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%90%88%E9%9B%86/
 http://example.com/2022/10/06/%E3%80%90%E7%A9%BA%E9%97%B4%E5%88%86%E6%9E%90%E3%80%91%E7%A9%BA%E9%97%B4%E8%87%AA%E7%9B%B8%E5%85%B3/
 http://example.com/2022/09/15/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91matplotlib%E6%95%99%E7%A8%8B/
 http://example.com/Diary/202201013.html
