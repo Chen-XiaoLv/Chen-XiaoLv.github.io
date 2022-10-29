@@ -3,6 +3,150 @@
   
     
     <entry>
+      <title><![CDATA[【深度学习实战】基于LSTM+CNN的厄尔尼诺现象预测]]></title>
+      <url>/2022/10/27/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91LSTM+CNN%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/</url>
+      <content type="html"><![CDATA[<h2 id="Background">Background</h2>
+<h3 id="一、什么是ENSO现象">一、什么是ENSO现象</h3>
+<p><strong>ENSO</strong>（El Niño-Southern Oscillation）是发生于赤道东太平洋地区的风场和海面温度震荡。ENSO是低纬度的海-气相互作用现象，在海洋方面表现为厄尔尼诺-拉尼娜的转变，在大气方面表现为南方涛动。</p>
+<h3 id="二、ENSO现象有什么影响">二、ENSO现象有什么影响</h3>
+<p>包括厄尔尼诺现象及拉尼娜现象在内的厄尔尼诺-南方涛动现象会造成全球性的气温及降水变化。例如当厄尔尼诺现象发生时，南美洲地区会出现暴雨，而东南亚、澳大利亚则出现干旱。依赖农业和渔业的国家，特别是太平洋附近的发展中国家，通常受影响最大。</p>
+<h3 id="三、数据集介绍">三、数据集介绍</h3>
+<p>Nino3.4指数定义为Nino3.4区（170°W-120°W，5°S-5°N）区域平均海温距平，气候平均值是1981-2010年。可以在美国国家海洋大气管理局网站（<a href="https://psl.noaa.gov/data/timeseries/monthly/NINO34/%EF%BC%89%E4%B8%8B%E8%BD%BD%E3%80%82">https://psl.noaa.gov/data/timeseries/monthly/NINO34/）下载。</a></p>
+<p>MEI.v2指数利用海平面气压、海表温度、地面风的纬向分量、地面风的经向分量、热带太平洋海盆（30°S-30°N和100°E-70°W）上空的长波辐射五个变量计算得到。可在美国国家海洋大气管理局网站（<a href="https://psl.noaa.gov/enso/mei/%EF%BC%89%E4%B8%8B%E8%BD%BD%E3%80%82">https://psl.noaa.gov/enso/mei/）下载。</a></p>
+<hr>
+<h2 id="基于LSTM-CNN的时间序列预测">基于LSTM+CNN的时间序列预测</h2>
+<p>Nino指数能够在一定程度上反映厄尔尼诺或者拉尼娜现象，数据表现为一段时间序列。</p>
+<img src="/2022/10/27/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91LSTM+CNN%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/image-20221027234607654.png" alt="image-20221027234607654" style="zoom:50%;">
+<p>针对该时间序列数据，我们可以对未来短期的Nino指数变化进行推测。时间序列处理算法按照算法类型大致可分为经典算法、深度学习算法、机器学习算法、启发式算法，按照数据维度可分为频域处理方法、时域处理方法。在本案例中，Nino指数是已经被处理好的数据，且由于数据量较少，经典算法和机器学习算法可能无法给出理想的解决办法。</p>
+<p>在数据探索性分析(EDA)和特征工程(FE)之后，我们采用<strong>一维卷积神经网络</strong>对其进行预测。在设定一个窗口大小后，采用滑动窗口的思想，对原始数据的信息进行学习，得到的结果如下:</p>
+<img src="/2022/10/27/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91LSTM+CNN%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/image-20221027234643608.png" alt="image-20221027234643608" style="zoom:50%;">
+<p>CNN虽然在原始数据集上有着不错的表现，但是在未来数据的预测中，效果却不是那么好。这是由于CNN注重局部特征，而在未来数据的推测中，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo><mo>=</mo><mi>C</mi><mi>N</mi><mi>N</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">[</mo><mi>n</mi><mo>−</mo><mi>w</mi><mi>s</mi><mo>−</mo><mn>1</mn><mo>:</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f[n]=CNN(f[n-ws-1:n-1])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">n</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">CNN</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">])</span></span></span></span>，数据会倾向于收敛或是震荡。</p>
+<img src="/2022/10/27/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91LSTM+CNN%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/image-20221027234704487.png" alt="image-20221027234704487" style="zoom:50%;">
+<p>为了解决模型无法从过往的信息中学习经验的问题，我们引入了LSTM长短期记忆模型，以期过往的经验模式能够为我们的预测提供决策。</p>
+<p>基于LSTM模型得到的预测结果如下图所示：</p>
+<img src="/2022/10/27/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91LSTM+CNN%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/image-20221027234720496.png" alt="image-20221027234720496" style="zoom:50%;">
+<p>相较于CNN模型，该模型的均方根误差(MSE)较高，拟合效果不如原始CNN，但它在未来趋势上的映射要优于CNN。可以发现，未来三年的特征模式与2010-2012年的模式类似。</p>
+<p>既然CNN注重局部信息，LSTM又能保存长期信息，那如果采用CNN+LSTM的方式能不能有一些新的进展呢？</p>
+<p>基于这个思想，我们采用了下图的模型作为预测模型。</p>
+<img src="/2022/10/27/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91LSTM+CNN%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/image-20221027234756200.png" alt="image-20221027234756200" style="zoom:50%;">
+<p>两层CNN用于学习局部特征，两层LSTM用于学习长时间特征。</p>
+<p>在激活函数方面，我们注意到原始数据有大量的负值，因而采用了对负值比较友好的LeakyReLu激活函数。</p>
+<p>每层卷积之后，添加一个池化层，以期达到减少参数量和增强模型泛化能力(非线性能力)的作用。</p>
+<p>最后一层通过多层感知机(MLP)对数据维度进行映射，得到我们的输出结果。</p>
+<img src="/2022/10/27/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91LSTM+CNN%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/image-20221027234815985.png" alt="image-20221027234815985" style="zoom:50%;">
+<p>我们发现，该模型在前期的拟合上精度不是那么高，通过测试发现这是由于LeakReLu激活函数引起的现象。但是该模型在后半段已经有着可以接受的精度了。</p>
+<p>由于模型比较简单，且训练样本较少，总所周知数据决定了模型的上限，为了解决这个问题，我们可以采用上采样的方式处理原始数据，以期得到更多的数据集。</p>
+<p>诶，但是我们就是没有做，因为上采样也是基于该数据的，在误差将会被扩大。</p>
+<p>于是我们采用了一种比较偷懒的方法，软投票Soft Voting来对单模进行集成，以期获得更好的学习效果和泛化能力。</p>
+<p>我们通过三个模型(CNN、CNN+LSTM(LeakyReLu,三层CNN)、CNN+LSTM(用池化代替CNN的LeakyReLU,两层CNN)进行学习，根据损失误差分别赋予各自权重，最后的结果由三个模型投票得到。</p>
+<img src="/2022/10/27/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91LSTM+CNN%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/image-20221027234839775.png" alt="image-20221027234839775" style="zoom:50%;">
+<p>可以发现，在未来，23年~24年有可能会发生拉尼娜现象。</p>
+<hr>
+<h2 id="代码实现">代码实现</h2>
+<p>1️⃣<strong>数据预处理阶段</strong></p>
+<p>首先是导入我们的模块，这部分不做过多的赘述~</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+<p>EDA阶段，读取数据并展示，我们选取了<code>1982~2021</code>年共四十年的数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data=pd.read_excel(<span class="string">r&quot;data1.xlsx&quot;</span>)</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+<img src="/2022/10/27/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91LSTM+CNN%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/image-20221028001523253.png" alt="image-20221028001523253" style="zoom:50%;">
+<p>数据的维度是<code>13*40</code>，第一列并不是我们所需要的。</p>
+<p>为了方便处理，可以通过<code>np.ravel()</code>函数对数据进行展平。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data=np.array(data.drop(<span class="string">&quot;val&quot;</span>,axis=<span class="number">1</span>).values).ravel()</span><br><span class="line">plt.figure(figsize=(<span class="number">12</span>,<span class="number">4</span>))</span><br><span class="line">plt.grid(<span class="literal">True</span>)</span><br><span class="line">plt.plot(data)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<img src="/2022/10/27/%E3%80%90%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91LSTM+CNN%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/image-20221028001705758.png" alt="image-20221028001705758" style="zoom:50%;">
+<p>我们将数据划分为训练集和测试集:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 划分数据集</span></span><br><span class="line">test_size=<span class="number">12</span></span><br><span class="line">train_set=data[:-test_size]</span><br><span class="line">test_set=data[-test_size:]</span><br></pre></td></tr></table></figure>
+<p>在下一步的操作中，我们将会对数据进行归一化处理(其实也没有必要啦，因为只有单维度的数据，量纲影响不是那么关键)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"><span class="comment"># 归一化处理</span></span><br><span class="line">scaler = MinMaxScaler(feature_range=(-<span class="number">1</span>, <span class="number">1</span>))</span><br><span class="line">train_norm = scaler.fit_transform(train_set.reshape(-<span class="number">1</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>为了能够输入模型，需要构造一个可迭代的数据集！这里可以选择继承<code>DataLoader</code>类，或者自己设定一个数据迭代器！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 转换成 tensor</span></span><br><span class="line">train_norm = torch.FloatTensor(train_norm).view(-<span class="number">1</span>)</span><br><span class="line">window_size = <span class="number">12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">input_data</span>(<span class="params">seq,ws</span>):</span><br><span class="line">    out = []</span><br><span class="line">    L = <span class="built_in">len</span>(seq)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(L-ws):</span><br><span class="line">        window = seq[i:i+ws]</span><br><span class="line">        label = seq[i+ws]</span><br><span class="line">        out.append((window, label))</span><br><span class="line">    <span class="keyword">return</span> out</span><br><span class="line">train_data = input_data(train_norm,window_size)</span><br><span class="line"><span class="comment"># 打印一组数据集</span></span><br><span class="line">train_data[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p><code>window_size</code>表示了滑动窗口的大小。我们将滑动窗口内的数据作为<code>x</code>，输出结果作为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>y</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span></span></span></span>，与真实的<code>y</code>进行比较。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(tensor([-<span class="number">0.3926</span>, -<span class="number">0.4976</span>, -<span class="number">0.6175</span>, -<span class="number">0.7325</span>, -<span class="number">0.7338</span>, -<span class="number">0.6180</span>, -<span class="number">0.4849</span>, -<span class="number">0.3253</span>,</span><br><span class="line">         -<span class="number">0.0604</span>,  <span class="number">0.1461</span>,  <span class="number">0.2669</span>,  <span class="number">0.3300</span>]),</span><br><span class="line"> tensor(<span class="number">0.3674</span>))</span><br></pre></td></tr></table></figure>
+<p>总结一下，在EDA阶段，我们做了：</p>
+<p>✅ 数据格式处理，筛选出需要的数据</p>
+<p>✅ 对数据分布进行探查</p>
+<p>✅ 数据归一化</p>
+<p>✅ 划分训练集</p>
+<p>✅ 构建数据生成器</p>
+<hr>
+<h3 id="2️⃣模型准备">2️⃣模型准备</h3>
+<p>在这阶段中，我们采用软投票的方式对多个模型的结果进行修正，具体内容可以见上文。</p>
+<p>那我们先介绍模型一！正宗CNN！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CNN_Net2</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(CNN_Net2, self).__init__()</span><br><span class="line">        self.hidden=nn.Sequential(</span><br><span class="line">            nn.Conv1d(<span class="number">12</span>,<span class="number">64</span>,<span class="number">1</span>),</span><br><span class="line">            nn.AdaptiveAvgPool1d(output_size=<span class="number">32</span>),</span><br><span class="line">            nn.Conv1d(<span class="number">64</span>,<span class="number">128</span>,<span class="number">1</span>),</span><br><span class="line">            nn.AdaptiveAvgPool1d(output_size=<span class="number">32</span>),</span><br><span class="line"></span><br><span class="line">            nn.Flatten(),</span><br><span class="line">            nn.Linear(<span class="number">128</span>*<span class="number">32</span>,<span class="number">512</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">512</span>,<span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>,<span class="number">1</span>)</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">        N, T = x.shape[<span class="number">0</span>], x.shape[<span class="number">1</span>]</span><br><span class="line">        x = x.transpose(<span class="number">1</span>, <span class="number">2</span>)  </span><br><span class="line">        <span class="keyword">return</span> self.hidden(x)</span><br></pre></td></tr></table></figure>
+<p>一如既往的简洁明快，<code>一维卷积</code>也就是<code>nn.Conv1d</code>要求的输入格式为：<code>[bs,f,n]</code>，<code>f</code>为特征维度。而输入<code>nn.Linear()</code>的数据则要求是一维的，因此需要将其<code>展平</code>。</p>
+<p>至于<code>x</code>为什么要做个<code>transpose</code>交换第二和第三维度，是因为我们输入的数据格式为<code>[bs,1,ws]</code>，这在后面会提到，这里按下不表。</p>
+<p>下面是我们的模型二，CNN+LSTM模型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, output_dim=<span class="number">1</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(CNN, self).__init__()</span><br><span class="line">        self.relu = nn.ReLU(inplace=<span class="literal">True</span>)</span><br><span class="line">        self.conv1 = nn.Conv1d(<span class="number">12</span>, <span class="number">64</span>, <span class="number">1</span>)</span><br><span class="line">        self.lr=nn.LeakyReLU(inplace=<span class="literal">True</span>)</span><br><span class="line">        self.maxpool1 = nn.AdaptiveAvgPool1d(output_size=<span class="number">32</span>)</span><br><span class="line">        self.conv2 = nn.Conv1d(<span class="number">64</span>, <span class="number">128</span>, <span class="number">1</span>)</span><br><span class="line">        self.maxpool2 = nn.AdaptiveAvgPool1d(output_size=<span class="number">32</span>)</span><br><span class="line"></span><br><span class="line">        self.flatten = nn.Flatten()</span><br><span class="line">        self.lstm1 = nn.LSTM(<span class="number">128</span> * <span class="number">32</span>, <span class="number">1024</span>)</span><br><span class="line">        self.lstm2 = nn.LSTM(<span class="number">1024</span>, <span class="number">256</span>)</span><br><span class="line">        self.fc = nn.Linear(<span class="number">256</span>, <span class="number">128</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">128</span>, <span class="number">64</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">64</span>, <span class="number">32</span>)</span><br><span class="line">        self.fc3 = nn.Linear(<span class="number">32</span>, output_dim)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">       </span><br><span class="line">        N, T = x.shape[<span class="number">0</span>], x.shape[<span class="number">1</span>]</span><br><span class="line">        x = x.transpose(<span class="number">1</span>, <span class="number">2</span>)  </span><br><span class="line"></span><br><span class="line">        x = self.conv1(x)  <span class="comment"># torch.Size([1, 64, 1])</span></span><br><span class="line">        x=self.lr(x)</span><br><span class="line">        x = self.maxpool1(x)  <span class="comment"># torch.Size([1, 64, 32])</span></span><br><span class="line">        x = self.conv2(x)  <span class="comment"># torch.Size([1, 128, 32])</span></span><br><span class="line">        x=self.lr(x)</span><br><span class="line">        x = self.maxpool2(x)  <span class="comment"># torch.Size([1, 128, 32])</span></span><br><span class="line">        <span class="comment"># x = self.conv3(x)  # torch.Size([32, 300, 298])</span></span><br><span class="line">        <span class="comment"># x = self.maxpool3(x)  # torch.Size([32, 300, 100])</span></span><br><span class="line">        x = self.flatten(x)</span><br><span class="line">        <span class="comment"># 注意Flatten层后输出为(N×T,C_new)，需要转换成(N,T,C_new)</span></span><br><span class="line">        _, C_new = x.shape</span><br><span class="line">        x = x.view(N, T, C_new)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># LSTM部分</span></span><br><span class="line">        x, h = self.lstm1(x)</span><br><span class="line">        x, h = self.lstm2(x)</span><br><span class="line">        <span class="comment"># 注意这里只使用隐层的输出</span></span><br><span class="line">        x, _ = h</span><br><span class="line">  </span><br><span class="line">        x = self.fc(x.reshape(-<span class="number">1</span>,))</span><br><span class="line">        x = self.relu(x)</span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = self.relu(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        x = self.relu(x)</span><br><span class="line">        x = self.fc3(x)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p>池化的操作会让第三维度有所变化，而输入LSTM的模型的数据维度应该是<code>[bs,F,T]</code>，其中<code>F</code>表示初始序列长度，<code>T</code>表示特征变化，在这里，经过卷积和池化后的数据维度为：<code>[1,128,32]</code>，经过<code>Flatten()</code>操作后，数据的维度变成<code>[bs,F*T]</code>也就是<code>[1,1*128*32]</code>,我们还需要将其转化为LSTM模型接受的维度。注意CNN和LSTM接收维度一个是<code>dim=1</code>一个是<code>dim=2</code>。</p>
+<p>对于<code>LSTM</code>，在<code>Pytorch</code>中，有如下的输出关系：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>y</mi><mo separator="true">,</mo><mi>h</mi><mo>=</mo><mi>L</mi><mi>S</mi><mi>T</mi><mi>M</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">y,h=LSTM(x)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.10903em;">STM</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span></p>
+<p>我们需要的最终结果是<code>h</code>里的第一个维度，但每次传递的依旧是<code>y</code>（实际上h[0]==y)。</p>
+<hr>
+<h3 id="3️⃣网络训练阶段">3️⃣网络训练阶段</h3>
+<p>在本阶段，我们需要设置的有：</p>
+<ul>
+<li>设备(GPU)</li>
+<li>损失函数</li>
+<li>优化器</li>
+<li>模型存储路径</li>
+<li>训练参数
+<ul>
+<li>精度</li>
+<li>误差值</li>
+<li>迭代次数等</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">device=<span class="string">&quot;cuda&quot;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;cpu&quot;</span></span><br><span class="line">torch.manual_seed(<span class="number">101</span>)</span><br><span class="line">model =CNN()</span><br><span class="line">model=model.to(device)</span><br><span class="line">Mloss=<span class="number">100000</span></span><br><span class="line">path=<span class="string">&quot;./best_model.pth&quot;</span></span><br><span class="line"><span class="comment"># 设置损失函数,这里使用的是均方误差损失</span></span><br><span class="line">criterion = nn.MSELoss()</span><br><span class="line"><span class="comment"># 设置优化函数和学习率lr</span></span><br><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">0.001</span>) </span><br><span class="line"><span class="comment"># 设置训练周期</span></span><br><span class="line">epochs = <span class="number">100</span></span><br><span class="line">criterion=criterion.to(device)</span><br><span class="line">model.train()</span><br><span class="line">start_time = time.time()</span><br><span class="line">total_loss=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>检查你的<code>cuda</code>是否可用，如果可用，将<code>损失函数</code>和<code>模型</code>全部搬到<code>cuda</code>上处理。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">    <span class="keyword">for</span> seq, y_train <span class="keyword">in</span> train_data:</span><br><span class="line">        <span class="comment"># 每次更新参数前都梯度归零和初始化</span></span><br><span class="line">        seq,y_train=seq.to(device),y_train.to(device)</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        <span class="comment"># 注意这里要对样本进行reshape，</span></span><br><span class="line">        <span class="comment"># 转换成conv1d的input size（batch size, channel, series length）</span></span><br><span class="line">        y_pred = model(seq.reshape(<span class="number">1</span>,<span class="number">1</span>,-<span class="number">1</span>))</span><br><span class="line">        loss = criterion(y_pred, y_train)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        total_loss+=loss</span><br><span class="line">    <span class="keyword">if</span> total_loss.tolist()&lt;Mloss:</span><br><span class="line">        Mloss=total_loss.tolist()</span><br><span class="line">        torch.save(model.state_dict(),path)</span><br><span class="line">        Model_Loss[<span class="number">0</span>]=total_loss.tolist()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Saving&quot;</span>)</span><br><span class="line">    total_loss=<span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Epoch: <span class="subst">&#123;epoch+<span class="number">1</span>:<span class="number">2</span>&#125;</span> Loss: <span class="subst">&#123;loss.item():<span class="number">10.8</span>f&#125;</span>&#x27;</span>)  </span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;\nDuration: <span class="subst">&#123;time.time() - start_time:<span class="number">.0</span>f&#125;</span> seconds&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>可以注意到，我们在每次训练的时候，都会从一个迭代器中读取数据，这个迭代器可以是继承自<code>DataLoader</code>的，也可以是自己设定的。将数据搬到<code>device</code>上后，我们就需要按照以下模板训练网络：</p>
+<p>1️⃣ 优化器梯度归零</p>
+<p>2️⃣ 利用模型对<code>bx</code>进行训练，得到<code>pred</code></p>
+<p>3️⃣ 通过损失函数计算<code>loss(pred,by)</code></p>
+<p>4️⃣ 损失函数反向更新梯度</p>
+<p>5️⃣ 更新优化器</p>
+<p>6️⃣ 记录误差与精度，并在设定好的规则下存储最优模型参数</p>
+<p>我们可以将这个阶段封装</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Train</span>(<span class="params">model,seed=<span class="number">1</span></span>):</span><br><span class="line">    device=<span class="string">&quot;cuda&quot;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;cpu&quot;</span></span><br><span class="line">    model=model.to(device)</span><br><span class="line">    Mloss=<span class="number">100000</span></span><br><span class="line">    path=<span class="string">&quot;./best_model%d.pth&quot;</span>%seed</span><br><span class="line">    <span class="comment"># 设置损失函数,这里使用的是均方误差损失</span></span><br><span class="line">    criterion = nn.MSELoss()</span><br><span class="line">    <span class="comment"># 设置优化函数和学习率lr</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">0.001</span>) </span><br><span class="line">    <span class="comment"># 设置训练周期</span></span><br><span class="line">    epochs = <span class="number">100</span></span><br><span class="line">    criterion=criterion.to(device)</span><br><span class="line">    model.train()</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    total_loss=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">        <span class="keyword">for</span> seq, y_train <span class="keyword">in</span> train_data:</span><br><span class="line">            <span class="comment"># 每次更新参数前都梯度归零和初始化</span></span><br><span class="line">            seq,y_train=seq.to(device),y_train.to(device)</span><br><span class="line">            optimizer.zero_grad()</span><br><span class="line">            <span class="comment"># 注意这里要对样本进行reshape，</span></span><br><span class="line">            <span class="comment"># 转换成conv1d的input size（batch size, channel, series length）</span></span><br><span class="line">            y_pred = model(seq.reshape(<span class="number">1</span>,<span class="number">1</span>,-<span class="number">1</span>))</span><br><span class="line">            loss = criterion(y_pred, y_train)</span><br><span class="line">            loss.backward()</span><br><span class="line">            optimizer.step()</span><br><span class="line">            total_loss+=loss</span><br><span class="line">        <span class="keyword">if</span> total_loss.tolist()&lt;Mloss:</span><br><span class="line">            Mloss=total_loss.tolist()</span><br><span class="line">            torch.save(model.state_dict(),path)</span><br><span class="line">            Model_Loss[seed]=total_loss.tolist()</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Saving&quot;</span>)</span><br><span class="line">        total_loss=<span class="number">0</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;Epoch: <span class="subst">&#123;epoch+<span class="number">1</span>:<span class="number">2</span>&#125;</span> Loss: <span class="subst">&#123;loss.item():<span class="number">10.8</span>f&#125;</span>&#x27;</span>)  </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;\nDuration: <span class="subst">&#123;time.time() - start_time:<span class="number">.0</span>f&#125;</span> seconds&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+<p>这样，方便我们对每个模型进行训练了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">m2=CNN_Net2()</span><br><span class="line">m2=Train(m2,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">m1=CNN_Net1()</span><br><span class="line">m1=Train(m1,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">m0=CNN()</span><br><span class="line">m0=Train(m0,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="4️⃣结果展示阶段">4️⃣结果展示阶段</h3>
+<p>这个阶段要做的事情，就是让模型调成<code>eval()</code>模式，并且在冻结梯度更新的情况下，对数据进行预测。</p>
+<p>我们的工作有：</p>
+<ul>
+<li>加载最优结果模型</li>
+<li>根据现有数据计算得到预测曲线</li>
+<li>根据预测曲线预测未来三年的结果</li>
+<li>拼接数据并展示</li>
+<li>对每个数据利用多个模型进行决策</li>
+</ul>
+<p>值得注意的是，我们之前做了归一化，最后的结果要返回去。需要借助<code>scaler.inverse_transform</code>函数。</p>
+<p>然后我们可以通过<code>np.arange()</code>生成时间序列，作为坐标轴。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Show</span>(<span class="params">model,title=<span class="string">&quot;CNN+LSTM&quot;</span></span>):</span><br><span class="line">    model.<span class="built_in">eval</span>()</span><br><span class="line">    model=model.cpu()</span><br><span class="line">    model.state_dict=torch.load(path)</span><br><span class="line">    preds=train_norm</span><br><span class="line">    PreV=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">480</span>):</span><br><span class="line">        seq=torch.FloatTensor(preds[i:i+window_size]).reshape(<span class="number">1</span>,<span class="number">1</span>,-<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                v=model(seq).item()</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            PreV.append(v)</span><br><span class="line">            </span><br><span class="line">    <span class="comment"># 预测未来36个月</span></span><br><span class="line">    preds=PreV[-window_size:]</span><br><span class="line">    future=<span class="number">36</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(future):</span><br><span class="line">        seq=torch.FloatTensor(preds[i:i+window_size]).reshape(<span class="number">1</span>,<span class="number">1</span>,-<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">            preds.append(model(seq).item())</span><br><span class="line">            </span><br><span class="line">    PreV=train_norm[:window_size ].tolist()+PreV+preds[window_size:]</span><br><span class="line">    true_predictions = scaler.inverse_transform(np.array(PreV).reshape(-<span class="number">1</span>, <span class="number">1</span>))</span><br><span class="line">    <span class="built_in">print</span>(true_predictions.shape)</span><br><span class="line">    </span><br><span class="line">        <span class="comment"># 对比真实值和预测值</span></span><br><span class="line">    plt.figure(figsize=(<span class="number">12</span>,<span class="number">4</span>))</span><br><span class="line">    plt.grid(<span class="literal">True</span>)</span><br><span class="line">    x1=np.arange(<span class="string">&#x27;1982-01-01&#x27;</span>, <span class="string">&#x27;2022-01-01&#x27;</span>, dtype=<span class="string">&#x27;datetime64[M]&#x27;</span>).astype(<span class="string">&#x27;datetime64[D]&#x27;</span>)</span><br><span class="line">    plt.plot(x1,data,label=<span class="string">&#x27;real&#x27;</span>)</span><br><span class="line">    x2 = np.arange(<span class="string">&#x27;1982-01-01&#x27;</span>, <span class="string">&#x27;2025-02-01&#x27;</span>, dtype=<span class="string">&#x27;datetime64[M]&#x27;</span>).astype(<span class="string">&#x27;datetime64[D]&#x27;</span>).reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">    plt.plot(x2,true_predictions,label=<span class="string">&quot;pre&quot;</span>)</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.title(title)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<p>在软投票方面，我们只需要做以下修改：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">preds=train_norm</span><br><span class="line">PreV=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">480</span>):</span><br><span class="line">    seq=torch.FloatTensor(preds[i:i+window_size]).reshape(<span class="number">1</span>,<span class="number">1</span>,-<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            v=<span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i,m <span class="keyword">in</span> <span class="built_in">enumerate</span>(model_list):</span><br><span class="line">                v+=m(seq).item()*Model_Loss[i]</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        PreV.append(v)</span><br></pre></td></tr></table></figure>
+<p><code>Model_Loss</code>是三个模型的权重，算法为计算各自占比的逆事件的占比，简单作为权重放上去了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预测未来36个月</span></span><br><span class="line">preds=PreV[-window_size:]</span><br><span class="line">future=<span class="number">36</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(future):</span><br><span class="line">    seq=torch.FloatTensor(preds[i:i+window_size]).reshape(<span class="number">1</span>,<span class="number">1</span>,-<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        v=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i,m <span class="keyword">in</span> <span class="built_in">enumerate</span>(model_list):</span><br><span class="line">             v+=m(seq).item()*Model_Loss[i]</span><br><span class="line">        preds.append(v)</span><br><span class="line">            </span><br><span class="line">PreV=train_norm[:window_size ].tolist()+PreV+preds[window_size:]</span><br><span class="line">true_predictions = scaler.inverse_transform(np.array(PreV).reshape(-<span class="number">1</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+        <categories>
+            
+            <category> 不想学辣 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Presentation 常用句型]]></title>
       <url>/2022/10/27/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91Presentation/</url>
       <content type="html"><![CDATA[<h2 id="How-to-make-a-presentation">How to make a presentation?</h2>
@@ -167,7 +311,7 @@
     <entry>
       <title><![CDATA[【数据分析】HW2]]></title>
       <url>/2022/10/23/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91HW2/</url>
-      <content type="html"><![CDATA[<h1>HW1</h1>
+      <content type="html"><![CDATA[<h1>HW2</h1>
 <h2 id="Submission-requirements">Submission requirements:</h2>
 <h3 id="Please-submit-your-solutions-to-our-class-website">Please submit your solutions to our class website.</h3>
 <hr>
@@ -469,10 +613,230 @@
 <p>a) Design a multilayer feed-forward neural network (one hidden layer) for the data set in Q1. Label the nodes in the input and output layers. (10 points)</p>
 <p>(b) Using the neural network obtained above, show the weight values after one iteration of the back propagation algorithm, given the training instance “(M, Family, Small)&quot;. Indicate your initial weight values and biases and the learning rate used. (10 points)</p>
 <hr>
-<p>a</p>
+<p>a.前馈神经网络如下</p>
+<img src="/2022/10/23/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91HW2/image-20221030013510049.png" alt="image-20221030013510049" style="zoom:50%;">
+<p>b.设定一个权重初始值</p>
+<p><strong>隐层</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">w11</th>
+<th style="text-align:center">w21</th>
+<th style="text-align:center">w31</th>
+<th style="text-align:center">w41</th>
+<th style="text-align:center">w51</th>
+<th style="text-align:center">w61</th>
+<th style="text-align:center">w71</th>
+<th style="text-align:center">w81</th>
+<th style="text-align:center">w91</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0.1</td>
+<td style="text-align:center">0.2</td>
+<td style="text-align:center">0.3</td>
+<td style="text-align:center">-0.4</td>
+<td style="text-align:center">-0.1</td>
+<td style="text-align:center">-0.2</td>
+<td style="text-align:center">-0.3</td>
+<td style="text-align:center">0.4</td>
+<td style="text-align:center">0.5</td>
+</tr>
+<tr>
+<td style="text-align:center">w12</td>
+<td style="text-align:center">w22</td>
+<td style="text-align:center">w32</td>
+<td style="text-align:center">w42</td>
+<td style="text-align:center">w52</td>
+<td style="text-align:center">w62</td>
+<td style="text-align:center">w72</td>
+<td style="text-align:center">w82</td>
+<td style="text-align:center">w92</td>
+</tr>
+<tr>
+<td style="text-align:center">0.2</td>
+<td style="text-align:center">0.4</td>
+<td style="text-align:center">0.1</td>
+<td style="text-align:center">-0.2</td>
+<td style="text-align:center">-0.4</td>
+<td style="text-align:center">0.3</td>
+<td style="text-align:center">0.2</td>
+<td style="text-align:center">0.4</td>
+<td style="text-align:center">-0.2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出层</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">w1c</th>
+<th style="text-align:center">w2c</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0.7</td>
+<td style="text-align:center">0.5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>初始值为</strong></p>
+<p><code>1,0,1,0,0,1,0,0,0</code></p>
+<p><strong>学习率</strong></p>
+<p><code>lr=0.01</code></p>
+<p><strong>偏置</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mrow><mi>h</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\theta_{h1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">h</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></th>
+<th style="text-align:center">-0.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mrow><mi>h</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\theta_{h2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">h</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center">0.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\theta_{c}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center">0.1</td>
+</tr>
+</tbody>
+</table>
+<p>对于每个节点，净输入值表示为：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>I</mi><mo>=</mo><mi>θ</mi><mo>+</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>w</mi><mi>i</mi></msub><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">I=\theta+\sum_{i=1}^nw_iv_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.9291em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>其中，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span> 表示偏置量，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示分支权重，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示节点值。</p>
+<p>输出值表示为：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>O</mi><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>I</mi></mrow></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">O=\frac{1}{1+e^{-I}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0908em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7673em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><strong>输出结果</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">单元</th>
+<th style="text-align:center">净输入</th>
+<th style="text-align:center">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">H1</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>0.1</mn><mo>+</mo><mn>0.1</mn><mo>∗</mo><mn>1</mn><mo>+</mo><mn>0.3</mn><mo>∗</mo><mn>1</mn><mo>−</mo><mn>0.2</mn><mo>∗</mo><mn>1</mn><mo>=</mo><mn>0.1</mn></mrow><annotation encoding="application/x-tex">-0.1+0.1*1+0.3*1-0.2*1=0.1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.1</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>0.1</mn></mrow></msup></mrow></mfrac><mo>=</mo><mn>0.525</mn></mrow><annotation encoding="application/x-tex">\frac{1}{1+e^{-0.1}}=0.525</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2484em;vertical-align:-0.4033em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">0.1</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4033em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.525</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center">H2</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.2</mn><mo>+</mo><mn>0.2</mn><mo>∗</mo><mn>1</mn><mo>+</mo><mn>0.1</mn><mo>∗</mo><mn>1</mn><mo>+</mo><mn>0.3</mn><mo>∗</mo><mn>1</mn><mo>=</mo><mn>0.8</mn></mrow><annotation encoding="application/x-tex">0.2+0.2*1+0.1*1+0.3*1=0.8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.8</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>0.8</mn></mrow></msup></mrow></mfrac><mo>=</mo><mn>0.690</mn></mrow><annotation encoding="application/x-tex">\frac{1}{1+e^{-0.8}}=0.690</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2484em;vertical-align:-0.4033em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">0.8</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4033em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.690</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1</mn><mo>+</mo><mn>0.7</mn><mo>∗</mo><mn>0.55</mn><mo>+</mo><mn>0.5</mn><mo>∗</mo><mn>0.65</mn><mo>=</mo><mn>0.81</mn></mrow><annotation encoding="application/x-tex">0.1+0.7*0.55+0.5*0.65=0.81</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.55</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.65</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.81</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>0.81</mn></mrow></msup></mrow></mfrac><mo>=</mo><mn>0.692</mn></mrow><annotation encoding="application/x-tex">\frac{1}{1+e^{-0.81}}=0.692</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2484em;vertical-align:-0.4033em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">0.81</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4033em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.692</span></span></span></span></td>
+</tr>
+</tbody>
+</table>
+<p>输出层的误差值计算为</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mi>r</mi><mi>r</mi><mo>=</mo><mi>O</mi><mo>∗</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>O</mi><mo stretchy="false">)</mo><mo>∗</mo><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>O</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Err=O*(1-O)*(T-O)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">rr</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mclose">)</span></span></span></span></span></p>
+<p>其中，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi></mrow><annotation encoding="application/x-tex">O</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>表示节点输出，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>表示真实值</p>
+<p>隐层节点的误差计算为：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mi>r</mi><mi>r</mi><mo>=</mo><mi>O</mi><mo>∗</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>O</mi><mo stretchy="false">)</mo><mo>∗</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>E</mi><mi>r</mi><msub><mi>r</mi><mi>i</mi></msub><mo>∗</mo><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Err=O*(1-O)*\sum_{i=1}^nErr_i*w_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">rr</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.9291em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>其中，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>r</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">Err</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">rr</span></span></span></span>表示从高层传过来的误差。</p>
+<p><strong>计算每个节点的误差</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">单元</th>
+<th style="text-align:center">误差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.692</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mn>0.692</mn><mo stretchy="false">)</mo><mo>∗</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mn>0.692</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.066</mn></mrow><annotation encoding="application/x-tex">0.692*(1-0.692)*(1-0.692)=0.066</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.692</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.692</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.692</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.066</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center">H1</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.525</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mn>0.525</mn><mo stretchy="false">)</mo><mo>∗</mo><mn>0.066</mn><mo>∗</mo><mn>0.7</mn><mo>=</mo><mn>0.012</mn></mrow><annotation encoding="application/x-tex">0.525*(1-0.525)*0.066*0.7=0.012</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.525</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.525</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.066</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.012</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center">H2</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.69</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mn>0.69</mn><mo stretchy="false">)</mo><mo>∗</mo><mn>0.066</mn><mo>∗</mo><mn>0.5</mn><mo>=</mo><mn>0.007</mn></mrow><annotation encoding="application/x-tex">0.69*(1-0.69)*0.066*0.5=0.007</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.69</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.69</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.066</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.007</span></span></span></span></td>
+</tr>
+</tbody>
+</table>
+<p>偏置量的更新方程表示为:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>θ</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi></mrow></msub><mo>=</mo><msub><mi>θ</mi><mrow><mi>o</mi><mi>l</mi><mi>d</mi></mrow></msub><mo>+</mo><mi>l</mi><mi>r</mi><mo>∗</mo><mo stretchy="false">(</mo><mi>E</mi><mi>r</mi><mi>r</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\theta_{new}=\theta_{old}+lr*(Err)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">rr</span><span class="mclose">)</span></span></span></span></span></p>
+<p>权重的更新方程表示为：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>w</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi></mrow></msub><mo>=</mo><msub><mi>w</mi><mrow><mi>o</mi><mi>l</mi><mi>d</mi></mrow></msub><mo>+</mo><mi>l</mi><mi>r</mi><mo>∗</mo><mi>E</mi><mi>r</mi><mi>r</mi><mo>∗</mo><mi>O</mi></mrow><annotation encoding="application/x-tex">w_{new}=w_{old}+lr*Err*O
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">rr</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span></span></p>
+<p><strong>更新权重和偏置</strong></p>
+<p>这里只给出了链式求导用到的节点和权重</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mn>1</mn><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex">w_{1c}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mathnormal mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></th>
+<th style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.7</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.066</mn><mo>∗</mo><mn>0.525</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.7003465</mn></mrow><annotation encoding="application/x-tex">0.7+0.01*(0.066*0.525)=0.7003465</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.7</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.066</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.525</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7003465</span></span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mn>2</mn><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex">w_{2c}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.5</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.066</mn><mo>∗</mo><mn>0.69</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.5004554</mn></mrow><annotation encoding="application/x-tex">0.5+0.01*(0.066*0.69)=0.5004554</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.066</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.69</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5004554</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>11</mn></msub></mrow><annotation encoding="application/x-tex">w_{11}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">11</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.012</mn><mo stretchy="false">)</mo><mo>∗</mo><mn>1</mn><mo>=</mo><mn>0.10012</mn></mrow><annotation encoding="application/x-tex">0.1+0.01*(0.012)*1=0.10012</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.012</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.10012</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>12</mn></msub></mrow><annotation encoding="application/x-tex">w_{12}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">12</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.2</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.007</mn><mo stretchy="false">)</mo><mo>∗</mo><mn>1</mn><mo>=</mo><mn>0.20007</mn></mrow><annotation encoding="application/x-tex">0.2+0.01*(0.007)*1=0.20007</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.007</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.20007</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>31</mn></msub></mrow><annotation encoding="application/x-tex">w_{31}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.3</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.012</mn><mo stretchy="false">)</mo><mo>∗</mo><mn>1</mn><mo>=</mo><mn>0.30012</mn></mrow><annotation encoding="application/x-tex">0.3+0.01*(0.012)*1=0.30012</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.012</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.30012</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>32</mn></msub></mrow><annotation encoding="application/x-tex">w_{32}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">32</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.007</mn><mo stretchy="false">)</mo><mo>∗</mo><mn>1</mn><mo>=</mo><mn>0.1007</mn></mrow><annotation encoding="application/x-tex">0.1+0.01*(0.007)*1=0.1007</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.007</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.1007</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>61</mn></msub></mrow><annotation encoding="application/x-tex">w_{61}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">61</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>0.2</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.012</mn><mo stretchy="false">)</mo><mo>∗</mo><mn>1</mn><mo>=</mo><mo>−</mo><mn>0.19988</mn></mrow><annotation encoding="application/x-tex">-0.2+0.01*(0.012)*1=-0.19988</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">0.2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.012</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">0.19988</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>62</mn></msub></mrow><annotation encoding="application/x-tex">w_{62}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">62</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.3</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.007</mn><mo stretchy="false">)</mo><mo>∗</mo><mn>1</mn><mo>=</mo><mn>0.3007</mn></mrow><annotation encoding="application/x-tex">0.3+0.01*(0.007)*1=0.3007</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.007</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.3007</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\theta_{c}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.066</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.10066</mn></mrow><annotation encoding="application/x-tex">0.1+0.01*(0.066)=0.10066</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.066</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.10066</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mrow><mi>h</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\theta_{h1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">h</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>0.1</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.012</mn><mo stretchy="false">)</mo><mo>=</mo><mo>−</mo><mn>0.09988</mn></mrow><annotation encoding="application/x-tex">-0.1+0.01*(0.012)=-0.09988</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.012</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">0.09988</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mn>42</mn></msub></mrow><annotation encoding="application/x-tex">\theta_{42}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">42</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.2</mn><mo>+</mo><mn>0.01</mn><mo>∗</mo><mo stretchy="false">(</mo><mn>0.007</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.20007</mn></mrow><annotation encoding="application/x-tex">0.2+0.01*(0.007)=0.20007</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.007</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.20007</span></span></span></span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="Q3">Q3</h3>
+<p>a) Suppose the fraction of undergraduate students who smoke is 15% and the fraction of graduate students who smoke is 23%. If one-ﬁfth of the college students are graduate students and the rest are undergraduates, what is the probability that a student who smokes is a graduate student? (5 points)</p>
+<p>b) Given the information in part (a), is a randomly chosen college student more likely to be a graduate or undergraduate student? (5 points)</p>
+<p>c) Suppose 30% of the graduate students live in a dorm but only 10% of the undergraduate students live in a dorm. If a student smokes and lives in the dorm, is he or she more likely to be a graduate or undergraduate student? You can assume independence between students who live in a dorm and those who smoke. (5 points)</p>
+<img src="/2022/10/23/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91HW2/image-20221030021838522.png" alt="image-20221030021838522" style="zoom:50%;">
 <hr>
 <h2 id="Part-II-Lab">Part II: Lab</h2>
-<p>Question 1</p>
+<h3 id="Question-1">Question 1</h3>
 <p>Assume this supermarket would like to promote milk. Use the data in “transactions” as training data to build a decision tree (C5.0 algorithm) model to predict whether the customer would buy milk or not.</p>
 <ol>
 <li>
@@ -484,103 +848,661 @@
 </ol>
 <p>​	3.<strong>Hand-in</strong>: rules for positive (yes) prediction of milk purchase identified from the decision tree (up to the fifth level. The root is considered as level 1). (5 points)</p>
 <hr>
-<p>1.<img src="/2022/10/23/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91HW2/%E4%B8%8B%E8%BD%BD.png" alt="下载"></p>
-<ol start="2">
-<li></li>
-</ol>
+<p>1.决策树输出如下</p>
+<img src="/2022/10/23/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91HW2/image-20221029211843694.png" alt="image-20221029211843694" style="zoom: 50%;">
+<p>2.具体数据在附件<code>table1.csv</code></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">ID</th>
-<th style="text-align:center">pre_milk</th>
+<th>pasta</th>
+<th>water</th>
+<th>biscuits</th>
+<th>coffee</th>
+<th>brioches</th>
+<th>yoghurt</th>
+<th>frozen vegetables</th>
+<th>tunny</th>
+<th>beer</th>
+<th>tomato souce</th>
+<th>coke</th>
+<th>rice</th>
+<th>juices</th>
+<th>crackers</th>
+<th>oil</th>
+<th>frozen fish</th>
+<th>ice cream</th>
+<th>mozzarella</th>
+<th>tinned meat</th>
+<th>$C-milk</th>
+<th>$CC-milk</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.633</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.56</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.613</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.566</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.633</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.673</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.626</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.65</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.613</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.521</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.568</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.548</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.53</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.629</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.53</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.633</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.55</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.633</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.633</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.62</td>
+</tr>
+</tbody>
+</table>
+<p>3.输出规则集如下：</p>
+<img src="/2022/10/23/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91HW2/image-20221029211817778.png" alt="image-20221029211817778" style="zoom:50%;">
+<hr>
+<h2 id="Q2-v2">Q2</h2>
+<p>1.决策树<code>a</code>的混淆矩阵(56)：</p>
+<img src="/2022/10/23/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91HW2/image-20221030004711003.png" alt="image-20221030004711003" style="zoom:50%;">
+<p>决策树<code>b</code>的混淆矩阵(15):</p>
+<img src="/2022/10/23/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91HW2/image-20221030004511700.png" alt="image-20221030004511700" style="zoom:50%;">
+<p>决策树<code>c</code>的混淆矩阵(10):</p>
+<img src="/2022/10/23/%E3%80%90%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E3%80%91HW2/image-20221030004759601.png" alt="image-20221030004759601" style="zoom:50%;">
+<hr>
+<p>2.我将使用决策树<code>b</code>作为最后预测数据的模型。该决策树在精度上高于<code>a</code>树和<code>b</code>树，具有更好的性能。</p>
+<hr>
+<p>3.表格内容在<code>table2.csv</code>附件中</p>
+<table>
+<thead>
+<tr>
+<th>age</th>
+<th>sex</th>
+<th style="text-align:center">region</th>
+<th style="text-align:center">income</th>
+<th style="text-align:center">married</th>
+<th style="text-align:center">children</th>
+<th style="text-align:center">car</th>
+<th style="text-align:center">save_act</th>
+<th style="text-align:center">current_act</th>
+<th style="text-align:center">mortgage</th>
+<th style="text-align:center">RECOMMEND PEP (Y/N)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22</td>
+<td>0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">14000</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>34</td>
+<td>1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">33000</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>47</td>
+<td>0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">16700</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>54</td>
+<td>1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">43400</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>65</td>
+<td>1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">60000</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>37</td>
+<td>0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">27700</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>44</td>
+<td>0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">38784</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">10200</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
 <td style="text-align:center">1</td>
 <td style="text-align:center">0</td>
 </tr>
 <tr>
+<td>46</td>
+<td>0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">22000</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>40</td>
+<td>1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">37400</td>
+<td style="text-align:center">1</td>
 <td style="text-align:center">2</td>
 <td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
 <td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
 <td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
 <td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">14</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">15</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">16</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">17</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">18</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">19</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">20</td>
 <td style="text-align:center">1</td>
 </tr>
 </tbody>
 </table>
-<ol start="3">
-<li></li>
-</ol>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
         <categories>
@@ -4831,7 +5753,7 @@ X=\frac{D+K}{2}
       <title><![CDATA[LeetCode Hot100 详细题解]]></title>
       <url>/2022/08/30/%E3%80%90LeetCode%E3%80%91Hot100%E9%A2%98%E8%A7%A3/</url>
       <content type="html"><![CDATA[<h2 id="Hot-100-题解🔥">Hot 100 题解🔥</h2>
-<h3 id="前言-v2">前言</h3>
+<h3 id="前言">前言</h3>
 <p>最近打算开个新坑，也就是这个Hot 100。</p>
 <p>做完这份题解后，我会对我做过的所有题里有意思的，值得一说的再写一份题解。</p>
 <hr>
