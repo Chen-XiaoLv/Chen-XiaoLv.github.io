@@ -1,0 +1,683 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>【数据挖掘】数据仓库 | 岁染</title><meta name="keywords" content="数据挖掘"><meta name="author" content="Kagura,651421775@qq.com"><meta name="copyright" content="Kagura"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="None">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【数据挖掘】数据仓库">
+<meta property="og:url" content="http://example.com/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/index.html">
+<meta property="og:site_name" content="岁染">
+<meta property="og:description" content="None">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg">
+<meta property="article:published_time" content="2022-11-22T16:09:25.977Z">
+<meta property="article:modified_time" content="2022-11-22T17:35:31.256Z">
+<meta property="article:author" content="Kagura">
+<meta property="article:tag" content="数据挖掘">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg"><link rel="shortcut icon" href="/img/3d.png"><link rel="canonical" href="http://example.com/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【数据挖掘】数据仓库',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-23 01:35:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><script src="https://npm.elemecdn.com/echarts@4.7.0/dist/echarts.min.js"></script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><style type="text/css">#toggle-sidebar {left:100px}</style><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card/lib/categorybar.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="岁染" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.jingyeqian.com/i/2021/03/21/6375192146687954551533103.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">91</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-music"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/Diary"><i class="fa-fw fas fa-images"></i><span> 日记</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Todo-List"><i class="fa-fw fas fa-bell"></i><span> Todo-List</span></a></li><li><a class="site-page child" href="/PDF"><i class="fa-fw fas fa-windows"></i><span> PDF</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">岁染</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-music"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/Diary"><i class="fa-fw fas fa-images"></i><span> 日记</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Todo-List"><i class="fa-fw fas fa-bell"></i><span> Todo-List</span></a></li><li><a class="site-page child" href="/PDF"><i class="fa-fw fas fa-windows"></i><span> PDF</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【数据挖掘】数据仓库</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-22T16:09:25.977Z" title="发表于 2022-11-23 00:09:25">2022-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-22T17:35:31.256Z" title="更新于 2022-11-23 01:35:31">2022-11-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%B8%8D%E6%83%B3%E5%AD%A6%E8%BE%A3/">不想学辣</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【数据挖掘】数据仓库"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Outline">Outline</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Chapter</th>
+<th style="text-align:center">Overview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">什么是数据仓库</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">多维度数据模型</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">数据仓库体系架构</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">数据仓库实施过程</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">从数据仓库到数据挖掘</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="Chapter-1-什么是数据仓库">Chapter 1. 什么是数据仓库</h2>
+<p>数据仓库(Data Warehouse)就是一个面向主题的、集成的、时变的、非易失性的海量数据集合，用于支持管理层的决策过程和企业的分析性报告。数据仓库可以对多样的业务数据进行筛选和整合。</p>
+<p>1️⃣ <strong>面向主题的</strong></p>
+<ul>
+<li>围绕主要主题组织，如客户、产品、销售</li>
+<li>专注于为决策者建模和分析数据，而不是日常操作或事务处理</li>
+<li>排除在决策支持过程中无用的数据，围绕特定主题问题提供一个简单而简明的观点</li>
+</ul>
+<blockquote>
+<p>可以说，DW是在决策层的工具，对细节问题并不care</p>
+</blockquote>
+<p>2️⃣ <strong>集成的</strong></p>
+<p>数据仓库可以通过多个不同源的数据构成，可以是关系型数据库、平面文件、在线交易记录等等。</p>
+<p>在数据仓库中，应用了数据清洗和数据聚合技术，以确保不同数据源之间的命名约定、编码结构、属性度量等的一致性。</p>
+<p>3️⃣ <strong>时间变化的</strong></p>
+<p>数据仓库的时间范围比操作系统的时间范围要长得多，一般是从一个较长的时间序列提供信息，比如五年十年这样。</p>
+<blockquote>
+<p>数据仓库中的每一个关键结构都显式或是隐式地提供了时间元素。</p>
+</blockquote>
+<p>4️⃣ <strong>非易失性</strong></p>
+<p>数据仓库环境中不会发生数据的更新操作，所以不需要注意底层这些事务处理、恢复和并发控制机制。</p>
+<p>操作数据仓库只需要两步：</p>
+<ul>
+<li>加载初始数据</li>
+<li>数据访问</li>
+</ul>
+<p>数据仓库里的数据一般是从操作环境转换而来的物理上独立的数据存储</p>
+<hr>
+<h3 id="DW和DBMS">DW和DBMS</h3>
+<p><strong>OLTP</strong></p>
+<p>On-Line Transaction Processing 联机事物处理过程</p>
+<ul>
+<li>传统关系型DBMS的主要任务</li>
+<li>日常运作:如采购、库存、银行、制造、工资、登记、会计等。</li>
+</ul>
+<p><strong>OLAT</strong></p>
+<p>On-Line Analytical Processing 联机分析处理过程</p>
+<ul>
+<li>数据仓库系统的主要任务</li>
+<li>数据分析和决策</li>
+</ul>
+<p><strong>OLAM</strong></p>
+<p>On-Line Analytical Mining 在线分析挖掘</p>
+<p>数据仓库中的高质量数据</p>
+<ul>
+<li>
+<p>数据仓库包含集成、一致、干净的数据</p>
+</li>
+<li>
+<p>围绕数据仓库的可用信息处理结构</p>
+</li>
+<li>
+<p>ODBC、OLEDB、Web访问、服务设施、报告和OLAP工具</p>
+</li>
+<li>
+<p>基于OLAP的探索性数据分析</p>
+</li>
+<li>
+<p>钻孔、切割、旋转等采矿。</p>
+</li>
+<li>
+<p>数据挖掘功能的在线选择</p>
+</li>
+<li>
+<p>集成和交换多个挖掘功能、算法和任务</p>
+</li>
+</ul>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123013523760.png" alt="image-20221123013523760" style="zoom:50%;">
+<p><strong>区别</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">OLTP</th>
+<th style="text-align:center">OLAP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">系统</td>
+<td style="text-align:center">DBMS</td>
+<td style="text-align:center">Data WareHouse</td>
+</tr>
+<tr>
+<td style="text-align:center">用户</td>
+<td style="text-align:center">顾客</td>
+<td style="text-align:center">市场</td>
+</tr>
+<tr>
+<td style="text-align:center">数据内容</td>
+<td style="text-align:center">当前、详细的</td>
+<td style="text-align:center">历史、封装的</td>
+</tr>
+<tr>
+<td style="text-align:center">视角</td>
+<td style="text-align:center">当前，局部</td>
+<td style="text-align:center">层层递进，完整</td>
+</tr>
+<tr>
+<td style="text-align:center">访问模型</td>
+<td style="text-align:center">更新</td>
+<td style="text-align:center">只读，但是复杂</td>
+</tr>
+<tr>
+<td style="text-align:center">大小</td>
+<td style="text-align:center">100MB-GB</td>
+<td style="text-align:center">100GB-TB</td>
+</tr>
+<tr>
+<td style="text-align:center">数据库设计</td>
+<td style="text-align:center">面向应用</td>
+<td style="text-align:center">面向主题</td>
+</tr>
+<tr>
+<td style="text-align:center">功能</td>
+<td style="text-align:center">日常操作</td>
+<td style="text-align:center">决策支持</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>为什么需要单独的数据仓库</strong></p>
+<p>相对于DBMS，DW具有不同的功能和数据。</p>
+<p><strong>缺失数据</strong>：决策支持需要历史数据，而可操作的数据库通常不会维护这些数据。</p>
+<p><strong>数据整合</strong>: 决策支持需要整合来自异构数据源的数据(聚合、汇总)</p>
+<p><strong>数据质量</strong>: 不同的数据源通常使用不一致的数据表示、代码和格式，这些必须进行协调</p>
+<p><strong>OLTP</strong>：需要做的主要是访问方法、索引、并发控制和回复</p>
+<p><strong>OLAP</strong>：需要进行复杂的OLAP查询，以及多维度视角等</p>
+<hr>
+<h2 id="Chapter-2-多维度数据仓库">Chapter 2. 多维度数据仓库</h2>
+<p>数据仓库基于多维数据模型，该模型以数据立方体的形式查看数据。</p>
+<p>所谓数据立方体(Data Cube)，就是下面这个啦：</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123004525578.png" alt="image-20221123004525578" style="zoom:50%;">
+<p>可以看到，表格中的属性成了立方体上的列，以这种形式描述多维度数据，允许在多个维度上查看数据，方便之后的切割工作。</p>
+<hr>
+<p>就像DB有ER图一样，DW也有概念层次上的建模。</p>
+<p>1️⃣ <strong>星型模式</strong></p>
+<ul>
+<li>中间的事实表连接到一组维度表</li>
+</ul>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123005941055.png" alt="image-20221123005941055" style="zoom:50%;">
+<p>一般是这样的，中间的是一个<code>Fact Table</code>，记录的元素分为两部分，第一部分是各个子维度，连接到各自的子表中，子表不做扩展。第二部分是度量元素。</p>
+<p>2️⃣ <strong>雪花模式</strong></p>
+<ul>
+<li>星型模式的细化，其中一些维度层次结构被标准化为一组更小的维度表，形成类似雪花的形状</li>
+</ul>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123010133263.png" alt="image-20221123010133263" style="zoom:50%;">
+<p>跟星型大同小异，就是扩展了一下</p>
+<p>3️⃣ <strong>事实星座(Fact Constellation)</strong></p>
+<ul>
+<li>多个事实表共享维度表，将其视为星星的集合，因此称为星系模式或事实星座</li>
+</ul>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123010209280.png" alt="image-20221123010209280" style="zoom:50%;">
+<p>此时应当有两张或者以上的事实表，一起构成了星座模式。</p>
+<p>在DMQL中定义模式：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123010421709.png" alt="image-20221123010421709"></p>
+<p>定义星型表</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123010438981.png" alt="image-20221123010438981"></p>
+<p>定义雪花表</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123010519440.png" alt="image-20221123010519440"></p>
+<p>定义星座表</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123010531649.png" alt="image-20221123010531649"></p>
+<p><strong>概念层级</strong></p>
+<p>这个概念层级就是上边定义的维度表，比如位置维度概念层：</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123010922185.png" alt="image-20221123010922185" style="zoom:50%;">
+<p><strong>时间维度概念层</strong></p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123010939305.png" alt="image-20221123010939305" style="zoom:50%;">
+<p><strong>数值维度概念层</strong></p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123010954830.png" alt="image-20221123010954830" style="zoom:50%;">
+<hr>
+<p><strong>多维立方体</strong></p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123011026542.png" alt="image-20221123011026542" style="zoom:50%;">
+<p>每个维度都有自己的概念层级，这方便我们对其进行操作。</p>
+<p>常见的OLAP操作：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operation</th>
+<th style="text-align:center">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Roll up</td>
+<td style="text-align:center">将数据汇总，升到更高的概念级</td>
+</tr>
+<tr>
+<td style="text-align:center">Drill down</td>
+<td style="text-align:center">从高维概念级往低维延伸，或是开辟一个新的概念级</td>
+</tr>
+<tr>
+<td style="text-align:center">Slice and dice</td>
+<td style="text-align:center">切片和选择</td>
+</tr>
+<tr>
+<td style="text-align:center">Pivot(rotate)</td>
+<td style="text-align:center">旋转立方体</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Roll up操作</strong></p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123011438544.png" alt="image-20221123011438544" style="zoom:50%;">
+<p>Drill Down操作</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123011521619.png" alt="image-20221123011521619" style="zoom:50%;">
+<p>Slice操作</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123011611339.png" alt="image-20221123011611339" style="zoom:50%;">
+<p>Pivot操作</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123011626289.png" alt="image-20221123011626289" style="zoom:50%;">
+<p>dlice操作</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123011724982.png" alt="image-20221123011724982"></p>
+<p><strong>举个栗子</strong></p>
+<p>Starting with the base cuboid [<strong>date,</strong> <strong>spectator, location, game</strong>]，what specific <strong>OLAP operations</strong> should one perform in order to list the total charge paid by student spectators in Los Angeles?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">step <span class="number">1.</span> Roll-up on date <span class="keyword">from</span> date_key to <span class="built_in">all</span></span><br><span class="line">step <span class="number">2.</span> Roll-up on spectator <span class="keyword">from</span> spectator_key to status</span><br><span class="line">step <span class="number">3.</span> Roll-up on location <span class="keyword">from</span> location_key to location_name</span><br><span class="line">step <span class="number">4.</span> Roll-up on game <span class="keyword">from</span> game_key to <span class="built_in">all</span></span><br><span class="line"></span><br><span class="line">step <span class="number">5.</span> Dice <span class="keyword">with</span> <span class="string">&quot;status=student&quot;</span> <span class="keyword">and</span> <span class="string">&quot;location_name=Los Angeles&quot;</span></span><br></pre></td></tr></table></figure>
+<p>不要用的属性：统统<code>Roll up on A from cur to all</code>了</p>
+<p>要用的属性：我们一般从key出发，高级别的概念层就先<code>Roll up on A from key to B</code>，最后选择的时候，单切用Slice from ()，多切用Dice from()</p>
+<hr>
+<h2 id="Chapter-3-数据仓库的架构">Chapter 3. 数据仓库的架构</h2>
+<p>整个DW可以分为三层：</p>
+<ul>
+<li>底层：数据存储</li>
+<li>中间层：为OLAP服务引擎</li>
+<li>顶层：分析、汇报、查询、挖掘工具</li>
+</ul>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/image-20221123012353146.png" alt="image-20221123012353146" style="zoom:50%;">
+<p><strong>元数据存储库</strong></p>
+<p>元数据是描述数据的数据，包含：</p>
+<ul>
+<li>数据仓库结构的描述</li>
+<li>数据来源、数据流通、监视信息等</li>
+</ul>
+<p><strong>OLAP服务架构</strong></p>
+<ul>
+<li>
+<p>关系型OLAP(ROLAP)</p>
+<ul>
+<li>采用关系型或扩展关系型DBMS去存储和管理数据仓库数据</li>
+<li>包含DBMS后端优化，聚合架构等等</li>
+<li>使用并行计算、位图索引等等优化手段</li>
+</ul>
+</li>
+<li>
+<p>多维度OLAP(MOLAP)</p>
+<ul>
+<li>
+<p>基于稀疏数组的多维存储引擎</p>
+</li>
+<li>
+<p>快速索引预计算汇总数据</p>
+</li>
+<li>
+<p>稀疏矩阵压缩技术</p>
+</li>
+</ul>
+</li>
+<li>
+<p>合成OLAP(HOLAP)</p>
+</li>
+</ul>
+<hr>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a></div><div class="post_share"><div class="social-share" data-image="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/24/%E3%80%90%E5%A4%A9%E6%B1%A0%E7%AB%9E%E8%B5%9B%E3%80%91%E5%BF%83%E8%B7%B3%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/3l/wallhaven-3l9zwd.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【天池竞赛】 心跳数据挖掘</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/22/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E5%88%86%E7%B1%BB/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【数据挖掘】分类</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/11/22/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E5%88%86%E7%B1%BB/" title="【数据挖掘】分类"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-22</div><div class="title">【数据挖掘】分类</div></div></a></div><div><a href="/2022/11/21/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" title="【数据挖掘】预处理(Preprocessing)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-21</div><div class="title">【数据挖掘】预处理(Preprocessing)</div></div></a></div><div><a href="/2022/11/20/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" title="【数据挖掘】关联规则挖掘"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-20</div><div class="title">【数据挖掘】关联规则挖掘</div></div></a></div><div><a href="/2022/11/19/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" title="【数据挖掘】推荐系统(Clustering)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-19</div><div class="title">【数据挖掘】推荐系统(Clustering)</div></div></a></div><div><a href="/2022/11/13/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E8%81%9A%E7%B1%BB/" title="【数据挖掘】聚类(Clustering)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-13</div><div class="title">【数据挖掘】聚类(Clustering)</div></div></a></div><div><a href="/2022/11/09/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91Chapter_1_Chinese/" title="【数据挖掘】 Chapter 1. 引言"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/gp/wallhaven-gpjro3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-09</div><div class="title">【数据挖掘】 Chapter 1. 引言</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.jingyeqian.com/i/2021/03/21/6375192146687954551533103.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kagura</div><div class="author-info__description">May we all be who we want to be</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">91</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45957458?type=blog"><i></i><span>about me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople1.js"></script><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/zdog.dist.js"></script><script id="rendered-js" src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople.js"></script><style>.card-widget.card-announcement {
+margin: 0;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+canvas {
+display: block;
+margin: 0 auto;
+cursor: move;
+}</style><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Outline"><span class="toc-number">1.</span> <span class="toc-text">Outline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">Chapter 1. 什么是数据仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DW%E5%92%8CDBMS"><span class="toc-number">2.1.</span> <span class="toc-text">DW和DBMS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-2-%E5%A4%9A%E7%BB%B4%E5%BA%A6%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">Chapter 2. 多维度数据仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-3-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">Chapter 3. 数据仓库的架构</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/11/27/%E3%80%90%E7%A0%94%E7%A9%B6%E7%94%9F%E8%8B%B1%E8%AF%AD%E3%80%91%E9%87%8D%E7%82%B9%E8%AF%8D%E6%B1%87/" title="研究生英语 核心词汇"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/x6/wallhaven-x6l7vv.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="研究生英语 核心词汇"/></a><div class="content"><a class="title" href="/2022/11/27/%E3%80%90%E7%A0%94%E7%A9%B6%E7%94%9F%E8%8B%B1%E8%AF%AD%E3%80%91%E9%87%8D%E7%82%B9%E8%AF%8D%E6%B1%87/" title="研究生英语 核心词汇">研究生英语 核心词汇</a><time datetime="2022-11-27T07:57:48.178Z" title="发表于 2022-11-27 15:57:48">2022-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/24/%E3%80%90%E5%A4%A9%E6%B1%A0%E7%AB%9E%E8%B5%9B%E3%80%91%E5%BF%83%E8%B7%B3%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" title="【天池竞赛】 心跳数据挖掘"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/3l/wallhaven-3l9zwd.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【天池竞赛】 心跳数据挖掘"/></a><div class="content"><a class="title" href="/2022/11/24/%E3%80%90%E5%A4%A9%E6%B1%A0%E7%AB%9E%E8%B5%9B%E3%80%91%E5%BF%83%E8%B7%B3%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" title="【天池竞赛】 心跳数据挖掘">【天池竞赛】 心跳数据挖掘</a><time datetime="2022-11-24T10:13:59.938Z" title="发表于 2022-11-24 18:13:59">2022-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" title="【数据挖掘】数据仓库"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据挖掘】数据仓库"/></a><div class="content"><a class="title" href="/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" title="【数据挖掘】数据仓库">【数据挖掘】数据仓库</a><time datetime="2022-11-22T16:09:25.977Z" title="发表于 2022-11-23 00:09:25">2022-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E5%88%86%E7%B1%BB/" title="【数据挖掘】分类"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据挖掘】分类"/></a><div class="content"><a class="title" href="/2022/11/22/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E5%88%86%E7%B1%BB/" title="【数据挖掘】分类">【数据挖掘】分类</a><time datetime="2022-11-22T10:48:30.769Z" title="发表于 2022-11-22 18:48:30">2022-11-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/21/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" title="【数据挖掘】预处理(Preprocessing)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据挖掘】预处理(Preprocessing)"/></a><div class="content"><a class="title" href="/2022/11/21/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" title="【数据挖掘】预处理(Preprocessing)">【数据挖掘】预处理(Preprocessing)</a><time datetime="2022-11-21T09:25:01.046Z" title="发表于 2022-11-21 17:25:01">2022-11-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://w.wallhaven.cc/full/5g/wallhaven-5gw751.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By Kagura</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">All amazing things you see have been tempered by mediocrity</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/'
+    this.page.identifier = '/2022/11/23/%E3%80%90%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E3%80%91%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/'
+    this.page.title = '【数据挖掘】数据仓库'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script data-pjax defer src="/js/fish.js"></script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async src="/js/diytitle.js"></script><div class="aplayer no-destroy" data-id="7401064131" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="255,255,255" opacity="0.8" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://fastly.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/theme_f/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.js"></script><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover1.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/琐碎日常/&quot;);" href="javascript:void(0);">琐碎日常</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">摸鱼人的摸鱼日常</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover2.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/梦时风月/&quot;);" href="javascript:void(0);">梦时风月</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">生活虐我千百遍</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover3.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/不想学辣/&quot;);" href="javascript:void(0);">不想学辣</a><span class="categoryBar-list-count">79</span><span class="categoryBar-list-descr">嘘，梦醒了可是要被吃掉的哦</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover4.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/拾枝杂谈/&quot;);" href="javascript:void(0);">拾枝杂谈</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">可能有用的小知识</span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":20,"vOffset":-20},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
