@@ -1,0 +1,430 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>【QT】信号与槽 | 岁染</title><meta name="keywords" content="PyQT"><meta name="author" content="Kagura,651421775@qq.com"><meta name="copyright" content="Kagura"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="信号与槽">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【QT】信号与槽">
+<meta property="og:url" content="http://example.com/2022/12/24/%E3%80%90QT%E3%80%91%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/index.html">
+<meta property="og:site_name" content="岁染">
+<meta property="og:description" content="信号与槽">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg">
+<meta property="article:published_time" content="2022-12-24T12:57:00.996Z">
+<meta property="article:modified_time" content="2022-12-24T14:24:40.294Z">
+<meta property="article:author" content="Kagura">
+<meta property="article:tag" content="PySide6">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg"><link rel="shortcut icon" href="/img/3d.png"><link rel="canonical" href="http://example.com/2022/12/24/%E3%80%90QT%E3%80%91%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【QT】信号与槽',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-24 22:24:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><script src="https://npm.elemecdn.com/echarts@4.7.0/dist/echarts.min.js"></script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><style type="text/css">#toggle-sidebar {left:100px}</style><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card/lib/categorybar.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="岁染" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.jingyeqian.com/i/2021/03/21/6375192146687954551533103.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">107</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-music"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/Diary"><i class="fa-fw fas fa-images"></i><span> 日记</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Todo-List"><i class="fa-fw fas fa-bell"></i><span> Todo-List</span></a></li><li><a class="site-page child" href="/PDF"><i class="fa-fw fas fa-windows"></i><span> PDF</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">岁染</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-music"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/Diary"><i class="fa-fw fas fa-images"></i><span> 日记</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Todo-List"><i class="fa-fw fas fa-bell"></i><span> Todo-List</span></a></li><li><a class="site-page child" href="/PDF"><i class="fa-fw fas fa-windows"></i><span> PDF</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【QT】信号与槽</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-24T12:57:00.996Z" title="发表于 2022-12-24 20:57:00">2022-12-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-24T14:24:40.294Z" title="更新于 2022-12-24 22:24:40">2022-12-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%B8%8D%E6%83%B3%E5%AD%A6%E8%BE%A3/">不想学辣</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【QT】信号与槽"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="信号与槽">信号与槽</h2>
+<p>**信号(Signal)<strong>与</strong>槽(Slot)**是Qt中对象之间的通信方式，可以用一个简单的栗子说明：当我们想要开灯时，按下开关发出指令，这就是信号；而灯泡接收到电流变化，发出光亮，这就是响应(槽)。</p>
+<p>我们也可以换个称呼方式：</p>
+<ul>
+<li>信号：触发事件</li>
+<li>槽：响应函数</li>
+</ul>
+<p>所有继承自QObject的类，都可以包含信号和槽。当对象的状态发生改变时，就会发出信号。当然，他并不关心是否有人接收到这个信号。</p>
+<p>槽函数就是用来接收对象的一个方法或是接口，就跟信号发出去并不知道有没有槽接收一样，槽也不知道有没有信号来调动他，他只是个固有属性。</p>
+<p>信号和槽之间的关系是开放多元的，你可以看见一个信号连接到好几个槽，也可以见到一个槽上有好几个信号。更诡异的是，甚至可以将一个信号插到另一个信号上。</p>
+<p>Qt小组件有许多预定义的信号和槽，例如QAbstractButton有一个Clicked()的信号，QLineEdit有一个clear()的槽。一般通过信号的<code>connect()</code>方法，将信号与槽联系起来。例如：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">button=QToolButton()</span><br><span class="line">line_edit=QLineEdit()</span><br><span class="line">button.clicked.connect(line_edit.clear)</span><br></pre></td></tr></table></figure>
+<p><code>connect()</code>将会翻译一个QMetaObject对象，该对象可以与<code>disconnect()</code>方法使用，以断开连接。</p>
+<p>当然，除了预设的函数外，信号也可以连接到自由函数：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PySide6.QtWidgets <span class="keyword">import</span> QApplication,QPushButton</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">function</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;The &#x27;function&#x27; has been called&quot;</span>)</span><br><span class="line"></span><br><span class="line">app=QApplication()</span><br><span class="line">button=QPushButton(<span class="string">&quot;Call function&quot;</span>)</span><br><span class="line">button.clicked.connect(function)</span><br><span class="line">button.show()</span><br><span class="line">sys.exit(app.<span class="built_in">exec</span>())</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="信号类">信号类</h2>
+<p>信号类需要是<code>QtCore.Signal()</code>类的变量，一般我们定义信号，是在类方法的上面进行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Button</span>(<span class="title class_ inherited__">QWidget</span>):</span><br><span class="line">	clicked=Signal(Qt.MouseButton)</span><br></pre></td></tr></table></figure>
+<p>然后，我们就可以设置信号的发出：<code>emit</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">mousePressEvent</span>(<span class="params">self.event</span>):</span><br><span class="line">	self.clicked.emit(event.button())</span><br></pre></td></tr></table></figure>
+<p>完整代码如下，这个Button将返回按下的鼠标按键类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Button</span>(<span class="title class_ inherited__">QWidget</span>):</span><br><span class="line"></span><br><span class="line">    clicked=Signal(Qt.MouseButton)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Button, self).__init__()</span><br><span class="line">        <span class="comment"># 绑定信号与槽</span></span><br><span class="line">        self.clicked.connect(self.PrintE)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @Slot()</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">PrintE</span>(<span class="params">self,arg</span>):</span><br><span class="line">        <span class="built_in">print</span>(arg)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mousePressEvent</span>(<span class="params">self,event</span>):</span><br><span class="line">        <span class="comment"># 鼠标移动时，作为触发器发出信号</span></span><br><span class="line">        self.clicked.emit(event.button())</span><br><span class="line"></span><br><span class="line">App=QApplication()</span><br><span class="line">button=Button()</span><br><span class="line">button.show()</span><br><span class="line">sys.exit(App.<span class="built_in">exec</span>())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/12/24/%E3%80%90QT%E3%80%91%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/image-20221224220327182.png" alt="image-20221224220327182" style="zoom:50%;">
+<p><code>Signal</code>的构造函数可以接收一个元组或者一个Python类型或是C类型的列表：</p>
+<figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">signal1 = Signal(int)  # Python types</span><br><span class="line">signal2 = Signal(QUrl)  # Qt Types</span><br><span class="line">signal3 = Signal(int, str, int)  # more than one <span class="keyword">type</span></span><br><span class="line">signal4 = Signal((float,), (QDate,))  # optional types</span><br></pre></td></tr></table></figure>
+<p>除此之外，它还可以接收定义信号名称的命名参数名。如果没有传递任何信息，则新信号将与赋值给它的变量具有相同的名称。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TODO</span></span><br><span class="line">signal5 = Signal(<span class="built_in">int</span>, name=<span class="string">&#x27;rangeChanged&#x27;</span>)</span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line">rangeChanged.emit(...)</span><br></pre></td></tr></table></figure>
+<p><code>Signal</code>还带有可选参数，比如<code>sumResult=Signal(int,arguments=['sum'])</code></p>
+<hr>
+<h2 id="槽类">槽类</h2>
+<p>QObject派生类中的slot应该由装饰器@QtCore.Slot()表示。同样，要定义<code>Signal</code>，只需传递类似QtCore.Signal()类的类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slot(<span class="params"><span class="built_in">str</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">slot_function</span>(<span class="params">self, s</span>):</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>Slot()也接受名称和结果关键字。result关键字定义了将返回的类型，可以是C或Python类型。name关键字的行为与Signal()中的相同。如果没有传递任何名称，则新插槽将具有与正在装饰的函数相同的名称。</p>
+<hr>
+<h2 id="重载信号与槽">重载信号与槽</h2>
+<p>我们举个简单的栗子，来使用信号与槽。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PySide6.QtWidgets <span class="keyword">import</span> QApplication,QPushButton</span><br><span class="line"><span class="keyword">from</span> PySide6.QtCore <span class="keyword">import</span> QObject,Signal,Slot</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Communicate</span>(<span class="title class_ inherited__">QObject</span>):</span><br><span class="line">    <span class="comment"># 创建两个新的信号，一个用于处理整数类型，一个处理字符串类型</span></span><br><span class="line">    speak=Signal((<span class="built_in">int</span>,),(<span class="built_in">str</span>,))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,parent=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(Communicate, self).__init__()</span><br><span class="line">        <span class="comment"># 将 信号1 连接到 槽函数</span></span><br><span class="line">        self.speak[<span class="built_in">int</span>].connect(self.say_something)</span><br><span class="line">        <span class="comment"># 将 信号2 连接到 槽函数</span></span><br><span class="line">        self.speak[<span class="built_in">str</span>].connect(self.say_something)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 定义一个新的槽函数，将会接收一个整形或者一个字符串</span></span><br><span class="line">    <span class="comment"># 并且打印他们的名字</span></span><br><span class="line"><span class="meta">    @Slot(<span class="params"><span class="built_in">int</span></span>)</span></span><br><span class="line"><span class="meta">    @Slot(<span class="params"><span class="built_in">str</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">say_something</span>(<span class="params">self,arg</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">isinstance</span>(arg,<span class="built_in">int</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;This is a number: &quot;</span>,arg)</span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">isinstance</span>(arg,<span class="built_in">str</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;This is a String: &quot;</span>,arg)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app=QApplication(sys.argv)</span><br><span class="line">    someone=Communicate()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 发送带有不同参数的&#x27;speak&#x27;信号</span></span><br><span class="line">    <span class="comment"># 当然，如果想要发射`str`类型的信号，必须指定，否则是以默认`int`类型进行的</span></span><br><span class="line">    someone.speak.emit(<span class="number">10</span>)</span><br><span class="line">    someone.speak[<span class="built_in">str</span>].emit(<span class="string">&quot;Hello everybody&quot;</span>)</span><br></pre></td></tr></table></figure>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/PySide6/">PySide6</a></div><div class="post_share"><div class="social-share" data-image="https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/12/28/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91%E5%88%98%E5%BD%AC%E5%8D%95%E8%AF%8D%E9%80%9F%E8%AE%B0/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/20200718094952975.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2022/12/23/%E3%80%90QT%E3%80%91QCharts/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【QT】QChart</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/12/23/%E3%80%90QT%E3%80%91QCharts/" title="【QT】QChart"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-23</div><div class="title">【QT】QChart</div></div></a></div><div><a href="/2022/12/23/%E3%80%90QT%E3%80%91QSizePolicy/" title="【QT】QSizePolicy"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-23</div><div class="title">【QT】QSizePolicy</div></div></a></div><div><a href="/2022/12/23/%E3%80%90QT%E3%80%91PySide%E9%A1%B9%E7%9B%AE02_%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%98%E7%BA%BF%E5%9B%BE/" title="【QT】Chapter 2. PySide项目02——数据可视化"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-23</div><div class="title">【QT】Chapter 2. PySide项目02——数据可视化</div></div></a></div><div><a href="/2022/12/23/%E3%80%90QT%E3%80%91PySide%E5%85%A5%E9%97%A8%E7%9F%A5%E8%AF%86/" title="【QT】Chapter 1. PySide入门知识"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-23</div><div class="title">【QT】Chapter 1. PySide入门知识</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.jingyeqian.com/i/2021/03/21/6375192146687954551533103.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kagura</div><div class="author-info__description">May we all be who we want to be</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">107</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45957458?type=blog"><i></i><span>about me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople1.js"></script><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/zdog.dist.js"></script><script id="rendered-js" src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople.js"></script><style>.card-widget.card-announcement {
+margin: 0;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+canvas {
+display: block;
+margin: 0 auto;
+cursor: move;
+}</style><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD"><span class="toc-number">1.</span> <span class="toc-text">信号与槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">信号类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A7%BD%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">槽类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%BD%BD%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD"><span class="toc-number">4.</span> <span class="toc-text">重载信号与槽</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/02/03/%E3%80%90Typora%E3%80%91SVG%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%94%BB%E6%B3%95/" title="【Typora】绘制流程图"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/j3/wallhaven-j3m8y5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【Typora】绘制流程图"/></a><div class="content"><a class="title" href="/2023/02/03/%E3%80%90Typora%E3%80%91SVG%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%94%BB%E6%B3%95/" title="【Typora】绘制流程图">【Typora】绘制流程图</a><time datetime="2023-02-03T04:49:52.988Z" title="发表于 2023-02-03 12:49:52">2023-02-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/02/%E3%80%90Git%E3%80%91%E5%B0%9A%E7%A1%85%E8%B0%B7Git/" title="Git入门到精通"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/9m/wallhaven-9mjoy1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git入门到精通"/></a><div class="content"><a class="title" href="/2023/02/02/%E3%80%90Git%E3%80%91%E5%B0%9A%E7%A1%85%E8%B0%B7Git/" title="Git入门到精通">Git入门到精通</a><time datetime="2023-02-01T17:31:35.577Z" title="发表于 2023-02-02 01:31:35">2023-02-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/15/%E3%80%90%E5%85%B3%E9%94%AE%E5%AF%B9%E8%AF%9D20%E8%AE%B2%E3%80%91%E5%85%B3%E9%94%AE%E5%AF%B9%E8%AF%9D20%E8%AE%B2/" title="关键对话20讲"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/e7/wallhaven-e7jj6r.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关键对话20讲"/></a><div class="content"><a class="title" href="/2023/01/15/%E3%80%90%E5%85%B3%E9%94%AE%E5%AF%B9%E8%AF%9D20%E8%AE%B2%E3%80%91%E5%85%B3%E9%94%AE%E5%AF%B9%E8%AF%9D20%E8%AE%B2/" title="关键对话20讲">关键对话20讲</a><time datetime="2023-01-15T09:23:14.379Z" title="发表于 2023-01-15 17:23:14">2023-01-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/28/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91%E5%88%98%E5%BD%AC%E5%8D%95%E8%AF%8D%E9%80%9F%E8%AE%B0/" title="无题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/20200718094952975.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2022/12/28/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91%E5%88%98%E5%BD%AC%E5%8D%95%E8%AF%8D%E9%80%9F%E8%AE%B0/" title="无题">无题</a><time datetime="2022-12-28T11:12:03.332Z" title="发表于 2022-12-28 19:12:03">2022-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/24/%E3%80%90QT%E3%80%91%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/" title="【QT】信号与槽"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【QT】信号与槽"/></a><div class="content"><a class="title" href="/2022/12/24/%E3%80%90QT%E3%80%91%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/" title="【QT】信号与槽">【QT】信号与槽</a><time datetime="2022-12-24T12:57:00.996Z" title="发表于 2022-12-24 20:57:00">2022-12-24</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://w.wallhaven.cc/full/zy/wallhaven-zym92v.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By Kagura</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">All amazing things you see have been tempered by mediocrity</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2022/12/24/%E3%80%90QT%E3%80%91%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/'
+    this.page.identifier = '/2022/12/24/%E3%80%90QT%E3%80%91%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/'
+    this.page.title = '【QT】信号与槽'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script data-pjax defer src="/js/fish.js"></script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async src="/js/diytitle.js"></script><div class="aplayer no-destroy" data-id="7401064131" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false"> </div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="255,255,255" opacity="0.8" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://fastly.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/theme_f/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.js"></script><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover1.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/琐碎日常/&quot;);" href="javascript:void(0);">琐碎日常</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">摸鱼人的摸鱼日常</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover2.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/梦时风月/&quot;);" href="javascript:void(0);">梦时风月</a><span class="categoryBar-list-count">5</span><span class="categoryBar-list-descr">生活虐我千百遍</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover3.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/不想学辣/&quot;);" href="javascript:void(0);">不想学辣</a><span class="categoryBar-list-count">93</span><span class="categoryBar-list-descr">嘘，梦醒了可是要被吃掉的哦</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover4.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/拾枝杂谈/&quot;);" href="javascript:void(0);">拾枝杂谈</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">可能有用的小知识</span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":20,"vOffset":-20},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
